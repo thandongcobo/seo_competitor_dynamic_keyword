@@ -1,0 +1,104 @@
+=== DOMAIN INTERSECTION REPORT ===
+Analysis keyword: aviator
+Domain 1: hollywoodbets.net
+Domain 2: betway.co.za
+Scope: domain_keyword_intersection
+API total_count: 82
+Normalized records: 82
+Locally excluded nonmatches: 0
+Note: total_count may exceed returned records due to the API limit.
+Note: shared-keyword intersection does not show keywords unique to one domain.
+
+=== KEYWORD RANKING COMPARISON ===
+Keyword | Search volume | Domain 1 rank | Domain 2 rank | Leader
+------------------------------------------------------------------------------------------
+aviator | 40500 | #1 | #4 | Domain 1
+aviator betway | 33100 | #10 | #1 | Domain 2
+hollywoodbets aviator | 14800 | #1 | #14 | Domain 1
+play aviator betway | 8100 | #14 | #1 | Domain 2
+aviator betway login | 8100 | #13 | #1 | Domain 2
+play aviator | 6600 | #2 | #1 | Domain 2
+hollywood aviator login | 5400 | #1 | #8 | Domain 1
+hollywoodbets aviator login | 5400 | #1 | #7 | Domain 1
+aviator login | 3600 | #1 | #2 | Domain 1
+aviator hollywoodbets login | 3600 | #1 | #8 | Domain 1
+aviator game | 2400 | #2 | #10 | Domain 1
+play aviator on hollywood | 1900 | #1 | #8 | Domain 1
+play aviator on hollywoodbets | 1900 | #1 | #35 | Domain 1
+hollywood login aviator | 1600 | #1 | #12 | Domain 1
+betway aviator game | 1600 | #17 | #1 | Domain 2
+hollywoodbets mobile login aviator | 1600 | #1 | #14 | Domain 1
+aviator login hollywoodbets | 1300 | #1 | #16 | Domain 1
+aviator bet | 1000 | #5 | #1 | Domain 2
+play aviator on betway | 1000 | #12 | #1 | Domain 2
+aviator betting | 1000 | #8 | #2 | Domain 2
+aviator next spribegaming com | 880 | #9 | #4 | Domain 2
+how to play aviator | 880 | #10 | #1 | Domain 2
+play aviator now | 590 | #2 | #1 | Domain 2
+hollywoodbets register login aviator | 590 | #1 | #16 | Domain 1
+hollywoodbets mobile aviator | 590 | #1 | #11 | Domain 1
+aviator betway login south africa | 590 | #6 | #1 | Domain 2
+supersportbet aviator login | 590 | #10 | #25 | Domain 1
+aviator plane | 480 | #6 | #7 | Domain 1
+supersportbet aviator | 480 | #14 | #11 | Domain 2
+what is aviator | 480 | #4 | #3 | Domain 2
+play aviator online | 480 | #2 | #1 | Domain 2
+aviator app | 480 | #4 | #3 | Domain 2
+how to play aviator on hollywoodbets | 480 | #1 | #25 | Domain 1
+aviator hollywoodbets login password | 480 | #1 | #8 | Domain 1
+hollywoodbet aviator | 390 | #1 | #9 | Domain 1
+hollywood login spina zonke aviator | 390 | #1 | #28 | Domain 1
+best time to play aviator | 390 | #7 | #14 | Domain 1
+hollywood bet aviator | 390 | #1 | #14 | Domain 1
+play aviator on hollywoodbets login | 390 | #1 | #14 | Domain 1
+hollywoodbets aviator app | 320 | #1 | #32 | Domain 1
+hollywood aviator app | 320 | #1 | #4 | Domain 1
+hollywood aviator login password | 260 | #1 | #13 | Domain 1
+aviator play online | 260 | #4 | #2 | Domain 2
+aviator casino | 260 | #10 | #1 | Domain 2
+aviator play | 260 | #2 | #1 | Domain 2
+hollywoodbets aviator login password | 260 | #1 | #12 | Domain 1
+aviator online | 260 | #3 | #1 | Domain 2
+aviator lottostar | 260 | #19 | #12 | Domain 2
+aviator bet login | 210 | #2 | #1 | Domain 2
+play aviator game | 210 | #2 | #1 | Domain 2
+aviator game login | 210 | #1 | #2 | Domain 1
+aviator games online | 210 | #9 | #14 | Domain 1
+m hollywoodbets login aviator | 210 | #1 | #18 | Domain 1
+aviator download | 210 | #6 | #2 | Domain 2
+how does aviator works | 210 | #9 | #4 | Domain 2
+hollywood aviator login in south africa | 170 | #1 | #5 | Domain 1
+best time to play aviator in south africa | 170 | #6 | #4 | Domain 2
+4 aviator | 170 | #4 | #3 | Domain 2
+aviator games | 170 | #2 | #3 | Domain 1
+aviators game | 170 | #8 | #1 | Domain 2
+hollywoodbets mobile login aviator login password | 170 | #1 | #8 | Domain 1
+aviator hollywoodbets app | 170 | #1 | #15 | Domain 1
+hollywoodbets aviator login in south africa | 170 | #1 | #20 | Domain 1
+hollywoodbets login aviator login password | 140 | #1 | #21 | Domain 1
+aviator betting sites | 140 | #10 | #3 | Domain 2
+aviator hollywoodbets login in south africa | 140 | #1 | #6 | Domain 1
+lottostar aviator login | 140 | #14 | #9 | Domain 2
+playabets aviator | 140 | #8 | #15 | Domain 1
+bet aviator | 140 | #4 | #2 | Domain 2
+betting aviator | 140 | #3 | #1 | Domain 2
+betting sites with aviator | 140 | #9 | #7 | Domain 2
+aviator free bet | 110 | #7 | #3 | Domain 2
+where to play aviator | 110 | #5 | #1 | Domain 2
+aviator free play | 110 | #5 | #4 | Domain 2
+sign in hollywoodbets login aviator | 110 | #1 | #24 | Domain 1
+hollywood bet login aviator | 110 | #1 | #19 | Domain 1
+when is the best time to play aviator | 110 | #8 | #17 | Domain 1
+aviator demo play online free | 110 | #2 | #9 | Domain 1
+where can i play aviator | 110 | #4 | #1 | Domain 2
+mega game aviator | 90 | #3 | #13 | Domain 1
+how to win aviator on betway | 90 | #14 | #1 | Domain 2
+aviator game hollywood | 20 | #1 | #5 | Domain 1
+
+=== SUMMARY ===
+Domain 1 ahead: 44
+Domain 2 ahead: 38
+Ties: 0
+Rank comparison unavailable: 0
+Validation warnings: 0
+Rankings are from the saved DataForSEO response, not a fresh Google SERP.

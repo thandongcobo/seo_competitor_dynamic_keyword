@@ -1,0 +1,49 @@
+=== PLAYWRIGHT RENDERING DIAGNOSTIC ===
+Keyword: aviator | Engine: google | Side: benchmark
+Requested URL: https://www.betway.co.za/aviator
+Final URL: https://www.betway.co.za/aviator
+HTTP status: 200
+Navigation error: none
+
+=== CONTENT OVER TIME ===
+t=0.0s | words=0 | main_words=None | h1=0 | links=0 | frames=1 | blocked_marker=False
+t=3.0s | words=655 | main_words=625 | h1=2 | links=53 | frames=10 | blocked_marker=False
+t=8.0s | words=655 | main_words=625 | h1=2 | links=53 | frames=18 | blocked_marker=False
+t=15.0s | words=655 | main_words=625 | h1=2 | links=53 | frames=18 | blocked_marker=False
+t=25.0s | words=655 | main_words=625 | h1=2 | links=53 | frames=18 | blocked_marker=False
+
+=== FINAL FRAME INVENTORY ===
+MAIN https://www.betway.co.za/aviator | words=655 main_words=625
+IFRAME https://servedby.flashtalking.com/container/28585;144609;16493;iframe/ | words=129 main_words=None
+IFRAME https://match.adsrvr.org/track/cei | words=11 main_words=None
+IFRAME [non-http URL] | words=0 main_words=None
+IFRAME [non-http URL] | words=0 main_words=None
+IFRAME [non-http URL] | words=0 main_words=None
+IFRAME [non-http URL] | words=0 main_words=None
+IFRAME [non-http URL] | words=0 main_words=None
+IFRAME [non-http URL] | words=0 main_words=None
+IFRAME [non-http URL] | words=0 main_words=None
+IFRAME [non-http URL] | words=0 main_words=None
+IFRAME https://pixel.rubiconproject.com/tap.php | words=0 main_words=None
+IFRAME https://ib.adnxs.com/getuid | words=0 main_words=None
+IFRAME https://cm.g.doubleclick.net/pixel | words=0 main_words=None
+IFRAME https://cookie.fanhub.geniussports.com/bsync | words=0 main_words=None
+IFRAME https://info.betway.co.za/cIsKZNWErLytAazh | words=0 main_words=None
+IFRAME https://h.online-metrix.net/gWa_4jyQLxQHAeO- | words=0 main_words=None
+IFRAME https://info.betway.co.za/5Z9Gyq_xX8qz0zAU | words=0 main_words=None
+
+=== NETWORK / BROWSER ===
+Requests by type: {'document': 16, 'stylesheet': 3, 'script': 111, 'other': 54, 'manifest': 1, 'fetch': 22, 'xhr': 6, 'font': 2, 'image': 90, 'ping': 6}
+Failed request counts by reason: {'net::ERR_BLOCKED_BY_ORB': 2, 'net::ERR_ABORTED': 5}
+Failed request hosts: {'media.betwayafrica.com': 1, 'dtm-dre.platform.hicloud.com': 1, 'www.google.com': 1, 'ad.doubleclick.net': 1, 'analytics.google.com': 3}
+HTTP 4xx/5xx counts: {'403': 1}
+HTTP error hosts: {'www.betway.co.za': 1}
+Page errors: 0
+Console errors: 1
+
+=== FILES ===
+Screenshot: C:\Users\NgcoboT\Downloads\seo_competitor_engine_dynamic_keywords\seo_competitor_engine\data\diagnostics\rendering\aviator\google_benchmark_20261012T111319Z\final_page.png
+HTML: not saved (opt-in: --save-html)
+
+Interpretation: navigation/footer words may appear before main content. Iframe text may be gameplay rather than SEO landing-page content.
+Do not share raw screenshots/HTML without reviewing for private information.

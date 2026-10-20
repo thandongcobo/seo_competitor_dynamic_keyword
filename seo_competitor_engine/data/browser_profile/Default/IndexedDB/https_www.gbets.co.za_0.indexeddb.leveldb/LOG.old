@@ -1,0 +1,7 @@
+2026/10/13-10:05:33.832 98b4 Reusing MANIFEST C:\Users\NgcoboT\Downloads\seo_competitor_engine_dynamic_keywords\seo_competitor_engine\data\browser_profile\Default\IndexedDB\https_www.gbets.co.za_0.indexeddb.leveldb/MANIFEST-000001
+2026/10/13-10:05:33.833 98b4 Recovering log #4
+2026/10/13-10:05:33.833 98b4 Reusing old log C:\Users\NgcoboT\Downloads\seo_competitor_engine_dynamic_keywords\seo_competitor_engine\data\browser_profile\Default\IndexedDB\https_www.gbets.co.za_0.indexeddb.leveldb/000004.log 
+2026/10/13-10:05:34.859 a2b0 Level-0 table #8: started
+2026/10/13-10:05:34.863 a2b0 Level-0 table #8: 1156 bytes OK
+2026/10/13-10:05:34.865 a2b0 Delete type=0 #4
+2026/10/13-10:05:34.866 7320 Manual compaction at level-0 from '\x00\x03\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x04\x00\x00\x00' @ 0 : 0; will stop at (end)

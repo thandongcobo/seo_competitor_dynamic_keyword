@@ -1,0 +1,510 @@
+=== SEO LLM EVIDENCE SCHEMA INSPECTION ===
+Source file: output\results\aviator\aviator_comparison.json
+Schema version: 0.5
+
+--- TOP LEVEL ---
+schema_version: STRING
+primary_ranking_urls: OBJECT (2 fields)
+evidence_quality: OBJECT (6 fields)
+page_level_evidence: OBJECT (5 fields)
+technical_comparison: OBJECT (1 fields)
+advanced_evidence: OBJECT (3 fields)
+domain_level_evidence: OBJECT (5 fields)
+keyword: STRING
+location_coordinate: STRING
+labs_location: STRING
+our_domain: STRING
+benchmark_competitor_domain: STRING
+ranking_summary: OBJECT (1 fields)
+cross_engine_summary: OBJECT (5 fields)
+keyword_comparison: OBJECT (12 fields)
+backlink_comparison: OBJECT (6 fields)
+onpage_comparison: OBJECT (19 fields)
+intent_alignment: OBJECT (7 fields)
+potential_competitors: ARRAY (42 items)
+  [first item schema]
+analysis_policy: OBJECT (8 fields)
+findings: ARRAY (10 items)
+  [first item schema]
+llm_ready: OBJECT (2 fields)
+recommendations: ARRAY (5 items)
+  [first item schema]
+recommendation_policy: OBJECT (3 fields)
+
+--- ranking_summary ---
+google: OBJECT (10 fields)
+  engine: STRING
+  keyword: STRING
+  our_position: NUMBER
+  benchmark_position: NUMBER
+  position_gap: NUMBER
+  our_url: STRING
+  benchmark_url: STRING
+  benchmark_found: BOOLEAN
+  organic_results_count: NUMBER
+  ranking_neighborhood: OBJECT (6 fields)
+    above: ARRAY (1 items)
+      [first item schema]
+    target: OBJECT (11 fields)
+    below: ARRAY (5 items)
+      [first item schema]
+    benchmark: OBJECT (11 fields)
+    benchmark_outside_window: NULL
+    benchmark_tracked: BOOLEAN
+
+--- primary_ranking_urls ---
+ours: STRING
+benchmark: STRING
+
+--- page_level_evidence ---
+ours: OBJECT (44 fields)
+  requested_url: STRING
+  final_url: STRING
+  status_code: NUMBER
+  title: STRING
+  title_length: NUMBER
+  meta_description: STRING
+  meta_description_length: NUMBER
+  canonical: NULL
+  robots: STRING
+  headings: OBJECT (6 fields)
+    h1: ARRAY (1 items)
+      [first item schema]
+    h2: ARRAY (7 items)
+      [first item schema]
+    h3: ARRAY (3 items)
+      [first item schema]
+    h4: ARRAY (0 items)
+    h5: ARRAY (0 items)
+    h6: ARRAY (0 items)
+  h1_count: NUMBER
+  word_count: NUMBER
+  internal_link_count: NUMBER
+  external_link_count: NUMBER
+  structured_data_count: NUMBER
+  text_sample: STRING
+  extraction_status: STRING
+  crawl_failed: BOOLEAN
+  blocked: NULL
+  content_quality_reason: STRING
+  content_readiness_checked: BOOLEAN
+  error: NULL
+  diagnostic_directory: NULL
+  keyword: STRING
+  serp_engine: STRING
+  ranking_url: STRING
+  ranking_position: NUMBER
+  target_side: STRING
+  url_alignment: STRING
+  evidence_scope: STRING
+  main_word_count: NUMBER
+  rendered_main_word_count: NUMBER
+  rendered_word_count: NUMBER
+  seo_content_word_count: NUMBER
+  seo_content_status: STRING
+  seo_content_method: STRING
+  seo_content_selector: STRING
+  seo_content_tag: STRING
+  seo_content_candidate_count: NUMBER
+  seo_content_excluded_nodes: NUMBER
+  seo_content_heading_count: NUMBER
+  seo_content_body_words: NUMBER
+  seo_content_reason: STRING
+  seo_content_text: STRING
+benchmark: OBJECT (44 fields)
+  requested_url: STRING
+  final_url: STRING
+  status_code: NUMBER
+  title: STRING
+  title_length: NUMBER
+  meta_description: STRING
+  meta_description_length: NUMBER
+  canonical: STRING
+  robots: STRING
+  headings: OBJECT (6 fields)
+    h1: ARRAY (2 items)
+      [first item schema]
+    h2: ARRAY (2 items)
+      [first item schema]
+    h3: ARRAY (1 items)
+      [first item schema]
+    h4: ARRAY (0 items)
+    h5: ARRAY (0 items)
+    h6: ARRAY (0 items)
+  h1_count: NUMBER
+  word_count: NUMBER
+  internal_link_count: NUMBER
+  external_link_count: NUMBER
+  structured_data_count: NUMBER
+  text_sample: STRING
+  extraction_status: STRING
+  crawl_failed: BOOLEAN
+  blocked: NULL
+  content_quality_reason: STRING
+  content_readiness_checked: BOOLEAN
+  error: NULL
+  diagnostic_directory: NULL
+  keyword: STRING
+  serp_engine: STRING
+  ranking_url: STRING
+  ranking_position: NUMBER
+  target_side: STRING
+  url_alignment: STRING
+  evidence_scope: STRING
+  main_word_count: NUMBER
+  rendered_main_word_count: NUMBER
+  rendered_word_count: NUMBER
+  seo_content_word_count: NUMBER
+  seo_content_status: STRING
+  seo_content_method: STRING
+  seo_content_selector: STRING
+  seo_content_tag: STRING
+  seo_content_candidate_count: NUMBER
+  seo_content_excluded_nodes: NUMBER
+  seo_content_heading_count: NUMBER
+  seo_content_body_words: NUMBER
+  seo_content_reason: STRING
+  seo_content_text: STRING
+backlinks_ours: OBJECT (15 fields)
+  target: STRING
+  rank: NUMBER
+  backlinks: NUMBER
+  referring_domains: NUMBER
+  referring_main_domains: NUMBER
+  referring_pages: NUMBER
+  dofollow: NULL
+  broken_backlinks: NUMBER
+  backlinks_spam_score: NUMBER
+  keyword: STRING
+  scope: STRING
+  side: STRING
+  serp_engine: STRING
+  ranking_url: STRING
+  target_verified: BOOLEAN
+backlinks_benchmark: OBJECT (15 fields)
+  target: STRING
+  rank: NUMBER
+  backlinks: NUMBER
+  referring_domains: NUMBER
+  referring_main_domains: NUMBER
+  referring_pages: NUMBER
+  dofollow: NULL
+  broken_backlinks: NUMBER
+  backlinks_spam_score: NUMBER
+  keyword: STRING
+  scope: STRING
+  side: STRING
+  serp_engine: STRING
+  ranking_url: STRING
+  target_verified: BOOLEAN
+lighthouse: OBJECT (2 fields)
+  ours: OBJECT (2 fields)
+    mobile: OBJECT (18 fields)
+    desktop: OBJECT (0 fields)
+  benchmark: OBJECT (2 fields)
+    mobile: OBJECT (18 fields)
+    desktop: OBJECT (0 fields)
+
+--- domain_level_evidence ---
+ranked_ours: OBJECT (3 fields)
+  target: STRING
+  total_count: NUMBER
+  items: ARRAY (100 items)
+    [first item schema]
+ranked_benchmark: OBJECT (3 fields)
+  target: STRING
+  total_count: NUMBER
+  items: ARRAY (100 items)
+    [first item schema]
+domain_intersection: OBJECT (11 fields)
+  analysis_keyword: STRING
+  target1: STRING
+  target2: STRING
+  scope: STRING
+  match_policy: STRING
+  intersection_mode: STRING
+  total_count: NUMBER
+  items_count: NUMBER
+  excluded_nonmatching_items: NUMBER
+  items: ARRAY (82 items)
+    [first item schema]
+  coverage_note: STRING
+backlinks_ours: OBJECT (15 fields)
+  target: STRING
+  rank: NUMBER
+  backlinks: NUMBER
+  referring_domains: NUMBER
+  referring_main_domains: NUMBER
+  referring_pages: NUMBER
+  dofollow: NULL
+  broken_backlinks: NUMBER
+  backlinks_spam_score: NUMBER
+  keyword: STRING
+  scope: STRING
+  side: STRING
+  serp_engine: NULL
+  ranking_url: NULL
+  target_verified: BOOLEAN
+backlinks_benchmark: OBJECT (15 fields)
+  target: STRING
+  rank: NUMBER
+  backlinks: NUMBER
+  referring_domains: NUMBER
+  referring_main_domains: NUMBER
+  referring_pages: NUMBER
+  dofollow: NULL
+  broken_backlinks: NUMBER
+  backlinks_spam_score: NUMBER
+  keyword: STRING
+  scope: STRING
+  side: STRING
+  serp_engine: NULL
+  ranking_url: NULL
+  target_verified: BOOLEAN
+
+--- onpage_comparison ---
+seo_content_comparison: OBJECT (7 fields)
+  comparable: BOOLEAN
+  method: STRING
+  ours: NUMBER
+  benchmark: NUMBER
+  ours_validation: STRING
+  benchmark_validation: STRING
+  scope: STRING
+title_keyword_match: OBJECT (2 fields)
+  ours: BOOLEAN
+  competitor: BOOLEAN
+meta_keyword_match: OBJECT (2 fields)
+  ours: BOOLEAN
+  competitor: BOOLEAN
+h1_keyword_match: OBJECT (2 fields)
+  ours: BOOLEAN
+  competitor: BOOLEAN
+title: OBJECT (2 fields)
+  ours: STRING
+  competitor: STRING
+meta_description: OBJECT (2 fields)
+  ours: STRING
+  competitor: STRING
+h1_headings: OBJECT (2 fields)
+  ours: ARRAY (1 items)
+    [first item schema]
+  competitor: ARRAY (2 items)
+    [first item schema]
+word_count: OBJECT (2 fields)
+  ours: NUMBER
+  competitor: NUMBER
+main_word_count: OBJECT (2 fields)
+  ours: NUMBER
+  competitor: NUMBER
+legacy_main_word_count_diagnostic: OBJECT (2 fields)
+  ours: NUMBER
+  competitor: NUMBER
+internal_link_count: OBJECT (2 fields)
+  ours: NUMBER
+  competitor: NUMBER
+structured_data_count: OBJECT (2 fields)
+  ours: NUMBER
+  competitor: NUMBER
+transactional_term_hits: OBJECT (2 fields)
+  ours: NUMBER
+  competitor: NUMBER
+informational_term_hits: OBJECT (2 fields)
+  ours: NUMBER
+  competitor: NUMBER
+content_token_jaccard: NUMBER
+content_relevance_status: STRING
+content_relevance_method: STRING
+top_shared_terms: ARRAY (20 items)
+  [first item schema]
+content_quality_note: STRING
+
+--- backlink_comparison ---
+rank: OBJECT (4 fields)
+  ours: NUMBER
+  competitor: NUMBER
+  competitor_minus_ours: NUMBER
+  competitor_pct_more: NUMBER
+backlinks: OBJECT (4 fields)
+  ours: NUMBER
+  competitor: NUMBER
+  competitor_minus_ours: NUMBER
+  competitor_pct_more: NUMBER
+referring_domains: OBJECT (4 fields)
+  ours: NUMBER
+  competitor: NUMBER
+  competitor_minus_ours: NUMBER
+  competitor_pct_more: NUMBER
+referring_main_domains: OBJECT (4 fields)
+  ours: NUMBER
+  competitor: NUMBER
+  competitor_minus_ours: NUMBER
+  competitor_pct_more: NUMBER
+referring_pages: OBJECT (4 fields)
+  ours: NUMBER
+  competitor: NUMBER
+  competitor_minus_ours: NUMBER
+  competitor_pct_more: NUMBER
+dofollow: OBJECT (4 fields)
+  ours: NULL
+  competitor: NULL
+  competitor_minus_ours: NULL
+  competitor_pct_more: NULL
+
+--- technical_comparison ---
+mobile: OBJECT (4 fields)
+  scores: OBJECT (4 fields)
+    performance: OBJECT (2 fields)
+    accessibility: OBJECT (2 fields)
+    best-practices: OBJECT (2 fields)
+    seo: OBJECT (2 fields)
+  lab_metrics: OBJECT (6 fields)
+    first_contentful_paint_ms: OBJECT (2 fields)
+    largest_contentful_paint_ms: OBJECT (2 fields)
+    speed_index_ms: OBJECT (2 fields)
+    total_blocking_time_ms: OBJECT (2 fields)
+    cumulative_layout_shift: OBJECT (2 fields)
+    interactive_ms: OBJECT (2 fields)
+  interpretation: STRING
+  detailed_analysis: OBJECT (4 fields)
+    status: STRING
+    scope: STRING
+    observations: ARRAY (4 items)
+      [first item schema]
+    investigations: ARRAY (4 items)
+      [first item schema]
+
+--- advanced_evidence ---
+keyword_intersection: OBJECT (17 fields)
+  status: STRING
+  scope: STRING
+  shared_only: BOOLEAN
+  returned: NUMBER
+  total_count: NUMBER
+  ours_ahead: NUMBER
+  benchmark_ahead: NUMBER
+  ties: NUMBER
+  generic_ours_ahead: NUMBER
+  generic_benchmark_ahead: NUMBER
+  branded_ours_ahead: NUMBER
+  branded_benchmark_ahead: NUMBER
+  top_generic_benchmark_leads: ARRAY (10 items)
+    [first item schema]
+  excluded_opportunities: ARRAY (1 items)
+    [first item schema]
+  review_opportunities: ARRAY (6 items)
+    [first item schema]
+  warnings: ARRAY (1 items)
+    [first item schema]
+  generic_relevance_policy: STRING
+backlinks: OBJECT (4 fields)
+  page: OBJECT (6 fields)
+    rank: OBJECT (4 fields)
+    backlinks: OBJECT (4 fields)
+    referring_domains: OBJECT (4 fields)
+    referring_main_domains: OBJECT (4 fields)
+    referring_pages: OBJECT (4 fields)
+    dofollow: OBJECT (4 fields)
+  domain: OBJECT (6 fields)
+    rank: OBJECT (4 fields)
+    backlinks: OBJECT (4 fields)
+    referring_domains: OBJECT (4 fields)
+    referring_main_domains: OBJECT (4 fields)
+    referring_pages: OBJECT (4 fields)
+    dofollow: OBJECT (4 fields)
+  warnings: ARRAY (0 items)
+  scope_note: STRING
+technical: OBJECT (1 fields)
+  mobile: OBJECT (3 fields)
+    scores: OBJECT (4 fields)
+    lab_metrics: OBJECT (5 fields)
+    scope_note: STRING
+
+--- keyword_comparison ---
+our_returned_keyword_count: NUMBER
+competitor_returned_keyword_count: NUMBER
+shared_keyword_count: NUMBER
+competitor_only_count: NUMBER
+our_only_count: NUMBER
+competitor_wins_shared: NUMBER
+our_wins_shared: NUMBER
+ties_shared: NUMBER
+top_competitor_only_keywords: ARRAY (25 items)
+  [first item schema]
+    keyword: STRING
+    search_volume: NUMBER
+    main_intent: STRING
+    rank_group: NUMBER
+    rank_absolute: NUMBER
+    url: STRING
+    etv: NUMBER
+scope: STRING
+coverage_warning: STRING
+estimate_policy: STRING
+
+--- intent_alignment ---
+main_intent: STRING
+intent_probability: NUMBER
+ours: NUMBER
+competitor: NUMBER
+assessment: STRING
+direction: STRING
+confidence: STRING
+
+--- evidence_quality ---
+page_ours: STRING
+page_benchmark: STRING
+backlinks_ours_page: STRING
+backlinks_benchmark_page: STRING
+lighthouse_ours_mobile: STRING
+lighthouse_benchmark_mobile: STRING
+
+findings count: 10
+First item schema:
+category: STRING
+direction: STRING
+confidence: STRING
+evidence_type: STRING
+evidence: STRING
+
+recommendations count: 5
+First item schema:
+id: STRING
+title: STRING
+priority: STRING
+priority_score: NUMBER
+priority_basis: STRING
+potential_impact: STRING
+evidence_confidence: STRING
+implementation_effort: STRING
+keyword_relevance: STRING
+action_type: STRING
+target_url: STRING
+impact_estimate: OBJECT (4 fields)
+  potential: STRING
+  unit: STRING
+  quantified_rank_or_traffic_lift: NULL
+  basis: STRING
+evidence: STRING
+interpretation: STRING
+actions: ARRAY (3 items)
+  [first item schema]
+success_check: STRING
+limitations: STRING
+status: STRING
+order: NUMBER
+tie_break_explanation: STRING
+
+potential_competitors count: 42
+First item schema:
+domain: STRING
+serp_present: BOOLEAN
+labs_present: BOOLEAN
+benchmark: BOOLEAN
+serp_positions: ARRAY (0 items)
+candidate_reasons: ARRAY (0 items)
+nearest_serp_rank: NULL
+serp_proximity_score: NUMBER
+discovery_score: NUMBER
+
+INSPECTION COMPLETE

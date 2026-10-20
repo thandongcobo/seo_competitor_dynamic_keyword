@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SEO Competitive Intelligence</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="/css/monitoring.css?v=20261019-intelligence-v1">
+  <link rel="stylesheet" href="/css/decisions.css?v=20261019-focus-v1">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><div class="mark">S</div><div><strong>SEO Intelligence</strong><span>Aviator MVP</span></div></div>
+    <nav aria-label="Dashboard pages">
+      <button class="nav" data-page="competitors">Competitors</button>
+      <button class="nav active" data-page="actions">Decisions &amp; actions</button>
+      <button class="nav" data-page="monitoring">Competitor change analysis</button>
+      <button class="nav" data-page="activity">Competitor activity</button>
+    </nav>
+    <div class="side-note"><i class="dot"></i><div><strong>Saved evidence mode</strong><span>No live refresh is implied</span></div></div>
+  </aside>
+  <main>
+    <header><div><p class="eyebrow">COMPETITIVE SEO INVESTIGATION</p><h1 id="page-title">Decisions &amp; actions</h1><p class="subtitle" id="scope">Loading saved Aviator evidence…</p></div><div class="status"><i class="dot"></i><span id="updated" aria-live="polite">Loading dashboard data</span></div></header>
+    <section id="competitors" class="page"><div class="panel"><div class="panel-head"><h3>Top 8 confirmed Google results</h3><span class="badge">Saved snapshot</span></div><div id="rankings-table" class="table-wrap"></div></div><div class="panel"><div class="panel-head"><h3>Provisional competitor candidates</h3><span class="badge yellow">Not confirmed rankings</span></div><div id="competitors-table" class="table-wrap"></div></div></section>
+    <section id="actions" class="page decisions-page"><div class="decision-intro"><div><p class="decision-kicker">AVIATOR · TEAM BRIEF</p><h2>What should we do next?</h2><p class="decision-intro-copy">Start with the recommended checks. Open a card for the result, reasoning, and evidence behind it.</p></div><span class="badge" id="executive-status">Checking saved analysis</span></div><div class="decision-assessment"><div class="decision-assessment-head"><h3>At a glance</h3><span>Saved analysis</span></div><p id="executive-summary">Loading run-specific assessment…</p><details id="executive-summary-more" class="decision-assessment-more" hidden><summary>Read full assessment</summary><p id="executive-summary-full"></p></details><small id="executive-freshness" class="muted"></small></div><div class="decision-list-head"><div><p class="decision-kicker">ACTION QUEUE</p><h3>Recommended next steps</h3></div><span id="decision-count" class="decision-count"></span></div><div id="decision-findings" class="decision-grid"></div></section>
+    <section id="activity" class="page">
+      <div class="hero"><div><span class="pill">All registered public pages</span><h2>What changed across competitors?</h2><p>Plain-language observations, with supporting evidence available when you need it.</p></div></div>
+      <div class="panel"><div class="activity-filters">
+        <label>Competitor<select id="activity-domain"><option value="">All competitors</option></select></label>
+        <label>Page<select id="activity-page"><option value="">All pages</option></select></label>
+        <label>Event<select id="activity-kind"><option value="">All events</option><option value="page_change">Page changes</option><option value="promotion_new">New promotion candidates</option><option value="promotion_change">Promotion updates</option><option value="capture_failure">Failed checks</option></select></label>
+        <label>Promotion category<select id="activity-category"><option value="">All categories</option></select></label>
+        <label>From (South Africa time)<input id="activity-since" type="date"></label>
+        <label>Through<input id="activity-until" type="date"></label>
+        <label>Search<input id="activity-query" type="search" placeholder="Competitor, wording, offer…"></label>
+      </div><button id="activity-refresh" type="button">Refresh activity</button><p id="activity-count" aria-live="polite"></p><div id="activity-events"></div><button id="activity-more" type="button" hidden>Load more</button></div>
+    </section>
+    <section id="monitoring" class="page">
+      <div class="hero monitor-hero"><div><span class="pill">Saved page history · evidence based</span><h2>Competitor change analysis</h2><p>Track what changed between successful captures and why the change may deserve attention.</p></div><button id="capture-compare" class="download">Capture &amp; compare</button></div>
+      <div class="cards four"><div class="card"><span>Monitoring status</span><strong id="monitor-status">Loading</strong><small id="monitor-keyword">Tracked keyword</small></div><div class="card"><span>Successful snapshots</span><strong id="snapshot-count">—</strong><small>Stored page versions</small></div><div class="card"><span>Detected changes</span><strong id="change-count">—</strong><small>Compared with earlier captures</small></div><div class="card"><span>Last successful capture</span><strong id="last-capture" class="card-date">—</strong><small id="capture-frequency">Capture schedule</small></div></div>
+      <div class="panel"><div class="panel-head"><h3>Latest capture health</h3><span class="badge" id="capture-health-badge">Checking</span></div><div id="capture-health" class="muted">Loading capture diagnostics…</div></div>
+      <div class="panel"><div class="panel-head"><h3>Choose or add a public page</h3><span class="badge">Page-level monitoring</span></div><div class="monitor-controls"><label for="monitor-page-select">Monitored pages</label><select id="monitor-page-select"><option value="">Loading pages…</option></select><form id="add-monitor-form"><label for="monitor-url">Add another public URL</label><input id="monitor-url" name="url" type="text" inputmode="url" placeholder="https://www.example.com/page" maxlength="2048" autocomplete="url" required><button id="add-monitor-run" type="submit">Add URL</button></form></div><p id="monitor-form-status" class="muted">Add a public page first. Then use “Capture &amp; compare” when you are ready; a capture can take a few minutes.</p></div>
+      <div class="panel"><div class="panel-head"><h3>Monitored competitor page</h3><span class="badge" id="monitor-source">Verified ranking page</span></div><div id="monitor-target" class="monitor-target"><div class="empty">Loading monitored page…</div></div><form id="monitor-settings"><label><input id="schedule-enabled" type="checkbox"> Include in scheduled checks</label><label>Interval (hours)<input id="schedule-hours" type="number" min="1" max="720" value="24" required></label><button type="submit">Save schedule</button></form><p id="schedule-message" class="muted">Recurring checks run while the separate monitoring scheduler is running.</p></div>
+      <div class="panel"><div class="panel-head"><h3>Browse promotions by category</h3><span class="badge">Click a category to filter</span></div><div id="promotion-categories" class="category-grid"></div><p class="muted">Offers may have several labels. Counts follow the source and search filters below. Category labels do not confirm an offer.</p><label>Evidence status <select id="promotion-verification"><option value="">All statuses</option><option value="automatically_corroborated">Automatically corroborated</option><option value="details_available">Public details available</option><option value="needs_review">Needs more evidence</option><option value="confirmed">Team confirmed</option></select></label></div>
+      <div class="panel"><div class="panel-head"><h3>Promotion candidates &amp; investigation</h3><span class="badge yellow">Likely offers · review details</span></div><p id="promotions-meta" class="muted">Checking captured text and banner images…</p><div class="promotion-filters"><label for="promotion-source-filter">Show</label><select id="promotion-source-filter"><option value="all">Latest capture</option><option value="text">Latest text-based</option><option value="image">Latest image/banner</option><option value="history">Earlier captures</option><option value="dismissed">Dismissed candidates</option></select><label for="promotion-search">Find in candidates</label><input id="promotion-search" type="search" placeholder="Search wording, code, amount…"></div><div id="promotions-list"></div></div>
+      <div class="grid two"><div class="panel"><div class="panel-head"><h3>Latest page snapshot</h3><span class="badge">Most recent successful version</span></div><div id="monitor-current"></div></div><div class="panel"><div class="panel-head"><h3>Page elements compared</h3><span class="badge">Change detection fields</span></div><div id="monitor-fields"></div></div></div>
+      <div class="panel"><div class="panel-head"><h3>Full rendered public-page text</h3><span class="badge" id="main-content-label">Latest successful scrape</span></div><p id="main-content-meta" class="muted">Loading the latest captured text…</p><div id="main-content-display" class="main-content-text"></div></div>
+      <div class="grid two"><div class="panel"><div class="panel-head"><h3>Full-page screenshot</h3><span class="badge">Visual evidence</span></div><div id="monitor-screenshot" class="screenshot-view"></div></div><div class="panel"><div class="panel-head"><h3>Screenshot comparison</h3><span class="badge">Capture to capture</span></div><div id="monitor-visual-diff"></div></div></div>
+      <div class="panel"><div class="panel-head"><h3>Snapshot history</h3><span class="badge">Newest first</span></div><div id="snapshot-history" class="table-wrap"></div></div>
+      <div class="panel"><div class="panel-head"><h3>What changed?</h3><span class="badge">Previous vs current</span></div><div id="monitor-changes"></div></div>
+      <div class="panel"><div class="panel-head"><h3>Competitor activity timeline</h3><span class="badge">Observed events, with evidence references</span></div><div id="monitor-timeline"></div></div>
+      <div class="panel"><div class="panel-head"><h3>New page content</h3><span class="badge">Added since the earlier snapshot</span></div><div id="monitor-new"></div></div>
+    </section>
+  </main>
+  <script src="/js/app.js?v=20261019-focus-v1"></script>
+  <script src="/js/activity.js?v=20261019-intelligence-v1"></script>
+</body>
+</html>

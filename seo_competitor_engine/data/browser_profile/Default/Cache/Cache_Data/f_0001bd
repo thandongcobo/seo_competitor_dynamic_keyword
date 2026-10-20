@@ -1,0 +1,794 @@
+var focus_interval = 0;
+
+window.click2connect = (function () {
+    function click2connect() {
+        this.name = 'Click to Connect';
+        this.customize = "";
+    }
+
+    click2connect.prototype.init = function (params) {
+        var click2connect_params = '';
+        //console.warn(params);
+        if ("nscode" in params && params.nscode) {
+            click2connect_params += 'nscode=' + encodeURIComponent(params.nscode);
+        }
+
+        var customerdataID = '';
+        customerdataID = Math.round(new Date().getTime() + (Math.random() * 100)).toString() + Math.round(new Date().getTime() + (Math.random() * 100)).toString();
+        this.customerdataID = customerdataID;
+
+        if (params.customer_history || params.user_data) {
+            let customerHistoryJson = [];
+            let chatUserData = {};
+            if (params.customer_history) {
+                customerHistoryJson = JSON.stringify(params.customer_history);
+                customerHistoryJson = JSON.parse(customerHistoryJson);
+                this.customerHistoryJson = customerHistoryJson;
+            }
+            if (params.user_data) {
+                chatUserData = JSON.stringify(params.user_data);
+                chatUserData = JSON.parse(chatUserData);
+                this.chatUserData = chatUserData;
+            }
+            if (customerHistoryJson.length > 0) {
+                for(let key in customerHistoryJson){
+                    customerHistoryJson[key].message = customerHistoryJson[key].message.replace("'", " ").replace('"', ' ').replace(";", " ").replace("\n", " ");
+                }
+            }
+
+            this.customerHistoryJson = customerHistoryJson;
+            this.chatUserData = chatUserData;
+        }
+
+        click2connect_params += '&customer_data=' + encodeURIComponent(customerdataID);
+        click2connect_params += '&lang=' +  params.lang;
+        if (params.chat_widget_key) {
+            click2connect_params += '&cwid=' + params.chat_widget_key;
+        }
+        if (params.voicecall_widget_key) {
+            click2connect_params += '&callwid=' + params.voicecall_widget_key;
+        }
+        if (params.videocall_widget_key) {
+            click2connect_params += '&videowid=' + params.videocall_widget_key;
+        }
+        if (params.application_provider) {
+            click2connect_params += '&application_provider=' + params.application_provider;
+        }
+        if (params.captcha_option) {
+            click2connect_params += '&captcha_option=' + params.captcha_option;
+        }
+        if ('client_name' in params) {
+            this.client_name = params.client_name ? params.client_name : undefined
+        }
+        if ('client_email' in params) {
+            this.client_email = params.client_email ? params.client_email : undefined
+        }
+        if ('phone_number' in params) {
+            this.phone_number = params.phone_number ? params.phone_number : undefined
+        }
+        this.widget_position = params.widget_position ? params.widget_position : "rb";
+        this.iframe_title = params.iframe_title ? params.iframe_title : "Click2Connect";
+        this.iframe = {
+            src: 'https://' + params.click2connect_server + '/click2connectgroup/default/' + params.widget_key + '?' + click2connect_params
+        };
+
+        if (params.scheduled_auto_start) {
+            this.scheduled_auto_start = params.scheduled_auto_start;
+            this.scheduled_auto_start_name = params.client_name;
+            this.scheduled_auto_start_email = params.client_email;
+            this.scheduled_auto_start_phone_number = params.phone_number;
+            this.scheduled_auto_start_time = params.scheduled_auto_start_time;
+        }
+
+        // Legacy redirect support
+        if (params.is_legacy_redirect) {
+            this.is_legacy_redirect = true;
+        }
+
+        if ("ga_tracking" in params && params.ga_tracking === "on" && aloTechGetCookie("_ga", "", "masterPage")) {
+            this.ga_tracking = "on";
+            this.ga_client_id = aloTechGetCookie("_ga", "", "masterPage");
+        }
+
+        //var click2connectwidth = 102;
+        var click2connectCustomData = '';
+        var click2connectCustomize = {};
+
+        if (params.user_data) {
+            click2connectCustomData = JSON.stringify(params.user_data);
+            click2connectCustomData = JSON.parse(click2connectCustomData);
+            this.click2connectCustomData = click2connectCustomData;
+        }
+
+        this.params = params;
+
+        //customerdataID = Math.round(new Date().getTime() + (Math.random() * 100)).toString() + Math.round(new Date().getTime() + (Math.random() * 100)).toString();
+        //this.customerdataID = customerdataID;
+        this.namespace = params.namespace;
+        
+        if (params.office_hours == "True" && params.active) {
+            let baseUrl = params.namespace;
+            if (params.application_provider === "aws") {
+                baseUrl = params.click2connect_server + "/click2connect-proxy";
+            }
+            Click2ConnectAjax({
+                url: 'https://' + baseUrl + '/click2connectpackage/widgets_customize/' + params.widget_key + '/',
+                type: 'GET',
+                dataType: 'json',
+                success: function (resp) {
+                    if (resp.status) {
+                        click2connectCustomize = resp.data;
+                    }
+
+                },
+                complete: function () {
+                    Click2ConnectDraw(click2connectCustomize);
+
+                }
+            }, {application_provider: params.application_provider, namespace: params.namespace});
+        }
+
+    };
+    /**
+     * Maximises the widget. Call from a user click; only posts a message
+     * to the iframe (no popup, no page reload).
+     */
+    click2connect.prototype.triggerMaximise = function () {
+        var params = this.params || {};
+        var click2connectFrame = document.querySelector('#Click2ConnectPackageFrame');
+        if (click2connectFrame && click2connectFrame.contentWindow) {
+            click2connectFrame.contentWindow.postMessage(JSON.stringify({
+                type: 'click2connect',
+                action: '_TriggerWidgetMaximise'
+            }), 'https://' + params.click2connect_server);
+        }
+    };
+
+    return new click2connect();
+}());
+
+/**
+ * Global shortcut for triggerMaximise(), like startWidget().
+ */
+window.triggerMaximise = function () {
+    if (window.click2connect && typeof window.click2connect.triggerMaximise === 'function') {
+        return window.click2connect.triggerMaximise();
+    }
+    console.error('Click2Connect: triggerMaximise() called before the widget was initialised (startWidget).');
+    return null;
+};
+
+
+function Click2ConnectSetCookie(cname, cvalue, exdays, hostname) {
+    try {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = hostname + "_" + cname + "=" + cvalue + ";" + expires + ";path=/;SameSite=None;" + "Secure";
+    } catch (e) {
+        console.log("Click2Connect: Cookie set failed - ", e.message);
+    }
+}
+
+function Click2ConnectGetCookie(cname, hostname, source) {
+    try {
+        if (source === "masterPage") {
+            var name = cname + "=";
+        } else {
+            var name = hostname + "_" + cname + "=";
+        }
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+    } catch (e) {
+        console.log("Click2Connect: Cookie get failed - ", e.message);
+    }
+    return "";
+}
+
+function Click2ConnectDraw(customize) {
+    var click2ConnectFrame = document.createElement("iframe");
+    var fullscreen_without_launcher = customize.fullscreen_without_launcher;
+
+    click2ConnectFrame.setAttribute('src', click2connect.iframe.src);
+    click2ConnectFrame.setAttribute('frameborder', "0");
+    click2ConnectFrame.setAttribute('allow', 'camera *;microphone *;geolocation *');
+    click2ConnectFrame.setAttribute('id', 'Click2ConnectPackageFrame');
+    click2ConnectFrame.setAttribute('title', click2connect.iframe_title);
+    click2ConnectFrame.style.height = fullscreen_without_launcher ? '100%' : '86px';
+    click2ConnectFrame.style.width = fullscreen_without_launcher ? '100%' : (customize.type === "icontext" ? '150px' : "55px");
+    click2ConnectFrame.style.marginRight = fullscreen_without_launcher ? '0px' : '5px';
+    click2ConnectFrame.style.marginLeft = fullscreen_without_launcher ? '0px' : '5px';
+    click2ConnectFrame.style.position = 'fixed';
+    click2ConnectFrame.style.zIndex = '999999';
+    click2ConnectFrame.style.bottom = fullscreen_without_launcher ? '0px' : '8px';
+    if(click2connect.widget_position == "lb"){
+        click2ConnectFrame.style.left = '0px';
+    }else{
+        click2ConnectFrame.style.right = '0px';
+    }
+    click2connect.customize = JSON.stringify(customize);
+    
+    // Legacy redirect support - .alotech-chat-body wrapper for old chat widget code compatibility
+    // display: contents makes wrapper invisible but still queryable in DOM
+    if (click2connect.is_legacy_redirect) {
+        var alotechChatBody = document.createElement("div");
+        alotechChatBody.classList.add('alotech-chat-body');
+        alotechChatBody.style.display = 'contents';
+        alotechChatBody.appendChild(click2ConnectFrame);
+        document.body.appendChild(alotechChatBody);
+    } else {
+        document.body.appendChild(click2ConnectFrame);
+    }
+}
+
+function Click2ConnectAjax(option, extraParams) {
+    if (typeof(option.url) == "undefined") {
+        try {
+            option.url = location.href;
+        } catch(e) {
+            var ajaxLocation;
+            ajaxLocation = document.createElement("a");
+            ajaxLocation.href = "";
+            option.url = ajaxLocation.href;
+        }
+    }
+    if (typeof(option.type) == "undefined") {
+        option.type = "GET";
+    }
+    if (typeof(option.method) == "undefined") {
+        option.method = "GET";
+    }
+    if (typeof(option.data) == "undefined") {
+        option.data = null;
+    } else if (typeof(option.data) !== "string"){
+        var data = "";
+        for (var x in option.data) {
+            if (data != "") {
+                data += "&";
+            }
+            data += encodeURIComponent(x)+"="+encodeURIComponent(option.data[x]);
+        };
+        option.data = data;
+    }
+    if (typeof(option.statusCode) == "undefined") {
+        option.statusCode = {};
+    }
+    if (typeof(option.beforeSend) == "undefined") {
+        option.beforeSend = function () {};
+    }
+    if (typeof(option.success) == "undefined") {
+        option.success = function () {};
+    }
+    if (typeof(option.error) == "undefined") {
+        option.error = function () {};
+    }
+    if (typeof(option.complete) == "undefined") {
+        option.complete = function () {};
+    }
+    typeof(option.statusCode["404"]);
+
+    var xhr = null;
+
+    if (window.XMLHttpRequest || window.ActiveXObject) {
+        if (window.ActiveXObject) { try { xhr = new ActiveXObject("Msxml2.XMLHTTP"); } catch(e) { xhr = new ActiveXObject("Microsoft.XMLHTTP"); } }
+        else { xhr = new XMLHttpRequest(); }
+    } else { console.log("Your browser does not support XMLHTTPRequest object."); return null; }
+
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 1) {
+            option.beforeSend();
+        }
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200 || xhr.status == 0) {
+                option.success(JSON.parse(xhr.responseText));
+            } else {
+                option.error(xhr.status);
+                if (typeof(option.statusCode[xhr.status]) != "undefined") {
+                    option.statusCode[xhr.status]();
+                }
+            }
+            option.complete(xhr, xhr.status);
+        }
+    };
+
+    if (option.type == "POST") {
+        xhr.open(option.type, option.url, true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
+        if (extraParams && extraParams.application_provider === "aws") {
+            xhr.setRequestHeader("X-Namespace", extraParams.namespace);
+        }
+        xhr.send(option.data);
+    } else {
+        if (option.data){
+            xhr.open(option.type, option.url+option.data, true);
+            xhr.send(null);
+        } else {
+            xhr.open(option.type, option.url, true);
+            xhr.send(null);
+        }
+    }
+}
+
+function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+    var regexS = "[\\?&]" + name + "=([^&#]*)";
+    var regex = new RegExp(regexS);
+    var results = regex.exec(window.location.search);
+    if(results == null)
+        return "";
+    else
+        return decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+// Prevent multiple event listeners
+if (!window.click2connectMessageListenerAdded) {
+    window.click2connectMessageListenerAdded = true;
+    
+    window.addEventListener("message", function (e) {
+        // Handle alotech_external_chat_start from customer site (legacy support for redirected chat widgets)
+        try {
+            let externalData = JSON.parse(e.data);
+            if (externalData.action === "alotech_external_chat_start") {
+                console.log("alotech_external_chat_start received from customer site, forwarding to iframe");
+                let click2connectFrame = document.querySelector('#Click2ConnectPackageFrame');
+                if (click2connectFrame && click2connect.params) {
+                    click2connectFrame.contentWindow.postMessage(JSON.stringify({
+                        action: 'click2connect_external_chat_start',
+                        formdata: externalData.formdata || {}
+                    }), 'https://' + click2connect.params.click2connect_server);
+                }
+                return;
+            }
+        } catch (err) {
+            // Not a valid JSON message, continue with origin check
+        }
+
+        if (e.origin.indexOf("click2connect.app") < 0 
+            && e.origin.indexOf("alobutton-staging.web.app") < 0 
+            && e.origin.indexOf("alobutton-pilot.web.app") < 0
+            && e.origin.indexOf("telefoni-test.web.app") < 0
+            && e.origin.indexOf("telefoni-develop-11.web.app") < 0
+            && e.origin.indexOf("musteri-hizmetleri.web.app") < 0
+            && e.origin.indexOf("telefoni-ismail.web.app") < 0
+            && e.origin.indexOf("click2connect-dev-run.alo-tech.com") < 0
+            && e.origin.indexOf("click2connect") < 0) {
+            return;
+        }
+
+    let data = JSON.parse(e.data);
+    //console.warn(data);
+    let click2connectFrame = document.querySelector('#Click2ConnectPackageFrame');
+    if (data.type === "click2connect" && (data.action === "click2connect_maximise" || data.action === "click2connect_minimise")) {
+        click2connectFrame.style.width = data.width;
+        click2connectFrame.style.height = data.height;
+        
+        if (data.support_fullsize_mode_on_mobile || data.fullscreen_without_launcher) {
+            click2connectFrame.style.marginRight = data.marginRight;
+            click2connectFrame.style.marginLeft = data.marginLeft;
+            click2connectFrame.style.bottom = data.bottom;
+        }
+
+        click2connect.widget_size_status = data.action;
+        click2connect.fullscreen_without_launcher = data.fullscreen_without_launcher;
+        if (data.action === "click2connect_minimise") {
+            click2connect.allow_fullscreen_minimize = data.allow_fullscreen_minimize;
+        }
+    }
+    
+    let click2connect_actions = ["click2connect_initialize", "click2connect_maximise", "click2connect_minimise"];
+    if (data.type === "click2connect" && click2connect_actions.includes(data.action)) {
+        if (data.action === "click2connect_initialize") {
+            var click2ConnectStartData = {
+                startId: data.start_id,
+                iframeSrc: click2connect.iframe.src,
+                gaData: {
+                    gaTracking: click2connect.ga_tracking,
+                    clientId: Click2ConnectGetCookie("_ga", "", "masterPage")
+                },
+                widgetParams: click2connect.params
+            };
+
+            if (data.namespace && data.disable_third_party_cookies) {
+                click2ConnectStartData.cookieData = {
+                    active_chat_key: Click2ConnectGetCookie('active_chat_key', data.alotech_data.hostname),
+                    pToken: Click2ConnectGetCookie('pToken', data.alotech_data.hostname),
+                    reconnect: Click2ConnectGetCookie('reconnect', data.alotech_data.hostname),
+                    client_name: Click2ConnectGetCookie('client_name', data.alotech_data.hostname),
+                    client_email: Click2ConnectGetCookie('client_email', data.alotech_data.hostname),
+                    phone_number: Click2ConnectGetCookie('phone_number', data.alotech_data.hostname)
+                }
+            }
+
+            if (('customer_history' in click2connect.params && click2connect.params.customer_history && click2connect.customerHistoryJson) || ('user_data' in click2connect.params && click2connect.params.user_data && click2connect.chatUserData)) {
+                Click2ConnectAjax({
+                    type: "POST",
+                    dataType: "json",
+                    url: 'https://' + click2connect.params.namespace + '/chats/customer_history',
+                    headers: {'Content-Type':'application/json'},
+                    data: JSON.stringify({customerHistory: click2connect.customerHistoryJson, customerHistoryID: "chat_" + click2connect.customerdataID, aloChatUserData: click2connect.chatUserData}),
+                    complete: function () {
+                        click2connectFrame.contentWindow.postMessage(JSON.stringify(click2ConnectStartData), 'https://' + click2connect.params.click2connect_server);
+                    }
+                });
+            } else {
+                // TODO: Chat
+                //console.warn(click2connect.params.click2connect_server);
+                click2connectFrame.contentWindow.postMessage(JSON.stringify(click2ConnectStartData), 'https://' + click2connect.params.click2connect_server);
+            }
+        }
+
+        click2connectFrame.contentWindow.postMessage(JSON.stringify({
+            click2connectUserData: JSON.stringify({
+                customerdataID: click2connect.customerdataID,
+                user_data: click2connect.click2connectCustomData,
+                client_name: click2connect.client_name,
+                client_email: click2connect.client_email,
+                phone_number: click2connect.phone_number,
+                customerPath: window.location.href,
+                iframeSrc: click2connect.iframe.src
+            }),
+            click2ConnectStartData: click2ConnectStartData,
+            namespace: click2connect.namespace,
+            action: data.action,
+            type: data.type,
+            origin: window.location.origin,
+            ...(data.action === "click2connect_initialize" && {customize: click2connect.customize}),
+        }), e.origin);
+    
+    } else if (data.type === "chat" && data.action === "restart_chat") {
+        if (click2connectFrame) {
+            click2connectFrame.contentWindow.postMessage(JSON.stringify({
+                    action: "sendGAEventData",
+                    gaData: {
+                        clientId: Click2ConnectGetCookie("_ga", "", "masterPage"),
+                    }
+                }),
+            'https://' + click2connect.params.click2connect_server);
+        }
+    } else if (data.type === "chat" && data.action === "widgetSizeChanged") {
+        if (click2connectFrame) {
+            if (data.alotechWidgetShadowRadius) {
+                //alotechChatWidget.style.boxShadow = "unset";
+                //alotechChatWidget.style.borderRadius = data.alotechWidgetShadowRadius;
+            }
+
+            if (data.changeType === "maximise") {
+                // TODO: set click2connectFrame height and width when widget maximised.
+                /*
+                if (MOBILE_SCREEN) {
+                    let alotechChatWidget_compStyles = window.getComputedStyle(alotechChatWidget);
+                    let left_alotechChatWidget_compStyles = alotechChatWidget_compStyles.getPropertyValue('left');
+                    if (parseInt(left_alotechChatWidget_compStyles) < 30) {
+                        acjs_near_left = true;
+                    }
+                }
+                alotechChatWidget.style.height = Click2ConnectGetHeight((data.widgetHeight).toString() + "px");
+                alotechChatWidget.style.width = Click2ConnectGetWidth((data.widgetWidth).toString() + "px");
+                click2connectFrame.style.height = Click2ConnectGetHeight((data.widgetHeight).toString() + "px");
+                click2connectFrame.style.width = Click2ConnectGetWidth((data.widgetWidth).toString() + "px");
+                if (MOBILE_SCREEN) {
+                    alotechChatWidget.style.setProperty("right", "0px", "important");
+                    alotechChatWidget.style.setProperty("bottom", "0px", "important");
+                    //alotechChatWidget.style.setProperty("left", "1px", "important");
+                    if (acjs_near_left) {
+                        alotechChatWidget.style.setProperty("left", "0px", "important");
+                    }
+                    document.querySelector('.alotech-chat-body').style.height = '100%';
+                }
+                */
+            } else {
+                /*
+                alotechChatWidget.style.height = (data.widgetHeight).toString() + "px";
+                alotechChatWidget.style.width = (data.widgetWidth).toString() + "px";
+                click2connectFrame.style.height = (data.widgetHeight).toString() + "px";
+                click2connectFrame.style.width = (data.widgetWidth).toString() + "px";
+                alotechChatWidget.style.right = "10px";
+                alotechChatWidget.style.bottom = "10px";
+                if (acjs_near_left) {
+                    alotechChatWidget.style.setProperty("left", "10px", "important");
+                }
+                */
+            }
+
+            click2connectFrame.contentWindow.postMessage(JSON.stringify({
+                    action: "widgetSizeChangedAcknowledged",
+                    changeType: data.changeType,
+                    widgetHeight: Click2ConnectGetHeight(data.widgetHeight),
+                    widgetWidth:  Click2ConnectGetWidth(data.widgetWidth),
+                    headClickSource: data.source,
+                    toggleId: data.toggleId
+                }),
+            'https://' + click2connect.params.click2connect_server);
+        }
+    } else if (data.type === "chat" && data.action === "setShadow") {
+        //alotechChatWidget.style.transition = "box-shadow 0.1s";
+        //alotechChatWidget.style.boxShadow = "0px 0px 5px 0px #888888d6";
+    } else if (data.type === "chat" && data.action === "widgetToggle") {
+        //alotechChatWidget.style.transition = "unset";
+        //alotechChatWidget.style.boxShadow = "unset";
+    } else if (data.type === "chat" && data.action === "AloChatStart") {
+        if (click2connectFrame) {
+            MOBILE_SCREEN = data.mobileDevice;
+
+            if (data.widgetVersion != "fullsize") {
+                /*
+                if (data.aloChatWidgetShadowRadius) {
+                    alotechChatWidget.style.boxShadow = "none";
+                    if (data.widgetVersion === "version1") {
+                        alotechChatWidget.style.borderRadius = data.aloChatWidgetShadowRadius;
+                        setTimeout(function () {alotechChatWidget.style.boxShadow = "0px 0px 5px 0px #888888d6";}, 400);
+                        //setTimeout(function () {alotechChatWidget.style.boxShadow = "rgb(207 207 207 / 84%) 0px 0px 20px 0px";}, 400);
+                    }
+                }
+                */
+
+                if (data.changeType === "maximise") {
+                    /*
+                    alotechChatWidget.style.height = Click2ConnectGetHeight((data.widgetHeight).toString() + "px");
+                    alotechChatWidget.style.width = Click2ConnectGetWidth((data.widgetWidth).toString() + "px");
+                    click2connectFrame.style.height = Click2ConnectGetHeight((data.widgetHeight).toString() + "px");
+                    click2connectFrame.style.width = Click2ConnectGetWidth((data.widgetWidth).toString() + "px");
+                    if (MOBILE_SCREEN) {
+                        alotechChatWidget.style.setProperty("right", "0px", "important");
+                        alotechChatWidget.style.setProperty("bottom", "0px", "important");
+                        //alotechChatWidget.style.setProperty("left", "1px", "important");
+                        let alotechChatWidget_compStyles = window.getComputedStyle(alotechChatWidget);
+                        let left_alotechChatWidget_compStyles = alotechChatWidget_compStyles.getPropertyValue('left');
+                        if (parseInt(left_alotechChatWidget_compStyles) < 30) {
+                            console.log("**** <50 ****");
+                            alotechChatWidget.style.setProperty("left", "0px", "important");
+                            acjs_near_left = true;
+                        }
+                        document.querySelector('.alotech-chat-body').style.height = '100%';
+                    }
+                    */
+                } else {
+                    /*
+                    alotechChatWidget.style.height = (data.widgetHeight).toString() + "px";
+                    alotechChatWidget.style.width = (data.widgetWidth).toString() + "px";
+                    click2connectFrame.style.height = (data.widgetHeight).toString() + "px";
+                    click2connectFrame.style.width = (data.widgetWidth).toString() + "px";
+                    alotechChatWidget.style.right = "10px";
+                    alotechChatWidget.style.bottom = "10px";
+                    if (acjs_near_left) {
+                        alotechChatWidget.style.setProperty("left", "10px", "important");
+                    }
+                    */
+                }
+            }
+
+            var click2ConnectStartData = {
+                action: "AloChatStart",
+                startId: data.startId,
+                gaData: {
+                    gaTracking: click2connect.ga_tracking,
+                    clientId: Click2ConnectGetCookie("_ga", "", "masterPage")
+                },
+                widgetParams: click2connect.params
+            };
+
+            if (data.alotech_data && data.alotech_data.hostname && data.get_cookies) {
+                click2ConnectStartData.cookieData = {
+                    active_chat_key: Click2ConnectGetCookie('active_chat_key', data.alotech_data.hostname),
+                    pToken: Click2ConnectGetCookie('pToken', data.alotech_data.hostname),
+                    reconnect: Click2ConnectGetCookie('reconnect', data.alotech_data.hostname),
+                    client_name: Click2ConnectGetCookie('client_name', data.alotech_data.hostname),
+                    client_email: Click2ConnectGetCookie('client_email', data.alotech_data.hostname),
+                    phone_number: Click2ConnectGetCookie('phone_number', data.alotech_data.hostname)
+                }
+            }
+
+            if (('customer_history' in click2connect.params && click2connect.params.customer_history && click2connect.customerHistoryJson) || ('user_data' in click2connect.params && click2connect.params.user_data && click2connect.aloChatUserData)) {
+                Click2ConnectAjax({
+                    type: "POST",
+                    dataType: "json",
+                    url: 'https://' + click2connect.params.hostname + '/chats/customer_history',
+                    headers: {'Content-Type':'application/json'},
+                    data: JSON.stringify({customerHistory: click2connect.customerHistoryJson, customerHistoryID: click2connect.params.customerHistoryID, aloChatUserData: click2connect.aloChatUserData}),
+                    complete: function () {
+                        click2connectFrame.contentWindow.postMessage(JSON.stringify(click2ConnectStartData), 'https://' + click2connect.params.click2connect_server);
+                    }
+                });
+            } else {
+                console.warn(click2connect.params.click2connect_server);
+                click2connectFrame.contentWindow.postMessage(JSON.stringify(click2ConnectStartData), 'https://' + click2connect.params.click2connect_server);
+            }
+        }
+    }
+
+    // Legacy redirect support: broadcast alotech_initialize to customer site when click2connect_initialized
+    if (data.type === "chat" && data.action === "click2connect_initialized") {
+        if (click2connect.is_legacy_redirect) {
+            window.postMessage(JSON.stringify({type: "chat", action: "alotech_initialize"}), '*');
+        }
+        
+        if (click2connect.scheduled_auto_start) {
+            setTimeout(function(){
+                if (click2connectFrame) {
+                    click2connectFrame.contentWindow.postMessage(JSON.stringify({
+                            action: 'click2connect_external_chat_start',
+                            formdata: {
+                                phone_number: click2connect.scheduled_auto_start_phone_number,
+                                name: click2connect.scheduled_auto_start_name,
+                                email: click2connect.scheduled_auto_start_email
+                            },
+                        }),
+                    'https://' + click2connect.params.click2connect_server);
+                }
+            }, parseInt(click2connect.scheduled_auto_start_time) * 1000);
+        }
+    }
+
+    if (data.type === "alotech_chat" && data.alotech_data) {
+        var alotechLocHref = "";
+        for(var key in data.alotech_data){
+            if (key === "client_name" || key === "client_email" || key === "phone_number") {
+                Click2ConnectSetCookie(key, data.alotech_data[key], 730, data.alotech_data.hostname);
+            } else {
+                Click2ConnectSetCookie(key, data.alotech_data[key], 1, data.alotech_data.hostname);
+            }
+        }
+        if (data.action === "chatLogout") {
+            if (Click2ConnectGetCookie("chat_evaluation", data.alotech_data.hostname) != "true") {
+                Click2ConnectSetCookie("active_chat_key", "", 1, data.alotech_data.hostname);
+            }
+        } else if (data.action === "NewAloChat") {
+            var alotechLegalHref = false;
+            if(Click2ConnectGetCookie('chat_evaluation', data.alotech_data.hostname) !== "true"){
+                Click2ConnectSetCookie("active_chat_key", "", 1, data.alotech_data.hostname);
+                if (Click2ConnectGetCookie("legal_requirements", data.alotech_data.hostname) === 'true'){
+                    alotechLocHref = Click2ConnectGetCookie("legal_href", data.alotech_data.hostname);
+                    alotechLegalHref = true;
+                }
+            }
+
+                try {
+                    if (!alotechLegalHref) {
+                        alotechLocHref = '//' + Click2ConnectGetCookie('ws_server', data.alotech_data.hostname)
+                        alotechLocHref += '?hostname=' + Click2ConnectGetCookie('hostname', data.alotech_data.hostname);
+                        alotechLocHref += '&lang=' + Click2ConnectGetCookie('lang', data.alotech_data.hostname);
+                        alotechLocHref += '&queue=' + Click2ConnectGetCookie('chat_queue', data.alotech_data.hostname);
+                        alotechLocHref += '&cwid=' + Click2ConnectGetCookie('cwid', data.alotech_data.hostname);
+
+                        if (Click2ConnectGetCookie('optional_email', data.alotech_data.hostname)) {
+                            alotechLocHref += '&optional_email=' + Click2ConnectGetCookie('optional_email', data.alotech_data.hostname);
+                        } else {
+                            if (Click2ConnectGetCookie('optional_email', data.alotech_data.hostname) === 'required'){
+                                alotechLocHref += '&optional_email=required';
+                            }
+                            else {
+                                alotechLocHref += '&optional_email=';
+                            }
+                        }
+                        if(Click2ConnectGetCookie('chat_evaluation', data.alotech_data.hostname) === "true"){
+                            alotechLocHref += '&chat_evaluation=' + Click2ConnectGetCookie('chat_evaluation', data.alotech_data.hostname);
+                        }
+
+                        if (Click2ConnectGetCookie('optional_phone', data.alotech_data.hostname)) {
+                            alotechLocHref += '&optional_phone=' + Click2ConnectGetCookie('optional_phone', data.alotech_data.hostname);
+                        } else {
+                            if (Click2ConnectGetCookie('optional_phone', data.alotech_data.hostname) === 'required'){
+                                alotechLocHref += '&optional_phone=required';
+                            }
+                            else {
+                                alotechLocHref += '&optional_phone=';
+                            }
+                        }
+                        if (Click2ConnectGetCookie('tags', data.alotech_data.hostname)) {
+                            alotechLocHref += '&tags=' + Click2ConnectGetCookie('tags', data.alotech_data.hostname);
+                        } else {
+                            alotechLocHref += '&tags=';
+                        }
+                        if (Click2ConnectGetCookie('customer_history', data.alotech_data.hostname)) {
+                            alotechLocHref += '&customer_history=' + Click2ConnectGetCookie('customer_history', data.alotech_data.hostname);
+                        }
+                        alotechLocHref += '&repeat_chat=true';
+                        Click2ConnectSetCookie('reconnect', '', 1, data.alotech_data.hostname);
+                    }
+                } catch (e) {
+                    console.log(e);
+                }
+
+        } else if (data.action === "chatEvaluationOnload") {
+            Click2ConnectSetCookie("chat_evaluation", "", 1, data.alotech_data.hostname);
+        }
+
+        if (data.returnNow === true) {
+            var click2ConnectData = {
+                active_chat_key: Click2ConnectGetCookie('active_chat_key', data.alotech_data.hostname),
+                active_chat_room: Click2ConnectGetCookie('active_chat_room', data.alotech_data.hostname),
+                //customer_path: Click2ConnectGetCookie('customer_path', data.alotech_data.hostname),
+                pToken: Click2ConnectGetCookie('pToken', data.alotech_data.hostname),
+                reconnect: Click2ConnectGetCookie('reconnect', data.alotech_data.hostname),
+                chat_evaluation: Click2ConnectGetCookie('chat_evaluation', data.alotech_data.hostname),
+                chat_evaluation_message: Click2ConnectGetCookie('chat_evaluation_message', data.alotech_data.hostname),
+                customer_history_id: Click2ConnectGetCookie('customer_history_id', data.alotech_data.hostname),
+                send_chat_history_to_customer: Click2ConnectGetCookie('send_chat_history_to_customer', data.alotech_data.hostname),
+                ws_server: Click2ConnectGetCookie('ws_server', data.alotech_data.hostname)
+            };
+            if (data.action === "roomOnload") {
+                click2ConnectData.first_welcoming_message = Click2ConnectGetCookie('first_welcoming_message', data.alotech_data.hostname);
+                click2ConnectData.queue_message =  Click2ConnectGetCookie('queue_message', data.alotech_data.hostname);
+            }
+            if(click2connectFrame){
+                click2connectFrame.contentWindow.postMessage(JSON.stringify({
+                    action: 'aloTechCrossDomainMessage',
+                    cData: click2ConnectData,
+                    message: data.action,
+                    messageData: {
+                        locHref: data.action === "NewAloChat" ? alotechLocHref : ""
+                    }
+                }), 'https://' + click2connect.params.click2connect_server);
+            }
+        }
+    }
+    if(data.action === "send_message" && data.type === "chatting"){
+        if(data.focus){
+            clearInterval(focus_interval);
+            focus_interval = 0;
+            //document.title = click2connect.alochat_page_title;
+        }
+        if(!data.focus && !document.hasFocus() && data.show_title_notification){
+            if(document.title == click2connect.alochat_page_title && !focus_interval){
+                focus_interval = setInterval(function(){
+                    //document.title = document.title == click2connect.alochat_page_title ? data.name + " send you a message" : click2connect.alochat_page_title;
+                }, 3000);
+            }
+        }
+        if(data.play_message_sounds && !data.muteChat){
+            try {
+                var chat_message_sound = "https://" + data.ns + "/static/js/webrtc/sound/message_sound.mp3";
+                sound = new Audio(chat_message_sound);
+                sound.volume = 0.7;
+                sound.play();
+            }
+            catch(err) {
+                console.log(err.message);
+            }
+        }
+        window.addEventListener("focus", function(){
+            clearInterval(focus_interval);
+            focus_interval = 0;
+            //document.title = click2connect.alochat_page_title;
+        });
+    }
+    });
+}
+
+function startWidget(data){
+	// Fullscreen minimize kontrolü - init çağırmadan önce
+	if (window.click2connect && window.click2connect.fullscreen_without_launcher && window.click2connect.allow_fullscreen_minimize) {
+		var existingClick2ConnectFrame = document.querySelector("#Click2ConnectPackageFrame");
+		if (existingClick2ConnectFrame) {
+			existingClick2ConnectFrame.contentWindow.postMessage(JSON.stringify({action: "_TriggerWidgetMaximise", type: "click2connect"}), "*");
+		}
+		return;
+	}
+	click2connect.init({
+		widget_key: "ahRzfm11c3RlcmktaGl6bWV0bGVyaXIhCxIUQ2xpY2syQ29ubmVjdFBhY2thZ2UYgICa37L3-QgMogEdZ29sZHJ1c2guY2FsbGNlbnRlcnN0dWRpby5jb20",
+		click2connect_server: "click2connect.tech",
+		namespace: "goldrush.callcenterstudio.com",
+		nscode: "Z29sZHJ1c2guY2FsbGNlbnRlcnN0dWRpby5jb20=",
+		client_name:data && data.client_name ? data.client_name : "",
+		client_email:data && data.client_email ? data.client_email : "",
+		phone_number:data && data.phone_number ? data.phone_number : "",
+		user_data:data && data.user_data ? data.user_data : "",
+		office_hours: "True",
+		customer_history:data && data.customer_history ? data.customer_history : "",
+		customer_path_param:data && data.customer_path_param ? data.customer_path_param : "",
+		chat_widget_key: "ahRzfm11c3RlcmktaGl6bWV0bGVyaXIYCxILQ2hhdFdpZGdldHMYgICa7_jp4AgMogEdZ29sZHJ1c2guY2FsbGNlbnRlcnN0dWRpby5jb20",
+		widget_position: "lb",
+		application_provider: "gcp",
+		captcha_option: "recaptcha",
+		active:true,
+		lang : "en",
+	});
+}

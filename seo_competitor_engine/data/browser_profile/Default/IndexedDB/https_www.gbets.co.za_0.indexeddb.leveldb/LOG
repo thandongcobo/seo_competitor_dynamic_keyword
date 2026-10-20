@@ -1,0 +1,13 @@
+2026/10/13-10:46:31.775 8808 Reusing MANIFEST C:\Users\NgcoboT\Downloads\seo_competitor_engine_dynamic_keywords\seo_competitor_engine\data\browser_profile\Default\IndexedDB\https_www.gbets.co.za_0.indexeddb.leveldb/MANIFEST-000001
+2026/10/13-10:46:31.775 8808 Recovering log #7
+2026/10/13-10:46:31.776 8808 Reusing old log C:\Users\NgcoboT\Downloads\seo_competitor_engine_dynamic_keywords\seo_competitor_engine\data\browser_profile\Default\IndexedDB\https_www.gbets.co.za_0.indexeddb.leveldb/000007.log 
+2026/10/13-10:46:32.039 a5a8 Level-0 table #11: started
+2026/10/13-10:46:32.044 a5a8 Level-0 table #11: 665 bytes OK
+2026/10/13-10:46:32.046 a5a8 Delete type=0 #7
+2026/10/13-10:46:32.047 fa8 Manual compaction at level-0 from '\x00\x04\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x05\x00\x00\x00' @ 0 : 0; will stop at '\x00\x04\x00\x00\x05' @ 133 : 1
+2026/10/13-10:46:32.047 fa8 Compacting 1@0 + 1@1 files
+2026/10/13-10:46:32.050 fa8 Generated table #12@0: 23 keys, 817 bytes
+2026/10/13-10:46:32.050 fa8 Compacted 1@0 + 1@1 files => 817 bytes
+2026/10/13-10:46:32.052 fa8 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/10/13-10:46:32.053 fa8 Delete type=2 #11
+2026/10/13-10:46:32.054 fa8 Manual compaction at level-0 from '\x00\x04\x00\x00\x05' @ 133 : 1 .. '\x00\x05\x00\x00\x00' @ 0 : 0; will stop at (end)

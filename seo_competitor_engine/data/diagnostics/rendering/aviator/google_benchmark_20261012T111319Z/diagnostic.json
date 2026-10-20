@@ -1,0 +1,1293 @@
+{
+  "keyword": "aviator",
+  "engine": "google",
+  "side": "benchmark",
+  "requested_url": "https://www.betway.co.za/aviator",
+  "started_at_utc": "2026-10-12T11:13:19.743131+00:00",
+  "browser_profile": "isolated_diagnostic",
+  "snapshots": [
+    {
+      "elapsed_seconds": 0.0,
+      "url": "https://www.betway.co.za/aviator",
+      "blocked_marker_detected": false,
+      "main_document": {
+        "words": 0,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 4,
+        "iframes": 0,
+        "title": "Betway"
+      },
+      "frames": [
+        {
+          "url": "https://www.betway.co.za/aviator",
+          "is_main": true,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 4,
+            "iframes": 0,
+            "title": "Betway"
+          }
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 3.0,
+      "url": "https://www.betway.co.za/aviator",
+      "blocked_marker_detected": false,
+      "main_document": {
+        "words": 655,
+        "main_words": 625,
+        "h1": 2,
+        "h2": 2,
+        "links": 53,
+        "scripts": 42,
+        "iframes": 9,
+        "title": "Play Aviator and reach for the sky | Betway Sports betting"
+      },
+      "frames": [
+        {
+          "url": "https://www.betway.co.za/aviator",
+          "is_main": true,
+          "dom": {
+            "words": 655,
+            "main_words": 625,
+            "h1": 2,
+            "h2": 2,
+            "links": 53,
+            "scripts": 42,
+            "iframes": 9,
+            "title": "Play Aviator and reach for the sky | Betway Sports betting"
+          }
+        },
+        {
+          "url": "https://servedby.flashtalking.com/container/28585;144609;16493;iframe/",
+          "is_main": false,
+          "dom": {
+            "words": 129,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 2,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 3,
+            "iframes": 0,
+            "title": ""
+          }
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 8.0,
+      "url": "https://www.betway.co.za/aviator",
+      "blocked_marker_detected": false,
+      "main_document": {
+        "words": 655,
+        "main_words": 625,
+        "h1": 2,
+        "h2": 2,
+        "links": 53,
+        "scripts": 44,
+        "iframes": 11,
+        "title": "Play Aviator and reach for the sky | Betway Sports betting"
+      },
+      "frames": [
+        {
+          "url": "https://www.betway.co.za/aviator",
+          "is_main": true,
+          "dom": {
+            "words": 655,
+            "main_words": 625,
+            "h1": 2,
+            "h2": 2,
+            "links": 53,
+            "scripts": 44,
+            "iframes": 11,
+            "title": "Play Aviator and reach for the sky | Betway Sports betting"
+          }
+        },
+        {
+          "url": "https://servedby.flashtalking.com/container/28585;144609;16493;iframe/",
+          "is_main": false,
+          "dom": {
+            "words": 129,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 2,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "https://match.adsrvr.org/track/cei",
+          "is_main": false,
+          "dom": {
+            "words": 11,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 2,
+            "iframes": 3,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 3,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 16,
+            "iframes": 3,
+            "title": ""
+          }
+        },
+        {
+          "url": "https://pixel.rubiconproject.com/tap.php",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": "tap.php (1×1)"
+          }
+        },
+        {
+          "url": "https://ib.adnxs.com/getuid",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": "getuid (1×1)"
+          }
+        },
+        {
+          "url": "https://cm.g.doubleclick.net/pixel",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": "pixel (1×1)"
+          }
+        },
+        {
+          "url": "https://cookie.fanhub.geniussports.com/bsync",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "https://info.betway.co.za/cIsKZNWErLytAazh",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 3,
+            "iframes": 0,
+            "title": "empty"
+          }
+        },
+        {
+          "url": "https://h.online-metrix.net/gWa_4jyQLxQHAeO-",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 1,
+            "iframes": 0,
+            "title": "empty"
+          }
+        },
+        {
+          "url": "https://info.betway.co.za/5Z9Gyq_xX8qz0zAU",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 1,
+            "iframes": 0,
+            "title": "empty"
+          }
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 15.0,
+      "url": "https://www.betway.co.za/aviator",
+      "blocked_marker_detected": false,
+      "main_document": {
+        "words": 655,
+        "main_words": 625,
+        "h1": 2,
+        "h2": 2,
+        "links": 53,
+        "scripts": 45,
+        "iframes": 11,
+        "title": "Play Aviator and reach for the sky | Betway Sports betting"
+      },
+      "frames": [
+        {
+          "url": "https://www.betway.co.za/aviator",
+          "is_main": true,
+          "dom": {
+            "words": 655,
+            "main_words": 625,
+            "h1": 2,
+            "h2": 2,
+            "links": 53,
+            "scripts": 45,
+            "iframes": 11,
+            "title": "Play Aviator and reach for the sky | Betway Sports betting"
+          }
+        },
+        {
+          "url": "https://servedby.flashtalking.com/container/28585;144609;16493;iframe/",
+          "is_main": false,
+          "dom": {
+            "words": 129,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 2,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "https://match.adsrvr.org/track/cei",
+          "is_main": false,
+          "dom": {
+            "words": 11,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 2,
+            "iframes": 3,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 3,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 16,
+            "iframes": 3,
+            "title": ""
+          }
+        },
+        {
+          "url": "https://pixel.rubiconproject.com/tap.php",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": "tap.php (1×1)"
+          }
+        },
+        {
+          "url": "https://ib.adnxs.com/getuid",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": "getuid (1×1)"
+          }
+        },
+        {
+          "url": "https://cm.g.doubleclick.net/pixel",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": "pixel (1×1)"
+          }
+        },
+        {
+          "url": "https://cookie.fanhub.geniussports.com/bsync",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "https://info.betway.co.za/cIsKZNWErLytAazh",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 3,
+            "iframes": 0,
+            "title": "empty"
+          }
+        },
+        {
+          "url": "https://h.online-metrix.net/gWa_4jyQLxQHAeO-",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 1,
+            "iframes": 0,
+            "title": "empty"
+          }
+        },
+        {
+          "url": "https://info.betway.co.za/5Z9Gyq_xX8qz0zAU",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 1,
+            "iframes": 0,
+            "title": "empty"
+          }
+        }
+      ]
+    },
+    {
+      "elapsed_seconds": 25.0,
+      "url": "https://www.betway.co.za/aviator",
+      "blocked_marker_detected": false,
+      "main_document": {
+        "words": 655,
+        "main_words": 625,
+        "h1": 2,
+        "h2": 2,
+        "links": 53,
+        "scripts": 45,
+        "iframes": 11,
+        "title": "Play Aviator and reach for the sky | Betway Sports betting"
+      },
+      "frames": [
+        {
+          "url": "https://www.betway.co.za/aviator",
+          "is_main": true,
+          "dom": {
+            "words": 655,
+            "main_words": 625,
+            "h1": 2,
+            "h2": 2,
+            "links": 53,
+            "scripts": 45,
+            "iframes": 11,
+            "title": "Play Aviator and reach for the sky | Betway Sports betting"
+          }
+        },
+        {
+          "url": "https://servedby.flashtalking.com/container/28585;144609;16493;iframe/",
+          "is_main": false,
+          "dom": {
+            "words": 129,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 2,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "https://match.adsrvr.org/track/cei",
+          "is_main": false,
+          "dom": {
+            "words": 11,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 2,
+            "iframes": 3,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 3,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "[non-http URL]",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 16,
+            "iframes": 3,
+            "title": ""
+          }
+        },
+        {
+          "url": "https://pixel.rubiconproject.com/tap.php",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": "tap.php (1×1)"
+          }
+        },
+        {
+          "url": "https://ib.adnxs.com/getuid",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": "getuid (1×1)"
+          }
+        },
+        {
+          "url": "https://cm.g.doubleclick.net/pixel",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": "pixel (1×1)"
+          }
+        },
+        {
+          "url": "https://cookie.fanhub.geniussports.com/bsync",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 0,
+            "iframes": 0,
+            "title": ""
+          }
+        },
+        {
+          "url": "https://info.betway.co.za/cIsKZNWErLytAazh",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 3,
+            "iframes": 0,
+            "title": "empty"
+          }
+        },
+        {
+          "url": "https://h.online-metrix.net/gWa_4jyQLxQHAeO-",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 1,
+            "iframes": 0,
+            "title": "empty"
+          }
+        },
+        {
+          "url": "https://info.betway.co.za/5Z9Gyq_xX8qz0zAU",
+          "is_main": false,
+          "dom": {
+            "words": 0,
+            "main_words": null,
+            "h1": 0,
+            "h2": 0,
+            "links": 0,
+            "scripts": 1,
+            "iframes": 0,
+            "title": "empty"
+          }
+        }
+      ]
+    }
+  ],
+  "request_types": {
+    "document": 16,
+    "stylesheet": 3,
+    "script": 111,
+    "other": 54,
+    "manifest": 1,
+    "fetch": 22,
+    "xhr": 6,
+    "font": 2,
+    "image": 90,
+    "ping": 6
+  },
+  "failed_request_reasons": {
+    "net::ERR_BLOCKED_BY_ORB": 2,
+    "net::ERR_ABORTED": 5
+  },
+  "http_error_counts": {
+    "403": 1
+  },
+  "page_error_count": 0,
+  "console_error_count": 1,
+  "http_status": 200,
+  "final_url": "https://www.betway.co.za/aviator",
+  "frames_final": [
+    {
+      "url": "https://www.betway.co.za/aviator",
+      "is_main": true,
+      "dom": {
+        "words": 655,
+        "main_words": 625,
+        "h1": 2,
+        "h2": 2,
+        "links": 53,
+        "scripts": 45,
+        "iframes": 11,
+        "title": "Play Aviator and reach for the sky | Betway Sports betting"
+      }
+    },
+    {
+      "url": "https://servedby.flashtalking.com/container/28585;144609;16493;iframe/",
+      "is_main": false,
+      "dom": {
+        "words": 129,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 2,
+        "iframes": 0,
+        "title": ""
+      }
+    },
+    {
+      "url": "https://match.adsrvr.org/track/cei",
+      "is_main": false,
+      "dom": {
+        "words": 11,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 2,
+        "iframes": 3,
+        "title": ""
+      }
+    },
+    {
+      "url": "[non-http URL]",
+      "is_main": false,
+      "dom": {
+        "words": 0,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 0,
+        "iframes": 0,
+        "title": ""
+      }
+    },
+    {
+      "url": "[non-http URL]",
+      "is_main": false,
+      "dom": {
+        "words": 0,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 0,
+        "iframes": 0,
+        "title": ""
+      }
+    },
+    {
+      "url": "[non-http URL]",
+      "is_main": false,
+      "dom": {
+        "words": 0,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 0,
+        "iframes": 0,
+        "title": ""
+      }
+    },
+    {
+      "url": "[non-http URL]",
+      "is_main": false,
+      "dom": {
+        "words": 0,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 0,
+        "iframes": 0,
+        "title": ""
+      }
+    },
+    {
+      "url": "[non-http URL]",
+      "is_main": false,
+      "dom": {
+        "words": 0,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 0,
+        "iframes": 0,
+        "title": ""
+      }
+    },
+    {
+      "url": "[non-http URL]",
+      "is_main": false,
+      "dom": {
+        "words": 0,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 0,
+        "iframes": 0,
+        "title": ""
+      }
+    },
+    {
+      "url": "[non-http URL]",
+      "is_main": false,
+      "dom": {
+        "words": 0,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 3,
+        "iframes": 0,
+        "title": ""
+      }
+    },
+    {
+      "url": "[non-http URL]",
+      "is_main": false,
+      "dom": {
+        "words": 0,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 16,
+        "iframes": 3,
+        "title": ""
+      }
+    },
+    {
+      "url": "https://pixel.rubiconproject.com/tap.php",
+      "is_main": false,
+      "dom": {
+        "words": 0,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 0,
+        "iframes": 0,
+        "title": "tap.php (1×1)"
+      }
+    },
+    {
+      "url": "https://ib.adnxs.com/getuid",
+      "is_main": false,
+      "dom": {
+        "words": 0,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 0,
+        "iframes": 0,
+        "title": "getuid (1×1)"
+      }
+    },
+    {
+      "url": "https://cm.g.doubleclick.net/pixel",
+      "is_main": false,
+      "dom": {
+        "words": 0,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 0,
+        "iframes": 0,
+        "title": "pixel (1×1)"
+      }
+    },
+    {
+      "url": "https://cookie.fanhub.geniussports.com/bsync",
+      "is_main": false,
+      "dom": {
+        "words": 0,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 0,
+        "iframes": 0,
+        "title": ""
+      }
+    },
+    {
+      "url": "https://info.betway.co.za/cIsKZNWErLytAazh",
+      "is_main": false,
+      "dom": {
+        "words": 0,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 3,
+        "iframes": 0,
+        "title": "empty"
+      }
+    },
+    {
+      "url": "https://h.online-metrix.net/gWa_4jyQLxQHAeO-",
+      "is_main": false,
+      "dom": {
+        "words": 0,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 1,
+        "iframes": 0,
+        "title": "empty"
+      }
+    },
+    {
+      "url": "https://info.betway.co.za/5Z9Gyq_xX8qz0zAU",
+      "is_main": false,
+      "dom": {
+        "words": 0,
+        "main_words": null,
+        "h1": 0,
+        "h2": 0,
+        "links": 0,
+        "scripts": 1,
+        "iframes": 0,
+        "title": "empty"
+      }
+    }
+  ],
+  "screenshot_path": "C:\\Users\\NgcoboT\\Downloads\\seo_competitor_engine_dynamic_keywords\\seo_competitor_engine\\data\\diagnostics\\rendering\\aviator\\google_benchmark_20261012T111319Z\\final_page.png",
+  "http_error_hosts": {
+    "www.betway.co.za": 1
+  },
+  "failed_request_hosts": {
+    "media.betwayafrica.com": 1,
+    "dtm-dre.platform.hicloud.com": 1,
+    "www.google.com": 1,
+    "ad.doubleclick.net": 1,
+    "analytics.google.com": 3
+  }
+}
