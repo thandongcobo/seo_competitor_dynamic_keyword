@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SEO Competitive Intelligence</title>
+  <link rel="stylesheet" href="/css/app.css?v=20261104-recommendation-tiers">
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="/css/monitoring.css?v=20261019-intelligence-v1">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><div class="mark">S</div><div><strong>SEO Intelligence</strong><span>Competitive intelligence</span></div></div>
+    <nav aria-label="Dashboard pages">
+      <button class="nav" data-page="search">Keyword search</button>
+      <button class="nav" data-page="competitors">Competitors</button>
+      <button class="nav active" data-page="actions">Decisions &amp; actions</button>
+      <button class="nav" data-page="monitoring">Competitor change analysis</button>
+      <button class="nav" data-page="activity">Competitor activity</button>
+    </nav>
+    <div class="side-note"><i class="dot"></i><div><strong>Saved evidence mode</strong><span>No live refresh is implied</span></div></div>
+  </aside>
+  <main>
+    <header><div><p class="eyebrow">COMPETITIVE SEO INVESTIGATION</p><h1 id="page-title">Decisions &amp; actions</h1><p class="subtitle" id="scope">Loading saved Aviator evidence…</p></div><div class="status"><i class="dot"></i><span id="updated" aria-live="polite">Loading dashboard data</span></div></header>
+    <section id="search" class="page">
+      <div class="panel search-panel">
+        <div class="panel-head"><h3>Search Google for a keyword</h3><span class="badge">Live Playwright collection</span></div>
+        <p class="muted">Search with your existing local Chrome collector. The engine keeps Google's observed result order and continues through additional result pages to locate the configured tracked site (default: hollywoodbets.net), up to 100 results. It never retries to obtain a preferred ranking. Google may show a challenge or return fewer results.</p>
+        <form id="keyword-search-form" class="keyword-search-form">
+          <label for="keyword-input">Keyword<input id="keyword-input" name="keyword" type="search" placeholder="e.g. aviator" maxlength="120" autocomplete="off" required></label>
+          <label for="keyword-depth">Minimum organic results<select id="keyword-depth"><option value="10">10 results</option><option value="20" selected>20 results</option><option value="50">50 results</option></select></label>
+          <button type="submit" id="keyword-search-run">Search Google</button>
+          <button type="button" id="keyword-load-saved" class="search-secondary">Load saved snapshot</button>
+        </form>
+        <p id="keyword-search-status" class="muted" role="status" aria-live="polite">Enter a keyword to collect fresh Google results. Saved snapshots are only shown when explicitly requested.</p>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><h3>Compare two exact webpages</h3><span class="badge">Offline comparison · no new requests</span></div>
+        <p class="muted">Enter any keyword and two full webpage URLs. The engine checks saved Google observations for exact-page ranks and identifies matching saved DataForSEO, Playwright and Lighthouse evidence. When matching saved evidence exists, run the existing comparison and generate a historical report offline; no collectors, APIs, Lighthouse or Gemma inference are invoked.</p>
+        <form id="keyword-manual-form" class="keyword-search-form">
+          <label for="keyword-manual-keyword">Keyword<input id="keyword-manual-keyword" type="text" placeholder="aviator" maxlength="120" required></label>
+          <label for="keyword-manual-first">Webpage A URL<input id="keyword-manual-first" type="url" placeholder="https://www.hollywoodbets.net/aviator" maxlength="2048" required></label>
+          <label for="keyword-manual-second">Webpage B URL<input id="keyword-manual-second" type="url" placeholder="https://www.betway.co.za/aviator" maxlength="2048" required></label>
+          <button type="submit" id="keyword-manual-save">Save investigation &amp; check saved evidence</button>
+        </form>
+        <button type="button" id="keyword-manual-run" disabled>Run offline comparison (saved Aviator evidence)</button>
+        <p id="keyword-manual-result" class="muted" role="status" aria-live="polite"></p>
+        <p id="keyword-manual-status" class="muted" role="status" aria-live="polite">No new requests will be made.</p>
+        <div class="panel" id="keyword-reporting-panel">
+          <h3>Gemma recommendations and draft reports</h3>
+          <p class="muted">Available only after a matching saved-evidence investigation completes. This is a separate opt-in action: it sends new requests to your configured local Gemma model, but makes no SEO collector or paid API calls. Reports remain drafts until you review and approve them.</p>
+          <button type="button" id="keyword-reporting-start" disabled>Run Gemma and generate draft reports</button>
+          <p id="keyword-reporting-status" class="muted" role="status" aria-live="polite">Complete a supported offline investigation first.</p>
+          <div id="keyword-reporting-files" hidden></div>
+          <button type="button" id="keyword-reporting-approve" disabled hidden>Approve reviewed draft for internal use</button>
+        </div>
+      </div>
+      <div class="panel" id="investigation-history-panel">
+        <div class="panel-head"><h3>Find previous analyses</h3><span class="badge">Saved investigations · no new requests</span></div>
+        <p class="muted">Search by the saved keyword and optionally either exact webpage URL. Results are retrieved from your existing investigation history without rerunning Gemma or collecting SEO data.</p>
+        <form id="investigation-history-form" class="keyword-search-form">
+          <label for="history-keyword">Keyword<input id="history-keyword" type="search" maxlength="120" placeholder="Search saved keyword"></label>
+          <label for="history-url-a">Webpage URL (optional)<input id="history-url-a" type="url" maxlength="2048" placeholder="https://example.com/page"></label>
+          <button type="submit" id="history-search-run">Find analyses</button>
+        </form>
+        <p id="history-search-status" class="muted" role="status" aria-live="polite">Search saved investigations. No external requests.</p>
+        <div id="history-search-results" class="table-wrap"></div>
+      </div>
+      <div class="panel" id="keyword-results-panel" hidden>
+        <div class="panel-head"><h3 id="keyword-results-heading">Google organic results</h3><span id="keyword-result-source" class="badge">Collected evidence</span></div>
+        <p class="muted" id="keyword-results-meta"></p>
+        <div class="tracked-site-result" id="keyword-tracked-site" role="status"></div>
+        <div class="tracked-site-result" id="keyword-diagnostics" role="status" hidden></div>
+        <div class="table-wrap" id="keyword-results-table"></div>
+        <form id="keyword-domain-form" class="keyword-search-form" hidden>
+          <label for="keyword-domain-first">First domain<select id="keyword-domain-first" required></select></label>
+          <label for="keyword-domain-second">Comparison domain<select id="keyword-domain-second" required></select></label>
+          <button type="submit" id="keyword-domain-save">Save comparison selection</button>
+        </form>
+        <p class="muted" id="keyword-domain-status" role="status" aria-live="polite">Choose two domains from this captured SERP. The exact ranking URLs will be saved without changing the results.</p>
+        <p class="muted">Saving a selection does not run paid APIs or the local LLM. Full comparison execution will be connected in the next development stage.</p>
+      </div>
+    </section>
+    <section id="competitors" class="page"><div class="panel"><div class="panel-head"><h3>Top 8 confirmed Google results</h3><span class="badge">Saved snapshot</span></div><div id="rankings-table" class="table-wrap"></div></div><div class="panel"><div class="panel-head"><h3>Provisional competitor candidates</h3><span class="badge yellow">Not confirmed rankings</span></div><div id="competitors-table" class="table-wrap"></div></div></section>
+    <section id="actions" class="page"><div class="panel executive-summary-panel"><div class="panel-head"><h3>Executive assessment</h3><span class="badge" id="executive-status">Checking saved analysis</span></div><p id="executive-summary">Loading run-specific assessment…</p><small id="executive-freshness" class="muted"></small></div><div class="panel recommendations-panel"><div class="panel-head"><div><h3>Evidence-backed recommendations</h3><p class="muted">Specific improvements from the saved investigation, ordered by evidence tier.</p></div><span class="badge">Validated actions</span></div><div id="recommendations-list" aria-live="polite"></div></div></section>
+    <section id="activity" class="page">
+      <div class="hero"><div><span class="pill">All registered public pages</span><h2>What changed across competitors?</h2><p>Plain-language observations, with supporting evidence available when you need it.</p></div></div>
+      <div class="panel"><div class="activity-filters">
+        <label>Competitor<select id="activity-domain"><option value="">All competitors</option></select></label>
+        <label>Page<select id="activity-page"><option value="">All pages</option></select></label>
+        <label>Event<select id="activity-kind"><option value="">All events</option><option value="page_change">Page changes</option><option value="promotion_new">New promotion candidates</option><option value="promotion_change">Promotion updates</option><option value="capture_failure">Failed checks</option></select></label>
+        <label>Promotion category<select id="activity-category"><option value="">All categories</option></select></label>
+        <label>From (South Africa time)<input id="activity-since" type="date"></label>
+        <label>Through<input id="activity-until" type="date"></label>
+        <label>Search<input id="activity-query" type="search" placeholder="Competitor, wording, offer…"></label>
+      </div><button id="activity-refresh" type="button">Refresh activity</button><p id="activity-count" aria-live="polite"></p><div id="activity-events"></div><button id="activity-more" type="button" hidden>Load more</button></div>
+    </section>
+    <section id="monitoring" class="page">
+      <div class="hero monitor-hero"><div><span class="pill">Saved page history · evidence based</span><h2>Competitor change analysis</h2><p>Track what changed between successful captures and why the change may deserve attention.</p></div><button id="capture-compare" class="download">Capture &amp; compare</button></div>
+      <div class="cards four"><div class="card"><span>Monitoring status</span><strong id="monitor-status">Loading</strong><small id="monitor-keyword">Tracked keyword</small></div><div class="card"><span>Successful snapshots</span><strong id="snapshot-count">—</strong><small>Stored page versions</small></div><div class="card"><span>Detected changes</span><strong id="change-count">—</strong><small>Compared with earlier captures</small></div><div class="card"><span>Last successful capture</span><strong id="last-capture" class="card-date">—</strong><small id="capture-frequency">Capture schedule</small></div></div>
+      <div class="panel"><div class="panel-head"><h3>Latest capture health</h3><span class="badge" id="capture-health-badge">Checking</span></div><div id="capture-health" class="muted">Loading capture diagnostics…</div></div>
+      <div class="panel"><div class="panel-head"><h3>Choose or add a public page</h3><span class="badge">Page-level monitoring</span></div><div class="monitor-controls"><label for="monitor-page-select">Monitored pages</label><select id="monitor-page-select"><option value="">Loading pages…</option></select><form id="add-monitor-form"><label for="monitor-url">Add another public URL</label><input id="monitor-url" name="url" type="text" inputmode="url" placeholder="https://www.example.com/page" maxlength="2048" autocomplete="url" required><button id="add-monitor-run" type="submit">Add URL</button></form></div><p id="monitor-form-status" class="muted">Add a public page first. Then use “Capture &amp; compare” when you are ready; a capture can take a few minutes.</p></div>
+      <div class="panel"><div class="panel-head"><h3>Monitored competitor page</h3><span class="badge" id="monitor-source">Verified ranking page</span></div><div id="monitor-target" class="monitor-target"><div class="empty">Loading monitored page…</div></div><form id="monitor-settings"><label><input id="schedule-enabled" type="checkbox"> Include in scheduled checks</label><label>Interval (hours)<input id="schedule-hours" type="number" min="1" max="720" value="24" required></label><button type="submit">Save schedule</button></form><p id="schedule-message" class="muted">Recurring checks run while the separate monitoring scheduler is running.</p></div>
+      <div class="panel"><div class="panel-head"><h3>Browse promotions by category</h3><span class="badge">Click a category to filter</span></div><div id="promotion-categories" class="category-grid"></div><p class="muted">Offers may have several labels. Counts follow the source and search filters below. Category labels do not confirm an offer.</p><label>Evidence status <select id="promotion-verification"><option value="">All statuses</option><option value="automatically_corroborated">Automatically corroborated</option><option value="details_available">Public details available</option><option value="needs_review">Needs more evidence</option><option value="confirmed">Team confirmed</option></select></label></div>
+      <div class="panel"><div class="panel-head"><h3>Promotion candidates &amp; investigation</h3><span class="badge yellow">Likely offers · review details</span></div><p id="promotions-meta" class="muted">Checking captured text and banner images…</p><div class="promotion-filters"><label for="promotion-source-filter">Show</label><select id="promotion-source-filter"><option value="all">Latest capture</option><option value="text">Latest text-based</option><option value="image">Latest image/banner</option><option value="history">Earlier captures</option><option value="dismissed">Dismissed candidates</option></select><label for="promotion-search">Find in candidates</label><input id="promotion-search" type="search" placeholder="Search wording, code, amount…"></div><div id="promotions-list"></div></div>
+      <div class="grid two"><div class="panel"><div class="panel-head"><h3>Latest page snapshot</h3><span class="badge">Most recent successful version</span></div><div id="monitor-current"></div></div><div class="panel"><div class="panel-head"><h3>Page elements compared</h3><span class="badge">Change detection fields</span></div><div id="monitor-fields"></div></div></div>
+      <div class="panel"><div class="panel-head"><h3>Full rendered public-page text</h3><span class="badge" id="main-content-label">Latest successful scrape</span></div><p id="main-content-meta" class="muted">Loading the latest captured text…</p><div id="main-content-display" class="main-content-text"></div></div>
+      <div class="grid two"><div class="panel"><div class="panel-head"><h3>Full-page screenshot</h3><span class="badge">Visual evidence</span></div><div id="monitor-screenshot" class="screenshot-view"></div></div><div class="panel"><div class="panel-head"><h3>Screenshot comparison</h3><span class="badge">Capture to capture</span></div><div id="monitor-visual-diff"></div></div></div>
+      <div class="panel"><div class="panel-head"><h3>Snapshot history</h3><span class="badge">Newest first</span></div><div id="snapshot-history" class="table-wrap"></div></div>
+      <div class="panel"><div class="panel-head"><h3>What changed?</h3><span class="badge">Previous vs current</span></div><div id="monitor-changes"></div></div>
+      <div class="panel"><div class="panel-head"><h3>Competitor activity timeline</h3><span class="badge">Observed events, with evidence references</span></div><div id="monitor-timeline"></div></div>
+      <div class="panel"><div class="panel-head"><h3>New page content</h3><span class="badge">Added since the earlier snapshot</span></div><div id="monitor-new"></div></div>
+    </section>
+  </main>
+  <script src="/js/recommendations.js?v=20261104-evidence-tiers"></script>
+  <script src="/js/app.js?v=20261104-recommendation-cards"></script>
+  <script src="/js/activity.js?v=20261019-intelligence-v1"></script>
+</body>
+</html>
+

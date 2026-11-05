@@ -1,0 +1,135 @@
+{
+  "keyword": "aviator",
+  "engine": "google",
+  "stage": "before_extraction",
+  "datetime": "2026-10-21T09:49:27.704048+00:00",
+  "final_url": "https://www.google.com/search?q=aviator&hl=en&gl=za&num=20&pws=0",
+  "screenshot_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T094922_165053Z\\page_1_serp.png",
+  "html_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T094922_165053Z\\page_1_serp.html",
+  "metadata_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T094922_165053Z\\page_1_metadata.json",
+  "context": {
+    "configured": {
+      "keyword": "aviator",
+      "country_gl": "za",
+      "language_hl": "en",
+      "personalization_pws": "0",
+      "locale": "en-ZA",
+      "timezone": "Africa/Johannesburg",
+      "headless": false,
+      "viewport": {
+        "width": 1366,
+        "height": 900
+      },
+      "profile_type": "persistent",
+      "profile_identifier": "c8f37757ac0dc88e"
+    },
+    "observed": {
+      "final_url": "https://www.google.com/search?q=aviator&hl=en&gl=za&num=20&pws=0",
+      "hostname": "www.google.com",
+      "url_parameters": {
+        "q": "aviator",
+        "gl": "za",
+        "hl": "en",
+        "pws": "0"
+      },
+      "browser": {
+        "language": "en-ZA",
+        "languages": [
+          "en-ZA"
+        ],
+        "timezone": "Africa/Johannesburg",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "documentLanguage": "en-ZA"
+      }
+    },
+    "url_parameter_checks": {
+      "q": "match",
+      "gl": "match",
+      "hl": "match",
+      "pws": "match"
+    },
+    "context_warning": false,
+    "note": "gl targets a country; it does not verify precise physical location or search intent."
+  },
+  "location_coordinate_applied": false,
+  "organic_h3_count": 9,
+  "heading_candidates": [
+    {
+      "index": 1,
+      "title": "Play Aviator and reach for the sky | Betway Sports betting",
+      "href": "https://www.google.com/goto?url=CAESWwHrOzAVON6_a4107FBMcj3DvGElsE8JoQWvc11kWx0kaRk2v_Ao8LQRKW_R-i1iaKA5RiPU-0gD83PO440NFEn1oNvcKb4tQfPyKLW8QijVkixT7qpVWz5sM_g",
+      "ancestor_text": "Play Aviator and reach for the sky | Betway Sports betting\n\nBetway\nhttps://www.betway.co.za › aviator"
+    },
+    {
+      "index": 2,
+      "title": "Play Aviator | Aviator Game | Hollywoodbets SA",
+      "href": "https://www.google.com/goto?url=CAESYAHrOzAVmteiv8gvSVmEnuck9HpEiK1uTTKP4FPRcf5K4ycYPrGwyehLdy_jIOgzl9FpHDAHiK9VT9sSjSmLyip3vFo3B39L3ZTYUoKKaC8H8Jp80wfXPBClZXg5ybg67g",
+      "ancestor_text": "Play Aviator | Aviator Game | Hollywoodbets SA\n\nHollywoodbets\nhttps://www.hollywoodbets.net › aviator"
+    },
+    {
+      "index": 3,
+      "title": "Play Aviator Game Online | Crash Game by Spribe",
+      "href": "https://www.google.com/goto?url=CAESWwHrOzAVoKPYb04R825VXhV2VcIU7AXIaqf6CixlHL2NhGkw2rI4oZhmHWXnG0mp5FbGeVOWKtHe4qSLliakZLyoMrlefBnT26pay0BfZ4ZndTCjj-HnEMbPvi8",
+      "ancestor_text": "Play Aviator Game Online | Crash Game by Spribe\n\n10Bet\nhttps://www.10bet.co.za › aviator"
+    },
+    {
+      "index": 4,
+      "title": "Aviator",
+      "href": "https://www.google.com/goto?url=CAESWgHrOzAVvJ2SA0p-ZoZ_HsC1UhE0eTLvQ-9JsSy9-alHEgXv32I-ZalzBD1XZjois6qu1eKNZx7si_A7KDwKItw-sHg8d6cmt2lAauMlBnkfuxAkgskV5d8vBw",
+      "ancestor_text": "Aviator\n\nSPRIBE\nhttps://spribe.co › games › aviator"
+    },
+    {
+      "index": 5,
+      "title": "Aviator",
+      "href": "https://www.google.com/goto?url=CAEScwHrOzAVjOfK26_dHUUgHset73qXVuzq6ogeSh8wzly-9q6h7vKpyBl82BpI5BtlUpxlC3DUMxvkLyrz1-mDlgP_XUwGgt2YXJF_UoMRIW6pEz-o6LN2y9Bp2KTzILJe-l9FUBeiyD9CRtjz9gzS4cKTCtY",
+      "ancestor_text": "Aviator\n\nBetway\nhttps://www.betway.co.za › lobby › casino-games › game"
+    },
+    {
+      "index": 6,
+      "title": "How to Play Aviator on Betway 2026: Get 10 Free Flights",
+      "href": "https://www.google.com/goto?url=CAEShwEB6zswFejyyFk-Sy-W7f5Y76WD1fqFR_tw6mgdJO-dDDZZvbP-U-o9ljgRVzbgecZQNOWXXBs3RRXdG_Dw3NGVcgnHqPi_pdVRPHbhXFIfi9v9GDM3kOe-oBiLcrRc4hUSD2IqyYD51vNyGuEuCBCvm7p2DM-UFd06iEz5p0Gl1tu86V-Hoyg",
+      "ancestor_text": "How to Play Aviator on Betway 2026: Get 10 Free Flights\n\nLiveScore\nhttps://www.livescore.com › en-za › betting-sites › how..."
+    },
+    {
+      "index": 7,
+      "title": "AVIATOR Definition & Meaning",
+      "href": "https://www.google.com/goto?url=CAESbQHrOzAV9JYSoY6mlKdEp9G2CbMX_YPqC4lF1fBzVLQp5DGZfdkcZkKpcJt2fZlO0VVl0OB443dp6hDsCzjyiqmM7LDmkxEli_fkKjyN3uWfVpQRIUtBqJK1LlPV_vdBx1NJ918g72qPyt7NxQI",
+      "ancestor_text": "AVIATOR Definition & Meaning\n\nMerriam-Webster\nhttps://www.merriam-webster.com › dictionary › aviator"
+    },
+    {
+      "index": 8,
+      "title": "Aviator – Apps on Google Play",
+      "href": "https://play.google.com/store/apps/details?id=com.radarada.aviator&hl=en_ZA",
+      "ancestor_text": "Aviator – Apps on Google Play\n\nGoogle Play\nhttps://play.google.com › store › apps › details › id=com...."
+    },
+    {
+      "index": 9,
+      "title": "Play Spribe Aviator Online - Hollywoodbets Gaming",
+      "href": "https://www.google.com/goto?url=CAESbQHrOzAVWoZTlTW6jvjx07W5nvzu_o7ncaPviPWuHFSOcVOjjsYWhAJe0-ozxiWqYPZybtQlb8x_TF-rdS8kiP_vMXQpo9FOOw8m-YZBFcoBNc8sj1-mbIrDY7-OuPIAdbKA1D6tdDTOHRsFO6s",
+      "ancestor_text": "Play Spribe Aviator Online - Hollywoodbets Gaming\n\nHollywoodbets\nhttps://www.hollywoodbets.net › gaming › games › avi..."
+    }
+  ],
+  "capture_errors": [],
+  "extraction_audit": {
+    "status": "review_required",
+    "extracted_count": 9,
+    "heading_candidate_count": 9,
+    "flags": [
+      "some_result_urls_not_matched_to_heading_links"
+    ],
+    "suspicious_results": [],
+    "excluded_feature_headings_observed": [],
+    "heading_link_mismatches": [
+      "https://www.betway.co.za/aviator",
+      "https://www.hollywoodbets.net/aviator",
+      "https://www.10bet.co.za/aviator/",
+      "https://spribe.co/games/aviator",
+      "https://www.betway.co.za/lobby/casino-games/game/aviator",
+      "https://www.livescore.com/en-za/betting-sites/how-to-play-aviator-on-betway/",
+      "https://www.merriam-webster.com/dictionary/aviator",
+      "https://www.hollywoodbets.net/gaming/games/aviator"
+    ],
+    "capture_error": null,
+    "note": "AI/feature headings in the captured HTML are not organic listings. Automated checks cannot certify absolute Google organic positions; compare saved screenshot/HTML with extraction when flagged."
+  }
+}

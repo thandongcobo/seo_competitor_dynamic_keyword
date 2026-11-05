@@ -1,0 +1,30 @@
+.venv/
+__pycache__/
+*.pyc
+
+# Test output
+.test-tmp/
+tmp_pytest*/
+pytest_tmp/
+
+# Generated reports and outputs
+output/
+data/investigations/
+
+# Python cache
+.pytest_cache/
+
+# VS Code
+.vscode/
+
+# Environment files
+.env
+.venv/
+__pycache__/
+*.pyc
+
+seo_competitor_engine/data/investigations/
+seo_competitor_engine/output/
+seo_competitor_engine/.test-tmp/
+seo_competitor_engine/tmp_pytest*/
+seo_competitor_engine/.pytest_cache/

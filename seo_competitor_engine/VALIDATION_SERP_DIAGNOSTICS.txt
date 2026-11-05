@@ -1,0 +1,17 @@
+SERP DIAGNOSTIC LAYER - 21 OCTOBER 2026
+
+Implementation: existing Playwright collector extended with per-run context,
+page screenshot/HTML, extraction flags, and comparison to previous observation.
+Existing rankings are not changed, filtered by site presence, or chosen for
+consistency across searches.
+
+Offline tests:
+- New tests: 7 passed
+- Full repository: 251 passed, 12 failed, 1 skipped
+- Baseline repository before change: 12 failed (same failure categories)
+- Live Google/Windows Chrome collection: NOT tested in this environment.
+
+Known pre-existing failures: crawler readiness, final report wording,
+LLM evidence/path validation, rendering readiness, legacy pagination tests.
+
+Windows setup.bat no longer upgrades pip in place.

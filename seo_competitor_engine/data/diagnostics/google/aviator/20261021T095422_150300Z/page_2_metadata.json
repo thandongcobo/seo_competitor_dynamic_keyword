@@ -1,0 +1,143 @@
+{
+  "keyword": "aviator",
+  "engine": "google",
+  "stage": "before_extraction",
+  "datetime": "2026-10-21T09:54:39.858678+00:00",
+  "final_url": "https://www.google.com/search?q=aviator&sca_esv=c12fc4d47e39017d&hl=en&gl=za&pws=0&sxsrf=APpeQnviwPB-W7I-kGCVbu8UiXluSBU57A:1792576162985&ei=oorYavLWO8_e1sQPkpybiQY&start=10&sa=N&sstk=AS6-VmK_jlmbUqbCnQR-IMHTuumyjhpJ3673eXP6WJV7bBect0uel4_FI3UqQWdWXSDYOIb1i2FKGNWh5DNUrllBQeIe0VPKN2P7tg&ved=2ahUKEwjyr7XL6sqXAxVPr5UCHRLOJmEQ8NMDegQILxAW&cshid=1792576463051606",
+  "screenshot_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T095422_150300Z\\page_2_serp.png",
+  "html_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T095422_150300Z\\page_2_serp.html",
+  "metadata_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T095422_150300Z\\page_2_metadata.json",
+  "context": {
+    "configured": {
+      "keyword": "aviator",
+      "country_gl": "za",
+      "language_hl": "en",
+      "personalization_pws": "0",
+      "locale": "en-ZA",
+      "timezone": "Africa/Johannesburg",
+      "headless": false,
+      "viewport": {
+        "width": 1366,
+        "height": 900
+      },
+      "profile_type": "persistent",
+      "profile_identifier": "c8f37757ac0dc88e"
+    },
+    "observed": {
+      "final_url": "https://www.google.com/search?q=aviator&sca_esv=c12fc4d47e39017d&hl=en&gl=za&pws=0&sxsrf=APpeQnviwPB-W7I-kGCVbu8UiXluSBU57A:1792576162985&ei=oorYavLWO8_e1sQPkpybiQY&start=10&sa=N&sstk=AS6-VmK_jlmbUqbCnQR-IMHTuumyjhpJ3673eXP6WJV7bBect0uel4_FI3UqQWdWXSDYOIb1i2FKGNWh5DNUrllBQeIe0VPKN2P7tg&ved=2ahUKEwjyr7XL6sqXAxVPr5UCHRLOJmEQ8NMDegQILxAW&cshid=1792576463051606",
+      "hostname": "www.google.com",
+      "url_parameters": {
+        "q": "aviator",
+        "gl": "za",
+        "hl": "en",
+        "pws": "0"
+      },
+      "browser": {
+        "language": "en-ZA",
+        "languages": [
+          "en-ZA"
+        ],
+        "timezone": "Africa/Johannesburg",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "documentLanguage": "en-ZA"
+      }
+    },
+    "url_parameter_checks": {
+      "q": "match",
+      "gl": "match",
+      "hl": "match",
+      "pws": "match"
+    },
+    "context_warning": false,
+    "note": "gl targets a country; it does not verify precise physical location or search intent."
+  },
+  "location_coordinate_applied": false,
+  "organic_h3_count": 10,
+  "heading_candidates": [
+    {
+      "index": 1,
+      "title": "Play Spribe Aviator Online - Hollywoodbets Gaming",
+      "href": "https://www.google.com/goto?url=CAESbQHrOzAVSQYxrzAwXVUaVtaX8VJ8RUdwfZTL7Q3ssEyGgBynIRdGWdxscspJG0qMa4oz-pD5WJvoX8oRaVjB8ULFQMYJYoifyVwsKby63UAunweNYGcW8xp4jO7yYJc6XpqWnTikj1PmxyngeaM",
+      "ancestor_text": "Play Spribe Aviator Online - Hollywoodbets Gaming\n\nHollywoodbets\nhttps://www.hollywoodbets.net › gaming › games › avi..."
+    },
+    {
+      "index": 2,
+      "title": "AVIATOR | English meaning - Cambridge Dictionary",
+      "href": "https://www.google.com/goto?url=CAESdgHrOzAVBwE5Qs7_cJAZMcS2yTwtLyJPtzbm9uOzsb4qCAWEvU0mfEomPC2l3PwESrd0OkG8KbxpqVu8UEBR4ps5LVeLvt-sE5-5eo0yJqzT8vcSvLMlkJzzvnpLKXhor05uKbSzZohTnivqwbBiLpCRL5vlb8Q",
+      "ancestor_text": "AVIATOR | English meaning - Cambridge Dictionary\n\nCambridge Dictionary\nhttps://dictionary.cambridge.org › dictionary › aviator"
+    },
+    {
+      "index": 3,
+      "title": "Soar High with Aviator Crash Game at Interbet",
+      "href": "https://www.google.com/goto?url=CAESZAHrOzAVyIEqPhZwprdr05O2bc4Kzvi4VE3I8LyAOFBGx-Dj42IsAQzqrffYP5YybE1prggkj9snj1qzHVYe3sv5czcyUddxJ3_qPp6Z8KzfevI-w3D6w__jct_F1xb5BftkuNQ",
+      "ancestor_text": "Soar High with Aviator Crash Game at Interbet\n\nInterbet\nhttps://interbet.co.za › VegasGames › Aviator"
+    },
+    {
+      "index": 4,
+      "title": "Spribe Aviator: Play the Crash Game Demo or Real Money",
+      "href": "https://www.google.com/goto?url=CAESZQHrOzAVg_eCSsy6s84xPPYQwmLCN6UbRm56xyI68LgmWqTejekmCCpy-iNIHs3D0DCS10JLBRzVL33A8U6TG4lz06rBZ7dRll_shpGHfoduIf2OZleb1N7jJh5flQeA6S71Ba7r",
+      "ancestor_text": "Spribe Aviator: Play the Crash Game Demo or Real Money\n\nJabula Bets\nhttps://www.jabulabets.co.za › Vendors"
+    },
+    {
+      "index": 5,
+      "title": "Aviator for Android - Download the APK from Uptodown",
+      "href": "https://www.google.com/goto?url=CAESfAHrOzAVqaDGbvWNH-Njlwu4jDblujQ4sf6pGedjzssbiByh7nu3FZJ04326-l_PNQJogeFxOIAhGXWG6kTozTFEr2vSxJdpiPZNM0cQKlyhhx_2tJ1HFsgIEv0T637KgNMVQKoJIUXA_PDPzWMrStIWhpKk_Qh6oRyxa5c",
+      "ancestor_text": "Aviator for Android - Download the APK from Uptodown\n\nAviator for Android\nhttps://avi-aviatorcrashgametopfly-casino.en.uptodown.com › ..."
+    },
+    {
+      "index": 6,
+      "title": "What Is An Aviator? - SkyWatch.AI",
+      "href": "https://www.google.com/goto?url=CAESagHrOzAV-XVObq9kgs3tVjNrI3y4yqyZf7Ona_CZ4o2R_6gIDbkPUNX1Xt6y_fRJ8mS6oQELk59xAo1A3O50Nt4MDNmhNbPldTqo4HxkXr9RL66LKmxgOB4mNgMmlRzN0kDO-wLEWw9qHmI",
+      "ancestor_text": "What Is An Aviator? - SkyWatch.AI\n\nskywatch.ai\nhttps://www.skywatch.ai › blog › what-is-an-aviator"
+    },
+    {
+      "index": 7,
+      "title": "How to play Aviator | Pedia",
+      "href": "https://www.google.com/goto?url=CAESkQEB6zswFRG-KZ8juvSkrWxPf_9mRnGqK4LwN8kEZpE7E_qgG9Hw1QmZlucluQ9fwRtD-eewsSvsnfJHsq9i0palZaQZINL8w_YB3VdIlPEF5W37XLAVPZdfLr9O3GyTowIuh42H8RBGiToJu4hWbeBdbIO2bK3rfK9_n1BREOeXYZLfbFFGxhzojCzbvjPlt6UQ",
+      "ancestor_text": "How to play Aviator | Pedia\n\nBetway\nhttps://www.betway.co.za › betway-casino › page › how-..."
+    },
+    {
+      "index": 8,
+      "title": "Aviator - Definition, Meaning & Synonyms",
+      "href": "https://www.google.com/goto?url=CAESaAHrOzAVKzUDuArSHpofi2PF71Y8pUdpXFNbxgwzGqByiAXflXzZF8XqicMijUHlVNh4w4DXgHgayxGiVUwz9VpuY1FEOSk12HJq1-QAjv_ZbnNfEKHlsEnUDuo7UlHwasuKmw3jmAB5",
+      "ancestor_text": "Aviator - Definition, Meaning & Synonyms\n\nVocabulary.com\nhttps://www.vocabulary.com › dictionary › aviator"
+    },
+    {
+      "index": 9,
+      "title": "Play Aviator Game by Spribe Online at Betway",
+      "href": "https://www.google.com/goto?url=CAESZwHrOzAVV_6AeJSrnh1M8wXdG1R4H8mmGDh-OL4AonkNzwq8EdDXAn5kkjyYd-ZZ486YL5R0P9UHz-55Rjc4nyN0jp-5g3HxKImcTkrUz5KQyAuogCNv2U37Ne_tNLhYKz5aY6054z4",
+      "ancestor_text": "Play Aviator Game by Spribe Online at Betway\n\nBetway: Official Website\nhttps://betway.com › casino › games › aviator"
+    },
+    {
+      "index": 10,
+      "title": "Aviator Game: How to Play, Real Odds and House Edge",
+      "href": "https://www.google.com/goto?url=CAESiwEB6zswFXOR4l51P-OPxZu7r6qcEIeDfTSWd8x1BB4V7FACoYZdcbFxE77MEADWV6XYSqUGpZT_x8l-jfzTmwgUV8Wa3x1ELrsWlBQPQskO6lEo6iB8CJS9lTcnWrH7b9GHyX7ShWlZvt3M7EcMkSJmRWTSOsYtQs8cM5v7_Iwan-oY5A-JAh4EuIZC",
+      "ancestor_text": "Aviator Game: How to Play, Real Odds and House Edge\n\nPrimeDope\nhttps://www.primedope.com › how-to-play-aviator-gam..."
+    }
+  ],
+  "capture_errors": [],
+  "extraction_audit": {
+    "status": "review_required",
+    "extracted_count": 10,
+    "heading_candidate_count": 10,
+    "flags": [
+      "some_result_urls_not_matched_to_heading_links"
+    ],
+    "suspicious_results": [],
+    "excluded_feature_headings_observed": [],
+    "heading_link_mismatches": [
+      "https://www.hollywoodbets.net/gaming/games/aviator",
+      "https://dictionary.cambridge.org/dictionary/english/aviator",
+      "https://interbet.co.za/VegasGames/Aviator",
+      "https://www.jabulabets.co.za/games/aviator",
+      "https://avi-aviatorcrashgametopfly-casino.en.uptodown.com/android",
+      "https://www.skywatch.ai/blog/what-is-an-aviator",
+      "https://www.betway.co.za/betway-pedia/documents/betway-casino/page/how-to-play-aviator",
+      "https://www.vocabulary.com/dictionary/aviator",
+      "https://betway.com/g/en/casino/games/aviator",
+      "https://www.primedope.com/how-to-play-aviator-game-online-a-comprehensive-guide/"
+    ],
+    "capture_error": null,
+    "note": "AI/feature headings in the captured HTML are not organic listings. Automated checks cannot certify absolute Google organic positions; compare saved screenshot/HTML with extraction when flagged."
+  }
+}

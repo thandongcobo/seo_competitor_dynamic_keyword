@@ -1,0 +1,135 @@
+{
+  "keyword": "aviator",
+  "engine": "google",
+  "stage": "before_extraction",
+  "datetime": "2026-10-21T08:47:48.234290+00:00",
+  "final_url": "https://www.google.com/search?q=aviator&sca_esv=c26373f3b23c5d40&hl=en&gl=za&pws=0&sxsrf=APpeQntA1t5ozfmm6oXhL8MsNPalc1eK9w:1792572437320&ei=FXzYat2NE9bR1sQP8dvm2QU&start=20&sa=N&sstk=AS6-VmL45VzPE8fv1FASmC2Xod-S2avLJid5c0Zyd4YIlKbyd68fYHwRKG6SLYJfm-bYPz2WJCrj1SHda_f5vrKxeIZzngl4UeIrSbzUvpZ9MlhwBcAKWRkc-zeyYoMzHIdS&ved=2ahUKEwid7PDa3MqXAxXWqJUCHfGtOVs4ChDw0wN6BAgqEBc",
+  "screenshot_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T084653_208641Z\\page_3_serp.png",
+  "html_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T084653_208641Z\\page_3_serp.html",
+  "metadata_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T084653_208641Z\\page_3_metadata.json",
+  "context": {
+    "configured": {
+      "keyword": "aviator",
+      "country_gl": "za",
+      "language_hl": "en",
+      "personalization_pws": "0",
+      "locale": "en-ZA",
+      "timezone": "Africa/Johannesburg",
+      "headless": false,
+      "viewport": {
+        "width": 1366,
+        "height": 900
+      },
+      "profile_type": "persistent",
+      "profile_identifier": "c8f37757ac0dc88e"
+    },
+    "observed": {
+      "final_url": "https://www.google.com/search?q=aviator&sca_esv=c26373f3b23c5d40&hl=en&gl=za&pws=0&sxsrf=APpeQntA1t5ozfmm6oXhL8MsNPalc1eK9w:1792572437320&ei=FXzYat2NE9bR1sQP8dvm2QU&start=20&sa=N&sstk=AS6-VmL45VzPE8fv1FASmC2Xod-S2avLJid5c0Zyd4YIlKbyd68fYHwRKG6SLYJfm-bYPz2WJCrj1SHda_f5vrKxeIZzngl4UeIrSbzUvpZ9MlhwBcAKWRkc-zeyYoMzHIdS&ved=2ahUKEwid7PDa3MqXAxXWqJUCHfGtOVs4ChDw0wN6BAgqEBc",
+      "hostname": "www.google.com",
+      "url_parameters": {
+        "q": "aviator",
+        "gl": "za",
+        "hl": "en",
+        "pws": "0"
+      },
+      "browser": {
+        "language": "en-ZA",
+        "languages": [
+          "en-ZA"
+        ],
+        "timezone": "Africa/Johannesburg",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "documentLanguage": "en-ZA"
+      }
+    },
+    "url_parameter_checks": {
+      "q": "match",
+      "gl": "match",
+      "hl": "match",
+      "pws": "match"
+    },
+    "context_warning": false,
+    "note": "gl targets a country; it does not verify precise physical location or search intent."
+  },
+  "location_coordinate_applied": false,
+  "organic_h3_count": 9,
+  "heading_candidates": [
+    {
+      "index": 1,
+      "title": "Aviator | Quick Games",
+      "href": "https://www.google.com/goto?url=CAEScgHrOzAVJJUGRLg9_hIYkfHvxg-SjLVbVSJJqgDpBBCfM7821DZ-kdyfoQKaV1E74yuQ4o9FwnKu5RTNKv2SIbE2Isg8TOD0OC-U4i7zOtNk8X6A5Q3HC3qscBjzNfRJj4uk9o9Clh_JnloRvws1m_9cng",
+      "ancestor_text": "Aviator | Quick Games\n\nLottoStar\nhttps://lottostar.co.za › game-information › spribe-aviator"
+    },
+    {
+      "index": 2,
+      "title": "AVIATOR Definition & Meaning",
+      "href": "https://www.google.com/goto?url=CAESZAHrOzAVOyQcCPtHtq8u32NQaFFpALBsnYLCTqN79Jmi1-X06eNZguoRVDWkXwo7A8QneaQpT_nVzxdY08xLBXMEJU1ZSiTYeabu2-sNK4I8vlI5CSwcJ3krBmIumkuAD2AH43Q",
+      "ancestor_text": "AVIATOR Definition & Meaning\n\nDictionary.com\nhttps://www.dictionary.com › browse › aviator"
+    },
+    {
+      "index": 3,
+      "title": "Play Aviator Game in Zimbabwe | Moors / MWOS ZW",
+      "href": "https://www.google.com/goto?url=CAESawHrOzAVaAZQxT94OCDrv6nbY827nV9UpKQk_ZxxFR5E4DhiIPOrPVm_oLh_9C_4yOZ3UteYXCQZNFl14aMs0UqH-wPyBA26MkTPddi89Hq17v9s2NmlnUgC00HgivZQSJroEMTYfyUM3kis",
+      "ancestor_text": "Play Aviator Game in Zimbabwe | Moors / MWOS ZW\n\nBetting Co ZW\nhttps://betting.co.zw › virtual › fast-games › aviator"
+    },
+    {
+      "index": 4,
+      "title": "Aviator — Ship AI-generated code at velocity you trust",
+      "href": "https://www.google.com/goto?url=CAESUgHrOzAVijb3zhZX7vtoPRcCtQg4wz-tfKZnZmEKD_sq_niRXR7KqH2lOtGY6HV7f_tqHYONetMJY6B7AkQiHPGU-Y6y-ZV9FnSkgoFYwLq2tEQ",
+      "ancestor_text": "Aviator — Ship AI-generated code at velocity you trust\n\naviator.co\nhttps://www.aviator.co"
+    },
+    {
+      "index": 5,
+      "title": "Aviator Free Flights",
+      "href": "https://www.google.com/goto?url=CAESbQHrOzAVN9fSk1JcolweEj9vK4IkjSqZ7gnq0APxBhuBe9wT92Ff_AEl4E4DzouzlL4xxnX8o3tMC7ezdZbw_GvW-apaGD-_u4yOro6L6Iz4f192I408-GRn8ojXStOS7FsQcHw6EGxx5YFTXEQ",
+      "ancestor_text": "Aviator Free Flights\n\nEasybet\nhttps://easybet.co.za › page › aviator-free-flights-v2"
+    },
+    {
+      "index": 6,
+      "title": "Aviator Betting | Bet Online in South Africa",
+      "href": "https://www.google.com/goto?url=CAESZQHrOzAVNufyohQOhUkByL_y7KxK80rQerOIMyjV0GvyVKnFdpEunjJDn2yVICyaBWGn_n_QgaLgHesoYqsHC9U1SjCzoImsNfWq03BEdnt1Dj0jkc1jpa7AH-w3Apc6aMKBIT0m",
+      "ancestor_text": "Aviator Betting | Bet Online in South Africa\n\nsportingbet.co.za\nhttps://www.sportingbet.co.za › aviator"
+    },
+    {
+      "index": 7,
+      "title": "AVIATOR definition and meaning | Collins English Dictionary",
+      "href": "https://www.google.com/goto?url=CAESdwHrOzAVngcz7S4UTQ49LK8zq6FzYfdRjao5f69zSaOKvmkzOScgYAzIgHxqLJoCDV-qOwGFV4mHOlv7fF1nl0qnhj0QjsjzK2pYD46_FDBiGOpQANLAXj9q0WjMUQ4YNEZ6muvJqOXWBP6bbv9zKsFWUSw-TdvV",
+      "ancestor_text": "AVIATOR definition and meaning | Collins English Dictionary\n\nCollins Dictionary\nhttps://www.collinsdictionary.com › dictionary › aviator"
+    },
+    {
+      "index": 8,
+      "title": "Aviator Game South Africa — RTP, Strategy & Where to Play",
+      "href": "https://www.google.com/goto?url=CAESbAHrOzAVLSOzfX0Bz41ClIy5zursMsy4S4d9ztXnMkYZeIMS6cyVObV9oGXY7d5ylKbyWI8MBbQ32B-jBzvGgya5F4lVRF1Eqp8JE9aOykt4v6sG-FqbGXpXfU1AkNLENEz4prRbUmeGw_wGnw",
+      "ancestor_text": "Aviator Game South Africa — RTP, Strategy & Where to Play\n\nbetsouthafrica.co.za\nhttps://betsouthafrica.co.za › Casino Games"
+    },
+    {
+      "index": 9,
+      "title": "Aviator Game",
+      "href": "https://www.google.com/goto?url=CAESawHrOzAVOtX8KRZDdaX-f9i-SjXWOw3PGnJdl4gYyPegVquvx8rcgec4BGBOC4SG1ivdV9e77EZj_YH9A11VYxcjl9VkrYRDDWAuoRvxUUW9k2w-scYbLuHW9WeKIUs9kYCIkpHC1G_C4wsR",
+      "ancestor_text": "Aviator Game\n\nLucky Fish\nhttps://www.luckyfish.co.za › gaming › games › aviator"
+    }
+  ],
+  "capture_errors": [],
+  "extraction_audit": {
+    "status": "review_required",
+    "extracted_count": 9,
+    "heading_candidate_count": 9,
+    "flags": [
+      "some_result_urls_not_matched_to_heading_links"
+    ],
+    "suspicious_results": [],
+    "heading_link_mismatches": [
+      "https://lottostar.co.za/game-information/spribe-aviator",
+      "https://www.dictionary.com/browse/aviator",
+      "https://betting.co.zw/virtual/fast-games/aviator",
+      "https://www.aviator.co/",
+      "https://easybet.co.za/page/aviator-free-flights-v2",
+      "https://www.sportingbet.co.za/en/p/aviator",
+      "https://www.collinsdictionary.com/dictionary/english/aviator?__cf_chl_rt_tk=8tLwahQEQs..lWvqYYwtV5ad8rQtZvEKkepqrACSJLs-1792572483-1.0.1.1-CyPZpltekqL.zPPTo0Tnivq0tCjniOpb_qJ_x2ibCm4",
+      "https://betsouthafrica.co.za/game-review/aviator/",
+      "https://www.luckyfish.co.za/gaming/games/aviator"
+    ],
+    "capture_error": null,
+    "note": "Automated checks cannot certify absolute Google organic positions; compare saved screenshot/HTML with extraction when flagged."
+  }
+}

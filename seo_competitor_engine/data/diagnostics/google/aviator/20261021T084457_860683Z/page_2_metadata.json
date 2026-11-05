@@ -1,0 +1,135 @@
+{
+  "keyword": "aviator",
+  "engine": "google",
+  "stage": "before_extraction",
+  "datetime": "2026-10-21T08:45:47.468041+00:00",
+  "final_url": "https://www.google.com/search?q=aviator&sca_esv=c26373f3b23c5d40&hl=en&gl=za&pws=0&sxsrf=APpeQnuOPaBHstiJ_JrreSo45U618EscNQ:1792572301312&ei=jXvYau64Etic5OUP7cywgQg&start=10&sa=N&sstk=AS6-VmK87xMxyLrfc5xfnvbKJlIwZW4_7GNyjWHKBbwLpnBQOrWFhvJ79wtAcPo7GlJU9kd0yjXZhbTJKEw2vCa-dZfFcpR4q2B8WQ&ved=2ahUKEwius4Oa3MqXAxVYDrkGHW0mLIAQ8NMDegQILRAG",
+  "screenshot_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T084457_860683Z\\page_2_serp.png",
+  "html_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T084457_860683Z\\page_2_serp.html",
+  "metadata_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T084457_860683Z\\page_2_metadata.json",
+  "context": {
+    "configured": {
+      "keyword": "aviator",
+      "country_gl": "za",
+      "language_hl": "en",
+      "personalization_pws": "0",
+      "locale": "en-ZA",
+      "timezone": "Africa/Johannesburg",
+      "headless": false,
+      "viewport": {
+        "width": 1366,
+        "height": 900
+      },
+      "profile_type": "persistent",
+      "profile_identifier": "c8f37757ac0dc88e"
+    },
+    "observed": {
+      "final_url": "https://www.google.com/search?q=aviator&sca_esv=c26373f3b23c5d40&hl=en&gl=za&pws=0&sxsrf=APpeQnuOPaBHstiJ_JrreSo45U618EscNQ:1792572301312&ei=jXvYau64Etic5OUP7cywgQg&start=10&sa=N&sstk=AS6-VmK87xMxyLrfc5xfnvbKJlIwZW4_7GNyjWHKBbwLpnBQOrWFhvJ79wtAcPo7GlJU9kd0yjXZhbTJKEw2vCa-dZfFcpR4q2B8WQ&ved=2ahUKEwius4Oa3MqXAxVYDrkGHW0mLIAQ8NMDegQILRAG",
+      "hostname": "www.google.com",
+      "url_parameters": {
+        "q": "aviator",
+        "gl": "za",
+        "hl": "en",
+        "pws": "0"
+      },
+      "browser": {
+        "language": "en-ZA",
+        "languages": [
+          "en-ZA"
+        ],
+        "timezone": "Africa/Johannesburg",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "documentLanguage": "en-ZA"
+      }
+    },
+    "url_parameter_checks": {
+      "q": "match",
+      "gl": "match",
+      "hl": "match",
+      "pws": "match"
+    },
+    "context_warning": false,
+    "note": "gl targets a country; it does not verify precise physical location or search intent."
+  },
+  "location_coordinate_applied": false,
+  "organic_h3_count": 9,
+  "heading_candidates": [
+    {
+      "index": 1,
+      "title": "Aviator Game Official | Spribe Crash Game 97% RTP | Play Now",
+      "href": "https://www.google.com/goto?url=CAESWwHrOzAVs3_cwdnbFimD0f32fZfAIzE0imOKvipLCVxVG1cGxebXNqGqBKrDe3yozOUc0rATYf2D2c8VSQXa0Rb2ZV9fQCZHfeNRCqgdoS_UxOUeT8IB3nXTwQE",
+      "ancestor_text": "Aviator Game Official | Spribe Crash Game 97% RTP | Play Now\n\nofficialgameaviator.com\nhttps://officialgameaviator.com"
+    },
+    {
+      "index": 2,
+      "title": "Aviator Explained: How the Crash Game Works - BetMzansi",
+      "href": "https://www.google.com/goto?url=CAESYgHrOzAVQO7ioK6mwJqWglqjbyzVM2ayJjQvkNI40ooy8Y5_ZsgvXOR2C-opzgWmpIqdx1FoCnb7lYfM4x6dfOJ2HdD1qXt-FuDJiVlZWQ8-Nk2h1yJy7Vk7CTD5se-MBvkt",
+      "ancestor_text": "Aviator Explained: How the Crash Game Works - BetMzansi\n\nbet-mzansi.co.za\nhttps://bet-mzansi.co.za › Games"
+    },
+    {
+      "index": 3,
+      "title": "Aviator Game South Africa | Play Aviator Online | SpribeSA",
+      "href": "https://www.google.com/goto?url=CAESXwHrOzAV9FweFQBfDn6NRdAx7nLp_nUijOK5AwqbpM74sJFJvJqXHKwUJ6uyYRcd8iSvkgAVLtnd1PNcIX91lN93ZjXRhIPWLucPXkeY821uYDipkDkjXHi5BqLOGOBj",
+      "ancestor_text": "Aviator Game South Africa | Play Aviator Online | SpribeSA\n\naviatorsaonline.com\nhttps://aviatorsaonline.com › aviator"
+    },
+    {
+      "index": 4,
+      "title": "Aviator game official and unique online betting game",
+      "href": "https://www.google.com/goto?url=CAESVgHrOzAVekZBx6J029t_zxk881uzztKE3m6QWfEOL1QRkaTh-GiDCRPjeOay_Y57fQq3RReien_J57tU9ku7CMN5wrcNa0tfreoCYP7IyDQfAi3U0GWr",
+      "ancestor_text": "Aviator game official and unique online betting game\n\nUS.COM\nhttps://aviatorgame.us.com"
+    },
+    {
+      "index": 5,
+      "title": "Aviator Game - Play Online Now | Official Aviator Website",
+      "href": "https://www.google.com/goto?url=CAESTgHrOzAVcyxmcR7KYPxg6YjaQ4Oul4VxhtyQ6hRvrcmFK7x2uogYHQgrnERDz7SpGc757gE8DTZhvkFUgf_oui6GOojUCGHdQhtDNzh2Sg",
+      "ancestor_text": "Aviator Game - Play Online Now | Official Aviator Website\n\naviator.fm\nhttps://aviator.fm"
+    },
+    {
+      "index": 6,
+      "title": "Aviator game online in Eswatini ⭐️ Play Aviator game ...",
+      "href": "https://www.google.com/goto?url=CAESVwHrOzAVj22zRsiTg-jXeHxn7hz8Hq2L2qwOS0wTU1bAsxGFs8Jmbw77qF6c0PXBtogNV0SInu4hwsnIOIzrLSfQ6HIWq0RTsW2f8ofVVWEx4w4CMpqx7Q",
+      "ancestor_text": "Aviator game online in Eswatini ⭐️ Play Aviator game ...\n\nsz-aviator-game.com\nhttps://sz-aviator-game.com"
+    },
+    {
+      "index": 7,
+      "title": "Aviator™ OFFICIAL",
+      "href": "https://www.google.com/goto?url=CAESVAHrOzAVOIPHg7F2Om0LAMKbx9XjKXDCdt21pZ163eVvHo0qYXgKStTFOPMT8gyTdNwXDNI3kEOsKRgDvKGmhd3V7Whr07hSckWplxweywTPcH4nOQ",
+      "ancestor_text": "Aviator™ OFFICIAL\n\nplay2aviator.com\nhttps://play2aviator.com"
+    },
+    {
+      "index": 8,
+      "title": "Aviator Game - The Ultimate Guide to Playing and Winning",
+      "href": "https://www.google.com/goto?url=CAESVgHrOzAV2UT84zBWQoiu4ZFVoLgBCOhd5MRuoLvw60dsCN9kXBZ1nsiZx6mpLK4xcjojOgoaDETFJv_2uOLYy-JBw0E8SLyuzE7_UWOP6eDtAZtS9d-E",
+      "ancestor_text": "Aviator Game - The Ultimate Guide to Playing and Winning\n\naviator-malawi.net\nhttps://aviator-malawi.net"
+    },
+    {
+      "index": 9,
+      "title": "Aviator - Real-Time Betting Game for UK Players",
+      "href": "https://www.google.com/goto?url=CAESUAHrOzAVoLcTTTVN7YY0lO_7xN6Zbc9plxnN2M-qWPlNIiEe8RS8yH34xgHDrxCvX23phG1zRgej1budpboGEVmdSBIpjflZtU9_mhh-MjKQ",
+      "ancestor_text": "Aviator - Real-Time Betting Game for UK Players\n\naviator.game\nhttps://aviator.game"
+    }
+  ],
+  "capture_errors": [],
+  "extraction_audit": {
+    "status": "review_required",
+    "extracted_count": 9,
+    "heading_candidate_count": 9,
+    "flags": [
+      "some_result_urls_not_matched_to_heading_links"
+    ],
+    "suspicious_results": [],
+    "heading_link_mismatches": [
+      "https://officialgameaviator.com/",
+      "https://bet-mzansi.co.za/games/aviator/",
+      "https://aviatorsaonline.com/aviator/",
+      "https://aviatorgame.us.com/",
+      "https://aviator.fm/",
+      "https://sz-aviator-game.com/",
+      "https://play2aviator.com/",
+      "https://aviator-malawi.net/",
+      "https://aviator.game/"
+    ],
+    "capture_error": null,
+    "note": "Automated checks cannot certify absolute Google organic positions; compare saved screenshot/HTML with extraction when flagged."
+  }
+}

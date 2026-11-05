@@ -1,0 +1,181 @@
+{
+  "keyword": "aviator",
+  "engine": "google",
+  "stage": "before_extraction",
+  "datetime": "2026-10-21T10:48:04.609396+00:00",
+  "final_url": "https://www.google.com/search?q=aviator&sca_esv=7e69963a3bb46de9&hl=en&gl=za&pws=0&sxsrf=APpeQnvoIeHt2Za47zy3za_0pkunKmntVQ:1792579666528&ei=UpjYaoHdH-fo1e8Pi4HtmAE&start=20&sa=N&sstk=AS6-VmKCaJFwjGefwxDiv37swKyxCT2wsjZqhjUdyVtFVeHuENOIVyY4s4H-dOYi_4hg3HnqkrsQQ4LyEeaWjDUxwoGXsU7godfFmhW5IAoZTuP1Q5vCPUu_33hyN-9uzpYi&ved=2ahUKEwiBzoTS98qXAxVndPUHHYtAGxM4ChDw0wN6BAgqEBc",
+  "screenshot_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T104730_558572Z\\page_3_serp.png",
+  "html_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T104730_558572Z\\page_3_serp.html",
+  "metadata_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T104730_558572Z\\page_3_metadata.json",
+  "context": {
+    "configured": {
+      "keyword": "aviator",
+      "country_gl": "za",
+      "language_hl": "en",
+      "personalization_pws": "0",
+      "locale": "en-ZA",
+      "timezone": "Africa/Johannesburg",
+      "headless": false,
+      "viewport": {
+        "width": 1366,
+        "height": 900
+      },
+      "profile_type": "persistent",
+      "profile_identifier": "c8f37757ac0dc88e"
+    },
+    "observed": {
+      "final_url": "https://www.google.com/search?q=aviator&sca_esv=7e69963a3bb46de9&hl=en&gl=za&pws=0&sxsrf=APpeQnvoIeHt2Za47zy3za_0pkunKmntVQ:1792579666528&ei=UpjYaoHdH-fo1e8Pi4HtmAE&start=20&sa=N&sstk=AS6-VmKCaJFwjGefwxDiv37swKyxCT2wsjZqhjUdyVtFVeHuENOIVyY4s4H-dOYi_4hg3HnqkrsQQ4LyEeaWjDUxwoGXsU7godfFmhW5IAoZTuP1Q5vCPUu_33hyN-9uzpYi&ved=2ahUKEwiBzoTS98qXAxVndPUHHYtAGxM4ChDw0wN6BAgqEBc",
+      "hostname": "www.google.com",
+      "url_parameters": {
+        "q": "aviator",
+        "gl": "za",
+        "hl": "en",
+        "pws": "0"
+      },
+      "browser": {
+        "language": "en-ZA",
+        "languages": [
+          "en-ZA"
+        ],
+        "timezone": "Africa/Johannesburg",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "documentLanguage": "en-ZA"
+      }
+    },
+    "url_parameter_checks": {
+      "q": "match",
+      "gl": "match",
+      "hl": "match",
+      "pws": "match"
+    },
+    "context_warning": false,
+    "note": "gl targets a country; it does not verify precise physical location or search intent."
+  },
+  "location_coordinate_applied": false,
+  "organic_h3_count": 9,
+  "heading_candidates": [
+    {
+      "index": 1,
+      "title": "Aviator Free Flights",
+      "href": "https://www.google.com/goto?url=CAESbQHrOzAVAxPEWH9ycKVQjRPwag2UqpLYS-ebs_SHc2oeGEVPvNMO0W7qHXInhjbpHpsG7VaS53lzKWatSSCeqorV1BEvMXduXtVXmwZ_mAQfeWld0wElTFAQQJmo4Xd_ZXv8G4K5H-5pd62tY2I",
+      "ancestor_text": "Aviator Free Flights\n\nEasybet\nhttps://easybet.co.za › page › aviator-free-flights-v2"
+    },
+    {
+      "index": 2,
+      "title": "AVIATOR Definition & Meaning",
+      "href": "https://www.google.com/goto?url=CAESZAHrOzAVQs1Epstsf6mUHdGDKWWBOEw51kRUWnPPc6PaSZ5_8XQfrMoMICsrkaTMBS580RK2SoLzjhOAAekzYlOKrCfscc1VsfSMuj52h7_P1HS0TB_2DfFAdHN14UPA7dZeZrU",
+      "ancestor_text": "AVIATOR Definition & Meaning\n\nDictionary.com\nhttps://www.dictionary.com › browse › aviator"
+    },
+    {
+      "index": 3,
+      "title": "Play Aviator Game in Zimbabwe | Moors / MWOS ZW",
+      "href": "https://www.google.com/goto?url=CAESawHrOzAVTOjp9gs1lC7M62fIvVZ9iTHpPzXAVwV_rk2dJ5rx4NoclSZsImKN8Oo6iDnWgFtwqhB00oT0lfzQY5IFLMhoJ_tgWfwk7dtAeY1tNn9GdvQAEkIFqhcXeX-ijGRMGMiucrXQtipl",
+      "ancestor_text": "Play Aviator Game in Zimbabwe | Moors / MWOS ZW\n\nBetting Co ZW\nhttps://betting.co.zw › virtual › fast-games › aviator"
+    },
+    {
+      "index": 4,
+      "title": "Play Aviator Game by Spribe Online at Betway",
+      "href": "https://www.google.com/goto?url=CAESZwHrOzAVdejLPC6lhdSfFJeIUTX_AeGsOuDM2oHDShqb3LcBxJDC9YV338ldu2IDJQMo7O555bXJrmCc8OMVB9Rox2Nm3UlTOFWpY-CxkmFMCYgrav174xt3bnOeXttBP9pVwSsKflI",
+      "ancestor_text": "Play Aviator Game by Spribe Online at Betway\n\nBetway: Official Website\nhttps://betway.com › casino › games › aviator"
+    },
+    {
+      "index": 5,
+      "title": "Aviator — Ship AI-generated code at velocity you trust",
+      "href": "https://www.google.com/goto?url=CAESUgHrOzAV8y9p2KqUjkGjtjNlzRf7atI3M-80c8YHdbnttMsBB9ArDbwCQessuzZbi2Rsra3pZysNwioeIEOjrsSI7xXkPRY8D_PFv49iIOt_CgA",
+      "ancestor_text": "Aviator — Ship AI-generated code at velocity you trust\n\naviator.co\nhttps://www.aviator.co"
+    },
+    {
+      "index": 6,
+      "title": "Aviator Game",
+      "href": "https://www.google.com/goto?url=CAESawHrOzAVo0KfxCdDT4q6TzunMmGbzqybXvd4nsid-UffsK1pfp9BnnfgLmHFq63HsWjcVPRmNPpcQszNukdK-osKEvtMTL6fiHl6t4ukwc4Sdgy03LOAWkjFLxpvlEIwJ6wmnNJKjOU8fdZ5",
+      "ancestor_text": "Aviator Game\n\nLucky Fish\nhttps://www.luckyfish.co.za › gaming › games › aviator"
+    },
+    {
+      "index": 7,
+      "title": "Aviator 2 - Free download and play on Windows",
+      "href": "https://www.google.com/goto?url=CAESaQHrOzAViDuF85iCo59cKt7PzVYuWICjJ1AoWoc8XyKzmP-lUStvCEFuHCqoHcbb7K9ehRPSHL5MJXzBt0YM_NdzHQgegt_Tm0xexxmVmKnOfpPhfWhuS8MjUURBRGcinvf8g46QYAz-Vg",
+      "ancestor_text": "Aviator 2 - Free download and play on Windows\n\nMicrosoft Store\nhttps://apps.microsoft.com › detail"
+    },
+    {
+      "index": 8,
+      "title": "AVIATOR APK for Android - Download",
+      "href": "https://www.google.com/goto?url=CAESYgHrOzAVFVvuVeGcmqjW2rB7CFLSYJC2eGYw3-c4lpK1BxofUwPF6OLEEHLLXB9gNvdDn6VG6TG9VXX74fty9bOceazqOkB-fqK8lybNgGT2V6A3Xif_avt9Fxez1CAXDpql",
+      "ancestor_text": "AVIATOR APK for Android - Download\n\nSoftonic\nhttps://aviator.en.softonic.com › ... › Lifestyle › Sports"
+    },
+    {
+      "index": 9,
+      "title": "How to Play Aviator Casino Games | Playing and Winning ...",
+      "href": "https://www.google.com/goto?url=CAESVwHrOzAVORf17v9dH13ax6l5F9o63xufzK4z0nnh25hFz6uKSncYoz7z6Rdy1uBboZA1VuO3Lq7S2NkYSR-fNQf91mtNQ38Gqmzx_yDm9trritL-UaywqQ",
+      "ancestor_text": "How to Play Aviator Casino Games | Playing and Winning ...\n\nMrQ\nhttps://mrq.com › Blog"
+    }
+  ],
+  "capture_errors": [],
+  "extraction_audit": {
+    "status": "evidence_captured_not_manually_verified",
+    "extracted_count": 9,
+    "heading_candidate_count": 9,
+    "flags": [],
+    "suspicious_results": [],
+    "excluded_feature_headings_observed": [],
+    "heading_link_mismatches": [],
+    "heading_matches": [
+      {
+        "observed_sequence": 1,
+        "url": "https://easybet.co.za/page/aviator-free-flights-v2",
+        "match_method": "opaque_redirect_title_and_displayed_domain",
+        "heading_index": 1
+      },
+      {
+        "observed_sequence": 2,
+        "url": "https://www.dictionary.com/browse/aviator",
+        "match_method": "opaque_redirect_title_and_displayed_domain",
+        "heading_index": 2
+      },
+      {
+        "observed_sequence": 3,
+        "url": "https://betting.co.zw/virtual/fast-games/aviator",
+        "match_method": "opaque_redirect_title_and_displayed_domain",
+        "heading_index": 3
+      },
+      {
+        "observed_sequence": 4,
+        "url": "https://betway.com/g/en/casino/games/aviator",
+        "match_method": "opaque_redirect_title_and_displayed_domain",
+        "heading_index": 4
+      },
+      {
+        "observed_sequence": 5,
+        "url": "https://www.aviator.co/",
+        "match_method": "opaque_redirect_title_and_displayed_domain",
+        "heading_index": 5
+      },
+      {
+        "observed_sequence": 6,
+        "url": "https://www.luckyfish.co.za/gaming/games/aviator",
+        "match_method": "opaque_redirect_title_and_displayed_domain",
+        "heading_index": 6
+      },
+      {
+        "observed_sequence": 7,
+        "url": "https://apps.microsoft.com/detail/9ntzdmgs1jp0?hl=en-GB&gl=ZA",
+        "match_method": "opaque_redirect_title_and_displayed_domain",
+        "heading_index": 7
+      },
+      {
+        "observed_sequence": 8,
+        "url": "https://aviator.en.softonic.com/android",
+        "match_method": "opaque_redirect_title_and_displayed_domain",
+        "heading_index": 8
+      },
+      {
+        "observed_sequence": 9,
+        "url": "https://mrq.com/blog/aviator",
+        "match_method": "opaque_redirect_title_and_displayed_domain",
+        "heading_index": 9
+      }
+    ],
+    "opaque_redirect_domain_matches": 9,
+    "capture_error": null,
+    "note": "Opaque Google redirect destinations cannot be decoded from their tokens; linked heading title and visibly displayed domain are corroborating DOM evidence, not independent proof of the final URL or absolute Google rank. Unmatched or ambiguous results require manual HTML/screenshot review."
+  }
+}
