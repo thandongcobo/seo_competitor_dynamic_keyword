@@ -11,7 +11,7 @@
       "title": "Optimize Title Tag for Keyword Relevance",
       "owner": "SEO Content Team",
       "action": "Review current page title: 'Online Sports Betting and Online Casino | Hollywoodbets'.",
-      "success_check": "Increase in CTR for 'aviator' queries and maintenance or improvement of position 2.",
+      "success_check": "Compare click-through rate for the 'aviator' query with a later observation; record the observed search position without setting an unsupported target.",
       "evidence_ids": [
         "ON_TITLE"
       ],
@@ -55,7 +55,7 @@
         "Ensure the new title remains within optimal character limits for SERP display.",
         "Update the title tag via CMS and monitor CTR and position changes."
       ],
-      "success_measure": "Increase in CTR for 'aviator' queries and maintenance or improvement of position 2.",
+      "success_measure": "Compare click-through rate for the 'aviator' query with a later observation; record the observed search position without setting an unsupported target.",
       "uncertainty": "Changing the title may affect rankings for broader 'Online Casino' terms if the title becomes too narrow.",
       "evidence_ids": [
         "ON_TITLE"

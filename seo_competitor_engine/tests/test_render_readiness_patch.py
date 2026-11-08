@@ -21,12 +21,14 @@ def test_main_content_is_ready():
     html = '<html><body><main><h1>Aviator game</h1>' + ('Game instructions and details. ' * 60) + '</main></body></html>'
     d = parse(html)
     assert d['main_word_count'] > 100
-    assert _content_quality(d) == (True, 'substantial_main_content')
+    assert _content_quality(d)[0] is False
+    d.update(seo_content_status='candidate', seo_content_word_count=d['main_word_count'])
+    assert _content_quality(d) == (True, 'standardized_visible_main_candidate')
 
 
-def test_legacy_heading_content_is_ready():
+def test_legacy_heading_without_verified_main_content_is_not_ready():
     html = '<html><body><h1>Game details</h1><p>' + ('Useful content about this game and its features. ' * 15) + '</p></body></html>'
-    assert _content_quality(parse(html))[0] is True
+    assert _content_quality(parse(html))[0] is False
 
 
 def test_stability_rejects_shell_to_main_change():
@@ -63,9 +65,14 @@ def test_readiness_does_not_stop_on_early_nav_shell(monkeypatch):
         def evaluate(self, script):
             if clock[0] < 3:
                 return dict(rendered_word_count=160, rendered_main_word_count=0,
-                            rendered_h1_count=0, readiness_text_prefix='Home Casino Sports', body_blocked=False)
+                            rendered_h1_count=0, readiness_text_prefix='Home Casino Sports', body_blocked=False,
+                            seo_content_status='unverified', seo_content_word_count=0,
+                            seo_content_selector=None, seo_content_text_prefix='')
             return dict(rendered_word_count=655, rendered_main_word_count=625,
-                        rendered_h1_count=1, readiness_text_prefix='Aviator game Instructions', body_blocked=False)
+                        rendered_h1_count=1, readiness_text_prefix='Aviator game Instructions', body_blocked=False,
+                        seo_content_status='candidate', seo_content_word_count=625,
+                        seo_content_selector='main:nth-of-type(1)',
+                        seo_content_text_prefix='Aviator game Instructions')
         def wait_for_timeout(self, ms):
             clock[0] += ms / 1000
 
@@ -74,7 +81,7 @@ def test_readiness_does_not_stop_on_early_nav_shell(monkeypatch):
     assert result['rendered_main_word_count'] == 625
     assert elapsed >= 4
     assert samples >= 5
-    assert reason == 'substantial_main_content_stable'
+    assert reason == 'standardized_visible_main_candidate_stable'
 
 
 def test_recrawl_only_selected_resolved_benchmark(monkeypatch, tmp_path):

@@ -178,6 +178,23 @@ class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         parsed_serp = urlparse(self.path)
         parts = parsed_serp.path.strip('/').split('/')
+        if len(parts) == 4 and parts[:2] == ['api', 'investigations'] and parts[3] == 'workflow':
+            try:
+                from scripts.investigation_workflow import get_state
+                self.send_json(200, get_state(parts[2]))
+            except (ValueError, FileNotFoundError) as exc:
+                self.send_json(404 if isinstance(exc, FileNotFoundError) else 400, {'error': str(exc)})
+            return
+        if len(parts) == 5 and parts[:2] == ['api', 'investigations'] and parts[3:] == ['workflow', 'collection-plan']:
+            from urllib.parse import parse_qs
+            query = parse_qs(parsed_serp.query)
+            refresh = query.get('refresh', ['0'])[0].lower() in ('1', 'true', 'yes')
+            try:
+                self.send_json(200, __import__('scripts.investigation_workflow', fromlist=['collection_plan']).collection_plan(
+                    parts[2], refresh=refresh))
+            except (ValueError, FileNotFoundError) as exc:
+                self.send_json(404 if isinstance(exc, FileNotFoundError) else 400, {'error': str(exc)})
+            return
         if parsed_serp.path == '/api/investigations/history':
             from urllib.parse import parse_qs
             query = parse_qs(parsed_serp.query)
@@ -203,6 +220,56 @@ class Handler(SimpleHTTPRequestHandler):
             except (ValueError, OSError) as exc:
                 self.send_json(400, {'error': str(exc)})
             return
+        if parsed_serp.path == '/api/comparisons/history':
+            from urllib.parse import parse_qs
+            from scripts.comparison_history import history
+            query = parse_qs(parsed_serp.query)
+            value = lambda key, default='': query.get(key, [default])[0]
+            try:
+                result = history(query=value('q'), keyword=value('keyword'),
+                    competitor=value('competitor'), url=value('url'),
+                    date_from=value('date_from'), date_to=value('date_to'),
+                    sort=value('sort', 'recent'), page=value('page', '1'),
+                    page_size=value('page_size', '20'))
+                self.send_json(200, result)
+            except (ValueError, OSError, TypeError) as exc:
+                self.send_json(400, {'error': str(exc)})
+            return
+        if len(parts) >= 3 and parts[:2] == ['api', 'comparisons']:
+            from scripts import comparison_history
+            investigation_id = parts[2]
+            try:
+                if len(parts) == 3:
+                    self.send_json(200, comparison_history.comparison_detail(investigation_id))
+                    return
+                if len(parts) == 5 and parts[3] == 'artifacts' and parts[4] in ('pdf', 'appendix'):
+                    target = comparison_history.artifact(investigation_id, parts[4])
+                    content = target.read_bytes()
+                    content_type = 'application/pdf' if parts[4] == 'pdf' else 'text/markdown; charset=utf-8'
+                    self.send_response(200)
+                    self.send_header('Content-Type', content_type)
+                    self.send_header('Content-Disposition', f'attachment; filename="comparison_{investigation_id}_{parts[4]}{target.suffix}"')
+                    self.send_header('Cache-Control', 'no-store')
+                    self.send_header('Content-Length', str(len(content)))
+                    self.end_headers()
+                    self.wfile.write(content)
+                    return
+                if len(parts) == 4 and parts[3] == 'serp':
+                    target = comparison_history.saved_serp(investigation_id)
+                    content = target.read_bytes()
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'application/json; charset=utf-8')
+                    self.send_header('Content-Disposition', f'inline; filename="comparison_{investigation_id}_serp.json"')
+                    self.send_header('Cache-Control', 'no-store')
+                    self.send_header('Content-Length', str(len(content)))
+                    self.end_headers()
+                    self.wfile.write(content)
+                    return
+            except (ValueError, FileNotFoundError, OSError, TypeError) as exc:
+                self.send_json(404 if isinstance(exc, FileNotFoundError) else 400, {'error': str(exc)})
+                return
+            self.send_json(404, {'error': 'Unknown comparison history endpoint.'})
+            return
         if len(parts) >= 4 and parts[:2] == ['api', 'investigations'] and parts[3] == 'reporting':
             investigation_id = parts[2]
             try:
@@ -227,7 +294,10 @@ class Handler(SimpleHTTPRequestHandler):
             return
         if parsed_serp.path.startswith('/api/serp/jobs/'):
             job_id = parsed_serp.path.removeprefix('/api/serp/jobs/')
-            job = dashboard_serp_search.job_status(job_id)
+            from scripts.investigation_workflow import keyword_search_status
+            job = keyword_search_status(job_id)
+            if job is None:
+                job = dashboard_serp_search.job_status(job_id)
             self.send_json(200 if job else 404, job or {'error': 'Search job not found or server restarted.'})
             return
         if parsed_serp.path == '/api/serp/snapshot':
@@ -243,6 +313,15 @@ class Handler(SimpleHTTPRequestHandler):
             keyword = parse_qs(parsed_serp.query).get('keyword', [''])[0]
             try:
                 self.send_json(200, serp_investigations.selection_options(keyword))
+            except (ValueError, FileNotFoundError, OSError, json.JSONDecodeError) as exc:
+                self.send_json(404 if isinstance(exc, FileNotFoundError) else 400, {'error': str(exc)})
+            return
+        if parsed_serp.path == '/api/serp/hollywoodbets-options':
+            from urllib.parse import parse_qs
+            keyword = parse_qs(parsed_serp.query).get('keyword', [''])[0]
+            try:
+                from scripts.hollywoodbets_comparisons import selection_options
+                self.send_json(200, selection_options(keyword))
             except (ValueError, FileNotFoundError, OSError, json.JSONDecodeError) as exc:
                 self.send_json(404 if isinstance(exc, FileNotFoundError) else 400, {'error': str(exc)})
             return
@@ -395,6 +474,69 @@ class Handler(SimpleHTTPRequestHandler):
     def do_POST(self):
         path=urlparse(self.path).path
         parts = path.strip('/').split('/')
+        if len(parts) == 5 and parts[:2] == ['api', 'investigations'] and parts[3] == 'workflow' and parts[4] in ('navigate', 'execute', 'branch'):
+            try:
+                origin = self.headers.get('Origin')
+                if self.headers.get('Sec-Fetch-Site') == 'cross-site' or (origin and urlparse(origin).netloc != self.headers.get('Host')):
+                    raise ValueError('Cross-origin workflow actions are not allowed.')
+                length = int(self.headers.get('Content-Length', '0'))
+                if not 1 <= length <= 8192:
+                    raise ValueError('Invalid request size.')
+                payload = json.loads(self.rfile.read(length))
+                if not isinstance(payload, dict):
+                    raise ValueError('Request must be a JSON object.')
+                from scripts import investigation_workflow as workflow
+                if parts[4] == 'navigate':
+                    result = workflow.navigate(parts[2], payload.get('direction'))
+                elif parts[4] == 'execute':
+                    result = workflow.execute_stage(parts[2], payload.get('stage'), refresh=payload.get('refresh', False))
+                else:
+                    result = workflow.branch_competitor(parts[2], payload.get('benchmark_url'))
+                self.send_json(200, result)
+            except RuntimeError as exc:
+                self.send_json(409, {'error': str(exc)})
+            except (ValueError, TypeError, json.JSONDecodeError) as exc:
+                self.send_json(400, {'error': str(exc)})
+            except FileNotFoundError as exc:
+                self.send_json(404, {'error': str(exc)})
+            except Exception:
+                import logging
+                logging.exception('Investigation workflow action failed')
+                self.send_json(500, {'error': 'Workflow action failed. Review server logs.'})
+            return
+        if len(parts) == 6 and parts[:2] == ['api', 'investigations'] and parts[3:] == ['workflow', 'collection', 'execute']:
+            try:
+                origin = self.headers.get('Origin')
+                if self.headers.get('Sec-Fetch-Site') == 'cross-site' or (origin and urlparse(origin).netloc != self.headers.get('Host')):
+                    raise ValueError('Cross-origin collection actions are not allowed.')
+                length = int(self.headers.get('Content-Length', '0'))
+                if not 1 <= length <= 8192:
+                    raise ValueError('Invalid request size.')
+                payload = json.loads(self.rfile.read(length))
+                if not isinstance(payload, dict):
+                    raise ValueError('Request must be a JSON object.')
+                from scripts import investigation_workflow as workflow
+                result = workflow.collect_evidence(parts[2],
+                    collectors=payload.get('collectors', []),
+                    authorize_paid_dataforseo=payload.get('authorize_paid_dataforseo', False),
+                    authorize_external_page_requests=payload.get('authorize_external_page_requests', False),
+                    refresh=payload.get('refresh', False))
+                self.send_json(200, result)
+            except Exception as exc:
+                from scripts.investigation_collection import CollectionAuthorizationRequired
+                if isinstance(exc, CollectionAuthorizationRequired):
+                    self.send_json(403, {'error': str(exc), 'plan': exc.plan})
+                elif isinstance(exc, RuntimeError):
+                    self.send_json(409, {'error': str(exc)})
+                elif isinstance(exc, (ValueError, TypeError, json.JSONDecodeError)):
+                    self.send_json(400, {'error': str(exc)})
+                elif isinstance(exc, FileNotFoundError):
+                    self.send_json(404, {'error': str(exc)})
+                else:
+                    import logging
+                    logging.exception('Evidence collection action failed')
+                    self.send_json(500, {'error': 'Evidence collection failed. Review server logs.'})
+            return
         if len(parts) in (4, 5) and parts[:2] == ['api', 'investigations'] and parts[3] == 'reporting':
             try:
                 origin = self.headers.get('Origin')
@@ -433,12 +575,43 @@ class Handler(SimpleHTTPRequestHandler):
                 payload = json.loads(self.rfile.read(length))
                 if not isinstance(payload, dict):
                     raise ValueError('Request must be a JSON object.')
-                result = dashboard_serp_search.start_search(payload.get('keyword'), payload.get('depth', 20))
+                from scripts.investigation_workflow import start_keyword_search
+                result = start_keyword_search(payload.get('keyword'), payload.get('depth', 20))
                 self.send_json(202, result)
             except RuntimeError as exc:
                 self.send_json(409, {'error': str(exc)})
             except (ValueError, TypeError, json.JSONDecodeError) as exc:
                 self.send_json(400, {'error': str(exc)})
+            return
+        if path == '/api/investigations/hollywoodbets-compare':
+            try:
+                origin = self.headers.get('Origin')
+                if self.headers.get('Sec-Fetch-Site') == 'cross-site' or (origin and urlparse(origin).netloc != self.headers.get('Host')):
+                    raise ValueError('Cross-origin comparison actions are not allowed.')
+                length = int(self.headers.get('Content-Length', '0'))
+                if not 1 <= length <= 8192:
+                    raise ValueError('Invalid request size.')
+                payload = json.loads(self.rfile.read(length))
+                if not isinstance(payload, dict):
+                    raise ValueError('Request must be a JSON object.')
+                from scripts.hollywoodbets_comparisons import create_comparison
+                result = create_comparison(keyword=payload.get('keyword'),
+                    snapshot_sha256=payload.get('snapshot_sha256'),
+                    primary_url=payload.get('primary_url'),
+                    competitor_url=payload.get('competitor_url'),
+                    idempotency_key=payload.get('idempotency_key'),
+                    parent_investigation_id=payload.get('parent_investigation_id'))
+                self.send_json(200 if result.get('idempotent_replay') else 201, result)
+            except RuntimeError as exc:
+                self.send_json(409, {'error': str(exc)})
+            except (ValueError, TypeError, json.JSONDecodeError) as exc:
+                self.send_json(400, {'error': str(exc)})
+            except FileNotFoundError as exc:
+                self.send_json(404, {'error': str(exc)})
+            except Exception:
+                import logging
+                logging.exception('Hollywoodbets comparison creation failed')
+                self.send_json(500, {'error': 'Comparison could not be created. Review server logs.'})
             return
         if path.startswith('/api/investigations/') and path.endswith('/run-offline'):
             try:

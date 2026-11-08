@@ -10,10 +10,14 @@ from analysis.final_report import generate_report
 def fixture():
     urls = {"ours": "https://example.org/roulette", "benchmark": "https://rival.example/roulette"}
     def page(side):
-        return {"ranking_url": urls[side], "url_alignment": "matched", "title": "Roulette online",
+        return {"ranking_url": urls[side], "requested_url": urls[side], "final_url": urls[side],
+                "url_alignment": "matched", "title": "Roulette online",
                 "meta_description": "Play roulette", "headings": {"h1": ["Roulette"]},
-                "word_count": 500, "main_word_count": 320, "internal_link_count": 12,
-                "structured_data_count": 1}
+                "word_count": 500, "main_word_count": 320,
+                "seo_content_method": "rendered-main-innertext-v2",
+                "seo_content_status": "verified_candidate",
+                "seo_content_word_count": 320, "extraction_status": "complete", "crawl_failed": False,
+                "internal_link_count": 12, "structured_data_count": 1}
     def backlinks(side, scope, rank):
         return {"scope": scope, "target": urls[side] if scope == "page" else ("example.org" if side == "ours" else "rival.example"),
                 "target_verified": True, "rank": rank, "backlinks": 100, "referring_domains": 40,
@@ -89,12 +93,12 @@ class ReportTests(unittest.TestCase):
 
     def test_missing_data_not_zero(self):
         data = fixture()
-        data["page_level_evidence"]["ours"].pop("main_word_count")
+        data["page_level_evidence"]["ours"].pop("seo_content_word_count")
         data["page_level_evidence"]["lighthouse"] = {}
         data["evidence_quality"].pop("lighthouse_ours_mobile")
         data["evidence_quality"].pop("lighthouse_benchmark_mobile")
         report = generate_report(data)
-        self.assertIn("A like-for-like rendered main-region word-count comparison is unavailable", report)
+        self.assertIn("**Comparison withheld:** standardized content evidence is not mutually verified.", report)
         self.assertIn("Dofollow backlink counts are unavailable", report)
         self.assertIn("No verified mobile Lighthouse audits", report)
 
@@ -115,24 +119,24 @@ class ReportTests(unittest.TestCase):
         data = fixture()
         ours = data["page_level_evidence"]["ours"]
         benchmark = data["page_level_evidence"]["benchmark"]
-        ours.pop("main_word_count")
+        ours.pop("seo_content_word_count")
+        benchmark["seo_content_word_count"] = 625
         benchmark["main_word_count"] = 3948
         benchmark["rendered_main_word_count"] = 625
         report = generate_report(data)
-        self.assertIn("Rendered main-region word count (same method only)", report)
-        self.assertIn("Not available | 625", report)
-        self.assertIn("Measurement discrepancy", report)
-        self.assertIn("`main_word_count` = 3,948", report)
+        self.assertIn("Standardized cleaned rendered SEO-content words (same method only)", report)
+        self.assertIn("Not available | Not available", report)
         self.assertIn("Comparison withheld", report)
-        self.assertIn("Conflicting main-content measurements were detected", report)
-        self.assertNotIn("Main-content word count | Not available | 3,948", report)
+        self.assertIn("Do not substitute legacy counts", report)
+        self.assertNotIn("3,948", report)
+        self.assertNotIn("| 625 |", report)
 
     def test_rendered_main_counts_comparable_when_both_available(self):
         data = fixture()
-        data["page_level_evidence"]["ours"]["rendered_main_word_count"] = 300
-        data["page_level_evidence"]["benchmark"]["rendered_main_word_count"] = 625
+        data["page_level_evidence"]["ours"]["seo_content_word_count"] = 300
+        data["page_level_evidence"]["benchmark"]["seo_content_word_count"] = 625
         report = generate_report(data)
-        self.assertIn("Rendered main-region word count (same method only) | 300 | 625", report)
+        self.assertIn("Standardized cleaned rendered SEO-content words (same method only) | 300 | 625", report)
         self.assertNotIn("**Comparison withheld:**", report)
 
     def test_confirmed_competitor_discovery_label_is_reconciled(self):

@@ -1,25 +1,8 @@
 """Regression tests for failure-only diagnostics with the optimized request path."""
-import importlib.util
 import json
-import sys
-import types
-from pathlib import Path
 from types import SimpleNamespace
 
-ROOT = Path(__file__).resolve().parents[1]
-package = types.ModuleType('llm_foundation')
-package.__path__ = [str(ROOT / 'llm_foundation')]
-sys.modules.setdefault('llm_foundation', package)
-contracts = types.ModuleType('llm_foundation.contracts')
-contracts.SPECIALIST_OUTPUT = {'type': 'object'}
-sys.modules['llm_foundation.contracts'] = contracts
-validation = types.ModuleType('llm_foundation.validate')
-validation.validate_output = lambda result, evidence: []
-validation.path_exists = lambda evidence, path: True
-sys.modules['llm_foundation.validate'] = validation
-spec = importlib.util.spec_from_file_location('llm_foundation.inference', ROOT / 'llm_foundation' / 'inference.py')
-mod = importlib.util.module_from_spec(spec)
-spec.loader.exec_module(mod)
+from llm_foundation import inference as mod
 
 
 def evidence_fixture():
@@ -69,7 +52,10 @@ def test_failed_json_is_saved(tmp_path):
     assert second['response_empty']
 
 
-def test_success_does_not_write_diagnostics(tmp_path):
+def test_success_does_not_write_diagnostics(tmp_path, monkeypatch):
+    # Isolate the response-schema concern to this test and restore the shared
+    # production validator when the test ends.
+    monkeypatch.setattr(mod, 'validate_output', lambda result, evidence: [])
     client = FakeClient([('{"task":"onpage","findings":[]}', 'stop')])
     result, meta = mod.run_specialist('onpage', evidence_fixture(), client=client,
                                       model='test', skills='', instructions='', diagnostic_dir=tmp_path)

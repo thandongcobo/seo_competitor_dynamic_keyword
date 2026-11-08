@@ -37,7 +37,7 @@ test('accepts an empty saved recommendation list and displays only two tiers', (
   assert.equal((html.match(/class="recommendation-tier"/g) || []).length, 2);
 });
 
-test('uses concise validated display action while full technical detail stays in the appendix data', () => {
+test('shows the PDF-matched display action and retains full technical detail in an expansion', () => {
   const html = context.window.renderRecommendations([{
     title: 'Improve image delivery', evidence_tier: 'tier_1_strong_evidence',
     priority_score: 12, evidence: 'Lighthouse identified an image candidate.',
@@ -46,7 +46,8 @@ test('uses concise validated display action while full technical detail stays in
     actions: ['Inspect https://example.test/very-long/raw/resource/image.webp and change only if oversized.'],
   }]);
   assert.ok(html.includes('Optimise the verified image dimensions'));
-  assert.ok(!html.includes('very-long/raw/resource'));
+  assert.ok(html.includes('Implementation details and evidence'));
+  assert.ok(html.includes('very-long/raw/resource'));
 });
 
 test('renders a grounded proposed title in the visible Recommended Action', () => {

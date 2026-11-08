@@ -49,6 +49,17 @@ def test_original_fixture_is_valid_but_quality_flagged():
                                             'implementation_plans[5]', 'implementation_plans[6]'}
 
 
+def test_unsupported_numeric_claim_remains_rejected():
+    r, p = result(), evidence()
+    r['proposed_decisions'][0]['success_check'] = 'Maintain or improve position 2.'
+    r['implementation_plans'][0]['success_measure'] = 'Maintain or improve position 2.'
+    errors = evidence_errors(r, p)
+    unsupported = [error for error in errors if 'numeric claim 2 is not supported' in error]
+    assert len(unsupported) == 2
+    assert any(error.startswith('proposed_decisions[0].success_check:') for error in unsupported)
+    assert any(error.startswith('implementation_plans[0].success_measure:') for error in unsupported)
+
+
 def test_patch_is_strict_and_does_not_mutate_original():
     r = result()
     old = copy.deepcopy(r)

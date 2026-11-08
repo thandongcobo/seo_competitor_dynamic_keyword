@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SEO Competitive Intelligence</title>
-  <link rel="stylesheet" href="/css/app.css?v=20261104-recommendation-tiers">
+  <link rel="stylesheet" href="/css/app.css?v=20261106-comparison-history">
   <link rel="stylesheet" href="/css/dashboard.css">
   <link rel="stylesheet" href="/css/monitoring.css?v=20261019-intelligence-v1">
 </head>
@@ -15,6 +15,7 @@
       <button class="nav" data-page="search">Keyword search</button>
       <button class="nav" data-page="competitors">Competitors</button>
       <button class="nav active" data-page="actions">Decisions &amp; actions</button>
+      <button class="nav" data-page="history">Comparison History</button>
       <button class="nav" data-page="monitoring">Competitor change analysis</button>
       <button class="nav" data-page="activity">Competitor activity</button>
     </nav>
@@ -34,27 +35,53 @@
         </form>
         <p id="keyword-search-status" class="muted" role="status" aria-live="polite">Enter a keyword to collect fresh Google results. Saved snapshots are only shown when explicitly requested.</p>
       </div>
-      <div class="panel">
-        <div class="panel-head"><h3>Compare two exact webpages</h3><span class="badge">Offline comparison · no new requests</span></div>
-        <p class="muted">Enter any keyword and two full webpage URLs. The engine checks saved Google observations for exact-page ranks and identifies matching saved DataForSEO, Playwright and Lighthouse evidence. When matching saved evidence exists, run the existing comparison and generate a historical report offline; no collectors, APIs, Lighthouse or Gemma inference are invoked.</p>
-        <form id="keyword-manual-form" class="keyword-search-form">
-          <label for="keyword-manual-keyword">Keyword<input id="keyword-manual-keyword" type="text" placeholder="aviator" maxlength="120" required></label>
-          <label for="keyword-manual-first">Webpage A URL<input id="keyword-manual-first" type="url" placeholder="https://www.hollywoodbets.net/aviator" maxlength="2048" required></label>
-          <label for="keyword-manual-second">Webpage B URL<input id="keyword-manual-second" type="url" placeholder="https://www.betway.co.za/aviator" maxlength="2048" required></label>
-          <button type="submit" id="keyword-manual-save">Save investigation &amp; check saved evidence</button>
-        </form>
-        <button type="button" id="keyword-manual-run" disabled>Run offline comparison (saved Aviator evidence)</button>
-        <p id="keyword-manual-result" class="muted" role="status" aria-live="polite"></p>
-        <p id="keyword-manual-status" class="muted" role="status" aria-live="polite">No new requests will be made.</p>
-        <div class="panel" id="keyword-reporting-panel">
-          <h3>Gemma recommendations and draft reports</h3>
-          <p class="muted">Available only after a matching saved-evidence investigation completes. This is a separate opt-in action: it sends new requests to your configured local Gemma model, but makes no SEO collector or paid API calls. Reports remain drafts until you review and approve them.</p>
-          <button type="button" id="keyword-reporting-start" disabled>Run Gemma and generate draft reports</button>
-          <p id="keyword-reporting-status" class="muted" role="status" aria-live="polite">Complete a supported offline investigation first.</p>
-          <div id="keyword-reporting-files" hidden></div>
-          <button type="button" id="keyword-reporting-approve" disabled hidden>Approve reviewed draft for internal use</button>
-        </div>
+      <div class="panel" id="keyword-results-panel" hidden>
+        <div class="panel-head"><h3 id="keyword-results-heading">Google organic results</h3><span id="keyword-result-source" class="badge">Collected evidence</span></div>
+        <p class="muted" id="keyword-results-meta"></p>
+        <div class="tracked-site-result" id="keyword-tracked-site" role="status"></div>
+        <div class="tracked-site-result" id="keyword-diagnostics" role="status" hidden></div>
+        <div class="table-wrap" id="keyword-results-table"></div>
+        <section class="hollywoodbets-selection" id="hollywoodbets-selection" hidden>
+          <div class="panel-head"><h3>Choose a competitor for Hollywoodbets</h3><span class="badge">Same saved SERP</span></div>
+          <p class="muted" id="hollywoodbets-selection-status" role="status" aria-live="polite">Checking the saved Hollywoodbets identification…</p>
+          <label class="primary-page-choice" id="hollywoodbets-primary-wrap" hidden>Hollywoodbets ranking webpage
+            <select id="hollywoodbets-primary-select"></select>
+          </label>
+          <div class="selected-pages" id="hollywoodbets-selected-pages" hidden></div>
+          <button type="button" id="hollywoodbets-compare" disabled>Compare selected pages</button>
+          <p class="muted" id="hollywoodbets-compare-status" role="status" aria-live="polite"></p>
+        </section>
+        <section class="hollywoodbets-investigation" id="hollywoodbets-investigation" hidden>
+          <div class="panel-head"><h3>Sequential investigation</h3><span class="badge" id="hollywoodbets-investigation-id"></span></div>
+          <p class="muted" id="hollywoodbets-investigation-summary"></p>
+          <button type="button" id="hollywoodbets-change-competitor" class="search-secondary">Return to results and choose another competitor</button>
+          <div class="workflow-panel" id="hollywoodbets-workflow"></div>
+        </section>
       </div>
+      <details class="legacy-manual-workflow">
+        <summary>Legacy manual two-webpage investigation</summary>
+        <div class="panel">
+          <div class="panel-head"><h3>Manual exact-page compatibility</h3><span class="badge">Separate legacy workflow</span></div>
+          <p class="muted">This compatibility path accepts exact URLs without requiring a shared saved SERP. Use the Hollywoodbets-first result selection above for new comparisons.</p>
+          <form id="keyword-manual-form" class="keyword-search-form">
+            <label for="keyword-manual-keyword">Keyword<input id="keyword-manual-keyword" type="text" placeholder="aviator" maxlength="120" required></label>
+            <label for="keyword-manual-first">Webpage A URL<input id="keyword-manual-first" type="url" placeholder="https://www.hollywoodbets.net/aviator" maxlength="2048" required></label>
+            <label for="keyword-manual-second">Webpage B URL<input id="keyword-manual-second" type="url" placeholder="https://www.betway.co.za/aviator" maxlength="2048" required></label>
+            <button type="submit" id="keyword-manual-save">Save investigation &amp; check saved evidence</button>
+          </form>
+          <button type="button" id="keyword-manual-run" disabled>Run offline comparison (supported saved evidence only)</button>
+          <p id="keyword-manual-result" class="muted" role="status" aria-live="polite"></p>
+          <p id="keyword-manual-status" class="muted" role="status" aria-live="polite">No new requests will be made.</p>
+          <div class="panel" id="keyword-reporting-panel">
+            <h3>Gemma recommendations and draft reports</h3>
+            <p class="muted">Available only after a matching saved-evidence investigation completes. This is a separate opt-in action: it sends new requests to your configured local Gemma model, but makes no SEO collector or paid API calls. Reports remain drafts until you review and approve them.</p>
+            <button type="button" id="keyword-reporting-start" disabled>Run Gemma and generate draft reports</button>
+            <p id="keyword-reporting-status" class="muted" role="status" aria-live="polite">Complete a supported offline investigation first.</p>
+            <div id="keyword-reporting-files" hidden></div>
+            <button type="button" id="keyword-reporting-approve" disabled hidden>Approve reviewed draft for internal use</button>
+          </div>
+        </div>
+      </details>
       <div class="panel" id="investigation-history-panel">
         <div class="panel-head"><h3>Find previous analyses</h3><span class="badge">Saved investigations · no new requests</span></div>
         <p class="muted">Search by the saved keyword and optionally either exact webpage URL. Results are retrieved from your existing investigation history without rerunning Gemma or collecting SEO data.</p>
@@ -66,23 +93,30 @@
         <p id="history-search-status" class="muted" role="status" aria-live="polite">Search saved investigations. No external requests.</p>
         <div id="history-search-results" class="table-wrap"></div>
       </div>
-      <div class="panel" id="keyword-results-panel" hidden>
-        <div class="panel-head"><h3 id="keyword-results-heading">Google organic results</h3><span id="keyword-result-source" class="badge">Collected evidence</span></div>
-        <p class="muted" id="keyword-results-meta"></p>
-        <div class="tracked-site-result" id="keyword-tracked-site" role="status"></div>
-        <div class="tracked-site-result" id="keyword-diagnostics" role="status" hidden></div>
-        <div class="table-wrap" id="keyword-results-table"></div>
-        <form id="keyword-domain-form" class="keyword-search-form" hidden>
-          <label for="keyword-domain-first">First domain<select id="keyword-domain-first" required></select></label>
-          <label for="keyword-domain-second">Comparison domain<select id="keyword-domain-second" required></select></label>
-          <button type="submit" id="keyword-domain-save">Save comparison selection</button>
-        </form>
-        <p class="muted" id="keyword-domain-status" role="status" aria-live="polite">Choose two domains from this captured SERP. The exact ranking URLs will be saved without changing the results.</p>
-        <p class="muted">Saving a selection does not run paid APIs or the local LLM. Full comparison execution will be connected in the next development stage.</p>
-      </div>
     </section>
     <section id="competitors" class="page"><div class="panel"><div class="panel-head"><h3>Top 8 confirmed Google results</h3><span class="badge">Saved snapshot</span></div><div id="rankings-table" class="table-wrap"></div></div><div class="panel"><div class="panel-head"><h3>Provisional competitor candidates</h3><span class="badge yellow">Not confirmed rankings</span></div><div id="competitors-table" class="table-wrap"></div></div></section>
-    <section id="actions" class="page"><div class="panel executive-summary-panel"><div class="panel-head"><h3>Executive assessment</h3><span class="badge" id="executive-status">Checking saved analysis</span></div><p id="executive-summary">Loading run-specific assessment…</p><small id="executive-freshness" class="muted"></small></div><div class="panel recommendations-panel"><div class="panel-head"><div><h3>Evidence-backed recommendations</h3><p class="muted">Specific improvements from the saved investigation, ordered by evidence tier.</p></div><span class="badge">Validated actions</span></div><div id="recommendations-list" aria-live="polite"></div></div></section>
+    <section id="actions" class="page">
+      <div class="panel executive-summary-panel"><div class="panel-head"><h3>Selected comparison</h3><span class="badge" id="executive-status">No investigation selected</span></div><p id="executive-summary">Complete a saved investigation or open a validated comparison from Comparison History.</p><small id="executive-freshness" class="muted"></small><div id="decision-report-links" class="decision-report-links" hidden></div><button type="button" id="decision-back-history" hidden>Back to Comparison History</button></div>
+      <div class="panel recommendations-panel"><div class="panel-head"><div><h3>Evidence-backed recommendations</h3><p class="muted">Original validated actions, ordered by the saved evidence tier and priority.</p></div><span class="badge">Validated actions · review before implementation</span></div><div id="recommendations-list" aria-live="polite"></div></div>
+    </section>
+    <section id="history" class="page">
+      <div class="panel"><div class="panel-head"><h3>Comparison History</h3><span class="badge">Validated saved recommendations · no new requests</span></div>
+        <p class="muted">Search and reopen completed Hollywoodbets comparisons. Saved evidence and recommendation records are integrity-checked; opening a comparison does not rerun analysis.</p>
+        <form id="comparison-history-form" class="comparison-history-filters">
+          <label>Search<input id="comparison-history-query" type="search" placeholder="Keyword, competitor or URL"></label>
+          <label>Keyword<input id="comparison-history-keyword" type="search" placeholder="Any keyword"></label>
+          <label>Competitor<input id="comparison-history-competitor" type="search" placeholder="Name or domain"></label>
+          <label>Hollywoodbets or competitor URL<input id="comparison-history-url" type="url" placeholder="https://example.com/page"></label>
+          <label>From date<input id="comparison-history-from" type="date"></label>
+          <label>Through date<input id="comparison-history-to" type="date"></label>
+          <label>Sort<select id="comparison-history-sort"><option value="recent">Most recent</option><option value="oldest">Oldest</option><option value="keyword">Keyword</option><option value="competitor">Competitor</option></select></label>
+          <button type="submit" id="comparison-history-search">Search comparisons</button>
+        </form>
+        <p id="comparison-history-status" class="muted" role="status" aria-live="polite">Loading validated comparison history…</p>
+        <div id="comparison-history-results" class="comparison-history-results"></div>
+        <div id="comparison-history-pagination" class="comparison-history-pagination" hidden><button type="button" id="comparison-history-prev">Previous</button><span id="comparison-history-page"></span><button type="button" id="comparison-history-next">Next</button></div>
+      </div>
+    </section>
     <section id="activity" class="page">
       <div class="hero"><div><span class="pill">All registered public pages</span><h2>What changed across competitors?</h2><p>Plain-language observations, with supporting evidence available when you need it.</p></div></div>
       <div class="panel"><div class="activity-filters">
@@ -112,8 +146,8 @@
       <div class="panel"><div class="panel-head"><h3>New page content</h3><span class="badge">Added since the earlier snapshot</span></div><div id="monitor-new"></div></div>
     </section>
   </main>
-  <script src="/js/recommendations.js?v=20261104-evidence-tiers"></script>
-  <script src="/js/app.js?v=20261104-recommendation-cards"></script>
+  <script src="/js/recommendations.js?v=20261106-full-actions"></script>
+  <script src="/js/app.js?v=20261106-comparison-history"></script>
   <script src="/js/activity.js?v=20261019-intelligence-v1"></script>
 </body>
 </html>

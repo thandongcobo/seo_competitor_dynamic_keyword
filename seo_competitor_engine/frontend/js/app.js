@@ -6,6 +6,11 @@ let currentMonitoringDetail = null;
 let selectedPromotionCategory = '';
 let comparisonScope = '';
 let monitoringRequest = 0;
+let selectedComparisonId = '';
+let comparisonHistoryPage = 1;
+let latestComparisonHistory = null;
+let decisionOpenedFromHistory = false;
+const workflowDecisionOpened = new Set();
 
 function formatDate(value) {
   if (!value) return '—';
@@ -70,11 +75,6 @@ function finding(title, body, extra = '') {
 
 function renderDashboard(state) {
   const meta = state.meta || {};
-  const comparison = state.comparison || {};
-  const executive = state.executive || {};
-  const executiveMeta = state.executive_meta || {};
-  const executiveStatus = state.executive_status || {};
-
   comparisonScope = `${meta.our_domain || 'Hollywoodbets'} vs ${meta.benchmark_domain || 'Betway'} · ${meta.location || 'Configured location'}`;
   showPage($('.nav.active')?.dataset.page || 'actions', false);
   $('#updated').textContent = 'Saved evidence loaded · ' + new Date().toLocaleTimeString();
@@ -87,20 +87,68 @@ function renderDashboard(state) {
     ['Status', (item) => item.benchmark ? 'Confirmed benchmark' : 'Provisional'],
   ]);
 
-  const decisions = executive.proposed_decisions || [];
-  const actions = comparison.recommendations || state.recommendations || [];
-  $('#executive-summary').textContent = executive.executive_summary || 'No validated executive assessment is saved for this run.';
-  const generatedAt = executiveMeta.generated_at_utc;
-  $('#executive-status').textContent = executiveMeta.status === 'validated' ? 'Local LLM · validated' : 'No current validated run';
-  $('#executive-freshness').textContent = generatedAt ? `Analysis generated ${formatDate(generatedAt)} · model ${executiveMeta.model || 'local model'}` : 'Run the Aviator analysis to generate a timestamped local-model assessment.';
-  if (executiveStatus.status === 'failed') {
-    $('#executive-freshness').textContent = `Latest local LLM run failed${executiveStatus.error ? `: ${executiveStatus.error}` : ''}. ${generatedAt ? `Showing the last validated analysis from ${formatDate(generatedAt)}.` : 'No validated analysis is available.'}`;
-    $('#executive-status').textContent = 'Latest LLM run failed';
-    $('#executive-status').classList.add('badge', 'yellow');
-  }
-  const related = (rows, ids) => rows.find((row) => (row.evidence_ids || []).some((id) => ids.includes(id)));
-  $('#recommendations-list').innerHTML = window.renderRecommendations(actions);
+  clearDecisionView();
+}
 
+function clearDecisionView(message = 'Complete a saved investigation or open a validated comparison from Comparison History.') {
+  selectedComparisonId = '';
+  $('#executive-status').textContent = 'No investigation selected';
+  $('#executive-summary').textContent = message;
+  $('#executive-freshness').textContent = '';
+  $('#recommendations-list').textContent = 'Recommendations are shown only after selecting a validated investigation.';
+  $('#decision-report-links').replaceChildren();
+  $('#decision-report-links').hidden = true;
+  $('#decision-back-history').hidden = true;
+}
+
+function renderDecisionView(record, {fromHistory = false} = {}) {
+  selectedComparisonId = record.investigation_id;
+  decisionOpenedFromHistory = fromHistory;
+  try { sessionStorage.setItem('seoSelectedComparisonId', selectedComparisonId); } catch {}
+  const ours = record.selection.ours;
+  const competitor = record.selection.benchmark;
+  const rank = (page) => Number.isInteger(page.rank) ? `#${page.rank}` : 'not recorded';
+  const searchContext = record.selection.search_context?.location_note || (record.source === 'manual_exact_webpage_urls' ? 'Manual exact-page selection' : 'Saved search context');
+  comparisonScope = `${ours.domain || 'Hollywoodbets'} vs ${competitor.domain || 'Competitor'} · ${searchContext}`;
+  $('#scope').textContent = comparisonScope;
+  $('#executive-status').textContent = 'Validated recommendations available';
+  $('#executive-status').classList.remove('yellow');
+  $('#executive-summary').textContent = `${record.keyword} · Hollywoodbets ${ours.url} (${rank(ours)}) · ${competitor.domain || 'Competitor'} ${competitor.url} (${rank(competitor)})`;
+  $('#executive-freshness').textContent = `Investigation ${record.investigation_id} · completed ${formatDate(record.completed_at || record.created_at)} · ${record.recommendation_count} validated recommendation(s) · workflow: ${record.workflow_status}.`;
+  const links = $('#decision-report-links');
+  links.replaceChildren();
+  if (record.has_pdf) {
+    const pdf = document.createElement('a'); pdf.href = `/api/comparisons/${encodeURIComponent(record.investigation_id)}/artifacts/pdf`; pdf.textContent = 'Download management PDF'; links.appendChild(pdf);
+  }
+  if (record.has_appendix) {
+    const appendix = document.createElement('a'); appendix.href = `/api/comparisons/${encodeURIComponent(record.investigation_id)}/artifacts/appendix`; appendix.textContent = 'Download technical appendix'; links.appendChild(appendix);
+  }
+  if (record.has_serp_snapshot) {
+    const serp = document.createElement('a'); serp.href = `/api/comparisons/${encodeURIComponent(record.investigation_id)}/serp`; serp.target = '_blank'; serp.rel = 'noopener'; serp.textContent = 'Open original saved SERP'; links.appendChild(serp);
+  }
+  if (!record.has_pdf) {
+    const note = document.createElement('span'); note.className = 'muted'; note.textContent = 'Management PDF unavailable; saved validated recommendations remain available.'; links.appendChild(note);
+  }
+  links.hidden = false;
+  $('#decision-back-history').hidden = !fromHistory;
+  $('#recommendations-list').innerHTML = window.renderRecommendations(record.recommendations || []);
+}
+
+async function openDecision(investigationId, {fromHistory = false, navigate = true} = {}) {
+  $('#executive-status').textContent = 'Checking saved recommendation integrity…';
+  try {
+    const response = await fetch(`/api/comparisons/${encodeURIComponent(investigationId)}`, {cache:'no-store'});
+    const record = await response.json();
+    if (!response.ok) throw new Error(record.error || `Comparison returned ${response.status}`);
+    renderDecisionView(record, {fromHistory});
+    if (navigate) showPage('actions');
+    return record;
+  } catch (error) {
+    clearDecisionView(`Saved recommendations could not be opened: ${error.message}`);
+    $('#executive-status').textContent = 'Comparison unavailable';
+    if (navigate) showPage(fromHistory ? 'history' : 'actions');
+    return null;
+  }
 }
 
 function renderSnapshot(snapshot) {
@@ -395,9 +443,75 @@ async function loadDashboard() {
     $('#updated').textContent = 'Dashboard data unavailable';
     console.error('Dashboard data could not load:', error);
   } finally {
+    void loadComparisonHistory(1);
+    let savedId = '';
+    try { savedId = sessionStorage.getItem('seoSelectedComparisonId') || ''; } catch {}
+    if (savedId) void openDecision(savedId, {navigate:false});
     loadMonitoring();
   }
 }
+
+async function loadComparisonHistory(page = comparisonHistoryPage) {
+  const status = $('#comparison-history-status');
+  const results = $('#comparison-history-results');
+  const pagination = $('#comparison-history-pagination');
+  if (!status || !results) return;
+  const params = new URLSearchParams({page:String(page), page_size:'20', sort:$('#comparison-history-sort').value});
+  for (const [key, selector] of [
+    ['q','#comparison-history-query'], ['keyword','#comparison-history-keyword'],
+    ['competitor','#comparison-history-competitor'], ['url','#comparison-history-url'],
+    ['date_from','#comparison-history-from'], ['date_to','#comparison-history-to'],
+  ]) {
+    const value = $(selector).value.trim();
+    if (value) params.set(key, value);
+  }
+  status.textContent = 'Loading validated saved comparisons…';
+  results.replaceChildren();
+  try {
+    const response = await fetch(`/api/comparisons/history?${params}`, {cache:'no-store'});
+    const payload = await response.json();
+    if (!response.ok) throw new Error(payload.error || `History returned ${response.status}`);
+    latestComparisonHistory = payload;
+    comparisonHistoryPage = payload.page;
+    status.textContent = `${payload.total} completed comparison(s) with validated recommendation sets. Search results are saved records; no collection or model requests were made.`;
+    if (!payload.comparisons.length) {
+      results.textContent = 'No validated completed comparisons match these filters.';
+    }
+    for (const row of payload.comparisons) {
+      const card = document.createElement('article'); card.className = 'comparison-history-card';
+      const title = document.createElement('h3'); title.textContent = `${row.keyword} · ${row.selection.benchmark.domain || 'Competitor'}`; card.appendChild(title);
+      const pages = document.createElement('p'); pages.textContent = `Hollywoodbets: ${row.selection.ours.url} (${Number.isInteger(row.selection.ours.rank) ? `#${row.selection.ours.rank}` : 'rank not recorded'}) · Competitor: ${row.selection.benchmark.url} (${Number.isInteger(row.selection.benchmark.rank) ? `#${row.selection.benchmark.rank}` : 'rank not recorded'})`; card.appendChild(pages);
+      const counts = document.createElement('div'); counts.className = 'history-counts';
+      for (const label of [
+        `Tier 1: ${row.tier_1_count}`, `Tier 2: ${row.tier_2_count}`,
+        `Total: ${row.recommendation_count}`, `Report: ${row.report_status}`,
+      ]) { const badge = document.createElement('span'); badge.textContent = label; counts.appendChild(badge); }
+      card.appendChild(counts);
+      const meta = document.createElement('p'); meta.textContent = `Investigation ${row.investigation_id} · ${formatDate(row.completed_at || row.created_at)} · ${row.workflow_status}`; card.appendChild(meta);
+      const open = document.createElement('button'); open.type = 'button'; open.textContent = 'Open saved recommendations';
+      open.addEventListener('click', () => void openDecision(row.investigation_id, {fromHistory:true})); card.appendChild(open);
+      results.appendChild(card);
+    }
+    pagination.hidden = payload.pages <= 1;
+    $('#comparison-history-page').textContent = payload.pages ? `Page ${payload.page} of ${payload.pages}` : 'No pages';
+    $('#comparison-history-prev').disabled = payload.page <= 1;
+    $('#comparison-history-next').disabled = payload.page >= payload.pages;
+  } catch (error) {
+    status.textContent = `Comparison history could not load: ${error.message}`;
+    pagination.hidden = true;
+  }
+}
+
+$('#comparison-history-form').addEventListener('submit', (event) => {
+  event.preventDefault(); void loadComparisonHistory(1);
+});
+$('#comparison-history-prev').addEventListener('click', () => {
+  if (comparisonHistoryPage > 1) void loadComparisonHistory(comparisonHistoryPage - 1);
+});
+$('#comparison-history-next').addEventListener('click', () => {
+  if (latestComparisonHistory && comparisonHistoryPage < latestComparisonHistory.pages) void loadComparisonHistory(comparisonHistoryPage + 1);
+});
+$('#decision-back-history').addEventListener('click', () => showPage('history'));
 
 loadDashboard();
 
@@ -422,6 +536,8 @@ $('#keyword-manual-run').addEventListener('click', async () => {
       result.appendChild(link);
     }
     await refreshReportingState(manualInvestigationId);
+    await openDecision(manualInvestigationId, {navigate:true});
+    void loadComparisonHistory(1);
   } catch (error) { result.textContent = `Offline comparison unavailable: ${error.message}`; }
 });
 
@@ -475,8 +591,21 @@ function setKeywordBusy(busy) {
   $('#keyword-depth').disabled = busy;
 }
 
+let currentSerpRenderId = 0;
+let hollywoodbetsParentId = null;
+let hollywoodbetsInvestigationId = null;
+let selectedCompetitorUrl = null;
+let displayedKeywordResults = null;
+let fallbackIdempotencyKeys = new Map();
+
 function renderKeywordResults(data, saved = false) {
+  const renderId = ++currentSerpRenderId;
   const rows = data.organic_results || [];
+  displayedKeywordResults = data;
+  keywordSelection = null;
+  selectedCompetitorUrl = null;
+  hollywoodbetsParentId = null;
+  hollywoodbetsInvestigationId = null;
   $('#keyword-results-panel').hidden = false;
   $('#keyword-results-heading').textContent = `Google results · ${data.keyword}`;
   $('#keyword-result-source').textContent = saved ? 'Saved snapshot · not live' : 'New Google collection';
@@ -485,7 +614,9 @@ function renderKeywordResults(data, saved = false) {
   const trackedDomain = tracked.domain || 'Configured tracked site';
   const trackedLabel = tracked.status === 'found'
     ? `${trackedDomain} was observed at organic sequence #${tracked.rank}. ${tracked.results_above ?? 0} results above and ${tracked.results_below ?? 0} below. Ranking page: ${tracked.ranking_url || 'Unavailable'}.`
-    : `${trackedDomain} was not found in ${rows.length} collected organic results. This does not prove the site has no Google ranking.`;
+    : tracked.status === 'not_found' && trackedDomain.toLowerCase().endsWith('hollywoodbets.net')
+      ? 'Hollywoodbets was not found in the returned organic search results for this keyword.'
+      : `${trackedDomain} was not found in ${rows.length} collected organic results. This does not prove the site has no Google ranking.`;
   $('#keyword-tracked-site').textContent = `${trackedLabel} ${tracked.complete ? 'Minimum depth and two following results captured.' : 'Collection may be incomplete.'} Observed sequence positions are not independently verified absolute Google ranks.`;
   const diagnostic = data.diagnostics;
   const diagnosticPanel = $('#keyword-diagnostics');
@@ -498,63 +629,160 @@ function renderKeywordResults(data, saved = false) {
     const c = data.previous_observation_comparison;
     diagnosticPanel.textContent += ` Previous search comparison: ${c.shared_exact_urls} shared URLs among the first ${c.comparison_limit} observed positions (previous ${c.previous_results_compared}, current ${c.current_results_compared}). ${c.configured_context_comparable ? (Object.keys(c.configured_context_changes || {}).length ? 'Configured context changes detected; inspect the saved run reports.' : 'No configured context differences detected.') : 'Previous browser context was not recorded.'} Differences are not automatically considered failures.`;
   }
-  $('#keyword-domain-form').hidden = true;
-  keywordSelection = null;
+  $('#hollywoodbets-selection').hidden = true;
+  $('#hollywoodbets-investigation').hidden = true;
+  $('#hollywoodbets-compare-status').textContent = '';
   if (!rows.length) {
     $('#keyword-results-table').innerHTML = '<div class="empty">No organic results were returned.</div>';
     return;
   }
-  $('#keyword-results-table').innerHTML = `<table><thead><tr><th>Organic rank</th><th>Domain</th><th>Page title</th><th>Ranking URL</th></tr></thead><tbody>${rows.map((row) => {
-    const url = String(row.url || '');
-    const safeUrl = /^https?:\/\//i.test(url) ? url : '';
-    return `<tr><td class="rank">${esc(row.rank_group ? `#${row.rank_group}` : '—')}</td><td>${esc(row.domain)}</td><td>${esc(row.title)}</td><td class="keyword-url">${safeUrl ? `<a href="${esc(safeUrl)}" target="_blank" rel="noopener noreferrer">${esc(safeUrl)}</a>` : esc(url)}</td></tr>`;
-  }).join('')}</tbody></table>`;
-  loadDomainOptions(data.keyword).catch((error) => {
-    $('#keyword-domain-status').textContent = `Cannot load domain selection: ${error.message}`;
+  renderSerpRows(data, null);
+  loadHollywoodbetsOptions(data, renderId).catch((error) => {
+    if (renderId !== currentSerpRenderId) return;
+    $('#hollywoodbets-selection').hidden = false;
+    $('#hollywoodbets-selection-status').textContent = `Hollywoodbets selection is unavailable: ${error.message}`;
   });
 }
 
-async function loadDomainOptions(keyword) {
-  const response = await fetch(`/api/serp/options?keyword=${encodeURIComponent(keyword)}`, {cache:'no-store'});
-  const selection = await response.json();
-  if (!response.ok) throw new Error(selection.error || `Domain options returned ${response.status}`);
-  if ($('#keyword-input').value.trim().replace(/\s+/g, ' ').toLowerCase() !== keyword.toLowerCase()) return;
-  keywordSelection = selection;
-  const options = selection.options || [];
-  for (const selector of ['#keyword-domain-first', '#keyword-domain-second']) {
-    $(selector).innerHTML = '<option value="">Select domain</option>' + options.map((item) => `<option value="${esc(item.domain)}">#${esc(item.rank)} · ${esc(item.domain)}</option>`).join('');
-  }
-  const tracked = options.find((item) => item.domain === 'hollywoodbets.net' || item.domain.endsWith('.hollywoodbets.net'));
-  if (tracked) $('#keyword-domain-first').value = tracked.domain;
-  $('#keyword-domain-form').hidden = options.length < 2;
-  $('#keyword-domain-status').textContent = options.length >= 2
-    ? `Select two of ${options.length} domains observed in this saved Google search. Hollywoodbets is preselected when present.`
-    : 'Fewer than two domains were observed. A comparison selection is unavailable.';
+function renderSerpRows(data, options) {
+  const primary = new Set((options?.primary_options || []).map((item) => item.url));
+  const competitor = new Set((options?.competitor_options || []).map((item) => item.url));
+  $('#keyword-results-table').innerHTML = `<table><thead><tr><th>Organic rank</th><th>Domain</th><th>Page title</th><th>Exact ranking URL</th><th>Comparison selection</th></tr></thead><tbody>${(data.organic_results || []).map((row) => {
+    const url = String(row.url || '');
+    const safeUrl = /^https?:\/\//i.test(url) ? url : '';
+    const rank = Number.isInteger(row.rank_group) && row.rank_group > 0 ? `#${row.rank_group}` : 'Position unavailable';
+    const isPrimary = primary.has(url);
+    const canSelect = competitor.has(url);
+    const choose = canSelect ? `<label class="competitor-radio"><input type="radio" name="serp-competitor" value="${esc(url)}" ${selectedCompetitorUrl === url ? 'checked' : ''}><span>Select competitor</span></label>`
+      : isPrimary ? '<span class="serp-role-badge">Hollywoodbets primary</span>' : '<span class="muted">—</span>';
+    return `<tr class="${isPrimary ? 'hollywoodbets-result-row' : canSelect ? 'eligible-competitor-row' : ''}"><td class="rank">${esc(rank)}</td><td>${esc(row.domain)}</td><td>${esc(row.title)}</td><td class="keyword-url">${safeUrl ? `<a href="${esc(safeUrl)}" target="_blank" rel="noopener noreferrer">${esc(safeUrl)}</a>` : esc(url)}</td><td>${choose}</td></tr>`;
+  }).join('')}</tbody></table>`;
+  $('#keyword-results-table').onchange = (event) => {
+    if (event.target?.name !== 'serp-competitor') return;
+    selectedCompetitorUrl = event.target.value;
+    updateHollywoodbetsSelection();
+  };
 }
 
-$('#keyword-domain-form').addEventListener('submit', async (event) => {
-  event.preventDefault();
-  if (!keywordSelection) return;
-  const ours = $('#keyword-domain-first').value;
-  const benchmark = $('#keyword-domain-second').value;
-  if (!ours || !benchmark || ours === benchmark) {
-    $('#keyword-domain-status').textContent = 'Select two different domains.';
+async function loadHollywoodbetsOptions(result, renderId) {
+  const response = await fetch(`/api/serp/hollywoodbets-options?keyword=${encodeURIComponent(result.keyword)}`, {cache:'no-store'});
+  const options = await response.json();
+  if (!response.ok) throw new Error(options.error || `SERP selection returned ${response.status}`);
+  if (renderId !== currentSerpRenderId) return;
+  if (options.keyword?.toLowerCase() !== result.keyword?.toLowerCase() ||
+      options.search_context?.collected_at !== result.collected_at) {
+    throw new Error('Saved result identity changed. Load the saved snapshot again before selecting pages.');
+  }
+  keywordSelection = options;
+  $('#hollywoodbets-selection').hidden = false;
+  if (options.status !== 'ready') {
+    $('#hollywoodbets-selection-status').textContent = options.message || 'No competitor webpage from this saved SERP is eligible.';
+    $('#hollywoodbets-primary-wrap').hidden = true;
+    $('#hollywoodbets-selected-pages').hidden = true;
+    $('#hollywoodbets-compare').disabled = true;
+    renderSerpRows(result, options);
     return;
   }
-  $('#keyword-domain-save').disabled = true;
+  const primaryOptions = options.primary_options || [];
+  const primarySelect = $('#hollywoodbets-primary-select');
+  primarySelect.innerHTML = primaryOptions.map((item) => `<option value="${esc(item.url)}">#${esc(item.rank)} · ${esc(item.domain)} · ${esc(item.title || item.url)}</option>`).join('');
+  primarySelect.value = options.default_primary_url;
+  $('#hollywoodbets-primary-wrap').hidden = primaryOptions.length <= 1;
+  $('#hollywoodbets-selection-status').textContent = primaryOptions.length > 1
+    ? `Hollywoodbets appears ${primaryOptions.length} times. The highest-ranking observed result is selected by default; choose another if needed, then select a competitor from this same snapshot.`
+    : `Hollywoodbets is selected at observed organic position #${primaryOptions[0]?.rank}. Choose one non-Hollywoodbets result below.`;
+  renderSerpRows(result, options);
+  updateHollywoodbetsSelection();
+}
+
+function addSelectionPage(container, label, item) {
+  const card = document.createElement('div'); card.className = 'selected-page-card';
+  const heading = document.createElement('strong'); heading.textContent = `${label} · #${item.rank} · ${item.domain}`;
+  const title = document.createElement('span'); title.textContent = item.title || 'Untitled result';
+  const link = document.createElement('a'); link.href = item.url; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.textContent = item.url;
+  card.append(heading, title, link); container.appendChild(card);
+}
+
+function updateHollywoodbetsSelection() {
+  const options = keywordSelection;
+  if (!options || options.status !== 'ready') return;
+  const primary = options.primary_options.find((item) => item.url === $('#hollywoodbets-primary-select').value) || options.primary_options[0];
+  const competitor = options.competitor_options.find((item) => item.url === selectedCompetitorUrl);
+  const cards = $('#hollywoodbets-selected-pages'); cards.replaceChildren();
+  if (primary) addSelectionPage(cards, 'Hollywoodbets primary', primary);
+  if (competitor) addSelectionPage(cards, 'Selected competitor', competitor);
+  cards.hidden = !primary;
+  $('#hollywoodbets-compare').disabled = !primary || !competitor;
+  $('#hollywoodbets-selection-status').textContent = competitor
+    ? 'Both pages are selected from this saved SERP. Compare is ready.'
+    : 'Select a competitor result to enable Compare.';
+}
+
+function comparisonIdempotencyKey(selection) {
+  const key = `hollywoodbets-compare:${JSON.stringify([selection.snapshot_sha256,
+    $('#hollywoodbets-primary-select').value, selectedCompetitorUrl, hollywoodbetsParentId])}`;
   try {
-    const response = await fetch('/api/investigations', {
-      method: 'POST', headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({keyword: keywordSelection.keyword, snapshot_fingerprint: keywordSelection.snapshot_fingerprint, ours, benchmark}),
-    });
-    const saved = await response.json();
-    if (!response.ok) throw new Error(saved.error || `Selection returned ${response.status}`);
-    $('#keyword-domain-status').textContent = `Saved investigation ${saved.investigation_id}: ${saved.ours.domain} (#${saved.ours.rank}) vs ${saved.benchmark.domain} (#${saved.benchmark.rank}). Exact ranking URLs preserved. Full analysis has not run.`;
-  } catch (error) {
-    $('#keyword-domain-status').textContent = `Selection could not be saved: ${error.message}`;
-  } finally {
-    $('#keyword-domain-save').disabled = false;
+    let token = localStorage.getItem(key);
+    if (!token) {
+      token = crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}_${Math.random().toString(36).slice(2)}_${Math.random().toString(36).slice(2)}`;
+      localStorage.setItem(key, token);
+    }
+    return token;
+  } catch {
+    if (!fallbackIdempotencyKeys.has(key)) fallbackIdempotencyKeys.set(key, `${Date.now()}_${Math.random().toString(36).slice(2)}_${Math.random().toString(36).slice(2)}`);
+    return fallbackIdempotencyKeys.get(key);
   }
+}
+
+$('#hollywoodbets-primary-select').addEventListener('change', () => {
+  selectedCompetitorUrl = null;
+  if (displayedKeywordResults) renderSerpRows(displayedKeywordResults, keywordSelection);
+  updateHollywoodbetsSelection();
+});
+
+$('#hollywoodbets-compare').addEventListener('click', async () => {
+  const options = keywordSelection;
+  if (!options || options.status !== 'ready' || !selectedCompetitorUrl) return;
+  const primary = options.primary_options.find((item) => item.url === $('#hollywoodbets-primary-select').value) || options.primary_options[0];
+  const button = $('#hollywoodbets-compare');
+  button.disabled = true;
+  $('#hollywoodbets-compare-status').textContent = 'Saving this exact-page selection and initializing its workflow. No collectors or models will run.';
+  try {
+    const response = await fetch('/api/investigations/hollywoodbets-compare', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({keyword:options.keyword, snapshot_sha256:options.snapshot_sha256,
+        primary_url:primary.url, competitor_url:selectedCompetitorUrl,
+        idempotency_key:comparisonIdempotencyKey(options),
+        parent_investigation_id:hollywoodbetsParentId})
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || `Compare returned ${response.status}`);
+    hollywoodbetsInvestigationId = data.investigation.investigation_id;
+    const summary = data.collection_plan.summary || {};
+    $('#hollywoodbets-investigation-id').textContent = `Investigation ${hollywoodbetsInvestigationId}`;
+    $('#hollywoodbets-investigation-summary').textContent = `Saved SERP ${options.snapshot_sha256.slice(0, 12)}… · ${summary.available_or_reusable || 0}/${summary.required_items || 12} evidence items reusable · ${summary.missing_items || 0} missing · 0 requests started. The exact ranks and URLs are saved.`;
+    $('#hollywoodbets-compare-status').textContent = data.idempotent_replay
+      ? 'Resumed the previously created investigation for this selection.'
+      : 'Comparison selection saved; no external collection, paid API or Gemma action was started.';
+    $('#hollywoodbets-selection').hidden = true;
+    $('#hollywoodbets-investigation').hidden = false;
+    $('#hollywoodbets-workflow').replaceChildren();
+    void openInvestigationWorkflow(hollywoodbetsInvestigationId, $('#hollywoodbets-workflow'));
+  } catch (error) {
+    $('#hollywoodbets-compare-status').textContent = `Comparison was not created: ${error.message}. Retry uses the same request key.`;
+    button.disabled = false;
+  }
+});
+
+$('#hollywoodbets-change-competitor').addEventListener('click', () => {
+  if (hollywoodbetsInvestigationId) hollywoodbetsParentId = hollywoodbetsInvestigationId;
+  hollywoodbetsInvestigationId = null;
+  selectedCompetitorUrl = null;
+  $('#hollywoodbets-investigation').hidden = true;
+  $('#hollywoodbets-selection').hidden = false;
+  $('#hollywoodbets-compare-status').textContent = 'Choose a different competitor from these saved results. The prior investigation will remain unchanged.';
+  if (displayedKeywordResults && keywordSelection) renderSerpRows(displayedKeywordResults, keywordSelection);
+  updateHollywoodbetsSelection();
 });
 
 async function fetchKeywordJob(jobId) {
@@ -702,6 +930,148 @@ $('#keyword-reporting-approve').addEventListener('click', async () => {
 
 // Read-only investigation history. Do not substitute an old analysis for the
 // current keyword/URL selection; every result retains its investigation ID.
+async function openInvestigationWorkflow(investigationId, container) {
+  container.replaceChildren();
+  const status = document.createElement('p');
+  status.className = 'muted';
+  status.textContent = 'Loading saved workflow checkpoints…';
+  container.appendChild(status);
+  const request = async (suffix = '', method = 'GET', body = null) => {
+    const response = await fetch(`/api/investigations/${encodeURIComponent(investigationId)}/workflow${suffix}`, {
+      method, headers: body ? {'Content-Type':'application/json'} : {},
+      body: body ? JSON.stringify(body) : undefined, cache:'no-store'
+    });
+    const value = await response.json();
+    if (!response.ok) throw new Error(value.error || `Workflow returned ${response.status}`);
+    return value;
+  };
+  const loadCollectionPanel = async (state, panel, preferred = null) => {
+    panel.replaceChildren();
+    const heading = document.createElement('h4'); heading.textContent = 'Evidence collection'; panel.appendChild(heading);
+    const status = document.createElement('p'); status.className = 'muted';
+    status.textContent = 'Checking compatible saved evidence and request-cache entries…'; panel.appendChild(status);
+    const refresh = document.createElement('input'); refresh.type = 'checkbox';
+    refresh.checked = false;
+    const refreshLabel = document.createElement('label'); refreshLabel.className = 'workflow-refresh-option';
+    refreshLabel.append(refresh, document.createTextNode(' Create a fresh evidence version for selected collectors'));
+    panel.appendChild(refreshLabel);
+    const options = document.createElement('div'); panel.appendChild(options);
+    const action = document.createElement('button'); action.type = 'button';
+    action.textContent = 'Collect selected evidence'; panel.appendChild(action);
+    const note = document.createElement('small'); note.className = 'muted';
+    note.textContent = 'Playwright and Lighthouse make external public-site requests. DataForSEO is paid; exact USD cost is unknown until the API responds. The request count is shown before you confirm.';
+    panel.appendChild(note);
+    const loadPlan = async (defaults = true) => {
+      const response = await fetch(`/api/investigations/${encodeURIComponent(investigationId)}/workflow/collection-plan?refresh=${refresh.checked ? '1' : '0'}`, {cache:'no-store'});
+      const plan = await response.json();
+      if (!response.ok) throw new Error(plan.error || `Collection plan returned ${response.status}`);
+      options.replaceChildren();
+      const categoryInfo = [
+        ['dataforseo', 'DataForSEO (paid requests)'],
+        ['playwright', 'Playwright page capture'],
+        ['lighthouse', 'Lighthouse mobile audit']
+      ];
+      const selections = {};
+      for (const [category, label] of categoryInfo) {
+        const rows = plan.items.filter(item => item.collector === category);
+        const pending = rows.filter(item => ['missing','refresh_required'].includes(item.status)).length;
+        const cacheHits = rows.filter(item => item.status === 'cached').length;
+        const available = rows.filter(item => item.status === 'available').length;
+        const box = document.createElement('input'); box.type = 'checkbox';
+        box.checked = preferred ? preferred.includes(category) : (pending > 0 || cacheHits > 0);
+        selections[category] = box;
+        const line = document.createElement('label'); line.className = 'workflow-collector-option';
+        line.append(box, document.createTextNode(` ${label} — ${pending} to collect/refresh, ${cacheHits} exact request-cache hit(s), ${available} reusable`));
+        options.appendChild(line);
+      }
+      status.textContent = `${plan.summary.available_or_reusable} reusable evidence items; ${plan.summary.request_cache_hits} request-cache hit(s); ${plan.summary.missing_items} items need collection or refresh.`;
+      action.disabled = !Object.values(selections).some(box => box.checked);
+      action.onclick = async () => {
+        const collectors = Object.entries(selections).filter(([, box]) => box.checked).map(([name]) => name);
+        if (!collectors.length) return;
+        const chosen = plan.items.filter(item => collectors.includes(item.collector) && ['missing','refresh_required'].includes(item.status));
+        const paidCount = chosen.filter(item => item.collector === 'dataforseo' && item.external_requests_if_run > 0).length;
+        const pageCount = chosen.filter(item => item.collector === 'playwright').length;
+        const lighthouseCount = chosen.filter(item => item.collector === 'lighthouse').length;
+        const prompt = `Run these selected collectors?\n\nDataForSEO paid POST requests: ${paidCount}\nPlaywright page captures: ${pageCount} (each can load additional page resources)\nLighthouse runs: ${lighthouseCount} (npx may contact npm and the public page)\n\nDataForSEO USD cost is not available before the response. Existing compatible evidence and successful request-cache responses will be reused. A fresh run saves a new version.`;
+        if (!window.confirm(prompt)) return;
+        action.disabled = true; status.textContent = 'Collecting explicitly selected evidence…';
+        try {
+          const response = await fetch(`/api/investigations/${encodeURIComponent(investigationId)}/workflow/collection/execute`, {
+            method:'POST', headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({collectors, refresh:refresh.checked,
+              authorize_paid_dataforseo:paidCount > 0,
+              authorize_external_page_requests:(pageCount + lighthouseCount) > 0})
+          });
+          const result = await response.json();
+          if (!response.ok) throw new Error(result.error || `Collection returned ${response.status}`);
+          const stats = result.collection?.statistics || {};
+          status.textContent = `Collection ${result.collection?.status || 'finished'} · saved evidence reused: ${stats.evidence_reuse_hits || 0} · DataForSEO cache hits: ${stats.request_cache_hits || 0} · DataForSEO requests: ${stats.paid_requests_made || 0} · Playwright captures: ${stats.playwright_top_level_captures || 0} · Lighthouse runs: ${stats.lighthouse_runs || 0}.`;
+          render(result.workflow);
+        } catch (error) {
+          status.textContent = `Collection did not complete: ${error.message}`;
+          action.disabled = false;
+        }
+      };
+    };
+    refresh.addEventListener('change', async () => {
+      try { await loadPlan(true); } catch (error) { status.textContent = `Collection plan failed: ${error.message}`; }
+    });
+    try { await loadPlan(true); }
+    catch (error) { status.textContent = `Collection plan failed: ${error.message}`; action.disabled = true; }
+  };
+  const render = (state) => {
+    container.replaceChildren();
+    const title = document.createElement('h4');
+    title.textContent = `Workflow · ${state.keyword} · current: ${state.stages[state.current_stage]?.label || state.current_stage}`;
+    container.appendChild(title);
+    const list = document.createElement('ol');
+    list.className = 'workflow-stage-list';
+    for (const [id, stage] of Object.entries(state.stages)) {
+      const item = document.createElement('li');
+      item.textContent = `${stage.label} — ${stage.status}`;
+      list.appendChild(item);
+    }
+    container.appendChild(list);
+    const controls = document.createElement('div');
+    controls.className = 'workflow-controls';
+    const previous = document.createElement('button');
+    previous.type = 'button'; previous.textContent = 'Previous stage';
+    previous.disabled = state.current_stage === Object.keys(state.stages)[0];
+    previous.addEventListener('click', async () => act(() => request('/navigate', 'POST', {direction:'previous'})));
+    const next = document.createElement('button');
+    next.type = 'button'; next.textContent = 'Next stage';
+    next.disabled = state.stages[state.current_stage]?.status !== 'completed' || Object.keys(state.stages).indexOf(state.current_stage) >= Object.keys(state.stages).length - 1;
+    next.addEventListener('click', async () => act(() => request('/navigate', 'POST', {direction:'next'})));
+    const run = document.createElement('button');
+    run.type = 'button'; run.textContent = `Run current stage: ${state.stages[state.current_stage]?.label || state.current_stage}`;
+    run.addEventListener('click', async () => act(() => request('/execute', 'POST', {stage:state.current_stage})));
+    controls.append(previous, next, run);
+    container.appendChild(controls);
+    const note = document.createElement('small');
+    note.className = 'muted';
+    note.textContent = 'Opening and navigating reads saved state only. “Run current stage” reuses saved evidence and exact request-cache hits. New external or paid collection requires the separate collector selection and confirmation below. Later analysis and report stages remain bundled.';
+    container.appendChild(note);
+    if (state.current_stage === 'evidence_collection') {
+      const collectionPanel = document.createElement('div'); collectionPanel.className = 'workflow-collection-panel';
+      container.appendChild(collectionPanel);
+      void loadCollectionPanel(state, collectionPanel);
+    }
+    if (state.stages.validation_classification?.status === 'completed' && !workflowDecisionOpened.has(investigationId)) {
+      workflowDecisionOpened.add(investigationId);
+      void openDecision(investigationId, {navigate:true});
+      void loadComparisonHistory(1);
+    }
+  };
+  const act = async (call) => {
+    status.textContent = 'Saving workflow checkpoint…';
+    try { render(await call()); }
+    catch (error) { status.textContent = `Workflow action failed: ${error.message}`; }
+  };
+  try { render(await request()); }
+  catch (error) { status.textContent = `Workflow could not be opened: ${error.message}`; }
+}
+
 $('#investigation-history-form').addEventListener('submit', async (event) => {
   event.preventDefault();
   const button = $('#history-search-run');
@@ -734,6 +1104,13 @@ $('#investigation-history-form').addEventListener('submit', async (event) => {
       const details = document.createElement('small');
       details.textContent = `Investigation ID: ${row.investigation_id}`;
       card.appendChild(details);
+      const workflowButton = document.createElement('button');
+      workflowButton.type = 'button'; workflowButton.textContent = 'Open workflow';
+      workflowButton.style.marginLeft = '1rem';
+      const workflowPanel = document.createElement('div');
+      workflowPanel.className = 'workflow-panel';
+      workflowButton.addEventListener('click', () => openInvestigationWorkflow(row.investigation_id, workflowPanel));
+      card.append(workflowButton, workflowPanel);
       if (row.offline_status === 'completed') {
         const offline = document.createElement('a');
         offline.href = `/api/investigations/${encodeURIComponent(row.investigation_id)}/offline-result`;

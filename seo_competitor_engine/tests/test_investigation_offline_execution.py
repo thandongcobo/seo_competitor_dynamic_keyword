@@ -6,7 +6,7 @@ from unittest.mock import patch
 import pytest
 
 from scripts import serp_investigations as si
-from scripts.run_investigation_offline import run
+from scripts.run_investigation_offline import retry_report, run
 from config.settings import ROOT
 
 
@@ -30,7 +30,15 @@ def test_offline_replay_preserves_exact_urls_and_original_sources(tmp_path):
         assert result['requests_made'] == result['llm_inference_requests'] == 0
         assert result['historical_serp_datetime']
         assert len(result['source_provenance']) >= 13
-        assert (base / 'results/llm_outputs/executive_validated.json').is_file()
+        assert result['pdf_status'] == result['technical_appendix_status'] == 'generated'
+        assert result['executive_mode'] == 'deterministic_comparison_recommendations'
+        assert not (base / 'results/llm_outputs/executive_validated.json').exists()
+        assert result['investigation_metadata']['investigation_id'] == investigation_id
+        assert result['investigation_metadata']['tracked_page']['url'] == 'https://www.hollywoodbets.net/aviator'
+        comparison = json.loads((base / result['comparison_path']).read_text(encoding='utf-8'))
+        assert len(comparison['recommendations']) == 9
+        assert sum(r['evidence_tier'] == 'tier_1_strong_evidence' for r in comparison['recommendations']) == 3
+        assert sum(r['evidence_tier'] == 'tier_2_moderate_evidence' for r in comparison['recommendations']) == 6
         with pytest.raises(ValueError, match='already'):
             run(investigation_id)
     assert source.read_bytes() == before
@@ -55,13 +63,40 @@ def test_unrelated_keyword_rejected_without_outputs(tmp_path):
 def test_reversed_pages_can_use_existing_comparison_without_mislabelled_pdf(tmp_path):
     with patch.object(si, 'INVESTIGATIONS', tmp_path):
         investigation_id = _new(tmp_path, 'https://www.betway.co.za/aviator', 'https://www.hollywoodbets.net/aviator')
-        with pytest.raises(ValueError, match='PDF'):
-            run(investigation_id)
-        result = run(investigation_id, generate_pdf=False)
+        result = run(investigation_id)
         comparison = json.loads((tmp_path / investigation_id / result['comparison_path']).read_text())
         assert comparison['primary_ranking_urls']['ours'] == 'https://www.betway.co.za/aviator'
         assert comparison['ranking_summary']['google']['our_position'] == 1
-        assert result['pdf_path'] is None
+        assert result['pdf_path']
+        assert result['pdf_status'] == result['technical_appendix_status'] == 'generated'
+        assert result['investigation_metadata']['tracked_page']['rank'] == 1
+
+
+def test_pdf_failure_preserves_comparison_and_report_only_retry(tmp_path):
+    from scripts import run_analysis
+    from hashlib import sha256
+    with patch.object(si, 'INVESTIGATIONS', tmp_path):
+        investigation_id = _new(tmp_path)
+        with patch('scripts.generate_executive_pdf.build_management_pdf', side_effect=RuntimeError('synthetic PDF failure')):
+            failed = run(investigation_id)
+        base = tmp_path / investigation_id
+        comparison_path = base / failed['comparison_path']
+        comparison_before = sha256(comparison_path.read_bytes()).hexdigest()
+        comparison = json.loads(comparison_path.read_text(encoding='utf-8'))
+        assert failed['status'] == 'report_failed'
+        assert failed['processing_status'] == 'completed'
+        assert failed['pdf_status'] == 'failed'
+        assert failed['technical_appendix_status'] == 'generated'
+        assert len(comparison['recommendations']) > 0
+        assert not (base / 'results/aviator_executive_report.pdf').exists()
+        appendix_before = sha256((base / failed['technical_appendix_path']).read_bytes()).hexdigest()
+        with patch.object(run_analysis, 'main', side_effect=AssertionError('analysis must not rerun')):
+            retried = retry_report(investigation_id)
+        assert retried['status'] == 'completed'
+        assert retried['pdf_status'] == retried['technical_appendix_status'] == 'generated'
+        assert sha256(comparison_path.read_bytes()).hexdigest() == comparison_before
+        assert sha256((base / retried['technical_appendix_path']).read_bytes()).hexdigest() == appendix_before
+        assert (base / retried['pdf_path']).read_bytes().startswith(b'%PDF')
 
 
 def test_dashboard_offline_execution_and_pdf_download(tmp_path):

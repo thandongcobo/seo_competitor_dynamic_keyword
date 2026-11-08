@@ -59,16 +59,87 @@ def _md(value):
     return str(value or '').replace('|', '\\|').replace('\n', ' ')
 
 
-def build_appendix(data, ex, quality, source_name, canonical=None, run_records=None):
+def _identity_metadata_lines(metadata):
+    if not isinstance(metadata, dict):
+        return []
+    tracked = metadata.get('tracked_page') or {}
+    competitor = metadata.get('competitor_page') or {}
+    context = metadata.get('search_context') or {}
+    lines = [
+        '## Investigation identity and search context', '',
+        f"**Investigation ID:** {metadata.get('investigation_id') or 'Not recorded'}", '',
+        f"**Keyword / source:** {metadata.get('keyword') or 'Not recorded'} / {metadata.get('source') or 'Not recorded'}", '',
+        f"**Search engine / market:** {metadata.get('search_engine') or 'Not available'} / {metadata.get('market') or 'Not available'}", '',
+        f"**Search timestamp:** {metadata.get('search_timestamp') or 'Not available'}", '',
+        '**Exact selected pages:**', '',
+        f"- Tracked/primary page: {tracked.get('url') or 'Not recorded'} (observed position: {tracked.get('rank') if tracked.get('rank') is not None else 'Not available'})",
+        f"- Competitor page: {competitor.get('url') or 'Not recorded'} (observed position: {competitor.get('rank') if competitor.get('rank') is not None else 'Not available'})", '',
+    ]
+    if tracked.get('redirect_url') or tracked.get('canonical_url'):
+        lines.append('**Tracked-page redirect / canonical:** ' +
+                     str(tracked.get('redirect_url') or 'Not recorded') + ' / ' +
+                     str(tracked.get('canonical_url') or 'Not recorded'))
+        lines.append('')
+    if competitor.get('redirect_url') or competitor.get('canonical_url'):
+        lines.append('**Competitor-page redirect / canonical:** ' +
+                     str(competitor.get('redirect_url') or 'Not recorded') + ' / ' +
+                     str(competitor.get('canonical_url') or 'Not recorded'))
+        lines.append('')
+    if metadata.get('serp_snapshot_reference'):
+        lines.extend(['**Saved SERP snapshot reference:** ' + str(metadata['serp_snapshot_reference']), ''])
+        lines.extend(['**Saved SERP snapshot SHA-256:** ' + str(metadata.get('serp_sha256') or 'Not recorded'), ''])
+    if context:
+        lines.extend(['**Saved search context:**', '', '```json',
+                      json.dumps(context, ensure_ascii=False, indent=2), '```', ''])
+    timestamps = metadata.get('evidence_collection_timestamps') or {}
+    if timestamps:
+        lines.extend(['**Evidence collection timestamps recorded in source artifacts:**', ''])
+        lines.extend(f'- {key}: {value}' for key, value in sorted(timestamps.items()))
+        lines.append('')
+    references = metadata.get('evidence_references') or []
+    if references:
+        lines.extend(['**Selected investigation evidence references and SHA-256:**', ''])
+        lines.extend(f"- {row.get('kind')} / {row.get('side') or 'shared'}: `{row.get('path')}` — `{row.get('sha256')}`"
+                     for row in references)
+        lines.append('')
+    return lines
+
+
+def build_appendix(data, ex, quality, source_name, canonical=None, run_records=None,
+                   investigation_metadata=None):
     """Retain the entire deterministic source report and add *all* repaired evidence."""
     adapted_rows, classification_audit = adapt_recommendations(data.get('recommendations') or [])
     report_data = deepcopy(data)
     if data.get('recommendations'):
         report_data['recommendations'] = adapted_rows
     report_data['recommendation_classification_audit'] = classification_audit
+    metadata = investigation_metadata if isinstance(investigation_metadata, dict) else None
+    if metadata and not metadata.get('rankings_available'):
+        ranking_summary = report_data.get('ranking_summary')
+        if not isinstance(ranking_summary, dict):
+            ranking_summary = {}
+            report_data['ranking_summary'] = ranking_summary
+        google = ranking_summary.get('google')
+        if not isinstance(google, dict):
+            google = {}
+            ranking_summary['google'] = google
+        google.update({'our_position': None, 'benchmark_position': None})
     deterministic = generate_report(report_data, source_name=source_name)
     if not ex:
-        return deterministic
+        if not metadata:
+            return deterministic
+        synthetic_label = (['**SYNTHETIC REPORTING FIXTURE - no live or collected evidence.**', '']
+                           if str(metadata.get('source') or '').startswith('synthetic_') else [])
+        return '\n'.join([
+            '# Technical evidence and recommendation appendix', '',
+            *synthetic_label,
+            'This report uses only the selected investigation’s saved comparison and validated recommendation records. '
+            'No compatible investigation-bound executive payload was available; specialist plans were not invented or copied.', '',
+            *_identity_metadata_lines(metadata),
+            '## Classification compatibility audit', '', '```json',
+            json.dumps(classification_audit, ensure_ascii=False, indent=2), '```', '',
+            '## Full comparison evidence and recommended actions', '', deterministic.rstrip(), '',
+        ])
     plans = ex.get('implementation_plans') or []
     dispositions = ex.get('finding_dispositions') or []
     originals = ex.get('specialist_findings') or []
@@ -80,6 +151,7 @@ def build_appendix(data, ex, quality, source_name, canonical=None, run_records=N
         'evidence references, historical evidence, validation and recovery records remain preserved below. These items remain drafts for review.', '',
         'The current presentation uses classification schema version 2: Tier 1 — Strong Evidence and Tier 2 — Moderate Evidence. '
         'Where a historical tier was present, its original value remains in the recommendation record/audit while this report uses the versioned evidence-based classification.', '',
+        *_identity_metadata_lines(metadata),
         '## Classification compatibility audit', '', '```json',
         json.dumps(classification_audit, ensure_ascii=False, indent=2), '```', '',
         '## Part A — Authoritative recommendation evidence and implementation details', '',
@@ -222,7 +294,8 @@ def build_appendix(data, ex, quality, source_name, canonical=None, run_records=N
     return '\n'.join(parts).rstrip() + '\n'
 
 
-def build_management_pdf(out_pdf, data, ex, quality, keyword, canonical=None, investigation_datetime=None):
+def build_management_pdf(out_pdf, data, ex, quality, keyword, canonical=None, investigation_datetime=None,
+                         investigation_metadata=None):
     """Concise management-facing PDF; full technical details remain in appendix."""
     from reportlab.lib import colors
     from reportlab.lib.pagesizes import A4
@@ -286,12 +359,24 @@ def build_management_pdf(out_pdf, data, ex, quality, keyword, canonical=None, in
     competitor = data.get('benchmark_competitor_domain') or 'Benchmark domain'
     ranking = ((data.get('ranking_summary') or {}).get('google') or {})
     identity = (canonical or {}).get('investigation') or {}
-    exact_ours = ((canonical or {}).get('tracked_website') or {}).get('ranking_url') or ranking.get('our_url') or 'Not recorded'
+    metadata = investigation_metadata if isinstance(investigation_metadata, dict) else {}
+    tracked_metadata = metadata.get('tracked_page') or {}
+    competitor_metadata = metadata.get('competitor_page') or {}
+    exact_ours = (tracked_metadata.get('url') or
+                  ((canonical or {}).get('tracked_website') or {}).get('ranking_url') or ranking.get('our_url') or 'Not recorded')
     competitors = (canonical or {}).get('competitors') or []
-    exact_benchmark = ((competitors[0] if competitors else {}).get('ranking_url')) or ranking.get('benchmark_url') or 'Not recorded'
-    market = identity.get('market') or data.get('labs_location') or 'Not recorded'
-    engine = identity.get('search_engine') or ((rank.get('engine') if isinstance(rank, dict) else None)) or 'Google'
-    investigation_datetime = investigation_datetime or 'Not recorded in saved evidence'
+    exact_benchmark = (competitor_metadata.get('url') or
+                       ((competitors[0] if competitors else {}).get('ranking_url')) or ranking.get('benchmark_url') or 'Not recorded')
+    if metadata:
+        market = metadata.get('market') or 'Not available'
+        engine = metadata.get('search_engine') or 'Not available'
+    else:
+        market = identity.get('market') or data.get('labs_location') or 'Not recorded'
+        engine = identity.get('search_engine') or ((rank.get('engine') if isinstance(rank, dict) else None)) or 'Google'
+    if metadata:
+        investigation_datetime = metadata.get('search_timestamp') or investigation_datetime or 'Not available in saved evidence'
+    else:
+        investigation_datetime = investigation_datetime or 'Not recorded in saved evidence'
     saved_recommendations = data.get('recommendations') or []
     adapted_saved, classification_audit = adapt_recommendations(saved_recommendations)
     if saved_recommendations:
@@ -310,22 +395,46 @@ def build_management_pdf(out_pdf, data, ex, quality, keyword, canonical=None, in
     factual = ex.get('verified_factual_findings') or ex.get('key_findings') or []
     story.append(Paragraph(f'SEO Competitive Intelligence — {escape(keyword)}', styles['ReportTitleCustom']))
     story.append(para(f'Management decision brief | {ours} versus {competitor}', 'ReportSmallCustom'))
+    if str(metadata.get('source') or '').startswith('synthetic_'):
+        story.append(para('SYNTHETIC REPORTING FIXTURE - no live or collected evidence.', 'ReportSmallCustom'))
+    if metadata.get('investigation_id'):
+        story.append(label('Investigation ID:', metadata['investigation_id'], 'ReportSmallCustom'))
     story.append(label('Exact pages compared:', f'Tracked: {exact_ours} | Benchmark: {exact_benchmark}', 'ReportSmallCustom'))
-    story.append(label('Investigation date / search context:', f'{investigation_datetime} | {engine} organic search | {market}'
-                       + (f' | location coordinate {data.get("location_coordinate")}' if data.get('location_coordinate') else ''), 'ReportSmallCustom'))
+    context = metadata.get('search_context') or {}
+    context_text = ' | '.join(str(value) for value in (
+        context.get('location_note'), context.get('search_url'),
+        f"depth {context.get('depth_collected')}" if context.get('depth_collected') is not None else None,
+    ) if value)
+    location_coordinate = (metadata.get('location_coordinate') if metadata else
+                           data.get('location_coordinate'))
+    story.append(label('Search date / context:', f'{investigation_datetime} | {engine} | {market}'
+                       + (f' | {context_text}' if context_text else '')
+                       + (f' | location coordinate {location_coordinate}' if location_coordinate else ''), 'ReportSmallCustom'))
+    if metadata.get('serp_snapshot_reference'):
+        story.append(label('SERP snapshot:', metadata['serp_snapshot_reference'], 'ReportSmallCustom'))
     story.append(HRFlowable(width='100%', thickness=1.2, color=purple, spaceAfter=12))
-    story.append(label('Observed result:', f"In the saved Google organic result, {ours} ranked "
-                       f"#{rank.get('our_position', '?')} and {competitor} ranked "
-                       f"#{rank.get('benchmark_position', '?')}."))
-    story.append(para('This is one historical search snapshot. The differences below are investigation '
-                      'priorities, not demonstrated causes of Google ranking positions.'))
+    rankings_available = (metadata.get('rankings_available') if metadata else
+                          type(rank.get('our_position')) is int and type(rank.get('benchmark_position')) is int)
+    if rankings_available:
+        our_position = tracked_metadata.get('rank') if metadata else rank.get('our_position')
+        benchmark_position = competitor_metadata.get('rank') if metadata else rank.get('benchmark_position')
+        story.append(label('Observed result:', f"In the saved Google organic result, {ours} ranked "
+                           f"#{our_position} and {competitor} ranked "
+                           f"#{benchmark_position}."))
+        story.append(para('This is one historical search snapshot. The differences below are investigation '
+                          'priorities, not demonstrated causes of Google ranking positions.'))
+    else:
+        story.append(label('Observed result:', 'Exact-page SERP rankings are not available for this investigation.'))
+        story.append(para('The comparison uses saved evidence for the selected pages. SERP positions are unavailable, '
+                          'and the observed differences do not establish ranking causes.'))
     if quality and (quality['blocking_count'] or quality['review_count']):
         story.append(label('Quality status:', f"{quality['blocking_count']} blocking and "
                            f"{quality['review_count']} review flags. Specialist review is required."))
-    section('What the saved evidence establishes')
-    for fact in factual[:4]:
-        story.append(label('Observed:', fact.get('statement'), 'ReportSmallCustom'))
-        story.append(label('Important limitation:', fact.get('limitation'), 'ReportSmallCustom'))
+    if factual:
+        section('What the saved evidence establishes')
+        for fact in factual[:4]:
+            story.append(label('Observed:', fact.get('statement'), 'ReportSmallCustom'))
+            story.append(label('Important limitation:', fact.get('limitation'), 'ReportSmallCustom'))
     section('Decisions requested from management')
     story.append(para('Assign the proposed owners to implement the preferred evidence-backed changes and '
                       'complete the stated verification. Ranking or traffic improvement is not guaranteed.'))
@@ -370,7 +479,7 @@ def build_management_pdf(out_pdf, data, ex, quality, keyword, canonical=None, in
                       ' This is a potential outcome, not a ranking guarantee.' )),
                 label('Recommended Action:', action or 'No implementation steps were recorded.'),
                 Spacer(1, 7)]
-        story.extend(card)
+        story.append(KeepTogether(card))
     def footer(canvas, doc):
         canvas.saveState()
         canvas.setStrokeColor(colors.HexColor('#dedce7'))
@@ -392,6 +501,8 @@ def main(argv=None):
     parser.add_argument('--input', type=Path, help='Saved comparison JSON; no collectors run')
     parser.add_argument('--output-dir', type=Path)
     parser.add_argument('--executive-json', type=Path, help='Exact repaired executive JSON; do not use stale results')
+    parser.add_argument('--investigation-metadata', type=Path,
+                        help='Optional validated metadata for the selected saved investigation')
     args = parser.parse_args(argv)
     root = Path(__file__).resolve().parents[1]
     slug = keyword_slug(args.keyword)
@@ -408,6 +519,8 @@ def main(argv=None):
         raise FileNotFoundError(message + str(executive_path))
     data = json.loads(src.read_text(encoding='utf-8'))
     ex = json.loads(executive_path.read_text(encoding='utf-8'))
+    investigation_metadata = (json.loads(args.investigation_metadata.read_text(encoding='utf-8'))
+                              if args.investigation_metadata else None)
     canonical_path = out / 'llm_foundation/canonical_evidence.json'
     if not canonical_path.is_file():
         canonical_path = root / 'output/results' / slug / 'llm_foundation/canonical_evidence.json'
@@ -462,8 +575,10 @@ def main(argv=None):
     out.mkdir(parents=True, exist_ok=True)
     appendix = out / f'{args.keyword}_technical_appendix.md'
     pdf = out / f'{args.keyword}_executive_report.pdf'
-    appendix.write_text(build_appendix(data, ex, quality, src.name, canonical, run_records or None), encoding='utf-8')
-    build_management_pdf(pdf, data, ex, quality, args.keyword, canonical, investigation_datetime)
+    appendix.write_text(build_appendix(data, ex, quality, src.name, canonical, run_records or None,
+                                       investigation_metadata), encoding='utf-8')
+    build_management_pdf(pdf, data, ex, quality, args.keyword, canonical, investigation_datetime,
+                         investigation_metadata)
     (out / 'report_quality_audit.json').write_text(json.dumps(quality, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     manifest = {
         'source_executive_json': str(executive_path.resolve()),
@@ -478,6 +593,7 @@ def main(argv=None):
         'review_quality_flags': quality['review_count'],
         'report_type': 'concise_management_brief_plus_full_technical_appendix',
         'authoritative_recommendation_ids': [row.get('id') for row in plans if row.get('id')],
+        'investigation_id': (investigation_metadata or {}).get('investigation_id'),
         'ignored_stale_summary_fields': ['proposed_decisions', 'recommended_improvements'],
         'outputs': [str(pdf), str(appendix)],
     }
