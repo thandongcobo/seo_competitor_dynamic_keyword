@@ -1,0 +1,21 @@
+{
+  "source_executive_json": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_Information_Preservation\\seo_competitor_engine\\data\\investigations\\753374ef6ed94c4a979ec4952acba2e1\\reporting\\runs\\744c37c65f8b42d4be5050a1e57cdd98\\repair\\executive_quality_repaired.json",
+  "source_executive_sha256": "fe45cfe7bea7a1dad68dd079e98ce01ecaa29c7f8dd7ca2042820cc0bd3af5d6",
+  "source_comparison_json": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_Information_Preservation\\seo_competitor_engine\\data\\investigations\\753374ef6ed94c4a979ec4952acba2e1\\reporting\\runs\\744c37c65f8b42d4be5050a1e57cdd98\\evidence\\comparison.json",
+  "source_comparison_sha256": "d5d6b681e62a61a33ffe9ba4d9c84a02046641977dc1096e681f19e61fe7d453",
+  "implementation_plan_count": 5,
+  "finding_disposition_count": 11,
+  "original_specialist_finding_count": 11,
+  "verified_factual_finding_count": 8,
+  "blocking_quality_flags": 0,
+  "review_quality_flags": 4,
+  "report_type": "concise_management_brief_plus_full_technical_appendix",
+  "ignored_stale_summary_fields": [
+    "proposed_decisions",
+    "recommended_improvements"
+  ],
+  "outputs": [
+    "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_Information_Preservation\\seo_competitor_engine\\data\\investigations\\753374ef6ed94c4a979ec4952acba2e1\\reporting\\runs\\744c37c65f8b42d4be5050a1e57cdd98\\reports\\aviator_executive_report.pdf",
+    "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_Information_Preservation\\seo_competitor_engine\\data\\investigations\\753374ef6ed94c4a979ec4952acba2e1\\reporting\\runs\\744c37c65f8b42d4be5050a1e57cdd98\\reports\\aviator_technical_appendix.md"
+  ]
+}

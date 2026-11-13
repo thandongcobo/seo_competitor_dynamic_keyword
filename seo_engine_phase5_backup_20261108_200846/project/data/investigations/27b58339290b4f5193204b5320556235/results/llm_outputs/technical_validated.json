@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "task": "technical",
+  "status": "usable",
+  "findings": [
+    {
+      "observation": "The tracked website (hollywoodbets.net) has a mobile performance score of 28, while the benchmark (betway.co.za) has a lower performance score of 16.",
+      "interpretation": "While the tracked website has a higher performance score than the benchmark, the absolute score of 28 indicates significant performance issues on mobile devices.",
+      "evidence_paths": [
+        "evidence.serp.ranking_summary",
+        "evidence.technical.mobile_audits.ours.scores",
+        "evidence.technical.mobile_audits.benchmark.scores"
+      ],
+      "counterevidence": "The benchmark's SEO score is lower (85) than the tracked website's SEO score (100).",
+      "recommended_action": "Investigate the specific bottlenecks contributing to the low performance score of 28 to improve mobile user experience."
+    },
+    {
+      "observation": "The tracked website shows a Largest Contentful Paint (LCP) of 24,907.98 ms and a Total Blocking Time (TBT) of 2,122.5 ms.",
+      "interpretation": "The LCP is significantly high, indicating a slow perceived loading speed for the main content on mobile.",
+      "evidence_paths": [
+        "evidence.technical.mobile_audits.ours.lab_metrics"
+      ],
+      "counterevidence": "The benchmark's LCP is also high at 19,506.78 ms.",
+      "recommended_action": "Optimize the critical rendering path to reduce LCP, specifically addressing the high TBT which suggests main-thread contention."
+    },
+    {
+      "observation": "JavaScript execution and unused JavaScript are identified as high-priority issues, with 6.0 s of boot-up time and 1,108 KiB of estimated savings from unused JS.",
+      "interpretation": "Excessive JavaScript execution and large, underutilized bundles are likely contributing to the high TBT and slow LCP.",
+      "evidence_paths": [
+        "evidence.technical.detailed_analysis.investigations[0]",
+        "evidence.technical.detailed_analysis.investigations[1]"
+      ],
+      "counterevidence": "None provided in the JSON.",
+      "recommended_action": "Audit the main.38c4d2ededa66bb008c8.min.js bundle to remove unused code and optimize the boot-up sequence of external scripts like wdp.js."
+    }
+  ],
+  "limitations": [
+    "Lighthouse lab data is not field CWV.",
+    "No data provided for actual revenue, ROI, or business impact.",
+    "No correlation between technical scores and search ranking position is established.",
+    "Missing data for image delivery measurements (value is null)."
+  ]
+}

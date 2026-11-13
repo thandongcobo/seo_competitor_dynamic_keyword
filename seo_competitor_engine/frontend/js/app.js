@@ -1,6 +1,19 @@
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
 const esc = (value) => String(value ?? '—').replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' })[char]);
+const ACTIVE_INVESTIGATION_STORAGE_KEY = 'seoActiveInvestigationId';
+const isValidInvestigationId = (value) => typeof value === 'string' && /^[0-9a-f]{32}$/.test(value);
+function saveActiveInvestigationId(value) {
+  if (!isValidInvestigationId(value)) return false;
+  try { localStorage.setItem(ACTIVE_INVESTIGATION_STORAGE_KEY, value); } catch { return false; }
+  return true;
+}
+function clearActiveInvestigationId(value = null) {
+  try {
+    if (value && localStorage.getItem(ACTIVE_INVESTIGATION_STORAGE_KEY) !== value) return;
+    localStorage.removeItem(ACTIVE_INVESTIGATION_STORAGE_KEY);
+  } catch {}
+}
 let selectedPageId = '';
 let currentMonitoringDetail = null;
 let selectedPromotionCategory = '';
@@ -40,6 +53,48 @@ function showPage(pageId, updateLocation = true) {
   $('#scope').textContent = pageId === 'search' ? 'Collect and inspect real Google organic results for any keyword' : pageId === 'activity' ? 'Changes across all registered public competitor pages' : pageId === 'monitoring' ? 'Public page captures, promotion details, and observed changes' : comparisonScope;
   if (updateLocation) history.replaceState(null, '', `#${pageId}`);
   return true;
+}
+
+async function restoreActiveInvestigation() {
+  let savedId = null;
+  try { savedId = localStorage.getItem(ACTIVE_INVESTIGATION_STORAGE_KEY); } catch {}
+  if (!savedId) return;
+  if (!isValidInvestigationId(savedId)) {
+    clearActiveInvestigationId();
+    const status = $('#keyword-search-status');
+    if (status) status.textContent = 'The saved investigation selection was invalid and has been cleared. Search or open another saved investigation to continue.';
+    return;
+  }
+
+  showPage('search');
+  $('#keyword-input').value = '';
+  $('#keyword-results-panel').hidden = false;
+  $('#hollywoodbets-selection').hidden = true;
+  $('#hollywoodbets-investigation').hidden = false;
+  $('#keyword-results-table').textContent = 'Restoring the saved investigation. No search or collection will be started.';
+  $('#hollywoodbets-investigation-id').textContent = `Investigation ${savedId}`;
+  $('#hollywoodbets-investigation-summary').textContent = 'Loading the saved keyword, selected webpages and workflow checkpoint…';
+  $('#hollywoodbets-workflow').replaceChildren();
+  await openInvestigationWorkflow(savedId, $('#hollywoodbets-workflow'), {
+    onState: (state) => {
+      hollywoodbetsInvestigationId = savedId;
+      selectedCompetitorUrl = state.webpages?.benchmark?.url || null;
+      $('#keyword-input').value = state.keyword || '';
+      $('#keyword-results-heading').textContent = `Saved investigation · ${state.keyword || 'keyword unavailable'}`;
+      $('#keyword-result-source').textContent = 'Saved workflow · no new search';
+      const ours = state.webpages?.ours || {};
+      const benchmark = state.webpages?.benchmark || {};
+      const describe = (label, page) => `${label}: ${page.domain || 'domain unavailable'} · ${page.url || 'URL unavailable'}${Number.isInteger(page.rank) ? ` · #${page.rank}` : ''}`;
+      $('#keyword-results-meta').textContent = 'Restored from the backend’s saved workflow state. This is historical investigation data.';
+      $('#keyword-results-table').textContent = [describe('Hollywoodbets', ours), describe('Selected competitor', benchmark)].join('\n');
+      $('#hollywoodbets-investigation-summary').textContent = `${describe('Hollywoodbets', ours)}\n${describe('Selected competitor', benchmark)}\nCurrent stage: ${state.stages?.[state.current_stage]?.label || state.current_stage || 'unavailable'}.`;
+    },
+    onMissing: (message) => {
+      clearActiveInvestigationId(savedId);
+      $('#hollywoodbets-investigation-summary').textContent = `${message} Start a new search or open another saved investigation.`;
+      $('#keyword-results-table').textContent = 'This investigation is unavailable. You can start another investigation from Keyword search.';
+    },
+  });
 }
 
 $$('.nav').forEach((button) => button.addEventListener('click', () => showPage(button.dataset.page)));
@@ -111,10 +166,14 @@ function renderDecisionView(record, {fromHistory = false} = {}) {
   const searchContext = record.selection.search_context?.location_note || (record.source === 'manual_exact_webpage_urls' ? 'Manual exact-page selection' : 'Saved search context');
   comparisonScope = `${ours.domain || 'Hollywoodbets'} vs ${competitor.domain || 'Competitor'} · ${searchContext}`;
   $('#scope').textContent = comparisonScope;
-  $('#executive-status').textContent = 'Validated recommendations available';
+  $('#executive-status').textContent = record.is_historical
+    ? 'Validated historical recommendations'
+    : 'Validated recommendations available';
   $('#executive-status').classList.remove('yellow');
   $('#executive-summary').textContent = `${record.keyword} · Hollywoodbets ${ours.url} (${rank(ours)}) · ${competitor.domain || 'Competitor'} ${competitor.url} (${rank(competitor)})`;
-  $('#executive-freshness').textContent = `Investigation ${record.investigation_id} · completed ${formatDate(record.completed_at || record.created_at)} · ${record.recommendation_count} validated recommendation(s) · workflow: ${record.workflow_status}.`;
+  $('#executive-freshness').textContent = record.is_historical
+    ? `Historical comparison · source investigation ${record.source_investigation_id} · original completion ${formatDate(record.completed_at)} · ${record.recommendation_count} validated recommendation(s). This is saved historical evidence, not a new run.`
+    : `Investigation ${record.investigation_id} · completed ${formatDate(record.completed_at || record.created_at)} · ${record.recommendation_count} validated recommendation(s) · workflow: ${record.workflow_status}.`;
   const links = $('#decision-report-links');
   links.replaceChildren();
   if (record.has_pdf) {
@@ -448,6 +507,7 @@ async function loadDashboard() {
     try { savedId = sessionStorage.getItem('seoSelectedComparisonId') || ''; } catch {}
     if (savedId) void openDecision(savedId, {navigate:false});
     loadMonitoring();
+    void restoreActiveInvestigation();
   }
 }
 
@@ -488,6 +548,11 @@ async function loadComparisonHistory(page = comparisonHistoryPage) {
       ]) { const badge = document.createElement('span'); badge.textContent = label; counts.appendChild(badge); }
       card.appendChild(counts);
       const meta = document.createElement('p'); meta.textContent = `Investigation ${row.investigation_id} · ${formatDate(row.completed_at || row.created_at)} · ${row.workflow_status}`; card.appendChild(meta);
+      if (row.is_historical) {
+        const historical = document.createElement('p'); historical.className = 'muted historical-record-label';
+        historical.textContent = `Historical record · source investigation ${row.source_investigation_id}`;
+        card.appendChild(historical);
+      }
       const open = document.createElement('button'); open.type = 'button'; open.textContent = 'Open saved recommendations';
       open.addEventListener('click', () => void openDecision(row.investigation_id, {fromHistory:true})); card.appendChild(open);
       results.appendChild(card);
@@ -568,6 +633,7 @@ $('#keyword-manual-form').addEventListener('submit', async (event) => {
     if (!response.ok) throw new Error(saved.error || `HTTP ${response.status}`);
     const inventory = saved.offline_evidence_summary || {};
     manualInvestigationId = saved.investigation_id;
+    saveActiveInvestigationId(manualInvestigationId);
     $('#keyword-manual-run').disabled = !inventory.complete;
     const formatRank = (item) => item.rank == null ? 'not observed in saved SERP' : `#${item.rank}`;
     status.textContent = `Saved ${saved.investigation_id}. Page A: ${formatRank(saved.ours)}; page B: ${formatRank(saved.benchmark)}. Matching saved evidence: ${inventory.available ?? 0}/${inventory.total ?? 0} items. No API, browser or LLM requests made. Use Run offline comparison when the saved evidence is complete.`;
@@ -930,13 +996,20 @@ $('#keyword-reporting-approve').addEventListener('click', async () => {
 
 // Read-only investigation history. Do not substitute an old analysis for the
 // current keyword/URL selection; every result retains its investigation ID.
-async function openInvestigationWorkflow(investigationId, container) {
+async function openInvestigationWorkflow(investigationId, container, options = {}) {
+  if (!isValidInvestigationId(investigationId)) {
+    if (container) container.textContent = 'This investigation ID is invalid. Open another saved investigation or start a new one.';
+    options.onMissing?.('This investigation ID is invalid.');
+    return;
+  }
+  saveActiveInvestigationId(investigationId);
   container.replaceChildren();
   const status = document.createElement('p');
   status.className = 'muted';
   status.textContent = 'Loading saved workflow checkpoints…';
   container.appendChild(status);
   const request = async (suffix = '', method = 'GET', body = null) => {
+    if (!isValidInvestigationId(investigationId)) throw new Error('Invalid investigation ID. Open another saved investigation.');
     const response = await fetch(`/api/investigations/${encodeURIComponent(investigationId)}/workflow${suffix}`, {
       method, headers: body ? {'Content-Type':'application/json'} : {},
       body: body ? JSON.stringify(body) : undefined, cache:'no-store'
@@ -961,7 +1034,80 @@ async function openInvestigationWorkflow(investigationId, container) {
     const note = document.createElement('small'); note.className = 'muted';
     note.textContent = 'Playwright and Lighthouse make external public-site requests. DataForSEO is paid; exact USD cost is unknown until the API responds. The request count is shown before you confirm.';
     panel.appendChild(note);
-    const loadPlan = async (defaults = true) => {
+    const activity = document.createElement('section'); activity.className = 'workflow-collection-activity';
+    activity.setAttribute('aria-live', 'polite'); activity.setAttribute('aria-label', 'Evidence collection status');
+    panel.appendChild(activity);
+    let pollTimer = null;
+    let stopped = false;
+    let postingCollection = false;
+    let selectionBoxes = [];
+    const selections = {};
+    let consecutivePollErrors = 0;
+    const stopPolling = () => { stopped = true; if (pollTimer !== null) window.clearTimeout(pollTimer); pollTimer = null; };
+    const renderCollectionStatus = (record) => {
+      activity.replaceChildren();
+      const counts = record.summary || {};
+      const summary = document.createElement('p'); summary.className = 'workflow-collection-summary';
+      summary.textContent = `Collection status: ${record.status} · Completed ${counts.completed || 0} · Reused ${counts.reused || 0} · Failed ${counts.failed || 0} · Pending ${counts.pending || 0} · Running ${counts.running || 0} · Processing ${counts.processing || 0} · Skipped ${counts.skipped || 0}`;
+      activity.appendChild(summary);
+      const statistics = record.statistics || {};
+      const accounting = document.createElement('small'); accounting.className = 'muted';
+      const charges = Number(statistics.api_confirmed_charges_usd || 0);
+      const chargeLabel = (statistics.api_confirmed_charge_records || 0) > 0 ? `$${charges.toFixed(4)} API-reported` : 'not reported by API';
+      accounting.textContent = `Operation attempts: ${statistics.operation_attempts || 0} · DataForSEO transmission attempts: ${statistics.dataforseo_transmission_attempts || 0} · HTTP responses received: ${statistics.dataforseo_http_responses_received || 0} · Transmission outcome unknown: ${statistics.dataforseo_transmission_outcome_unknown || 0} · API-reported charges: ${chargeLabel}`;
+      activity.appendChild(accounting);
+      const table = document.createElement('table'); table.className = 'workflow-collection-status-table';
+      const head = document.createElement('thead'); const headingRow = document.createElement('tr');
+      for (const label of ['Collector', 'Evidence type', 'Status', 'Attempts', 'Started', 'Completed', 'HTTP / API', 'Error']) {
+        const th = document.createElement('th'); th.scope = 'col'; th.textContent = label; headingRow.appendChild(th);
+      }
+      head.appendChild(headingRow); table.appendChild(head);
+      const body = document.createElement('tbody');
+      for (const item of record.items || []) {
+        const row = document.createElement('tr');
+        const values = [item.collector, item.evidence_type, String(item.status || 'pending').replace(/^./, c => c.toUpperCase()),
+          item.attempt_count || 0, item.started_at || '—', item.completed_at || '—',
+          [item.http_status ? `HTTP ${item.http_status}` : '', item.api_status ? `API ${item.api_status}` : ''].filter(Boolean).join(' · ') || '—',
+          item.error || '—'];
+        for (const value of values) { const cell = document.createElement('td'); cell.textContent = String(value); row.appendChild(cell); }
+        row.dataset.status = item.status || 'pending'; body.appendChild(row);
+      }
+      table.appendChild(body); activity.appendChild(table);
+    };
+    const fetchCollectionStatus = async () => {
+      if (!isValidInvestigationId(investigationId)) throw new Error('Invalid investigation ID. Collection status was not requested.');
+      const response = await fetch(`/api/investigations/${encodeURIComponent(investigationId)}/workflow/collection-status`, {cache:'no-store'});
+      const record = await response.json();
+      if (!response.ok) throw new Error(record.error || `Collection status returned ${response.status}`);
+      renderCollectionStatus(record);
+      return record;
+    };
+    const pollCollectionStatus = async () => {
+      if (stopped || !panel.isConnected) { stopPolling(); return; }
+      try {
+        const record = await fetchCollectionStatus();
+        consecutivePollErrors = 0;
+        if (record.status !== 'running') {
+          stopPolling();
+          if (!postingCollection) {
+            options.querySelectorAll('input').forEach(box => { box.disabled = false; });
+            action.disabled = !selectionBoxes.some(box => box.checked);
+          }
+          return;
+        }
+      } catch (error) {
+        consecutivePollErrors += 1;
+        const message = document.createElement('p'); message.className = 'muted';
+        message.textContent = `Could not refresh collection status: ${error.message}`; activity.appendChild(message);
+        if (consecutivePollErrors >= 3) { stopPolling(); return; }
+      }
+      if (!stopped && panel.isConnected) pollTimer = window.setTimeout(pollCollectionStatus, 850);
+    };
+    const startPolling = () => { if (stopped) stopped = false; if (pollTimer === null) void pollCollectionStatus(); };
+    const loadPlan = async (preserveCollectorSelection = false) => {
+      const selectedBeforeRefresh = preserveCollectorSelection
+        ? Object.entries(selections).filter(([, box]) => box.checked).map(([name]) => name)
+        : null;
       const response = await fetch(`/api/investigations/${encodeURIComponent(investigationId)}/workflow/collection-plan?refresh=${refresh.checked ? '1' : '0'}`, {cache:'no-store'});
       const plan = await response.json();
       if (!response.ok) throw new Error(plan.error || `Collection plan returned ${response.status}`);
@@ -971,19 +1117,21 @@ async function openInvestigationWorkflow(investigationId, container) {
         ['playwright', 'Playwright page capture'],
         ['lighthouse', 'Lighthouse mobile audit']
       ];
-      const selections = {};
       for (const [category, label] of categoryInfo) {
         const rows = plan.items.filter(item => item.collector === category);
         const pending = rows.filter(item => ['missing','refresh_required'].includes(item.status)).length;
         const cacheHits = rows.filter(item => item.status === 'cached').length;
         const available = rows.filter(item => item.status === 'available').length;
         const box = document.createElement('input'); box.type = 'checkbox';
-        box.checked = preferred ? preferred.includes(category) : (pending > 0 || cacheHits > 0);
+        box.checked = selectedBeforeRefresh
+          ? selectedBeforeRefresh.includes(category)
+          : preferred ? preferred.includes(category) : (pending > 0 || cacheHits > 0);
         selections[category] = box;
         const line = document.createElement('label'); line.className = 'workflow-collector-option';
         line.append(box, document.createTextNode(` ${label} — ${pending} to collect/refresh, ${cacheHits} exact request-cache hit(s), ${available} reusable`));
         options.appendChild(line);
       }
+      selectionBoxes = Object.values(selections);
       status.textContent = `${plan.summary.available_or_reusable} reusable evidence items; ${plan.summary.request_cache_hits} request-cache hit(s); ${plan.summary.missing_items} items need collection or refresh.`;
       action.disabled = !Object.values(selections).some(box => box.checked);
       action.onclick = async () => {
@@ -995,7 +1143,11 @@ async function openInvestigationWorkflow(investigationId, container) {
         const lighthouseCount = chosen.filter(item => item.collector === 'lighthouse').length;
         const prompt = `Run these selected collectors?\n\nDataForSEO paid POST requests: ${paidCount}\nPlaywright page captures: ${pageCount} (each can load additional page resources)\nLighthouse runs: ${lighthouseCount} (npx may contact npm and the public page)\n\nDataForSEO USD cost is not available before the response. Existing compatible evidence and successful request-cache responses will be reused. A fresh run saves a new version.`;
         if (!window.confirm(prompt)) return;
-        action.disabled = true; status.textContent = 'Collecting explicitly selected evidence…';
+        action.disabled = true;
+        postingCollection = true;
+        options.querySelectorAll('input').forEach(box => { box.disabled = true; });
+        status.textContent = 'Collection started. Live item statuses will update below.';
+        startPolling();
         try {
           const response = await fetch(`/api/investigations/${encodeURIComponent(investigationId)}/workflow/collection/execute`, {
             method:'POST', headers:{'Content-Type':'application/json'},
@@ -1006,21 +1158,37 @@ async function openInvestigationWorkflow(investigationId, container) {
           const result = await response.json();
           if (!response.ok) throw new Error(result.error || `Collection returned ${response.status}`);
           const stats = result.collection?.statistics || {};
-          status.textContent = `Collection ${result.collection?.status || 'finished'} · saved evidence reused: ${stats.evidence_reuse_hits || 0} · DataForSEO cache hits: ${stats.request_cache_hits || 0} · DataForSEO requests: ${stats.paid_requests_made || 0} · Playwright captures: ${stats.playwright_top_level_captures || 0} · Lighthouse runs: ${stats.lighthouse_runs || 0}.`;
+          stopPolling();
+          postingCollection = false;
+          status.textContent = `Collection ${result.collection?.status || 'finished'} · DataForSEO requests with HTTP responses: ${stats.dataforseo_http_responses_received || 0} · API-reported charges: ${(stats.api_confirmed_charge_records || 0) ? `$${Number(stats.api_confirmed_charges_usd || 0).toFixed(4)}` : 'not reported'}.`;
           render(result.workflow);
         } catch (error) {
+          stopPolling();
+          postingCollection = false;
           status.textContent = `Collection did not complete: ${error.message}`;
           action.disabled = false;
+          options.querySelectorAll('input').forEach(box => { box.disabled = false; });
+          try { await fetchCollectionStatus(); } catch {}
         }
       };
     };
     refresh.addEventListener('change', async () => {
       try { await loadPlan(true); } catch (error) { status.textContent = `Collection plan failed: ${error.message}`; }
     });
-    try { await loadPlan(true); }
+    try {
+      await loadPlan();
+      const record = await fetchCollectionStatus();
+      if (record.status === 'running') {
+        action.disabled = true;
+        options.querySelectorAll('input').forEach(box => { box.disabled = true; });
+        status.textContent = 'A collection is already running. Showing its saved live status; no second collection was started.';
+        stopped = false; startPolling();
+      }
+    }
     catch (error) { status.textContent = `Collection plan failed: ${error.message}`; action.disabled = true; }
   };
   const render = (state) => {
+    options.onState?.(state);
     container.replaceChildren();
     const title = document.createElement('h4');
     title.textContent = `Workflow · ${state.keyword} · current: ${state.stages[state.current_stage]?.label || state.current_stage}`;
@@ -1069,7 +1237,10 @@ async function openInvestigationWorkflow(investigationId, container) {
     catch (error) { status.textContent = `Workflow action failed: ${error.message}`; }
   };
   try { render(await request()); }
-  catch (error) { status.textContent = `Workflow could not be opened: ${error.message}`; }
+  catch (error) {
+    status.textContent = `Workflow could not be opened: ${error.message}`;
+    if (/not found|404|invalid investigation id/i.test(error.message)) options.onMissing?.(error.message);
+  }
 }
 
 $('#investigation-history-form').addEventListener('submit', async (event) => {

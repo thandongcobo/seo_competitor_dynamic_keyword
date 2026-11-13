@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "task": "backlinks",
+  "model": "gemma-4-12b-it-UD-Q6_K_XL.gguf",
+  "fingerprint": "51cca1182d7b9e34ee6262f7e1e259e90920a733c63f1a6cefe08b3b3bbd05c0",
+  "recovery_status": "recovered_with_review",
+  "review_finding_ids": [
+    "BACKLINKS_01",
+    "BACKLINKS_02"
+  ],
+  "attempts": 2,
+  "result": {
+    "schema_version": "1.0",
+    "task": "backlinks",
+    "implementation_plans": [],
+    "finding_dispositions": [
+      {
+        "specialist_finding_id": "BACKLINKS_01",
+        "outcome": "investigate",
+        "plan_indices": [],
+        "simple_explanation": "A proposed explanation could not be verified against the saved evidence. Further review is needed.",
+        "technical_explanation": "Recheck the original source measurement, metric scope and cited evidence before approving a change.",
+        "next_step": "Review the saved source records and rerun the scoped comparison if new data is authorized and required.",
+        "reason": "The original recommendation contained an unresolved factual or citation validation issue.",
+        "evidence_ids": [
+          "BL_PAGE",
+          "SERP"
+        ]
+      },
+      {
+        "specialist_finding_id": "BACKLINKS_02",
+        "outcome": "investigate",
+        "plan_indices": [],
+        "simple_explanation": "A proposed explanation could not be verified against the saved evidence. Further review is needed.",
+        "technical_explanation": "Recheck the original source measurement, metric scope and cited evidence before approving a change.",
+        "next_step": "Review the saved source records and rerun the scoped comparison if new data is authorized and required.",
+        "reason": "The original recommendation contained an unresolved factual or citation validation issue.",
+        "evidence_ids": [
+          "BL_DOMAIN",
+          "SERP"
+        ]
+      }
+    ]
+  },
+  "validated_at_utc": "2026-11-03T09:00:50.925026+00:00"
+}

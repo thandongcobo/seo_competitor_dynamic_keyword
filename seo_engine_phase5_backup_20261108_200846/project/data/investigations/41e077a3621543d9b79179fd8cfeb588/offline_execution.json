@@ -1,0 +1,109 @@
+{
+  "schema_version": "1.0",
+  "investigation_id": "41e077a3621543d9b79179fd8cfeb588",
+  "mode": "offline_saved_evidence_replay",
+  "requests_made": 0,
+  "llm_inference_requests": 0,
+  "status": "completed",
+  "keyword": "aviator",
+  "selected_pages": {
+    "ours": {
+      "domain": "hollywoodbets.net",
+      "url": "https://www.hollywoodbets.net/aviator",
+      "rank": 2,
+      "title": "Play Aviator | Aviator Game | Hollywoodbets SA",
+      "ranking_status": "observed_exact_page"
+    },
+    "benchmark": {
+      "domain": "betway.co.za",
+      "url": "https://www.betway.co.za/aviator",
+      "rank": 1,
+      "title": "Play Aviator and reach for the sky | Betway Sports betting",
+      "ranking_status": "observed_exact_page"
+    }
+  },
+  "historical_serp_datetime": "2026-10-10T09:52:43.403597+00:00",
+  "note": "Historical SERP and separately captured SEO evidence; not a new live ranking measurement. Saved LLM outputs are historical, not newly generated.",
+  "source_provenance": [
+    {
+      "normalized_file": "ranked_ours.json",
+      "raw_file": "data/raw/labs/aviator_ranked_ours.json",
+      "sha256": "2260fadd4c9d8636d9024e74365709c4fd43b17a9d5f06180808b995ac656c51"
+    },
+    {
+      "normalized_file": "backlinks_ours_domain_summary.json",
+      "raw_file": "data/raw/backlinks/aviator_ours_domain_summary.json",
+      "sha256": "bd631c8de3037b605977e2bea8c6b00cf3661baecb176f1df6a2dd5999f5549d"
+    },
+    {
+      "normalized_file": "backlinks_ours_page_summary.json",
+      "raw_file": "data/raw/backlinks/aviator_ours_page_summary.json",
+      "sha256": "f61d56f19bde896b7fa7d4afa115f04b005463e3a72887a733414bdf16acfec3"
+    },
+    {
+      "normalized_file": "page_ours.json",
+      "raw_file": "data/raw/pages/aviator_google_ours.json",
+      "sha256": "d174bc036a6c832618fe1e351d9fcec64b82ed55a88c6f321851fbcce3de7f8a"
+    },
+    {
+      "normalized_file": "lighthouse_ours_mobile.json",
+      "raw_file": "data/raw/lighthouse/aviator_google_ours_mobile.json",
+      "sha256": "7e66abdbd61f60028e52cb2e3b62fa5be8851446c4aad820b6ba16ae2bc385d9"
+    },
+    {
+      "normalized_file": "ranked_benchmark.json",
+      "raw_file": "data/raw/labs/aviator_ranked_benchmark.json",
+      "sha256": "00843052596a46ee29aa8f25aa8423ff5b33ae8f3ee594579ed6ec01a29a0c9d"
+    },
+    {
+      "normalized_file": "backlinks_benchmark_domain_summary.json",
+      "raw_file": "data/raw/backlinks/aviator_benchmark_domain_summary.json",
+      "sha256": "f08f44f4e32cf1624c8a09a225e2877a8a1a664e3eb56acac9082fa7389b5cca"
+    },
+    {
+      "normalized_file": "backlinks_benchmark_page_summary.json",
+      "raw_file": "data/raw/backlinks/aviator_benchmark_page_summary.json",
+      "sha256": "be2d05c195a34f8364ae9bf57bf86290c8a991cec65f632a990c2e49de3a97b6"
+    },
+    {
+      "normalized_file": "page_benchmark.json",
+      "raw_file": "data/raw/pages/aviator_google_benchmark.json",
+      "sha256": "aed98aaadd0f9d69ce61e52bb3b0c8b305c85148cfa706f713b39113b48abbd7"
+    },
+    {
+      "normalized_file": "lighthouse_benchmark_mobile.json",
+      "raw_file": "data/raw/lighthouse/aviator_google_benchmark_mobile.json",
+      "sha256": "12b5ecfe2dd41488633497a8f8e1af51de0ae5e685953e0485c0775f2ad3ce3a"
+    },
+    {
+      "normalized_file": "domain_intersection.json",
+      "raw_file": "data/raw/labs/aviator_domain_intersection.json",
+      "sha256": "712fdbf5848b36f4f72f28ee936b8197f5b82cfd576e8fd918b34ed41cac039a"
+    },
+    {
+      "normalized_file": "search_intent.json",
+      "raw_file": "data/raw/labs/aviator_search_intent.json",
+      "sha256": "e74d940e70b64e949a842b25bd507b29d118e12f459e70d348904f1b2fb6bc39"
+    },
+    {
+      "normalized_file": "serp_google.json",
+      "raw_file": "data/processed/aviator/serp_google.json",
+      "sha256": "3b85e43e6ab7d921f25eb315f86076de60793cfc065481a3ecda06a8606a771b"
+    },
+    {
+      "historical_llm_output": "output\\results\\aviator\\llm_outputs\\executive_validated.json",
+      "sha256": "bd1a185bf0309487828f22f18dcc81963863bca63655437c2c18175476a689d1",
+      "mode": "reused_saved_output_no_inference"
+    },
+    {
+      "historical_specialist_findings": 11,
+      "preserved": true,
+      "mode": "saved_real_outputs_no_inference"
+    }
+  ],
+  "comparison_path": "results\\aviator_comparison.json",
+  "pdf_path": null,
+  "historical_pdf_status": "skipped_incompatible_historical_executive",
+  "historical_pdf_warning": "Historical PDF not generated: saved executive JSON lacks implementation plans, specialist finding dispositions. Complete the separate, opt-in Gemma reporting stage to create a new draft report.",
+  "completed_at": "2026-11-03T07:21:42.997098+00:00"
+}

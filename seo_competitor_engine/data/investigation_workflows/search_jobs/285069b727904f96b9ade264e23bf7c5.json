@@ -1,0 +1,194 @@
+{
+  "schema_version": "1.0",
+  "job_id": "285069b727904f96b9ade264e23bf7c5",
+  "keyword": "lucky numbers",
+  "depth": 20,
+  "status": "completed",
+  "started_at": "2026-11-09T14:19:40.173259+00:00",
+  "finished_at": "2026-11-09T14:20:40.539521+00:00",
+  "fingerprint": "a7af93d87629dd916efd7a265726b4ed46b8e124b2a9c0ea5791588700516c07",
+  "request": {
+    "keyword": "lucky numbers",
+    "depth": 20,
+    "configuration": {
+      "language_code": "en",
+      "location_coordinate": "-29.7359502,31.0699179,200",
+      "our_domain": "hollywoodbets.net",
+      "depth": 20
+    }
+  },
+  "created_at": "2026-11-09T14:19:40.205558+00:00",
+  "credentials_stored": false,
+  "result": {
+    "keyword": "lucky numbers",
+    "status": "ok",
+    "collected_at": "2026-11-09T14:20:38.729191+00:00",
+    "search_url": "https://www.google.com/search?q=lucky+numbers&hl=en&gl=za&num=20&pws=0",
+    "location_note": "Google gl=za; not precise coordinate emulation",
+    "depth_requested": 20,
+    "depth_collected": 21,
+    "pages_completed": 3,
+    "stop_reason": "tracked_site_found_with_neighbours",
+    "maximum_search_depth": 100,
+    "tracked_site": {
+      "domain": "hollywoodbets.net",
+      "status": "found",
+      "rank": 1,
+      "ranking_url": "https://www.hollywoodbets.net/betting/21/lucky-numbers/countries",
+      "ranking_title": "Lucky Numbers for today",
+      "results_above": 0,
+      "results_below": 20,
+      "minimum_results": 20,
+      "maximum_results": 100,
+      "neighbours_requested": 2,
+      "complete": true,
+      "search_exhausted": false,
+      "rank_semantics": "observed_organic_sequence; not guaranteed absolute Google rank",
+      "stop_reason": "tracked_site_found_with_neighbours"
+    },
+    "validation": {
+      "status": "review_required",
+      "flags": [
+        "some_result_urls_not_matched_to_heading_links"
+      ],
+      "pages_checked": 3
+    },
+    "serp_diagnostics_enabled": false,
+    "diagnostics": null,
+    "previous_observation_comparison": null,
+    "organic_results": [
+      {
+        "rank_group": 1,
+        "domain": "hollywoodbets.net",
+        "title": "Lucky Numbers for today",
+        "url": "https://www.hollywoodbets.net/betting/21/lucky-numbers/countries"
+      },
+      {
+        "rank_group": 2,
+        "domain": "play.google.com",
+        "title": "Today Lucky Numbers – Apps on Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.luckynumber&hl=en_ZA"
+      },
+      {
+        "rank_group": 3,
+        "domain": "luckynumber.today",
+        "title": "Today Lucky Number",
+        "url": "https://www.luckynumber.today/"
+      },
+      {
+        "rank_group": 4,
+        "domain": "en.wikipedia.org",
+        "title": "Lucky number",
+        "url": "https://en.wikipedia.org/wiki/Lucky_number"
+      },
+      {
+        "rank_group": 5,
+        "domain": "worldsportsbetting.co.za",
+        "title": "Play Powerball Online | Lucky Numbers & Jackpots",
+        "url": "https://www.worldsportsbetting.co.za/lucky-numbers"
+      },
+      {
+        "rank_group": 6,
+        "domain": "betway.co.za",
+        "title": "Place your Lucky Numbers bets with Betway",
+        "url": "https://www.betway.co.za/Home/Index/luckynumbers"
+      },
+      {
+        "rank_group": 7,
+        "domain": "aiminghigh.aimssec.ac.za",
+        "title": "LUCKY NUMBERS HELP - Lesson Activities",
+        "url": "https://aiminghigh.aimssec.ac.za/wp-content/uploads/2020/09/LUCKY-NUMBERS-Inclusion-and-Home-Learning-Guide.pdf"
+      },
+      {
+        "rank_group": 8,
+        "domain": "central.bet.co.za",
+        "title": "Lucky Numbers Dream Guide 2026 - Bet Central",
+        "url": "https://www.central.bet.co.za/sports-betting-academy/betting-on-lucky-numbers/lucky-numbers-dream-guide/"
+      },
+      {
+        "rank_group": 9,
+        "domain": "education.nwu.ac.za",
+        "title": "Lucky Ncala | Natural Sciences Education - NWU",
+        "url": "https://education.nwu.ac.za/natural-sciences-education/lucky-ncala"
+      },
+      {
+        "rank_group": 10,
+        "domain": "sars.gov.za",
+        "title": "SARS welcomes judgment on Mr Lucky Montana",
+        "url": "https://www.sars.gov.za/media-release/sars-welcomes-judgment-on-mr-lucky-montana/"
+      },
+      {
+        "rank_group": 11,
+        "domain": "kannaland.gov.za",
+        "title": "Performance Agreement: CFO Lucky Steenkamp 2025/2026",
+        "url": "https://kannaland.gov.za/performance-agreement-cfo-lucky-steenkamp-20252026"
+      },
+      {
+        "rank_group": 12,
+        "domain": "play.google.com",
+        "title": "My Lucky Cross - Apps on Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.luckynumbers.luckycross&hl=en"
+      },
+      {
+        "rank_group": 13,
+        "domain": "x.com",
+        "title": "Lucky Orimisan Aiyedatiwa (@LuckyAiyedatiwa) ...",
+        "url": "https://x.com/LuckyAiyedatiwa?lang=en"
+      },
+      {
+        "rank_group": 14,
+        "domain": "podcasts.apple.com",
+        "title": "She's So Lucky - Podcast",
+        "url": "https://podcasts.apple.com/us/podcast/shes-so-lucky/id1438982040"
+      },
+      {
+        "rank_group": 15,
+        "domain": "ebe.uct.ac.za",
+        "title": "Lucky Siboya | University of Cape Town",
+        "url": "https://ebe.uct.ac.za/department-mechanical-engineering/contacts/lucky-siboya"
+      },
+      {
+        "rank_group": 16,
+        "domain": "luckyfishandchips.co.za",
+        "title": "Lucky Fish and Chips Restaurant",
+        "url": "https://www.luckyfishandchips.co.za/"
+      },
+      {
+        "rank_group": 17,
+        "domain": "linkedin.com",
+        "title": "Lucky Gunasekara - Co-Founder, CEO at Miso",
+        "url": "https://www.linkedin.com/in/luckorchance"
+      },
+      {
+        "rank_group": 18,
+        "domain": "youtube.com",
+        "title": "Britney Spears - Lucky (Official HD Video)",
+        "url": "https://www.youtube.com/watch?v=4vvBAONkYwI"
+      },
+      {
+        "rank_group": 19,
+        "domain": "luckybeanguesthouse.co.za",
+        "title": "Lucky Bean Guesthouse, Guesthouse in Melville, Johannesburg",
+        "url": "https://www.luckybeanguesthouse.co.za/"
+      },
+      {
+        "rank_group": 20,
+        "domain": "reddit.com",
+        "title": "Lucky | Season 1 - Episode 1 | Discussion Thread : r/tvPlus",
+        "url": "https://www.reddit.com/r/tvPlus/comments/1uwr3i2/lucky_season_1_episode_1_discussion_thread/"
+      },
+      {
+        "rank_group": 21,
+        "domain": "theguardian.com",
+        "title": "'Lucky to have him': Maro Itoje backs Borthwick after ...",
+        "url": "https://www.theguardian.com/sport/2026/nov/08/maro-itoje-steve-borthwick-england-australia-nations-championship-rugby-union"
+      }
+    ],
+    "source": "saved_google_playwright"
+  },
+  "snapshot": {
+    "sha256": "2fa98f7b0af5d924077acbcff661a98f0f416e6d07b4c545a2cc57bf3f68ace8",
+    "path": "data/raw/serp/lucky_numbers_dd087a6a_google_playwright.json",
+    "size_bytes": 17576
+  }
+}

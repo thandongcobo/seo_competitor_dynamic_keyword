@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "task": "competition",
+  "attempt": 1,
+  "validation_errors": [
+    "implementation_plans[2]: orphan plan without linked finding",
+    "implementation_plans[2]: specialist finding COMPETITION_03 is not linked to any cited approved FACT ID",
+    "implementation_plans[2].success_measure: numeric claim 5 is not supported by its cited evidence",
+    "plan 2: invalid evidence_ids"
+  ],
+  "provisional_citation_changes": [],
+  "grounded_diagnostics": [
+    {
+      "error": "implementation_plans[2]: orphan plan without linked finding",
+      "path": "implementation_plans[2]",
+      "current_value": {
+        "title": "Monitor Visibility of Non-Benchmark Domains for Intent Capture",
+        "rationale": "The SERP includes non-benchmark domains like app.aviator.co and aviator.co, which may capture niche intent or app-specific traffic.",
+        "owner": "Competitive Intelligence Team",
+        "priority": "low",
+        "implementation_steps": [
+          "Track monthly SERP positions for app.aviator.co and aviator.co using DataForSEO or similar tools.",
+          "Analyze traffic sources and user behavior (via Google Search Console or GA4) to determine if these domains capture significant intent.",
+          "Report findings to strategy team to adjust content or SEO focus if needed."
+        ],
+        "success_measure": "Identify if any non-benchmark domain captures >5% of total 'aviator' search intent.",
+        "uncertainty": "These domains may not be ranking for the primary keyword, and their traffic may be indirect or app-based.",
+        "evidence_ids": [],
+        "specialist_finding_ids": [
+          "COMPETITION_03"
+        ],
+        "simple_explanation": "Other domains are appearing in the SERP — we need to verify if they’re capturing real user intent.",
+        "technical_explanation": "The discovery candidate list includes app.aviator.co and aviator.co, but no ranking data is provided. We must verify their visibility and traffic to determine if they’re competitive or irrelevant."
+      },
+      "cited_fact_ids": [],
+      "permitted_fact_ids": [],
+      "specialist_finding_ids": [
+        "COMPETITION_03"
+      ],
+      "classification": "lineage_or_structure",
+      "instruction": "Keep fact citations within the union of the linked specialist findings. Do not add an unrelated finding solely to make an invalid claim pass."
+    },
+    {
+      "error": "implementation_plans[2]: specialist finding COMPETITION_03 is not linked to any cited approved FACT ID",
+      "path": "implementation_plans[2]",
+      "current_value": {
+        "title": "Monitor Visibility of Non-Benchmark Domains for Intent Capture",
+        "rationale": "The SERP includes non-benchmark domains like app.aviator.co and aviator.co, which may capture niche intent or app-specific traffic.",
+        "owner": "Competitive Intelligence Team",
+        "priority": "low",
+        "implementation_steps": [
+          "Track monthly SERP positions for app.aviator.co and aviator.co using DataForSEO or similar tools.",
+          "Analyze traffic sources and user behavior (via Google Search Console or GA4) to determine if these domains capture significant intent.",
+          "Report findings to strategy team to adjust content or SEO focus if needed."
+        ],
+        "success_measure": "Identify if any non-benchmark domain captures >5% of total 'aviator' search intent.",
+        "uncertainty": "These domains may not be ranking for the primary keyword, and their traffic may be indirect or app-based.",
+        "evidence_ids": [],
+        "specialist_finding_ids": [
+          "COMPETITION_03"
+        ],
+        "simple_explanation": "Other domains are appearing in the SERP — we need to verify if they’re capturing real user intent.",
+        "technical_explanation": "The discovery candidate list includes app.aviator.co and aviator.co, but no ranking data is provided. We must verify their visibility and traffic to determine if they’re competitive or irrelevant."
+      },
+      "cited_fact_ids": [],
+      "permitted_fact_ids": [],
+      "specialist_finding_ids": [
+        "COMPETITION_03"
+      ],
+      "classification": "lineage_or_structure",
+      "instruction": "Keep fact citations within the union of the linked specialist findings. Do not add an unrelated finding solely to make an invalid claim pass."
+    },
+    {
+      "error": "implementation_plans[2].success_measure: numeric claim 5 is not supported by its cited evidence",
+      "path": "implementation_plans[2].success_measure",
+      "current_value": "Identify if any non-benchmark domain captures >5% of total 'aviator' search intent.",
+      "cited_fact_ids": [],
+      "permitted_fact_ids": [],
+      "specialist_finding_ids": [
+        "COMPETITION_03"
+      ],
+      "classification": "number_supported_by_other_scope",
+      "number": "5",
+      "matching_fact_ids": [
+        "KW_QUERY_GAPS"
+      ],
+      "permitted_matching_fact_ids": [],
+      "instruction": "The number occurs in approved evidence but NOT in facts linked to this plan/finding. Remove the claim or explicitly revise specialist coverage and linked dispositions only when semantically justified."
+    },
+    {
+      "error": "plan 2: invalid evidence_ids",
+      "classification": "unlocalized",
+      "instruction": "Retain valid fields and correct the stated validation issue."
+    }
+  ]
+}

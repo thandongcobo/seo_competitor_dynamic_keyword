@@ -15,12 +15,13 @@ from analysis.recommendation_classification import (
     TIER_1, TIER_2, TIER_LABELS, adapt_recommendations,
 )
 from scripts import serp_investigations
+from config.settings import ROOT as ENGINE_ROOT
 
 _ID = re.compile(r"^[0-9a-f]{32}$")
 _TIERS = {TIER_1, TIER_2}
 _DEFAULT_PAGE_SIZE = 20
 _MAX_PAGE_SIZE = 50
-_INDEX_VERSION = 1
+_INDEX_VERSION = 2
 _INDEX_TABLE = "comparison_history_entries"
 
 
@@ -119,6 +120,19 @@ def _fingerprint_paths(data_root: Path, investigation_id: str) -> list[str]:
 
     selection = _read(base / "selection.json")
     offline = _read(base / "offline_execution.json")
+    historical = _read(base / "historical_registration.json")
+    if isinstance(historical, dict):
+        paths.add(base / "historical_registration.json")
+        for row in historical.get("archive_files", []):
+            if isinstance(row, dict):
+                candidate = _safe_candidate(base, row.get("path"))
+                if candidate:
+                    paths.add(candidate)
+        for row in historical.get("evidence_source_references", []):
+            if isinstance(row, dict):
+                candidate = _safe_candidate(base, row.get("archive_path"))
+                if candidate:
+                    paths.add(candidate)
     if isinstance(offline, dict):
         comparison = _safe_candidate(base, offline.get("comparison_path"), parent="results", suffix=".json")
         if comparison:
@@ -449,8 +463,146 @@ def _validated_recommendations(comparison: dict) -> list[dict]:
     return accepted
 
 
+def _load_historical(data_root: Path, base: Path, investigation_id: str) -> dict:
+    """Load a self-contained, explicitly registered historical comparison.
+
+    This path does not manufacture normal workflow checkpoints. It verifies the
+    import manifest, every archived file hash, source identity, exact page
+    identity, saved recommendation validations, and report bytes independently.
+    """
+    registration = _read(base / "historical_registration.json")
+    selection = _read(base / "selection.json")
+    offline = _read(base / "offline_execution.json")
+    if not all(isinstance(value, dict) for value in (registration, selection, offline)):
+        raise ValueError("Historical comparison registration is incomplete.")
+    source_id = registration.get("source_investigation_id")
+    if (registration.get("record_type") != "historical_comparison_import" or
+            registration.get("investigation_id") != investigation_id or
+            selection.get("investigation_id") != investigation_id or
+            offline.get("investigation_id") != investigation_id or
+            not isinstance(source_id, str) or not _ID.fullmatch(source_id) or
+            offline.get("source_investigation_id") != source_id):
+        raise ValueError("Historical comparison identity does not match its archive record.")
+    if selection.get("record_type") != "historical_comparison_import":
+        raise ValueError("Historical comparison selection is not marked as imported.")
+    if (not isinstance(selection.get("keyword"), str) or
+            not selection.get("ours", {}).get("url") or
+            not selection.get("benchmark", {}).get("url") or
+            offline.get("keyword", "").casefold() != selection["keyword"].casefold() or
+            (offline.get("selected_pages") or {}).get("ours", {}).get("url") != selection["ours"]["url"] or
+            (offline.get("selected_pages") or {}).get("benchmark", {}).get("url") != selection["benchmark"]["url"]):
+        raise ValueError("Historical comparison does not match the exact selected pages.")
+    files = registration.get("archive_files")
+    if not isinstance(files, list) or not files:
+        raise ValueError("Historical comparison has no integrity manifest.")
+    verified: dict[str, Path] = {}
+    for row in files:
+        if (not isinstance(row, dict) or not isinstance(row.get("path"), str) or
+                not re.fullmatch(r"[0-9a-f]{64}", str(row.get("sha256", "")))):
+            raise ValueError("Historical archive file manifest is invalid.")
+        path = _contained(base, row["path"])
+        if _sha(path) != row["sha256"]:
+            raise ValueError("Historical archive artifact failed its integrity check.")
+        verified[row["path"]] = path
+    source_execution_rel = registration.get("source_replay_execution_archive_path")
+    source_execution_hash = registration.get("source_replay_execution_sha256")
+    if (not isinstance(source_execution_rel, str) or source_execution_rel not in verified or
+            not isinstance(source_execution_hash, str) or
+            _sha(verified[source_execution_rel]) != source_execution_hash):
+        raise ValueError("Original replay execution metadata is unavailable or has changed.")
+    source_selection_path = verified.get("source_selection.json")
+    if (source_selection_path is None or
+            _sha(source_selection_path) != registration.get("source_selection_sha256")):
+        raise ValueError("Original source selection metadata is unavailable or has changed.")
+    evidence = registration.get("evidence_source_references")
+    if not isinstance(evidence, list) or not evidence:
+        raise ValueError("Historical comparison evidence provenance is missing.")
+    for row in evidence:
+        if (not isinstance(row, dict) or not isinstance(row.get("archive_path"), str) or
+                not re.fullmatch(r"[0-9a-f]{64}", str(row.get("sha256", "")))):
+            raise ValueError("Historical evidence reference is invalid.")
+        path = verified.get(row["archive_path"])
+        if path is None or _sha(path) != row["sha256"]:
+            raise ValueError("Historical evidence artifact failed its integrity check.")
+    comparison_rel = offline.get("comparison_path")
+    comparison_path = _contained(base, comparison_rel, parent="results", suffix=".json")
+    if comparison_rel not in verified:
+        raise ValueError("Historical comparison JSON is not pinned by its archive manifest.")
+    source_comparison_hash = registration.get("source_comparison_sha256")
+    if not isinstance(source_comparison_hash, str) or _sha(comparison_path) != source_comparison_hash:
+        raise ValueError("Historical comparison does not match its original replay hash.")
+    comparison = _read(comparison_path)
+    if (not isinstance(comparison, dict) or
+            str(comparison.get("keyword") or "").casefold() != selection["keyword"].casefold() or
+            (comparison.get("primary_ranking_urls") or {}).get("ours") != selection["ours"]["url"] or
+            (comparison.get("primary_ranking_urls") or {}).get("benchmark") != selection["benchmark"]["url"]):
+        raise ValueError("Historical recommendation data belongs to a different selection.")
+    recommendations = _validated_recommendations(comparison)
+    audit = registration.get("validation_summary") or {}
+    tiers = {tier: sum(row.get("evidence_tier") == tier for row in recommendations) for tier in _TIERS}
+    ids = [row["id"] for row in recommendations]
+    if (len(recommendations) != audit.get("validated_recommendation_count") or
+            ids != audit.get("validated_recommendation_ids") or
+            tiers != audit.get("tier_counts")):
+        raise ValueError("Historical recommendation validation summary does not match the saved records.")
+    expected_reports = offline.get("report_artifact_sha256") or {}
+    report_paths = {}
+    for kind, field, suffix in (("pdf", "pdf_path", ".pdf"), ("appendix", "technical_appendix_path", ".md")):
+        relative = offline.get(field)
+        if not relative:
+            continue
+        path = _contained(base, relative, parent="results", suffix=suffix)
+        expected = expected_reports.get(kind)
+        source_expected = (registration.get("source_report_sha256") or {}).get(kind)
+        if (relative not in verified or not isinstance(expected, str) or _sha(path) != expected or
+                not isinstance(source_expected, str) or _sha(path) != source_expected or
+                (kind == "pdf" and path.read_bytes()[:5] != b"%PDF-")):
+            raise ValueError(f"Historical {kind} failed its integrity check.")
+        report_paths[kind] = path
+    if set(report_paths) != {"pdf", "appendix"}:
+        raise ValueError("Historical management PDF or technical appendix is unavailable.")
+    serp_path = None
+    serp_reference = selection.get("serp_snapshot_reference")
+    serp_hash = selection.get("serp_sha256")
+    if serp_reference and serp_hash:
+        serp_path = _contained(base, serp_reference)
+        if serp_reference not in verified or _sha(serp_path) != serp_hash:
+            raise ValueError("Historical saved SERP failed its integrity check.")
+    return {
+        "investigation_id": investigation_id,
+        "source_investigation_id": source_id,
+        "is_historical": True,
+        "record_type": "historical_comparison_import",
+        "keyword": selection["keyword"],
+        "created_at": registration.get("registered_at"),
+        "completed_at": offline.get("completed_at") or registration.get("source_completed_at"),
+        "source": "historical_import",
+        "selection": {"ours": selection["ours"], "benchmark": selection["benchmark"],
+                      "serp_sha256": serp_hash, "serp_snapshot_reference": serp_reference,
+                      "serp_collected_at": selection.get("serp_collected_at"),
+                      "search_context": selection.get("search_context") or {},
+                      "investigation_date": offline.get("completed_at")},
+        "workflow_status": "validated_historical_comparison",
+        "report_status": "available", "has_pdf": True, "has_appendix": True,
+        "has_serp_snapshot": serp_path is not None,
+        "recommendation_count": len(recommendations),
+        "tier_1_count": tiers[TIER_1], "tier_2_count": tiers[TIER_2],
+        "recommendation_sha256": _sha(comparison_path),
+        "classification_version": sorted({row.get("classification_version") for row in recommendations
+                                           if row.get("classification_version") is not None}, key=str),
+        "comparison_path": comparison_rel,
+        "report_references": {kind: f"/api/comparisons/{investigation_id}/artifacts/{kind}"
+                              for kind in report_paths},
+        "serp_snapshot_url": f"/api/comparisons/{investigation_id}/serp" if serp_path else None,
+        "recommendations": recommendations, "_artifacts": report_paths,
+        "_serp_path": serp_path,
+    }
+
+
 def _load(root, investigation_id: str) -> dict:
     data_root, base = _base(root, investigation_id)
+    if (base / "historical_registration.json").is_file():
+        return _load_historical(data_root, base, investigation_id)
     selection = _read(base / "selection.json")
     offline = _read(base / "offline_execution.json")
     checkpoint = _read(base / "workflow" / "checkpoint.json")

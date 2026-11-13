@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.1",
+  "investigation_id": "98656569d47f46659b99817e82de1eaf",
+  "keyword": "aviator",
+  "serp_sha256": "62039638a28db112be7b3ef8a0cc79273de67fa005d5808981270ca320fcf35b",
+  "serp_collected_at": "2026-10-21T10:48:14.108486+00:00",
+  "created_at": "2026-11-02T12:14:06.854988+00:00",
+  "status": "selected_not_analyzed",
+  "ours": {
+    "domain": "hollywoodbets.net",
+    "url": "https://www.hollywoodbets.net/aviator",
+    "rank": 2,
+    "title": "Play Aviator | Aviator Game | Hollywoodbets SA",
+    "ranking_status": "observed_exact_page"
+  },
+  "benchmark": {
+    "domain": "betway.co.za",
+    "url": "https://www.betway.co.za/aviator",
+    "rank": 1,
+    "title": "Play Aviator and reach for the sky | Betway Sports betting",
+    "ranking_status": "observed_exact_page"
+  },
+  "source": "manual_exact_webpage_urls",
+  "note": "No requests executed. An absent page rank is unknown within the saved observation, not a zero ranking.",
+  "offline_evidence_summary": {
+    "available": 12,
+    "total": 12,
+    "complete": true
+  }
+}

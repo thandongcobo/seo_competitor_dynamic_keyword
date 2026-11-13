@@ -1,0 +1,206 @@
+{
+  "schema_version": "1.0",
+  "job_id": "97b1b27228204b9ab81c2e56d3acce60",
+  "keyword": "lucky numbers",
+  "depth": 20,
+  "status": "completed",
+  "started_at": "2026-11-10T08:53:47.645586+00:00",
+  "finished_at": "2026-11-10T08:55:05.965213+00:00",
+  "fingerprint": "a7af93d87629dd916efd7a265726b4ed46b8e124b2a9c0ea5791588700516c07",
+  "request": {
+    "keyword": "lucky numbers",
+    "depth": 20,
+    "configuration": {
+      "language_code": "en",
+      "location_coordinate": "-29.7359502,31.0699179,200",
+      "our_domain": "hollywoodbets.net",
+      "depth": 20
+    }
+  },
+  "created_at": "2026-11-10T08:53:47.649776+00:00",
+  "credentials_stored": false,
+  "result": {
+    "keyword": "lucky numbers",
+    "status": "ok",
+    "collected_at": "2026-11-10T08:54:59.827491+00:00",
+    "search_url": "https://www.google.com/search?q=lucky+numbers&hl=en&gl=za&num=20&pws=0",
+    "location_note": "Google gl=za; not precise coordinate emulation",
+    "depth_requested": 20,
+    "depth_collected": 23,
+    "pages_completed": 3,
+    "stop_reason": "tracked_site_found_with_neighbours",
+    "maximum_search_depth": 100,
+    "tracked_site": {
+      "domain": "hollywoodbets.net",
+      "status": "found",
+      "rank": 1,
+      "ranking_url": "https://www.hollywoodbets.net/betting/21/lucky-numbers/countries",
+      "ranking_title": "Lucky Numbers for today",
+      "results_above": 0,
+      "results_below": 22,
+      "minimum_results": 20,
+      "maximum_results": 100,
+      "neighbours_requested": 2,
+      "complete": true,
+      "search_exhausted": false,
+      "rank_semantics": "observed_organic_sequence; not guaranteed absolute Google rank",
+      "stop_reason": "tracked_site_found_with_neighbours"
+    },
+    "validation": {
+      "status": "review_required",
+      "flags": [
+        "some_result_urls_not_matched_to_heading_links"
+      ],
+      "pages_checked": 3
+    },
+    "serp_diagnostics_enabled": false,
+    "diagnostics": null,
+    "previous_observation_comparison": null,
+    "organic_results": [
+      {
+        "rank_group": 1,
+        "domain": "hollywoodbets.net",
+        "title": "Lucky Numbers for today",
+        "url": "https://www.hollywoodbets.net/betting/21/lucky-numbers/countries"
+      },
+      {
+        "rank_group": 2,
+        "domain": "play.google.com",
+        "title": "Today Lucky Numbers – Apps on Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.luckynumber&hl=en_ZA"
+      },
+      {
+        "rank_group": 3,
+        "domain": "sportybet.co.za",
+        "title": "Lucky numbers",
+        "url": "https://www.sportybet.co.za/za/m/lucky-numbers"
+      },
+      {
+        "rank_group": 4,
+        "domain": "luckynumber.today",
+        "title": "Today Lucky Number",
+        "url": "https://www.luckynumber.today/"
+      },
+      {
+        "rank_group": 5,
+        "domain": "supersportbet.com",
+        "title": "Dream Guide: How to Bet on Lucky Numbers and Lotteries",
+        "url": "https://www.supersportbet.com/en-za/newsfeed/lotto/dream-guide-how-to-bet-on-lucky-numbers-and-lotteries"
+      },
+      {
+        "rank_group": 6,
+        "domain": "betxchange.com",
+        "title": "Lucky Numbers",
+        "url": "https://betxchange.com/lotto/numbers/all"
+      },
+      {
+        "rank_group": 7,
+        "domain": "worldsportsbetting.co.za",
+        "title": "Play Powerball Online | Lucky Numbers & Jackpots",
+        "url": "https://www.worldsportsbetting.co.za/lucky-numbers"
+      },
+      {
+        "rank_group": 8,
+        "domain": "en.wikipedia.org",
+        "title": "Lucky number",
+        "url": "https://en.wikipedia.org/wiki/Lucky_number"
+      },
+      {
+        "rank_group": 9,
+        "domain": "interbet.co.za",
+        "title": "Play Lucky Numbers Online at Interbet",
+        "url": "https://interbet.co.za/Numbers/Lucky-Numbers"
+      },
+      {
+        "rank_group": 10,
+        "domain": "hollywoodbets.net",
+        "title": "Lucky Numbers Results for Today | Hollywoodbets SA",
+        "url": "https://www.hollywoodbets.net/betting/21/lucky-numbers/results"
+      },
+      {
+        "rank_group": 11,
+        "domain": "betway.co.za",
+        "title": "Lucky Numbers | Pedia",
+        "url": "https://www.betway.co.za/betway-pedia/documents/lucky-numbers"
+      },
+      {
+        "rank_group": 12,
+        "domain": "aiminghigh.aimssec.ac.za",
+        "title": "LUCKY NUMBERS HELP - Lesson Activities",
+        "url": "https://aiminghigh.aimssec.ac.za/wp-content/uploads/2020/09/LUCKY-NUMBERS-Inclusion-and-Home-Learning-Guide.pdf"
+      },
+      {
+        "rank_group": 13,
+        "domain": "10bet.co.za",
+        "title": "10bet Lucky Numbers - Live Lottery by 10bet",
+        "url": "https://www.10bet.co.za/games/live-lottery/10bet-numbers/"
+      },
+      {
+        "rank_group": 14,
+        "domain": "za.pinterest.com",
+        "title": "10 Lucky numbers for lottery ideas",
+        "url": "https://za.pinterest.com/7107245578089j/lucky-numbers-for-lottery/"
+      },
+      {
+        "rank_group": 15,
+        "domain": "prokerala.com",
+        "title": "Lucky Numbers based on Numerology Calculator",
+        "url": "https://www.prokerala.com/numerology/lucky-numbers.php"
+      },
+      {
+        "rank_group": 16,
+        "domain": "x.com",
+        "title": "Lucky Orimisan Aiyedatiwa (@LuckyAiyedatiwa) ...",
+        "url": "https://x.com/LuckyAiyedatiwa?lang=en"
+      },
+      {
+        "rank_group": 17,
+        "domain": "luckystar.co.za",
+        "title": "Pilchards In Sweet Chilli Sauce",
+        "url": "https://luckystar.co.za/products/pilchards-sweet-chilli-sauce/"
+      },
+      {
+        "rank_group": 18,
+        "domain": "youtube.com",
+        "title": "Lucky | Official Trailer",
+        "url": "https://www.youtube.com/watch?v=sDSrTFUM9ag"
+      },
+      {
+        "rank_group": 19,
+        "domain": "lifeloveandsugar.com",
+        "title": "Lucky Charms Cupcakes with Cereal Milk",
+        "url": "https://www.lifeloveandsugar.com/lucky-charms-cupcakes-with-cereal-milk/"
+      },
+      {
+        "rank_group": 20,
+        "domain": "luckybeanguesthouse.co.za",
+        "title": "Lucky Bean Guesthouse, Guesthouse in Melville, Johannesburg",
+        "url": "https://www.luckybeanguesthouse.co.za/"
+      },
+      {
+        "rank_group": 21,
+        "domain": "open.spotify.com",
+        "title": "L.U.C.K.Y - Song, Lyrics, and Music Video by Fcukers",
+        "url": "https://open.spotify.com/track/3cd7iKlNj6OqRkEuMqVnYs"
+      },
+      {
+        "rank_group": 22,
+        "domain": "nytimes.com",
+        "title": "Phil Collins Knew He Was 'Lucky,' if Not Cool",
+        "url": "https://www.nytimes.com/2026/11/08/arts/music/phil-collins-knew-he-was-lucky-if-not-cool.html"
+      },
+      {
+        "rank_group": 23,
+        "domain": "lovelyluckylife.com",
+        "title": "Lovely Lucky Life - a modern mom's lifestyle blog",
+        "url": "https://www.lovelyluckylife.com/"
+      }
+    ],
+    "source": "saved_google_playwright"
+  },
+  "snapshot": {
+    "sha256": "5a04c08041f2460b00ec5695243521566f0102a23949941cb5a34fb179108eb7",
+    "path": "data/raw/serp/lucky_numbers_dd087a6a_google_playwright.json",
+    "size_bytes": 17921
+  }
+}

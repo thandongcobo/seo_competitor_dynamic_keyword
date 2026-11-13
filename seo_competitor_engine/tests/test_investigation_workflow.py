@@ -49,7 +49,8 @@ def test_sequential_checkpoint_navigation_and_restart(investigation, monkeypatch
     manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
     assert manifest['status'] == 'awaiting_review'
     assert len(manifest['items']) == 12
-    assert all(row['status'] == 'missing' for row in manifest['items'].values())
+    # Generic workflow inventory is read-only and does not select collectors.
+    assert all(row['status'] == 'skipped' for row in manifest['items'].values())
     reused = workflow.execute_stage(ident, 'evidence_collection')
     assert reused['stages']['evidence_collection']['status'] == 'awaiting_review'
     assert reused['stages']['evidence_collection']['cache'] != 'hit'
@@ -95,6 +96,21 @@ def test_completed_checkpoint_with_changed_artifact_is_not_reused(investigation)
     assert resumed['stages']['webpage_selection']['status'] == 'failed'
     assert resumed['stages']['webpage_selection']['error']['kind'] == 'checkpoint_integrity_failure'
     assert selection_file.is_file()
+
+
+def test_recovered_report_outputs_pin_execution_record(investigation):
+    _, folder, _ = investigation
+    comparison = folder / 'results' / 'comparison.json'
+    comparison.parent.mkdir(parents=True)
+    comparison.write_text('{"recommendations":[]}', encoding='utf-8')
+    execution = folder / 'offline_execution.json'
+    execution.write_text(json.dumps({'status':'completed'}), encoding='utf-8')
+    outputs = workflow._verified_report_outputs(folder, {
+        'comparison_path': 'results/comparison.json',
+    })
+    by_path = {row['path']: row for row in outputs}
+    assert by_path['offline_execution.json']['sha256'] == workflow._sha(execution)
+    assert by_path['offline_execution.json']['size_bytes'] == execution.stat().st_size
 
 
 def test_failed_attempt_is_not_cached_as_success_and_can_retry(investigation, monkeypatch):

@@ -1,0 +1,48 @@
+=== URL-FIRST SEO COMPARISON VALIDATION ===
+File: C:\Users\NgcoboT\Downloads\seo_competitor_engine_dynamic_keywords\seo_competitor_engine\output\results\aviator\aviator_comparison.json
+PASS  JSON parsed successfully
+PASS  JSON root is an object
+Keyword in report: 'aviator'
+PASS  Keyword matches requested analysis
+
+=== GOOGLE SERP / URL IDENTITY ===
+ours: rank=2 | SERP URL='https://www.hollywoodbets.net/aviator' | target='https://www.hollywoodbets.net/aviator'
+PASS  ours: Google rank #2 recorded
+PASS  ours: primary URL matches observed SERP URL
+benchmark: rank=1 | SERP URL='https://www.betway.co.za/aviator' | target='https://www.betway.co.za/aviator'
+PASS  benchmark: Google rank #1 recorded
+PASS  benchmark: primary URL matches observed SERP URL
+PASS  Google position gap is consistent (+1)
+
+=== PAGE-LEVEL EVIDENCE ===
+ours: quality='usable' | retained_page=yes
+PASS  ours: page evidence URL aligned
+benchmark: quality='usable' | retained_page=yes
+PASS  benchmark: page evidence URL aligned
+
+=== PAGE BACKLINKS ===
+PASS  ours: page backlink target verified
+PASS  benchmark: page backlink target verified
+
+=== DOMAIN-LEVEL EVIDENCE ===
+ours: ranked keywords data=present
+benchmark: ranked keywords data=present
+PASS  Domain-wide evidence is in its own section
+
+=== FINDINGS ===
+Finding count: 8
+  1. [high] ranking
+  2. [medium] keyword_coverage
+  3. [high] backlinks
+  4. [low] content_length
+  5. [low] content_similarity
+  6. [medium] search_intent
+  7. [medium] competitor_discovery
+  8. [low] lighthouse
+PASS  Findings list is readable
+PASS  URL-first analysis policy recorded
+
+=== SUMMARY ===
+PASS=15 WARN=0 FAIL=0
+STRUCTURAL VALIDATION PASSED (review warnings)
+This is a local structural check, not independent proof of search-engine rankings.

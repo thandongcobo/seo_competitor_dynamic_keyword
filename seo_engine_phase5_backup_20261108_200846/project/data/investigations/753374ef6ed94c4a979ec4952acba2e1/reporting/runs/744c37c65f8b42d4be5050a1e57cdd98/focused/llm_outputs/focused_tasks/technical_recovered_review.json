@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "task": "technical",
+  "implementation_plans": [],
+  "finding_dispositions": [
+    {
+      "specialist_finding_id": "TECHNICAL_01",
+      "outcome": "investigate",
+      "plan_indices": [],
+      "simple_explanation": "A proposed explanation could not be verified against the saved evidence. Further review is needed.",
+      "technical_explanation": "Recheck the original source measurement, metric scope and cited evidence before approving a change.",
+      "next_step": "Review the saved source records and rerun the scoped comparison if new data is authorized and required.",
+      "reason": "The original recommendation contained an unresolved factual or citation validation issue.",
+      "evidence_ids": [
+        "TECH_LAB"
+      ]
+    },
+    {
+      "specialist_finding_id": "TECHNICAL_02",
+      "outcome": "investigate",
+      "plan_indices": [],
+      "simple_explanation": "A proposed explanation could not be verified against the saved evidence. Further review is needed.",
+      "technical_explanation": "Recheck the original source measurement, metric scope and cited evidence before approving a change.",
+      "next_step": "Review the saved source records and rerun the scoped comparison if new data is authorized and required.",
+      "reason": "The original recommendation contained an unresolved factual or citation validation issue.",
+      "evidence_ids": [
+        "TECH_LAB"
+      ]
+    },
+    {
+      "specialist_finding_id": "TECHNICAL_03",
+      "outcome": "investigate",
+      "plan_indices": [],
+      "simple_explanation": "A proposed explanation could not be verified against the saved evidence. Further review is needed.",
+      "technical_explanation": "Recheck the original source measurement, metric scope and cited evidence before approving a change.",
+      "next_step": "Review the saved source records and rerun the scoped comparison if new data is authorized and required.",
+      "reason": "The original recommendation contained an unresolved factual or citation validation issue.",
+      "evidence_ids": [
+        "TECH_INV"
+      ]
+    }
+  ]
+}

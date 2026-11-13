@@ -93,21 +93,23 @@ def test_retry_exhaustion_reanalyses_saved_evidence_without_third_llm_call(tmp_p
 
 
 def test_history_search_retrieves_only_matching_saved_keyword_and_pages(tmp_path):
-    def save(ident, keyword, urls, created):
+    def save(ident, keyword, urls, created, report_status='draft_ready', offline_status='completed'):
         base = tmp_path / ident
         base.mkdir()
         (base / 'selection.json').write_text(json.dumps({
             'investigation_id': ident, 'keyword': keyword, 'created_at': created,
             'ours': {'url': urls[0]}, 'benchmark': {'url': urls[1]}}), encoding='utf-8')
-        (base / 'offline_execution.json').write_text('{"status":"completed"}', encoding='utf-8')
+        (base / 'offline_execution.json').write_text(json.dumps({'status':offline_status}), encoding='utf-8')
         run = 'c'*32
         (base / 'reporting').mkdir()
-        (base / 'reporting' / 'status.json').write_text(json.dumps({'status':'draft_ready','run_id':run}), encoding='utf-8')
+        (base / 'reporting' / 'status.json').write_text(json.dumps({'status':report_status,'run_id':run}), encoding='utf-8')
         reports = base / 'reporting' / 'runs' / run / 'reports'
         reports.mkdir(parents=True)
         (reports / 'brief.pdf').write_bytes(b'%PDF-test')
     save('a'*32, 'keyword-one', ('https://alpha.example/page', 'https://beta.example/page'), '2026-11-02')
     save('b'*32, 'keyword-two', ('https://gamma.example/', 'https://delta.example/'), '2026-11-03')
+    save('c'*32, 'keyword-one', ('https://alpha.example/page', 'https://beta.example/page'), '2026-11-04', report_status='failed')
+    save('d'*32, 'keyword-one', ('https://alpha.example/page', 'https://beta.example/page'), '2026-11-05', report_status='not_started', offline_status='selected_not_analyzed')
     found = search_history(tmp_path, keyword='KEYWORD-ONE', url_a='https://www.alpha.example/page/', url_b='https://beta.example/page')
     assert len(found) == 1 and found[0]['investigation_id'] == 'a'*32
     assert found[0]['reports']['brief.pdf'].startswith('a'*32)

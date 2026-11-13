@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "task": "competition",
+  "implementation_plans": [
+    {
+      "title": "Analyze Betway.co.za’s Content and Backlink Profile for Ranking Factors",
+      "rationale": "Betway.co.za holds #1 for 'aviator' and leads on high-volume modifiers. Understanding its content structure and backlink profile can reveal specific ranking factors to emulate or address gaps.",
+      "owner": "SEO Strategy Team",
+      "priority": "high",
+      "implementation_steps": [
+        "Audit the betway.co.za/aviator page for content depth, keyword targeting, and internal linking structure.",
+        "Analyze backlink profile using Ahrefs or SEMrush to identify authoritative referring domains and anchor text patterns.",
+        "Compare content structure and metadata with Hollywoodbets.net’s page to identify key differentiators."
+      ],
+      "success_measure": "Identify 3+ specific ranking factors (e.g., content depth, backlink authority, schema markup) that explain Betway’s #1 position.",
+      "uncertainty": "Ranking factors may vary by search engine algorithm updates or regional SERP differences.",
+      "evidence_ids": [
+        "SERP",
+        "KW_QUERY_GAPS"
+      ],
+      "specialist_finding_ids": [
+        "COMPETITION_01"
+      ],
+      "simple_explanation": "Betway is #1 for 'aviator' — we must reverse-engineer its ranking factors.",
+      "technical_explanation": "The SERP snapshot confirms Betway’s #1 position and KW_QUERY_GAPS shows it leads on high-volume modifiers. We must analyze its page to isolate technical and content factors driving this dominance."
+    },
+    {
+      "title": "Develop Comprehensive 'How-To' Content to Close Rank Gaps on Instructional Queries",
+      "rationale": "Hollywoodbets.net lags behind Betway by 6-9 positions on queries like 'aviator betting' and 'how to play aviator', indicating a content gap in instructional intent.",
+      "owner": "Content Strategy Team",
+      "priority": "medium",
+      "implementation_steps": [
+        "Create a detailed 'How to Play Aviator' guide with step-by-step instructions, visuals, and embedded game examples.",
+        "Optimize for long-tail keywords like 'aviator betting' and 'how to play aviator' using semantic keywords and internal links.",
+        "Publish content on a dedicated subpage or blog section and track performance via UTM parameters."
+      ],
+      "success_measure": "Achieve top-5 positions for 'aviator betting' and 'how to play aviator' within 3 months.",
+      "uncertainty": "Content performance depends on user engagement, backlinks, and algorithmic updates.",
+      "evidence_ids": [
+        "KW_QUERY_GAPS"
+      ],
+      "specialist_finding_ids": [
+        "COMPETITION_02"
+      ],
+      "simple_explanation": "We’re ranked lower on instructional queries — we need to create better guides to compete.",
+      "technical_explanation": "KW_QUERY_GAPS shows Hollywoodbets.net ranks 8th and 10th respectively on 'aviator betting' and 'how to play aviator', with gaps of 6 and 9 positions. Content optimization targeting these queries can bridge the gap."
+    }
+  ],
+  "finding_dispositions": [
+    {
+      "specialist_finding_id": "COMPETITION_01",
+      "outcome": "action",
+      "plan_indices": [
+        0
+      ],
+      "simple_explanation": "Betway is #1 for 'aviator' — we must reverse-engineer its ranking factors.",
+      "technical_explanation": "The SERP snapshot confirms Betway’s #1 position and KW_QUERY_GAPS shows it leads on high-volume modifiers. We must analyze its page to isolate technical and content factors driving this dominance.",
+      "next_step": "Audit betway.co.za/aviator for content depth, backlinks, and metadata.",
+      "reason": "Directly actionable based on confirmed SERP and query gap data.",
+      "evidence_ids": [
+        "SERP",
+        "KW_QUERY_GAPS"
+      ]
+    },
+    {
+      "specialist_finding_id": "COMPETITION_02",
+      "outcome": "action",
+      "plan_indices": [
+        1
+      ],
+      "simple_explanation": "We’re ranked lower on instructional queries — we need to create better guides to compete.",
+      "technical_explanation": "KW_QUERY_GAPS shows Hollywoodbets.net ranks 8th and 10th respectively on 'aviator betting' and 'how to play aviator', with gaps of 6 and 9 positions. Content optimization targeting these queries can bridge the gap.",
+      "next_step": "Create a 'How to Play Aviator' guide and optimize for long-tail keywords.",
+      "reason": "Directly actionable based on verified query gap data.",
+      "evidence_ids": [
+        "KW_QUERY_GAPS"
+      ]
+    },
+    {
+      "specialist_finding_id": "COMPETITION_03",
+      "outcome": "investigate",
+      "plan_indices": [],
+      "simple_explanation": "A proposed explanation could not be verified against the saved evidence. Further review is needed.",
+      "technical_explanation": "Recheck the original source measurement, metric scope and cited evidence before approving a change.",
+      "next_step": "Review the saved source records and rerun the scoped comparison if new data is authorized and required.",
+      "reason": "The original recommendation contained an unresolved factual or citation validation issue.",
+      "evidence_ids": []
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "task": "onpage",
+  "model": "gemma-4-12b-it-UD-Q6_K_XL.gguf",
+  "fingerprint": "d53758f319437d70eedbe4aa2b8c4a68875a49d7326b20aeaaec80a4354994a5",
+  "attempts": 2,
+  "result": {
+    "schema_version": "1.0",
+    "task": "onpage",
+    "implementation_plans": [
+      {
+        "title": "Optimize Page Title for Keyword Relevance",
+        "rationale": "The current title does not include the primary keyword 'Aviator', which may reduce click-through rates for users searching specifically for the game. Including the keyword can improve relevance and user intent alignment.",
+        "owner": "SEO Specialist",
+        "priority": "high",
+        "implementation_steps": [
+          "Audit the current title tag: <title>Online Sports Betting and Online Casino | Hollywoodbets</title>.",
+          "Update the title to include 'Aviator' while preserving brand context, e.g., 'Aviator Game - Play Online at Hollywoodbets'.",
+          "Verify the updated title does not conflict with H1 or other on-page elements.",
+          "Test the new title in a staging environment before live deployment."
+        ],
+        "success_measure": "Title tag contains 'Aviator' and is visible in SERP preview tools.",
+        "uncertainty": "Title change may not directly impact ranking, but it improves user intent alignment.",
+        "evidence_ids": [
+          "ON_TITLE"
+        ],
+        "specialist_finding_ids": [
+          "ONPAGE_01"
+        ],
+        "simple_explanation": "Add 'Aviator' to the page title to match user search intent.",
+        "technical_explanation": "The title tag is a critical on-page SEO element. Including the primary keyword improves semantic relevance for search queries. This change does not alter content or internal links, but it enhances keyword alignment."
+      },
+      {
+        "title": "Audit and Enhance Internal Linking Structure",
+        "rationale": "The benchmark page has 28 internal links compared to 9 on the ranking page. While internal link count alone does not prove authority, it may indicate better navigation or content hierarchy.",
+        "owner": "Technical SEO Lead",
+        "priority": "medium",
+        "implementation_steps": [
+          "Review the internal linking structure of both pages using site audit tools (e.g., Screaming Frog, Ahrefs).",
+          "Identify high-value pages (e.g., 'Aviator Rules', 'How to Play', 'Payouts') that should be linked from the Aviator landing page.",
+          "Add strategic internal links from the current page to high-value pages, based on audit findings.",
+          "Ensure links are contextually relevant and use descriptive anchor text."
+        ],
+        "success_measure": "Internal link structure audited and enhanced with contextually relevant links.",
+        "uncertainty": "Internal link count does not directly cause ranking, but it supports crawlability and user navigation.",
+        "evidence_ids": [
+          "ON_LINKS"
+        ],
+        "specialist_finding_ids": [
+          "ONPAGE_02"
+        ],
+        "simple_explanation": "Add more internal links to high-value pages to improve navigation and context.",
+        "technical_explanation": "Internal links help search engines understand content relationships and improve user experience. This change does not alter content or title, but it enhances site architecture."
+      },
+      {
+        "title": "Verify Content Intent and Lexical Similarity",
+        "rationale": "The content token Jaccard overlap is 0.14285714285714285, indicating low lexical similarity. This suggests the pages address user intent differently, which may be intentional or require alignment.",
+        "owner": "Content Strategist",
+        "priority": "medium",
+        "implementation_steps": [
+          "Compare the content of both pages for user intent: Are they targeting the same audience or use case?",
+          "Audit the current page for unique value propositions (e.g., promotions, game features, payout rates).",
+          "If the content is distinct and valuable, document the unique selling points.",
+          "If the content is underperforming, consider adding missing elements (e.g., game rules, screenshots, FAQs)."
+        ],
+        "success_measure": "Content audit completed with documented intent alignment or improvement plan.",
+        "uncertainty": "Jaccard overlap measures lexical similarity, not semantic relevance or quality. Content may be distinct and effective.",
+        "evidence_ids": [
+          "ON_CONTENT_SIMILARITY"
+        ],
+        "specialist_finding_ids": [
+          "ONPAGE_03"
+        ],
+        "simple_explanation": "Verify if the content addresses the same user intent as the benchmark page.",
+        "technical_explanation": "Content similarity metrics measure lexical overlap, not semantic relevance. This audit ensures the page’s content aligns with user intent, which may improve engagement and conversion."
+      }
+    ],
+    "finding_dispositions": [
+      {
+        "specialist_finding_id": "ONPAGE_01",
+        "outcome": "action",
+        "plan_indices": [
+          0
+        ],
+        "simple_explanation": "The title does not include the keyword 'Aviator', which may reduce click-through rates. Add it to improve relevance.",
+        "technical_explanation": "The title tag is a critical on-page SEO element. Including the primary keyword improves semantic relevance for search queries. This change does not alter content or internal links, but it enhances keyword alignment.",
+        "next_step": "Update the title tag to include 'Aviator' and verify in staging.",
+        "reason": "Title keyword presence is an observed difference and may impact user intent alignment.",
+        "evidence_ids": [
+          "ON_TITLE"
+        ]
+      },
+      {
+        "specialist_finding_id": "ONPAGE_02",
+        "outcome": "action",
+        "plan_indices": [
+          1
+        ],
+        "simple_explanation": "The benchmark page has more internal links, which may indicate better navigation. Audit and enhance the current page’s linking structure.",
+        "technical_explanation": "Internal links help search engines understand content relationships and improve user experience. This change does not alter content or title, but it enhances site architecture.",
+        "next_step": "Audit internal links using Screaming Frog and add strategic internal links from the current page to high-value pages, based on audit findings.",
+        "reason": "Internal link count may indicate better navigation or content hierarchy, even if it doesn’t directly cause ranking.",
+        "evidence_ids": [
+          "ON_LINKS"
+        ]
+      },
+      {
+        "specialist_finding_id": "ONPAGE_03",
+        "outcome": "action",
+        "plan_indices": [
+          2
+        ],
+        "simple_explanation": "The content has low lexical similarity, which may indicate distinct user intent. Verify if the content addresses the same audience or use case.",
+        "technical_explanation": "Content similarity metrics measure lexical overlap, not semantic relevance. This audit ensures the page’s content aligns with user intent, which may improve engagement and conversion.",
+        "next_step": "Compare content for user intent and document unique value propositions or improvement areas.",
+        "reason": "Low lexical similarity may indicate distinct content approaches, which may be intentional or require alignment.",
+        "evidence_ids": [
+          "ON_CONTENT_SIMILARITY"
+        ]
+      }
+    ]
+  },
+  "validated_at_utc": "2026-11-02T13:28:26.111837+00:00"
+}

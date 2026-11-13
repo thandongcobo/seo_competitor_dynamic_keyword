@@ -1,0 +1,751 @@
+{
+  "fingerprint": "4024d27e2461af8f529a5eeaaed011ccc9261f5b08da09961ca64257329c76cd",
+  "original_sha256": "cdb4dc7913e68368b9838061d7edfc8f4de0c4c7b50ba9b4d7d364a388458262",
+  "candidate": {
+    "schema_version": "1.0",
+    "status": "usable",
+    "executive_summary": "For the saved search for 'aviator', hollywoodbets.net was observed at position 2 and betway.co.za at position 1. This is one historical search observation, not proof of ranking causation. The detailed evidence-backed action plans follow.",
+    "executive_summary_evidence_ids": [
+      "SERP"
+    ],
+    "key_findings": [],
+    "proposed_decisions": [
+      {
+        "title": "Optimize Title Tag for Keyword Relevance",
+        "owner": "SEO Specialist",
+        "action": "Audit the current title tag: 'Online Sports Betting and Online Casino | Hollywoodbets'.",
+        "success_check": "Title tag includes 'Aviator' and renders correctly in SERP.",
+        "evidence_ids": [
+          "ON_TITLE"
+        ],
+        "limitation": "Title tag changes may not directly impact ranking, but can improve CTR and user intent alignment."
+      },
+      {
+        "title": "Analyze Betway.co.za’s Content and Backlink Profile for Ranking Factors",
+        "owner": "SEO Strategy Team",
+        "action": "Audit the betway.co.za/aviator page for content depth, keyword targeting, and internal linking structure.",
+        "success_check": "Identify 3+ specific ranking factors (e.g., content depth, backlink authority, schema markup) that explain Betway’s #1 position.",
+        "evidence_ids": [
+          "SERP",
+          "KW_QUERY_GAPS"
+        ],
+        "limitation": "Ranking factors may vary by search engine algorithm updates or regional SERP differences."
+      },
+      {
+        "title": "Audit and Enhance Internal Linking Structure",
+        "owner": "Technical SEO Lead",
+        "action": "Audit internal links on the ranking page to identify high-value pages (e.g., 'Aviator Rules', 'How to Play', 'Payouts').",
+        "success_check": "New internal links added from relevant pages to the Aviator page with keyword-rich anchor text.",
+        "evidence_ids": [
+          "ON_LINKS"
+        ],
+        "limitation": "Internal link count is not a direct ranking factor, but improved navigation may support crawlability and user engagement."
+      }
+    ],
+    "limitations": [
+      "Saved SERP snapshot, not live ranking.",
+      "No ranking causation or financial return can be inferred.",
+      "Some model recommendations failed evidence checks and were isolated as investigations. See the per-task evidence recovery audit before approving any actions."
+    ],
+    "implementation_plans": [
+      {
+        "title": "Optimize Title Tag for Keyword Relevance",
+        "rationale": "The current title tag lacks the primary keyword 'Aviator', which may reduce click-through rates for users specifically searching for the Aviator game. Including the keyword can improve relevance for specific queries.",
+        "owner": "SEO Specialist",
+        "priority": "high",
+        "implementation_steps": [
+          "Audit the current title tag: 'Online Sports Betting and Online Casino | Hollywoodbets'.",
+          "Update the title tag to include 'Aviator' while preserving brand context, e.g., 'Aviator Game - Play Online at Hollywoodbets'.",
+          "Verify the updated title tag is implemented via CMS or HTML source.",
+          "Test the updated title tag in SERP preview tools to confirm rendering."
+        ],
+        "success_measure": "Title tag includes 'Aviator' and renders correctly in SERP.",
+        "uncertainty": "Title tag changes may not directly impact ranking, but can improve CTR and user intent alignment.",
+        "evidence_ids": [
+          "ON_TITLE"
+        ],
+        "specialist_finding_ids": [
+          "ONPAGE_01"
+        ],
+        "simple_explanation": "Add 'Aviator' to the title tag to match user search intent.",
+        "technical_explanation": "Title tags are HTML meta elements that influence SERP display. Including the primary keyword improves relevance without altering content structure."
+      },
+      {
+        "title": "Audit and Enhance Internal Linking Structure",
+        "rationale": "The benchmark page has 28 internal links compared to 9 on the ranking page. While link count alone does not prove authority, it may indicate better navigation or content hierarchy, which can support SEO performance.",
+        "owner": "Technical SEO Lead",
+        "priority": "medium",
+        "implementation_steps": [
+          "Audit internal links on the ranking page to identify high-value pages (e.g., 'Aviator Rules', 'How to Play', 'Payouts').",
+          "Identify key internal pages that should link to the Aviator landing page (e.g., homepage, casino games section).",
+          "Implement new internal links from relevant pages to the Aviator page, ensuring anchor text includes 'Aviator'.",
+          "Verify link implementation via site audit tools (e.g., Screaming Frog, Ahrefs)."
+        ],
+        "success_measure": "New internal links added from relevant pages to the Aviator page with keyword-rich anchor text.",
+        "uncertainty": "Internal link count is not a direct ranking factor, but improved navigation may support crawlability and user engagement.",
+        "evidence_ids": [
+          "ON_LINKS"
+        ],
+        "specialist_finding_ids": [
+          "ONPAGE_02"
+        ],
+        "simple_explanation": "Add more internal links to the Aviator page from relevant sections to improve navigation and context.",
+        "technical_explanation": "Internal links help search engines understand content relationships and improve user journey. Adding links from high-value pages can boost page authority indirectly."
+      },
+      {
+        "title": "Verify Content Intent and Lexical Similarity",
+        "rationale": "The content token Jaccard overlap between the two pages is 0.14, indicating low lexical similarity. This suggests the pages address user intent differently, which may be intentional or require alignment.",
+        "owner": "Content Strategist",
+        "priority": "medium",
+        "implementation_steps": [
+          "Review the content on both pages to identify key user intents (e.g., game rules, payout structure, gameplay tips).",
+          "Compare content structure and keyword usage to determine if the ranking page covers the same user needs as the benchmark.",
+          "If gaps exist, update the ranking page to include missing content (e.g., 'Aviator Rules', 'How to Win').",
+          "Verify content changes via CMS and ensure no duplication or redundancy."
+        ],
+        "success_measure": "Content on the ranking page aligns with user intent and includes key topics covered by the benchmark page.",
+        "uncertainty": "Jaccard overlap measures lexical similarity, not semantic relevance or content quality. Content updates may improve user experience but not necessarily ranking.",
+        "evidence_ids": [
+          "ON_CONTENT_SIMILARITY"
+        ],
+        "specialist_finding_ids": [
+          "ONPAGE_03"
+        ],
+        "simple_explanation": "Ensure the Aviator page covers the same user intents as the benchmark page to improve relevance.",
+        "technical_explanation": "Content should address user queries directly. Lexical similarity alone doesn't indicate quality or ranking impact, but semantic alignment can improve user satisfaction and engagement."
+      },
+      {
+        "title": "Analyze Betway.co.za’s Content and Backlink Profile for Ranking Factors",
+        "rationale": "Betway.co.za holds #1 for 'aviator' and leads on high-volume modifiers. Understanding its content structure and backlink profile can reveal specific ranking factors to emulate or address gaps.",
+        "owner": "SEO Strategy Team",
+        "priority": "high",
+        "implementation_steps": [
+          "Verify that the betway.co.za/aviator page is live and accessible before initiating any audit or analysis.",
+          "Audit the betway.co.za/aviator page for content depth, keyword targeting, and internal linking structure.",
+          "Analyze backlink profile using Ahrefs or SEMrush to identify authoritative referring domains and anchor text patterns.",
+          "Compare content structure and metadata with Hollywoodbets.net’s page to identify key differentiators."
+        ],
+        "success_measure": "Identify 3+ specific ranking factors (e.g., content depth, backlink authority, schema markup) that explain Betway’s #1 position, verified through technical and content analysis.",
+        "uncertainty": "Ranking factors may vary by search engine algorithm updates or regional SERP differences.",
+        "evidence_ids": [
+          "SERP",
+          "KW_QUERY_GAPS"
+        ],
+        "specialist_finding_ids": [
+          "COMPETITION_01"
+        ],
+        "simple_explanation": "Betway is #1 for 'aviator' — we must reverse-engineer its ranking factors.",
+        "technical_explanation": "The SERP snapshot confirms Betway’s #1 position and KW_QUERY_GAPS shows it leads on high-volume modifiers. We must analyze its page to isolate technical and content factors driving this dominance."
+      },
+      {
+        "title": "Develop Comprehensive 'How-To' Content to Close Rank Gaps on Instructional Queries",
+        "rationale": "Hollywoodbets.net lags behind Betway by 6-9 positions on queries like 'aviator betting' and 'how to play aviator', indicating a content gap in instructional intent.",
+        "owner": "Content Strategy Team",
+        "priority": "medium",
+        "implementation_steps": [
+          "Create a detailed 'How to Play Aviator' guide with step-by-step instructions, visuals, and embedded game examples.",
+          "Optimize for long-tail keywords like 'aviator betting' and 'how to play aviator' using semantic keywords and internal links.",
+          "Publish content on a dedicated subpage or blog section and track performance via UTM parameters."
+        ],
+        "success_measure": "Achieve top-5 positions for 'aviator betting' and 'how to play aviator' within 3 months.",
+        "uncertainty": "Content performance depends on user engagement, backlinks, and algorithmic updates.",
+        "evidence_ids": [
+          "KW_QUERY_GAPS"
+        ],
+        "specialist_finding_ids": [
+          "COMPETITION_02"
+        ],
+        "simple_explanation": "We’re ranked lower on instructional queries — we need to create better guides to compete.",
+        "technical_explanation": "KW_QUERY_GAPS shows Hollywoodbets.net ranks 8th and 10th respectively on 'aviator betting' and 'how to play aviator', with gaps of 6 and 9 positions. Content optimization targeting these queries can bridge the gap."
+      }
+    ],
+    "finding_dispositions": [
+      {
+        "specialist_finding_id": "ONPAGE_01",
+        "outcome": "action",
+        "plan_indices": [
+          0
+        ],
+        "simple_explanation": "The title tag lacks the keyword 'Aviator', which can reduce click-through rates for targeted users.",
+        "technical_explanation": "Title tags are critical for SERP display and user intent alignment. Including the primary keyword improves relevance without altering content structure.",
+        "next_step": "Update the title tag to include 'Aviator' and verify rendering in SERP preview tools.",
+        "reason": "Title tag optimization is a low-risk, high-impact change that aligns with user search intent.",
+        "evidence_ids": [
+          "ON_TITLE"
+        ]
+      },
+      {
+        "specialist_finding_id": "ONPAGE_02",
+        "outcome": "action",
+        "plan_indices": [
+          1
+        ],
+        "simple_explanation": "The benchmark page has significantly more internal links, which may support better navigation or authority.",
+        "technical_explanation": "Internal links help search engines understand content relationships and improve user journey. Adding links from high-value pages can boost page authority indirectly.",
+        "next_step": "Audit internal links and implement new internal links from relevant pages to the Aviator page with keyword-rich anchor text.",
+        "reason": "Internal linking structure can improve crawlability and user engagement, even if it doesn't directly impact ranking.",
+        "evidence_ids": [
+          "ON_LINKS"
+        ]
+      },
+      {
+        "specialist_finding_id": "ONPAGE_03",
+        "outcome": "action",
+        "plan_indices": [
+          2
+        ],
+        "simple_explanation": "The content has low lexical similarity, which may indicate different user intent coverage.",
+        "technical_explanation": "Content should address user queries directly. Lexical similarity alone doesn't indicate quality or ranking impact, but semantic alignment can improve user satisfaction and engagement.",
+        "next_step": "Review content on both pages to identify gaps and update the ranking page to include missing topics (e.g., 'Aviator Rules', 'How to Win').",
+        "reason": "Content alignment with user intent can improve relevance and user experience, even if it doesn't directly impact ranking.",
+        "evidence_ids": [
+          "ON_CONTENT_SIMILARITY"
+        ]
+      },
+      {
+        "specialist_finding_id": "BACKLINKS_01",
+        "outcome": "investigate",
+        "plan_indices": [],
+        "simple_explanation": "A proposed explanation could not be verified against the saved evidence. Further review is needed.",
+        "technical_explanation": "Recheck the original source measurement, metric scope and cited evidence before approving a change.",
+        "next_step": "Review the saved source records and rerun the scoped comparison if new data is authorized and required.",
+        "reason": "The original recommendation contained an unresolved factual or citation validation issue.",
+        "evidence_ids": [
+          "BL_PAGE",
+          "SERP"
+        ]
+      },
+      {
+        "specialist_finding_id": "BACKLINKS_02",
+        "outcome": "investigate",
+        "plan_indices": [],
+        "simple_explanation": "A proposed explanation could not be verified against the saved evidence. Further review is needed.",
+        "technical_explanation": "Recheck the original source measurement, metric scope and cited evidence before approving a change.",
+        "next_step": "Review the saved source records and rerun the scoped comparison if new data is authorized and required.",
+        "reason": "The original recommendation contained an unresolved factual or citation validation issue.",
+        "evidence_ids": [
+          "BL_DOMAIN",
+          "SERP"
+        ]
+      },
+      {
+        "specialist_finding_id": "TECHNICAL_01",
+        "outcome": "investigate",
+        "plan_indices": [],
+        "simple_explanation": "A proposed explanation could not be verified against the saved evidence. Further review is needed.",
+        "technical_explanation": "Recheck the original source measurement, metric scope and cited evidence before approving a change.",
+        "next_step": "Review the saved source records and rerun the scoped comparison if new data is authorized and required.",
+        "reason": "The original recommendation contained an unresolved factual or citation validation issue.",
+        "evidence_ids": [
+          "TECH_LAB"
+        ]
+      },
+      {
+        "specialist_finding_id": "TECHNICAL_02",
+        "outcome": "investigate",
+        "plan_indices": [],
+        "simple_explanation": "A proposed explanation could not be verified against the saved evidence. Further review is needed.",
+        "technical_explanation": "Recheck the original source measurement, metric scope and cited evidence before approving a change.",
+        "next_step": "Review the saved source records and rerun the scoped comparison if new data is authorized and required.",
+        "reason": "The original recommendation contained an unresolved factual or citation validation issue.",
+        "evidence_ids": [
+          "TECH_LAB"
+        ]
+      },
+      {
+        "specialist_finding_id": "TECHNICAL_03",
+        "outcome": "investigate",
+        "plan_indices": [],
+        "simple_explanation": "A proposed explanation could not be verified against the saved evidence. Further review is needed.",
+        "technical_explanation": "Recheck the original source measurement, metric scope and cited evidence before approving a change.",
+        "next_step": "Review the saved source records and rerun the scoped comparison if new data is authorized and required.",
+        "reason": "The original recommendation contained an unresolved factual or citation validation issue.",
+        "evidence_ids": [
+          "TECH_INV"
+        ]
+      },
+      {
+        "specialist_finding_id": "COMPETITION_01",
+        "outcome": "action",
+        "plan_indices": [
+          3
+        ],
+        "simple_explanation": "Betway is #1 for 'aviator' — we must reverse-engineer its ranking factors.",
+        "technical_explanation": "The SERP snapshot confirms Betway’s #1 position and KW_QUERY_GAPS shows it leads on high-volume modifiers. We must analyze its page to isolate technical and content factors driving this dominance.",
+        "next_step": "Audit betway.co.za/aviator for content depth, backlinks, and metadata.",
+        "reason": "Directly actionable based on confirmed SERP and query gap data.",
+        "evidence_ids": [
+          "SERP",
+          "KW_QUERY_GAPS"
+        ]
+      },
+      {
+        "specialist_finding_id": "COMPETITION_02",
+        "outcome": "action",
+        "plan_indices": [
+          4
+        ],
+        "simple_explanation": "We’re ranked lower on instructional queries — we need to create better guides to compete.",
+        "technical_explanation": "KW_QUERY_GAPS shows Hollywoodbets.net ranks 8th and 10th respectively on 'aviator betting' and 'how to play aviator', with gaps of 6 and 9 positions. Content optimization targeting these queries can bridge the gap.",
+        "next_step": "Create a 'How to Play Aviator' guide and optimize for long-tail keywords.",
+        "reason": "Directly actionable based on verified query gap data.",
+        "evidence_ids": [
+          "KW_QUERY_GAPS"
+        ]
+      },
+      {
+        "specialist_finding_id": "COMPETITION_03",
+        "outcome": "investigate",
+        "plan_indices": [],
+        "simple_explanation": "A proposed explanation could not be verified against the saved evidence. Further review is needed.",
+        "technical_explanation": "Recheck the original source measurement, metric scope and cited evidence before approving a change.",
+        "next_step": "Review the saved source records and rerun the scoped comparison if new data is authorized and required.",
+        "reason": "The original recommendation contained an unresolved factual or citation validation issue.",
+        "evidence_ids": []
+      }
+    ],
+    "verified_factual_summary": "In the saved Google results for 'aviator', hollywoodbets.net ranked #2 and betway.co.za ranked #1. betway.co.za leads by 1 position in this snapshot. This is one recorded search, not evidence of a sustained trend or why the positions differ. Largest Contentful Paint: tracked 24.9s, benchmark 19.5s. Total Blocking Time: tracked 2.1s, benchmark 3.3s.",
+    "verified_factual_findings": [
+      {
+        "statement": "Saved Google result: hollywoodbets.net is #2 and betway.co.za is #1 for 'aviator'.",
+        "interpretation": "betway.co.za leads by 1 position in this snapshot. The result confirms a visibility difference for this captured query and market only.",
+        "why_it_matters": "The higher-listed result is encountered earlier on this search-results page, giving the benchmark greater visibility in this snapshot.",
+        "next_check": "Repeat the same query with the same market and device context over multiple dates; compare the exact ranking URLs before treating the gap as persistent.",
+        "evidence_ids": [
+          "SERP"
+        ],
+        "limitation": "A single saved SERP is not a trend. Rankings vary, and this comparison does not identify a cause."
+      },
+      {
+        "statement": "The captured HTML title for the tracked ranking page does not include 'aviator'; the benchmark title includes it.",
+        "interpretation": "This is a difference in the page title text captured by the crawler. Google may rewrite the title shown in results, so the HTML title and visible search-result title are related but not always identical.",
+        "why_it_matters": "A clear, accurate title can help search engines and people understand what the page is about. Keyword presence by itself is not a ranking recipe.",
+        "next_check": "Open both cited ranking URLs, verify their current rendered title tags and Google result titles, then assess whether the tracked title accurately matches the page and search intent before proposing an edit.",
+        "evidence_ids": [
+          "ON_TITLE"
+        ],
+        "limitation": "The snapshot establishes title wording only. It does not prove that title wording caused the position gap or that adding the keyword would improve ranking or clicks."
+      },
+      {
+        "statement": "The crawler counted 9 internal links on the tracked page and 28 on the benchmark page (benchmark page: 19 more).",
+        "interpretation": "This is a count of links detected in the captured pages. More links do not automatically mean better internal linking; their destinations, anchor wording, placement, and usefulness matter.",
+        "why_it_matters": "Relevant internal links can help visitors move through a site and help crawlers discover related pages. A raw total cannot tell whether those links meaningfully support the selected ranking page.",
+        "next_check": "Review the captured link lists and compare unique, relevant links pointing to each exact ranking URL. Separate repeated navigation/footer links from contextual links before deciding whether there is a useful gap.",
+        "evidence_ids": [
+          "ON_LINKS"
+        ],
+        "limitation": "A page-level count is not link density or quality, may include repeated site-wide links, and does not establish ranking causation."
+      },
+      {
+        "statement": "Largest Contentful Paint: tracked page 24.9s vs benchmark 19.5s. The tracked page was about 5.4 seconds slower in this lab run.",
+        "interpretation": "LCP estimates when the main visible content finished appearing during this test. A longer time is a reason to investigate loading experience, not proof of a specific technical cause.",
+        "why_it_matters": "If repeated under comparable conditions and reflected in real-user data, slow visible loading can be a user-experience concern. This measurement alone cannot show how visitors experienced the page.",
+        "next_check": "Repeat several mobile Lighthouse runs with the same settings, identify the LCP element and its loading dependencies, and compare with real-user Core Web Vitals if available.",
+        "evidence_ids": [
+          "TECH_LAB"
+        ],
+        "limitation": "These are single-run synthetic Lighthouse measurements, not field data. Device/network conditions affect results; the metric does not identify a root cause or prove a ranking effect."
+      },
+      {
+        "statement": "Total Blocking Time: tracked page 2.1s vs benchmark 3.3s. The tracked page was about 1.2 seconds faster in this lab run.",
+        "interpretation": "TBT estimates how much long-running main-thread work delayed interaction during this lab test. Lower is better; it is distinct from LCP and does not describe the whole page experience.",
+        "why_it_matters": "A high or worsening TBT can make a page feel less responsive. Read it alongside LCP and other measures rather than treating one metric as an overall performance score.",
+        "next_check": "Repeat comparable mobile Lighthouse runs and inspect the long tasks shown in the diagnostic report; confirm any proposed fix improves responsiveness without harming loading.",
+        "evidence_ids": [
+          "TECH_LAB"
+        ],
+        "limitation": "These are single-run synthetic Lighthouse measurements, not field data. Device/network conditions affect results; the metric does not identify a root cause or prove a ranking effect."
+      },
+      {
+        "statement": "Page-specific third-party backlink rank favors betway.co.za (18 tracked versus 36 benchmark).",
+        "interpretation": "This is a third-party index score for the two ranking URLs. It is not a Google position; a larger score is stronger only within this provider metric.",
+        "why_it_matters": "Links from relevant, trusted pages can contribute to discovery and authority, but this aggregate score does not reveal which referring links are valuable.",
+        "next_check": "Compare the referring domains and linking pages for these exact URLs, confirm the links are live and relevant, and investigate unusual or low-quality patterns before proposing outreach.",
+        "evidence_ids": [
+          "BL_PAGE"
+        ],
+        "limitation": "Provider index scores are estimates. Individual link quality, relevance, freshness, and any ranking effect are unverified."
+      },
+      {
+        "statement": "Domain-wide third-party backlink rank favors hollywoodbets.net (70 tracked versus 65 benchmark).",
+        "interpretation": "This describes the provider’s estimate for each whole domain, not the selected ranking pages.",
+        "why_it_matters": "Domain-level link profiles provide broad competitive context, but they cannot explain a page-versus-page ranking difference on their own.",
+        "next_check": "Use the page-level backlink evidence for the ranking URLs and inspect the strongest relevant referring pages; keep domain and page findings separate.",
+        "evidence_ids": [
+          "BL_DOMAIN"
+        ],
+        "limitation": "Third-party index score, not Google rank. Domain-wide metrics cannot be attributed to either exact ranking page or to ranking causation."
+      },
+      {
+        "statement": "In the saved related-keyword set, the tracked domain leads on 24 shared queries and the benchmark leads on 31.",
+        "interpretation": "These are counts of queries where each domain leads, not average ranking positions or traffic totals.",
+        "why_it_matters": "The split offers broader context about which site appears to lead across the measured query set; it does not measure the value of each query to the business.",
+        "next_check": "Review the actual query list, search volumes, intent, and ranking URLs, then prioritize queries that match the business objective.",
+        "evidence_ids": [
+          "KW_SHARED"
+        ],
+        "limitation": "Domain-level context only. Different URLs may rank, and the counts do not prove page-level relevance, traffic, or causation."
+      }
+    ],
+    "specialist_findings": [
+      {
+        "id": "ONPAGE_01",
+        "task": "onpage",
+        "source_sha256": "5fe87f361dbf517f0ae1a0874d1e9b69087d113903f8447ab6b0631bc56cbaa7",
+        "finding": {
+          "observation": "The ranking page title 'Online Sports Betting and Online Casino | Hollywoodbets' does not contain the primary keyword 'Aviator', whereas the benchmark title does.",
+          "interpretation": "The current title is broad and may result in lower click-through rates for users specifically searching for the Aviator game compared to the benchmark.",
+          "evidence_paths": [
+            "evidence.onpage.comparison.title_keyword_match.ours",
+            "evidence.onpage.pages.ours.title",
+            "evidence.onpage.pages.benchmark.title"
+          ],
+          "counterevidence": "The H1 tag correctly contains the keyword 'AVIATOR'.",
+          "recommended_action": "Verify if the current title aligns with the primary landing page intent; consider incorporating 'Aviator' into the title tag to improve relevance for specific queries."
+        },
+        "source": "llm_outputs/onpage_validated.json#/findings/0",
+        "status": "specialist_interpretation_not_independently_verified"
+      },
+      {
+        "id": "ONPAGE_02",
+        "task": "onpage",
+        "source_sha256": "bdc894d879bdae7e8384451c47dd7b7abe07221ff9154cbeba810017f37e6096",
+        "finding": {
+          "observation": "The benchmark page contains 28 internal links compared to 9 on the ranking page.",
+          "interpretation": "The benchmark page has a significantly higher density of internal linking, which may contribute to its higher authority or navigation structure.",
+          "evidence_paths": [
+            "evidence.onpage.comparison.internal_link_count.ours",
+            "evidence.onpage.comparison.internal_link_count.competitor"
+          ],
+          "counterevidence": "Internal link count does not directly prove authority or navigation quality.",
+          "recommended_action": "Audit internal linking structure to identify high-value pages that could be linked from the Aviator landing page."
+        },
+        "source": "llm_outputs/onpage_validated.json#/findings/1",
+        "status": "specialist_interpretation_not_independently_verified"
+      },
+      {
+        "id": "ONPAGE_03",
+        "task": "onpage",
+        "source_sha256": "74c81c860aa2b8aee185d231afe40fa9c013f00b36818df5d2e443af81ccbe03",
+        "finding": {
+          "observation": "The content token Jaccard overlap between the two pages is 0.14285714285714285.",
+          "interpretation": "There is low lexical overlap between the two pages, suggesting distinct content approaches despite both being 'comparable' in scope.",
+          "evidence_paths": [
+            "evidence.onpage.comparison.content_token_jaccard"
+          ],
+          "counterevidence": "Jaccard overlap measures lexical similarity, not semantic relevance or quality.",
+          "recommended_action": "Verify if the unique content on the ranking page addresses the same user intents as the benchmark page."
+        },
+        "source": "llm_outputs/onpage_validated.json#/findings/2",
+        "status": "specialist_interpretation_not_independently_verified"
+      },
+      {
+        "id": "BACKLINKS_01",
+        "task": "backlinks",
+        "source_sha256": "5563edaae1580a7b8372a9e60b84abfa19814e28b1fd48f2312068fe44d2f553",
+        "finding": {
+          "observation": "The benchmark page (betway.co.za/aviator) has a higher backlink count (2809) and more referring domains (1259) than the tracked page (hollywoodbets.net/aviator) which has 1853 backlinks and 1184 referring domains.",
+          "interpretation": "The benchmark page possesses a stronger page-level backlink profile, which correlates with its higher ranking position (1) compared to the tracked page (2).",
+          "evidence_paths": [
+            "evidence.backlinks.page.ours",
+            "evidence.backlinks.page.benchmark",
+            "evidence.serp.ranking_summary"
+          ],
+          "counterevidence": "The tracked domain (hollywoodbets.net) has a significantly higher total domain backlink count (1,806,871) compared to the benchmark domain (578,056).",
+          "recommended_action": "Analyze the specific referring domains for the benchmark page to identify high-authority sources that are not currently linking to the tracked page."
+        },
+        "source": "llm_outputs/backlinks_validated.json#/findings/0",
+        "status": "specialist_interpretation_not_independently_verified"
+      },
+      {
+        "id": "BACKLINKS_02",
+        "task": "backlinks",
+        "source_sha256": "5a7471e6771bf661feec26d513a74391a0eeb08983239bc3461cf5bd7bead928",
+        "finding": {
+          "observation": "The tracked domain has a much larger total backlink volume (1,806,871) than the benchmark domain (578,056), despite the benchmark domain holding the #1 position for the specific keyword.",
+          "interpretation": "Domain-level authority for the tracked site is high, but the specific page-level backlink profile for the 'aviator' URL is less dense than the competitor's equivalent page.",
+          "evidence_paths": [
+            "evidence.backlinks.domain.ours",
+            "evidence.backlinks.domain.benchmark",
+            "evidence.serp.ranking_summary"
+          ],
+          "counterevidence": "None",
+          "recommended_action": "Focus on increasing page-specific referring domains for the /aviator URL to bridge the gap with the benchmark page."
+        },
+        "source": "llm_outputs/backlinks_validated.json#/findings/1",
+        "status": "specialist_interpretation_not_independently_verified"
+      },
+      {
+        "id": "TECHNICAL_01",
+        "task": "technical",
+        "source_sha256": "e2bae404584f9f3d158b35177f8e39303c2995518b935da62d5f56a8d46f0748",
+        "finding": {
+          "observation": "The tracked website (hollywoodbets.net) has a mobile performance score of 28, while the benchmark (betway.co.za) has a lower performance score of 16.",
+          "interpretation": "While the tracked website has a higher performance score than the benchmark, the absolute score of 28 indicates significant performance issues on mobile devices.",
+          "evidence_paths": [
+            "evidence.serp.ranking_summary",
+            "evidence.technical.mobile_audits.ours.scores",
+            "evidence.technical.mobile_audits.benchmark.scores"
+          ],
+          "counterevidence": "The benchmark's SEO score is lower (85) than the tracked website's SEO score (100).",
+          "recommended_action": "Investigate the specific bottlenecks contributing to the low performance score of 28 to improve mobile user experience."
+        },
+        "source": "llm_outputs/technical_validated.json#/findings/0",
+        "status": "specialist_interpretation_not_independently_verified"
+      },
+      {
+        "id": "TECHNICAL_02",
+        "task": "technical",
+        "source_sha256": "213be04819b3f8f27e51d9bd1fb1a61c88e5eff430c740d442cec6ddb8ebf583",
+        "finding": {
+          "observation": "The tracked website shows a Largest Contentful Paint (LCP) of 24,907.98 ms and a Total Blocking Time (TBT) of 2,122.5 ms.",
+          "interpretation": "The LCP is significantly high, indicating a slow perceived loading speed for the main content on mobile.",
+          "evidence_paths": [
+            "evidence.technical.mobile_audits.ours.lab_metrics"
+          ],
+          "counterevidence": "The benchmark's LCP is also high at 19,506.78 ms.",
+          "recommended_action": "Optimize the critical rendering path to reduce LCP, specifically addressing the high TBT which suggests main-thread contention."
+        },
+        "source": "llm_outputs/technical_validated.json#/findings/1",
+        "status": "specialist_interpretation_not_independently_verified"
+      },
+      {
+        "id": "TECHNICAL_03",
+        "task": "technical",
+        "source_sha256": "e6fbe7058fb6d17ab2dd2bdb782fd7e7c77b0dca00c2d5ea6e7277430429bcc0",
+        "finding": {
+          "observation": "JavaScript execution and unused JavaScript are identified as high-priority issues, with 6.0 s of boot-up time and 1,108 KiB of estimated savings from unused JS.",
+          "interpretation": "Excessive JavaScript execution and large, underutilized bundles are likely contributing to the high TBT and slow LCP.",
+          "evidence_paths": [
+            "evidence.technical.detailed_analysis.investigations[0]",
+            "evidence.technical.detailed_analysis.investigations[1]"
+          ],
+          "counterevidence": "None provided in the JSON.",
+          "recommended_action": "Audit the main.38c4d2ededa66bb008c8.min.js bundle to remove unused code and optimize the boot-up sequence of external scripts like wdp.js."
+        },
+        "source": "llm_outputs/technical_validated.json#/findings/2",
+        "status": "specialist_interpretation_not_independently_verified"
+      },
+      {
+        "id": "COMPETITION_01",
+        "task": "competition",
+        "source_sha256": "e686b00eab723baeae45c8044727f37f0695ca1c981c90bb897a56dd3b579339",
+        "finding": {
+          "observation": "Betway.co.za holds the #1 position for the primary keyword 'aviator' and leads on high-volume generic modifiers like 'play aviator' and 'aviator bet'.",
+          "interpretation": "Betway.co.za is the primary confirmed benchmark, maintaining a competitive edge in both the core head term and high-volume intent-based modifiers.",
+          "evidence_paths": [
+            "evidence.serp.ranking_summary",
+            "evidence.keywords.intersection.top_generic_benchmark_leads"
+          ],
+          "counterevidence": "Hollywoodbets.net maintains a close proximity at position #2 for the primary keyword.",
+          "recommended_action": "Analyze the content structure and backlink profile of the betway.co.za/aviator page to identify specific ranking factors for the #1 position."
+        },
+        "source": "llm_outputs/competition_validated.json#/findings/0",
+        "status": "specialist_interpretation_not_independently_verified"
+      },
+      {
+        "id": "COMPETITION_02",
+        "task": "competition",
+        "source_sha256": "b286f40b975891effa40c16f3fe6c8b2c0360a3a05a257186f6715f153668102",
+        "finding": {
+          "observation": "Hollywoodbets.net shows a significant rank gap (6-9 positions) on specific long-tail queries such as 'aviator betting' and 'how to play aviator'.",
+          "interpretation": "The competitor has stronger authority or relevance for instructional and specific betting intent queries compared to the tracked domain.",
+          "evidence_paths": [
+            "evidence.keywords.intersection.top_generic_benchmark_leads"
+          ],
+          "counterevidence": "Hollywoodbets.net remains competitive on 'play aviator' and 'play aviator now' with a rank gap of only 1.",
+          "recommended_action": "Develop more comprehensive 'how-to' content and specific betting guides to close the gap on instructional queries."
+        },
+        "source": "llm_outputs/competition_validated.json#/findings/1",
+        "status": "specialist_interpretation_not_independently_verified"
+      },
+      {
+        "id": "COMPETITION_03",
+        "task": "competition",
+        "source_sha256": "aa3c96ed2313602b05b8a37528db165db9a0ae2b5d5c055ff92ddb990a180781",
+        "finding": {
+          "observation": "Multiple non-benchmark domains including app.aviator.co and aviator.co are present in the SERP discovery.",
+          "interpretation": "The SERP is populated by various entities, including potential direct game providers or app-specific landing pages, which may dilute traffic for the primary betting platforms.",
+          "evidence_paths": [
+            "evidence.competitor_discovery.candidates"
+          ],
+          "counterevidence": "These candidates are not verified as ranking benchmarks and their specific positions are not provided.",
+          "recommended_action": "Monitor the visibility of these non-benchmark domains to determine if they are capturing significant share of the 'aviator' search intent."
+        },
+        "source": "llm_outputs/competition_validated.json#/findings/2",
+        "status": "specialist_interpretation_not_independently_verified"
+      }
+    ],
+    "potential_ranking_explanations": [
+      {
+        "title": "aviator targeting differs in the HTML title",
+        "explanation": "The benchmark page explicitly includes the target keyword in its title while the tracked page does not.",
+        "evidence_ids": [
+          "ON_TITLE"
+        ],
+        "counterevidence": "Title wording alone does not determine ranking.",
+        "why_it_might_matter": "It may provide clearer relevance signalling and improve search-result clarity.",
+        "unverified": "Intent fit and any ranking effect require verification after an approved change."
+      },
+      {
+        "title": "Page-specific authority may differ",
+        "explanation": "The measured backlink rank for the two exact ranking pages differs.",
+        "evidence_ids": [
+          "BL_PAGE"
+        ],
+        "counterevidence": "Domain-wide metrics may point in the opposite direction.",
+        "why_it_might_matter": "Links pointing to the exact page may support discovery and authority, but quality and relevance are unknown.",
+        "unverified": "Individual referring-page quality and causation."
+      },
+      {
+        "title": "The tracked page has slower observed LCP",
+        "explanation": "The saved mobile lab run measured slower LCP for hollywoodbets.net.",
+        "evidence_ids": [
+          "TECH_LAB"
+        ],
+        "counterevidence": "hollywoodbets.net has better observed TBT in the same run.",
+        "why_it_might_matter": "A slower first meaningful experience may warrant engineering investigation.",
+        "unverified": "Field performance and ranking impact."
+      }
+    ],
+    "hollywoodbets_strengths": [
+      {
+        "statement": "hollywoodbets.net has the better measured TBT in the saved mobile Lighthouse run.",
+        "evidence_ids": [
+          "TECH_LAB"
+        ]
+      },
+      {
+        "statement": "hollywoodbets.net has the stronger measured domain-wide backlink rank.",
+        "evidence_ids": [
+          "BL_DOMAIN"
+        ]
+      }
+    ],
+    "hollywoodbets_weaknesses_opportunities": [
+      {
+        "statement": "aviator targeting differs in the HTML title.",
+        "evidence_ids": [
+          "ON_TITLE"
+        ],
+        "limitation": "Intent fit and any ranking effect require verification after an approved change."
+      },
+      {
+        "statement": "Page-specific authority may differ.",
+        "evidence_ids": [
+          "BL_PAGE"
+        ],
+        "limitation": "Individual referring-page quality and causation."
+      },
+      {
+        "statement": "The tracked page has slower observed LCP.",
+        "evidence_ids": [
+          "TECH_LAB"
+        ],
+        "limitation": "Field performance and ranking impact."
+      }
+    ],
+    "recommended_improvements": [
+      {
+        "action": "Verify the current aviator title and prepare an accurate revision for approval if it better matches page intent.",
+        "reason": "The saved ranking pages differ in target-keyword title presence.",
+        "owner": "Content / SEO",
+        "dependencies": "Rendered HTML and search appearance review.",
+        "validation": "Recrawl the exact URL and monitor the saved target query over time.",
+        "evidence_ids": [
+          "ON_TITLE"
+        ]
+      },
+      {
+        "action": "Audit the quality, relevance and placement of links pointing to both exact ranking pages, then identify legitimate page-specific opportunities.",
+        "reason": "Page-level backlink measurements differ.",
+        "owner": "SEO",
+        "dependencies": "Referring-page review and link policy.",
+        "validation": "Recheck page-level referring domains after approved work.",
+        "evidence_ids": [
+          "BL_PAGE"
+        ]
+      },
+      {
+        "action": "Profile the resources and rendering bottlenecks identified by Lighthouse while preserving security and fraud-prevention controls.",
+        "reason": "hollywoodbets.net has slower observed LCP but better TBT, so the bottleneck needs targeted investigation.",
+        "owner": "Engineering",
+        "dependencies": "Controlled mobile lab reruns and release approval.",
+        "validation": "Repeat comparable Lighthouse runs and, when available, review field data.",
+        "evidence_ids": [
+          "TECH_LAB",
+          "TECH_INV"
+        ]
+      }
+    ],
+    "evidence_coverage": {
+      "schema_version": "1.0",
+      "categories": {
+        "search_visibility": {
+          "evidence_exists": true,
+          "verified_usable": true,
+          "selected_paths": [
+            "evidence.serp.ranking_summary"
+          ],
+          "omitted_paths": [],
+          "exclusion_reason": "",
+          "additional_investigation_required": false
+        },
+        "onpage_content": {
+          "evidence_exists": true,
+          "verified_usable": true,
+          "selected_paths": [
+            "evidence.onpage.pages",
+            "evidence.onpage.comparison"
+          ],
+          "omitted_paths": [],
+          "exclusion_reason": "",
+          "additional_investigation_required": false
+        },
+        "backlinks_authority": {
+          "evidence_exists": true,
+          "verified_usable": true,
+          "selected_paths": [
+            "evidence.backlinks"
+          ],
+          "omitted_paths": [],
+          "exclusion_reason": "",
+          "additional_investigation_required": false
+        },
+        "technical_lighthouse": {
+          "evidence_exists": true,
+          "verified_usable": true,
+          "selected_paths": [
+            "evidence.technical.mobile_audits"
+          ],
+          "omitted_paths": [],
+          "exclusion_reason": "",
+          "additional_investigation_required": false
+        },
+        "related_keyword_competition": {
+          "evidence_exists": true,
+          "verified_usable": true,
+          "selected_paths": [
+            "evidence.keywords.intersection"
+          ],
+          "omitted_paths": [],
+          "exclusion_reason": "",
+          "additional_investigation_required": false
+        },
+        "deterministic_findings_recommendations": {
+          "evidence_exists": true,
+          "verified_usable": true,
+          "selected_paths": [
+            "deterministic_recommendations",
+            "deterministic_findings"
+          ],
+          "omitted_paths": [],
+          "exclusion_reason": "",
+          "additional_investigation_required": false
+        }
+      },
+      "covered_count": 6,
+      "category_count": 6
+    }
+  }
+}

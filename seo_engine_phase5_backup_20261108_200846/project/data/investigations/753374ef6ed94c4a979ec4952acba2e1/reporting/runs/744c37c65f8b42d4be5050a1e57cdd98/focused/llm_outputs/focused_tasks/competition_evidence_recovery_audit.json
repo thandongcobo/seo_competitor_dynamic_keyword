@@ -1,0 +1,602 @@
+{
+  "schema_version": "1.0",
+  "task": "competition",
+  "status": "recovered_with_review",
+  "original_errors": [
+    "implementation_plans[2]: specialist finding COMPETITION_03 is not linked to any cited approved FACT ID",
+    "plan 2: invalid evidence_ids",
+    "finding_dispositions[2]: investigation or deferred finding must not claim an implementation plan"
+  ],
+  "registry": [
+    {
+      "fact_id": "SERP",
+      "path": "ours",
+      "value": 2,
+      "metric": "ours",
+      "unit": "unspecified",
+      "side": "ours",
+      "source_url": "https://www.hollywoodbets.net/aviator",
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "SERP",
+      "path": "benchmark",
+      "value": 1,
+      "metric": "benchmark",
+      "unit": "unspecified",
+      "side": "benchmark",
+      "source_url": "https://www.betway.co.za/aviator",
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_SHARED",
+      "path": "generic_ours_ahead",
+      "value": 24,
+      "metric": "generic_ours_ahead",
+      "unit": "unspecified",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_SHARED",
+      "path": "generic_benchmark_ahead",
+      "value": 31,
+      "metric": "generic_benchmark_ahead",
+      "unit": "unspecified",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.0.our_rank",
+      "value": 2,
+      "metric": "our_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.0.benchmark_rank",
+      "value": 1,
+      "metric": "benchmark_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.0.rank_gap",
+      "value": 1,
+      "metric": "rank_gap",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.0.search_volume",
+      "value": 6600,
+      "metric": "search_volume",
+      "unit": "unspecified",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.1.our_rank",
+      "value": 8,
+      "metric": "our_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.1.benchmark_rank",
+      "value": 2,
+      "metric": "benchmark_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.1.rank_gap",
+      "value": 6,
+      "metric": "rank_gap",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.1.search_volume",
+      "value": 1000,
+      "metric": "search_volume",
+      "unit": "unspecified",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.2.our_rank",
+      "value": 5,
+      "metric": "our_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.2.benchmark_rank",
+      "value": 1,
+      "metric": "benchmark_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.2.rank_gap",
+      "value": 4,
+      "metric": "rank_gap",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.2.search_volume",
+      "value": 1000,
+      "metric": "search_volume",
+      "unit": "unspecified",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.3.our_rank",
+      "value": 10,
+      "metric": "our_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.3.benchmark_rank",
+      "value": 1,
+      "metric": "benchmark_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.3.rank_gap",
+      "value": 9,
+      "metric": "rank_gap",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.3.search_volume",
+      "value": 880,
+      "metric": "search_volume",
+      "unit": "unspecified",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.4.our_rank",
+      "value": 2,
+      "metric": "our_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.4.benchmark_rank",
+      "value": 1,
+      "metric": "benchmark_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.4.rank_gap",
+      "value": 1,
+      "metric": "rank_gap",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.4.search_volume",
+      "value": 590,
+      "metric": "search_volume",
+      "unit": "unspecified",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.5.our_rank",
+      "value": 4,
+      "metric": "our_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.5.benchmark_rank",
+      "value": 3,
+      "metric": "benchmark_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.5.rank_gap",
+      "value": 1,
+      "metric": "rank_gap",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.5.search_volume",
+      "value": 480,
+      "metric": "search_volume",
+      "unit": "unspecified",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.6.our_rank",
+      "value": 2,
+      "metric": "our_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.6.benchmark_rank",
+      "value": 1,
+      "metric": "benchmark_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.6.rank_gap",
+      "value": 1,
+      "metric": "rank_gap",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.6.search_volume",
+      "value": 480,
+      "metric": "search_volume",
+      "unit": "unspecified",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.7.our_rank",
+      "value": 4,
+      "metric": "our_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.7.benchmark_rank",
+      "value": 3,
+      "metric": "benchmark_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.7.rank_gap",
+      "value": 1,
+      "metric": "rank_gap",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.7.search_volume",
+      "value": 480,
+      "metric": "search_volume",
+      "unit": "unspecified",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.8.our_rank",
+      "value": 10,
+      "metric": "our_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.8.benchmark_rank",
+      "value": 1,
+      "metric": "benchmark_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.8.rank_gap",
+      "value": 9,
+      "metric": "rank_gap",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.8.search_volume",
+      "value": 260,
+      "metric": "search_volume",
+      "unit": "unspecified",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.9.our_rank",
+      "value": 4,
+      "metric": "our_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.9.benchmark_rank",
+      "value": 2,
+      "metric": "benchmark_rank",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.9.rank_gap",
+      "value": 2,
+      "metric": "rank_gap",
+      "unit": "count",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "KW_QUERY_GAPS",
+      "path": "queries.9.search_volume",
+      "value": 260,
+      "metric": "search_volume",
+      "unit": "unspecified",
+      "side": null,
+      "source_url": null,
+      "captured_at": null,
+      "scope": "search"
+    }
+  ],
+  "diagnostics": [
+    {
+      "error": "implementation_plans[2]: specialist finding COMPETITION_03 is not linked to any cited approved FACT ID",
+      "path": "implementation_plans[2]",
+      "current_value": {
+        "title": "Monitor Visibility of Non-Benchmark Domains for Intent Capture",
+        "rationale": "The SERP includes non-benchmark domains like app.aviator.co and aviator.co, which may capture niche intent or app-specific traffic.",
+        "owner": "Competitive Intelligence Team",
+        "priority": "low",
+        "implementation_steps": [
+          "Track monthly SERP positions for app.aviator.co and aviator.co using DataForSEO or similar tools.",
+          "Analyze traffic sources and user behavior (via Google Search Console or GA4) to determine if these domains capture significant intent.",
+          "Report findings to strategy team to adjust content or SEO focus if needed."
+        ],
+        "success_measure": "Determine whether these domains are visible in the SERP and whether they capture measurable traffic.",
+        "uncertainty": "These domains may not be ranking for the primary keyword, and their traffic may be indirect or app-based.",
+        "evidence_ids": [],
+        "specialist_finding_ids": [
+          "COMPETITION_03"
+        ],
+        "simple_explanation": "Other domains are appearing in the SERP — we need to verify if they’re capturing real user intent.",
+        "technical_explanation": "The discovery candidate list includes app.aviator.co and aviator.co, but no ranking data is provided. We must verify their visibility and traffic to determine if they’re competitive or irrelevant."
+      },
+      "cited_fact_ids": [],
+      "permitted_fact_ids": [],
+      "specialist_finding_ids": [
+        "COMPETITION_03"
+      ],
+      "classification": "lineage_or_structure",
+      "instruction": "Keep fact citations within the union of the linked specialist findings. Do not add an unrelated finding solely to make an invalid claim pass."
+    },
+    {
+      "error": "plan 2: invalid evidence_ids",
+      "classification": "unlocalized",
+      "instruction": "Retain valid fields and correct the stated validation issue."
+    },
+    {
+      "error": "finding_dispositions[2]: investigation or deferred finding must not claim an implementation plan",
+      "path": "finding_dispositions[2]",
+      "current_value": {
+        "specialist_finding_id": "COMPETITION_03",
+        "outcome": "investigate",
+        "plan_indices": [
+          2
+        ],
+        "simple_explanation": "Other domains are appearing in the SERP — we need to verify if they’re capturing real user intent.",
+        "technical_explanation": "The discovery candidate list includes app.aviator.co and aviator.co, but no ranking data is provided. We must verify their visibility and traffic to determine if they’re competitive or irrelevant.",
+        "next_step": "Use DataForSEO or similar tools to track monthly SERP positions for these domains and analyze traffic sources.",
+        "reason": "No evidence links provided — cannot confirm if these domains are competitive or irrelevant.",
+        "evidence_ids": []
+      },
+      "cited_fact_ids": [],
+      "permitted_fact_ids": [],
+      "specialist_finding_ids": [
+        "COMPETITION_03"
+      ],
+      "classification": "lineage_or_structure",
+      "instruction": "Keep fact citations within the union of the linked specialist findings. Do not add an unrelated finding solely to make an invalid claim pass."
+    }
+  ],
+  "quarantined_plans": [
+    {
+      "index": 2,
+      "original": {
+        "title": "Monitor Visibility of Non-Benchmark Domains for Intent Capture",
+        "rationale": "The SERP includes non-benchmark domains like app.aviator.co and aviator.co, which may capture niche intent or app-specific traffic.",
+        "owner": "Competitive Intelligence Team",
+        "priority": "low",
+        "implementation_steps": [
+          "Track monthly SERP positions for app.aviator.co and aviator.co using DataForSEO or similar tools.",
+          "Analyze traffic sources and user behavior (via Google Search Console or GA4) to determine if these domains capture significant intent.",
+          "Report findings to strategy team to adjust content or SEO focus if needed."
+        ],
+        "success_measure": "Determine whether these domains are visible in the SERP and whether they capture measurable traffic.",
+        "uncertainty": "These domains may not be ranking for the primary keyword, and their traffic may be indirect or app-based.",
+        "evidence_ids": [],
+        "specialist_finding_ids": [
+          "COMPETITION_03"
+        ],
+        "simple_explanation": "Other domains are appearing in the SERP — we need to verify if they’re capturing real user intent.",
+        "technical_explanation": "The discovery candidate list includes app.aviator.co and aviator.co, but no ranking data is provided. We must verify their visibility and traffic to determine if they’re competitive or irrelevant."
+      }
+    }
+  ],
+  "quarantined_dispositions": [
+    {
+      "index": 2,
+      "original": {
+        "specialist_finding_id": "COMPETITION_03",
+        "outcome": "investigate",
+        "plan_indices": [
+          2
+        ],
+        "simple_explanation": "Other domains are appearing in the SERP — we need to verify if they’re capturing real user intent.",
+        "technical_explanation": "The discovery candidate list includes app.aviator.co and aviator.co, but no ranking data is provided. We must verify their visibility and traffic to determine if they’re competitive or irrelevant.",
+        "next_step": "Use DataForSEO or similar tools to track monthly SERP positions for these domains and analyze traffic sources.",
+        "reason": "No evidence links provided — cannot confirm if these domains are competitive or irrelevant.",
+        "evidence_ids": []
+      }
+    }
+  ],
+  "review_finding_ids": [
+    "COMPETITION_03"
+  ],
+  "preserved_plan_count": 2,
+  "original_plan_count": 3
+}

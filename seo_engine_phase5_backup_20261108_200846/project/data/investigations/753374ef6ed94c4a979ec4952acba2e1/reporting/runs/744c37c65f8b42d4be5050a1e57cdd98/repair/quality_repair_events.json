@@ -1,0 +1,47 @@
+[
+  {
+    "kind": "raw",
+    "path": "implementation_plans[3]",
+    "attempt": 1,
+    "finish_reason": "stop"
+  },
+  {
+    "kind": "accepted",
+    "record": {
+      "path": "implementation_plans[3]",
+      "attempt": 1,
+      "changed_fields": [
+        "implementation_steps",
+        "success_measure"
+      ],
+      "required_field_targets": [],
+      "fixed_issue_codes": [
+        "no_precondition"
+      ]
+    }
+  },
+  {
+    "kind": "raw",
+    "path": "implementation_plans[4]",
+    "attempt": 1,
+    "finish_reason": "stop"
+  },
+  {
+    "kind": "rejected",
+    "path": "implementation_plans[4]",
+    "attempt": 1,
+    "error": "Evidence/schema validation: implementation_plans[4].implementation_steps[4]: numeric claim 14 is not present in this run evidence; implementation_plans[4].implementation_steps[4]: numeric claim 14 is not supported by its cited evidence"
+  },
+  {
+    "kind": "raw",
+    "path": "implementation_plans[4]",
+    "attempt": 2,
+    "finish_reason": "stop"
+  },
+  {
+    "kind": "rejected",
+    "path": "implementation_plans[4]",
+    "attempt": 2,
+    "error": "Evidence/schema validation: implementation_plans[4].implementation_steps[4]: numeric claim 14 is not present in this run evidence; implementation_plans[4].implementation_steps[4]: numeric claim 14 is not supported by its cited evidence"
+  }
+]

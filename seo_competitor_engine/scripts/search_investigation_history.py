@@ -59,6 +59,11 @@ def search_history(data_root, *, keyword=None, url_a=None, url_b=None, limit=50)
             continue
         reporting = _json(folder / 'reporting' / 'status.json') or {}
         offline = _json(folder / 'offline_execution.json') or {}
+        # This UI is for reopening successful end-to-end executions. Keep
+        # failed and incomplete attempts in their investigation folders for
+        # recovery/audit, but do not present them as completed results.
+        if offline.get('status') != 'completed' or reporting.get('status') not in ('draft_ready', 'approved'):
+            continue
         run_id = reporting.get('run_id')
         run = folder / 'reporting' / 'runs' / run_id if isinstance(run_id, str) and len(run_id) == 32 and all(c in '0123456789abcdef' for c in run_id) else None
         reports = {}

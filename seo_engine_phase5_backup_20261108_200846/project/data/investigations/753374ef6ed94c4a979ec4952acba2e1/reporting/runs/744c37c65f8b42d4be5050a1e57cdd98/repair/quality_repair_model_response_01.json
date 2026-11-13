@@ -1,0 +1,7 @@
+{
+  "kind": "raw",
+  "path": "implementation_plans[3]",
+  "attempt": 1,
+  "raw_response": "{\n  \"fields\": {\n    \"implementation_steps\": [\n      \"Verify that the betway.co.za/aviator page is live and accessible before initiating any audit or analysis.\",\n      \"Audit the betway.co.za/aviator page for content depth, keyword targeting, and internal linking structure.\",\n      \"Analyze backlink profile using Ahrefs or SEMrush to identify authoritative referring domains and anchor text patterns.\",\n      \"Compare content structure and metadata with Hollywoodbets.net’s page to identify key differentiators.\"\n    ],\n    \"success_measure\": \"Identify 3+ specific ranking factors (e.g., content depth, backlink authority, schema markup) that explain Betway’s #1 position, verified through technical and content analysis.\"\n  }\n}",
+  "finish_reason": "stop"
+}

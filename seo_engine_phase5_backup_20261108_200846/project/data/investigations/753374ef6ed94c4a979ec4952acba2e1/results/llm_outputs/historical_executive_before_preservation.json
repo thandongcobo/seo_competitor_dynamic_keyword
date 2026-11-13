@@ -1,0 +1,273 @@
+{
+  "schema_version": "1.0",
+  "status": "usable",
+  "executive_summary": "In the saved Google results for 'aviator', hollywoodbets.net ranked #2 and betway.co.za ranked #1. betway.co.za leads by 1 position in this snapshot. This is one recorded search, not evidence of a sustained trend or why the positions differ. Largest Contentful Paint: tracked 24.9s, benchmark 19.5s. Total Blocking Time: tracked 2.1s, benchmark 3.3s.",
+  "executive_summary_evidence_ids": [
+    "SERP",
+    "ON_TITLE",
+    "ON_LINKS",
+    "TECH_LAB"
+  ],
+  "key_findings": [
+    {
+      "statement": "Saved Google result: hollywoodbets.net is #2 and betway.co.za is #1 for 'aviator'.",
+      "interpretation": "betway.co.za leads by 1 position in this snapshot. The result confirms a visibility difference for this captured query and market only.",
+      "why_it_matters": "The higher-listed result is encountered earlier on this search-results page, giving the benchmark greater visibility in this snapshot.",
+      "next_check": "Repeat the same query with the same market and device context over multiple dates; compare the exact ranking URLs before treating the gap as persistent.",
+      "evidence_ids": [
+        "SERP"
+      ],
+      "limitation": "A single saved SERP is not a trend. Rankings vary, and this comparison does not identify a cause."
+    },
+    {
+      "statement": "The captured HTML title for the tracked ranking page does not include 'aviator'; the benchmark title includes it.",
+      "interpretation": "This is a difference in the page title text captured by the crawler. Google may rewrite the title shown in results, so the HTML title and visible search-result title are related but not always identical.",
+      "why_it_matters": "A clear, accurate title can help search engines and people understand what the page is about. Keyword presence by itself is not a ranking recipe.",
+      "next_check": "Open both cited ranking URLs, verify their current rendered title tags and Google result titles, then assess whether the tracked title accurately matches the page and search intent before proposing an edit.",
+      "evidence_ids": [
+        "ON_TITLE"
+      ],
+      "limitation": "The snapshot establishes title wording only. It does not prove that title wording caused the position gap or that adding the keyword would improve ranking or clicks."
+    },
+    {
+      "statement": "The crawler counted 9 internal links on the tracked page and 28 on the benchmark page (benchmark page: 19 more).",
+      "interpretation": "This is a count of links detected in the captured pages. More links do not automatically mean better internal linking; their destinations, anchor wording, placement, and usefulness matter.",
+      "why_it_matters": "Relevant internal links can help visitors move through a site and help crawlers discover related pages. A raw total cannot tell whether those links meaningfully support the Aviator page.",
+      "next_check": "Review the captured link lists and compare unique, relevant links pointing to each exact ranking URL. Separate repeated navigation/footer links from contextual links before deciding whether there is a useful gap.",
+      "evidence_ids": [
+        "ON_LINKS"
+      ],
+      "limitation": "A page-level count is not link density or quality, may include repeated site-wide links, and does not establish ranking causation."
+    },
+    {
+      "statement": "Largest Contentful Paint: tracked page 24.9s vs benchmark 19.5s. The tracked page was about 5.4 seconds slower in this lab run.",
+      "interpretation": "LCP estimates when the main visible content finished appearing during this test. A longer time is a reason to investigate loading experience, not proof of a specific technical cause.",
+      "why_it_matters": "If repeated under comparable conditions and reflected in real-user data, slow visible loading can be a user-experience concern. This measurement alone cannot show how visitors experienced the page.",
+      "next_check": "Repeat several mobile Lighthouse runs with the same settings, identify the LCP element and its loading dependencies, and compare with real-user Core Web Vitals if available.",
+      "evidence_ids": [
+        "TECH_LAB"
+      ],
+      "limitation": "These are single-run synthetic Lighthouse measurements, not field data. Device/network conditions affect results; the metric does not identify a root cause or prove a ranking effect."
+    },
+    {
+      "statement": "Total Blocking Time: tracked page 2.1s vs benchmark 3.3s. The tracked page was about 1.2 seconds faster in this lab run.",
+      "interpretation": "TBT estimates how much long-running main-thread work delayed interaction during this lab test. Lower is better; it is distinct from LCP and does not describe the whole page experience.",
+      "why_it_matters": "A high or worsening TBT can make a page feel less responsive. Read it alongside LCP and other measures rather than treating one metric as an overall performance score.",
+      "next_check": "Repeat comparable mobile Lighthouse runs and inspect the long tasks shown in the diagnostic report; confirm any proposed fix improves responsiveness without harming loading.",
+      "evidence_ids": [
+        "TECH_LAB"
+      ],
+      "limitation": "These are single-run synthetic Lighthouse measurements, not field data. Device/network conditions affect results; the metric does not identify a root cause or prove a ranking effect."
+    },
+    {
+      "statement": "Page-specific third-party backlink rank favors Betway (18 tracked versus 36 benchmark).",
+      "interpretation": "This is a third-party index score for the two ranking URLs. It is not a Google position; a larger score is stronger only within this provider metric.",
+      "why_it_matters": "Links from relevant, trusted pages can contribute to discovery and authority, but this aggregate score does not reveal which referring links are valuable.",
+      "next_check": "Compare the referring domains and linking pages for these exact URLs, confirm the links are live and relevant, and investigate unusual or low-quality patterns before proposing outreach.",
+      "evidence_ids": [
+        "BL_PAGE"
+      ],
+      "limitation": "Provider index scores are estimates. Individual link quality, relevance, freshness, and any ranking effect are unverified."
+    }
+  ],
+  "proposed_decisions": [
+    {
+      "title": "Technical Performance Investigation",
+      "owner": "Engineering",
+      "action": "Investigate high-priority items: Profile JavaScript boot-up/main-thread execution and review JavaScript delivery/bundle utilization.",
+      "success_check": "Reduction in TBT (currently 2122.5 ms) and LCP in subsequent lab tests.",
+      "evidence_ids": [
+        "TECH_INV",
+        "TECH_LAB"
+      ],
+      "limitation": "Engineering investigations are hypotheses requiring controlled verification."
+    },
+    {
+      "title": "Metadata Optimization Review",
+      "owner": "SEO Content Team",
+      "action": "Review the title tag for 'aviator' relevance to determine if keyword inclusion is appropriate.",
+      "success_check": "Verify the current HTML title and search appearance; if a change is approved, verify implementation and monitor relevant queries.",
+      "evidence_ids": [
+        "ON_TITLE"
+      ],
+      "limitation": "Requires verification before any changes are implemented."
+    }
+  ],
+  "limitations": [
+    "Saved SERP snapshot, not live ranking.",
+    "No ranking causation or financial return can be inferred.",
+    "Lighthouse data is lab-based and may not reflect real-world user experience.",
+    "Backlink rank is an index score, not a Google ranking position."
+  ],
+  "potential_ranking_explanations": [
+    {
+      "title": "Aviator targeting differs in the HTML title",
+      "explanation": "The benchmark page explicitly includes the target keyword in its title while the tracked page does not.",
+      "evidence_ids": [
+        "ON_TITLE"
+      ],
+      "counterevidence": "Title wording alone does not determine ranking.",
+      "why_it_might_matter": "It may provide clearer relevance signalling and improve search-result clarity.",
+      "unverified": "Intent fit and any ranking effect require verification after an approved change."
+    },
+    {
+      "title": "Page-specific authority may differ",
+      "explanation": "The measured backlink rank for the two exact ranking pages differs.",
+      "evidence_ids": [
+        "BL_PAGE"
+      ],
+      "counterevidence": "Domain-wide metrics may point in the opposite direction.",
+      "why_it_might_matter": "Links pointing to the exact page may support discovery and authority, but quality and relevance are unknown.",
+      "unverified": "Individual referring-page quality and causation."
+    },
+    {
+      "title": "The tracked page has slower observed LCP",
+      "explanation": "The saved mobile lab run measured slower LCP for Hollywoodbets.",
+      "evidence_ids": [
+        "TECH_LAB"
+      ],
+      "counterevidence": "Hollywoodbets has better observed TBT in the same run.",
+      "why_it_might_matter": "A slower first meaningful experience may warrant engineering investigation.",
+      "unverified": "Field performance and ranking impact."
+    }
+  ],
+  "hollywoodbets_strengths": [
+    {
+      "statement": "Hollywoodbets has the better measured TBT in the saved mobile Lighthouse run.",
+      "evidence_ids": [
+        "TECH_LAB"
+      ]
+    },
+    {
+      "statement": "Hollywoodbets has the stronger measured domain-wide backlink rank.",
+      "evidence_ids": [
+        "BL_DOMAIN"
+      ]
+    }
+  ],
+  "hollywoodbets_weaknesses_opportunities": [
+    {
+      "statement": "Aviator targeting differs in the HTML title.",
+      "evidence_ids": [
+        "ON_TITLE"
+      ],
+      "limitation": "Intent fit and any ranking effect require verification after an approved change."
+    },
+    {
+      "statement": "Page-specific authority may differ.",
+      "evidence_ids": [
+        "BL_PAGE"
+      ],
+      "limitation": "Individual referring-page quality and causation."
+    },
+    {
+      "statement": "The tracked page has slower observed LCP.",
+      "evidence_ids": [
+        "TECH_LAB"
+      ],
+      "limitation": "Field performance and ranking impact."
+    }
+  ],
+  "recommended_improvements": [
+    {
+      "action": "Verify the current Aviator title and prepare an accurate revision for approval if it better matches page intent.",
+      "reason": "The saved ranking pages differ in target-keyword title presence.",
+      "owner": "Content / SEO",
+      "dependencies": "Rendered HTML and search appearance review.",
+      "validation": "Recrawl the exact URL and monitor the saved target query over time.",
+      "evidence_ids": [
+        "ON_TITLE"
+      ]
+    },
+    {
+      "action": "Audit the quality, relevance and placement of links pointing to both exact ranking pages, then identify legitimate page-specific opportunities.",
+      "reason": "Page-level backlink measurements differ.",
+      "owner": "SEO",
+      "dependencies": "Referring-page review and link policy.",
+      "validation": "Recheck page-level referring domains after approved work.",
+      "evidence_ids": [
+        "BL_PAGE"
+      ]
+    },
+    {
+      "action": "Profile the resources and rendering bottlenecks identified by Lighthouse while preserving security and fraud-prevention controls.",
+      "reason": "Hollywoodbets has slower observed LCP but better TBT, so the bottleneck needs targeted investigation.",
+      "owner": "Engineering",
+      "dependencies": "Controlled mobile lab reruns and release approval.",
+      "validation": "Repeat comparable Lighthouse runs and, when available, review field data.",
+      "evidence_ids": [
+        "TECH_LAB",
+        "TECH_INV"
+      ]
+    }
+  ],
+  "evidence_coverage": {
+    "schema_version": "1.0",
+    "categories": {
+      "search_visibility": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "evidence.serp.ranking_summary"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      },
+      "onpage_content": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "evidence.onpage.pages",
+          "evidence.onpage.comparison"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      },
+      "backlinks_authority": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "evidence.backlinks"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      },
+      "technical_lighthouse": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "evidence.technical.mobile_audits"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      },
+      "related_keyword_competition": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "evidence.keywords.intersection"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      },
+      "deterministic_findings_recommendations": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "deterministic_recommendations",
+          "deterministic_findings"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      }
+    },
+    "covered_count": 6,
+    "category_count": 6
+  }
+}

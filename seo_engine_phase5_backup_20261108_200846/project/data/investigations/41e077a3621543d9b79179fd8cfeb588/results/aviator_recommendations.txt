@@ -1,0 +1,101 @@
+=== SEO PHASE 2 RECOMMENDATION REPORT ===
+Keyword: aviator
+Our ranking URL: https://www.hollywoodbets.net/aviator
+Benchmark ranking URL: https://www.betway.co.za/aviator
+Findings: 9
+Recommendations: 5
+
+=== EVIDENCE QUALITY ===
+page_ours: usable
+page_benchmark: usable
+backlinks_ours_page: usable
+backlinks_benchmark_page: usable
+lighthouse_ours_mobile: usable
+lighthouse_benchmark_mobile: usable
+
+=== PRIORITIZED RECOMMENDATIONS ===
+1. Verify HTML title targeting for the selected keyword
+   Priority: high (triage score 13; not a ranking forecast)
+   Potential impact: medium (not a rank-lift forecast)
+   Evidence confidence: medium
+   Implementation effort: low
+   Keyword relevance: high
+   Action type: verify_before_edit
+   Target URL: https://www.hollywoodbets.net/aviator
+   Evidence: Keyword 'aviator' was not detected in our captured HTML title, but was detected in the competitor's.
+   Interpretation: This is a captured-page difference, not a verified defect. HTML title can help communicate page topic to search engines.
+   Priority tie-break: Equal triage score (13); Placed before 'Investigate mobile page-loading bottlenecks' because estimated effort is low versus high. This is a workflow tie-break, not a ranking-impact prediction.
+   Action: First verify the current rendered HTML and canonical response at the exact ranking URL.
+   Action: If the HTML title is genuinely generic or misleading, propose an accurate, natural topic-specific revision.
+   Action: Review the proposed text with the SEO/content owner before publishing.
+   Validate: Recrawl the exact URL after approval and compare search appearance over time.
+   Caveat: Google may rewrite the displayed search-result title; exact keyword presence alone is not a ranking-quality metric.
+
+2. Investigate mobile page-loading bottlenecks
+   Priority: high (triage score 13; not a ranking forecast)
+   Potential impact: high (not a rank-lift forecast)
+   Evidence confidence: high
+   Implementation effort: high
+   Keyword relevance: high
+   Action type: investigate
+   Target URL: https://www.hollywoodbets.net/aviator
+   Evidence: Our mobile Lighthouse lab audit: LCP 24.91s, TBT 2122ms.
+   Interpretation: Lab measurements indicate potential user-experience issues; they do not establish a ranking cause.
+   Priority tie-break: Equal triage score (13); Placed after 'Verify HTML title targeting for the selected keyword' because estimated effort is high versus low. This is a workflow tie-break, not a ranking-impact prediction.
+   Action: Review the verified resource-level Lighthouse investigations in the technical section of the report.
+   Action: Profile identified scripts and assets before modifying their loading behavior; preserve essential security and business functionality.
+   Action: Repeat controlled mobile Lighthouse audits and test core user flows after changes.
+   Validate: Repeat controlled lab audits and check field Core Web Vitals separately where available.
+   Caveat: Detailed Lighthouse diagnostics identify investigation targets (JavaScript execution, unused JavaScript, image delivery, render-blocking resources), but the precise cause of slow LCP and any ranking impact remain unverified.
+
+3. Review intent coverage for relevant generic searches
+   Priority: medium (triage score 12; not a ranking forecast)
+   Potential impact: medium (not a rank-lift forecast)
+   Evidence confidence: medium
+   Implementation effort: medium
+   Keyword relevance: high
+   Action type: investigate
+   Target URL: https://www.hollywoodbets.net/aviator
+   Evidence: Shared keyword intersection, filtered generic competitor leads: play aviator (ours #2, benchmark #1), aviator betting (ours #8, benchmark #2), aviator bet (ours #5, benchmark #1), how to play aviator (ours #10, benchmark #1), play aviator now (ours #2, benchmark #1).
+   Interpretation: The competitor leads for these related queries in the saved DataForSEO dataset; these may rank different landing pages.
+   Priority tie-break: Equal triage score (12); Placed before 'Investigate page-specific backlink quality and relevant link-earning opportunities' because estimated effort is medium versus high. This is a workflow tie-break, not a ranking-impact prediction.
+   Action: Verify the exact ranking URLs for each selected related query.
+   Action: Compare the relevant page sections, user intent and internal linking for those URLs.
+   Action: Only improve this page when the verified query intent matches its purpose.
+   Validate: Monitor those same query positions and verify content changes against their intent.
+   Caveat: Lexical relevance screening is conservative, not semantic intent analysis; third-party or unfamiliar terms require review.
+
+4. Investigate page-specific backlink quality and relevant link-earning opportunities
+   Priority: medium (triage score 12; not a ranking forecast)
+   Potential impact: high (not a rank-lift forecast)
+   Evidence confidence: medium
+   Implementation effort: high
+   Keyword relevance: high
+   Action type: investigate
+   Target URL: https://www.hollywoodbets.net/aviator
+   Evidence: Page backlink rank: ours 18, competitor 36; referring domains: ours 1184, competitor 1259. Domain backlink rank: ours 70, competitor 65.
+   Interpretation: The competitor page has stronger measured link signals, but aggregate counts cannot establish link quality or ranking causation.
+   Priority tie-break: Equal triage score (12); Placed after 'Review intent coverage for relevant generic searches' because estimated effort is high versus medium. This is a workflow tie-break, not a ranking-impact prediction.
+   Action: Review referring-domain-level data for topical relevance, placement and editorial quality before acting.
+   Action: Identify legitimate opportunities to earn references to this exact ranking page.
+   Action: Improve useful resources and relevant internal links; avoid manipulative link schemes.
+   Validate: Recheck the same page-level link metrics and independent SERP observations over time.
+   Caveat: Referring-domain exports are needed to establish link quality; effort is an estimate.
+
+5. Verify meta description targeting for the selected keyword
+   Priority: medium (triage score 10; not a ranking forecast)
+   Potential impact: low (not a rank-lift forecast)
+   Evidence confidence: medium
+   Implementation effort: low
+   Keyword relevance: medium
+   Action type: verify_before_edit
+   Target URL: https://www.hollywoodbets.net/aviator
+   Evidence: Keyword 'aviator' was not detected in our captured meta description, but was detected in the competitor's.
+   Interpretation: This is a captured-page difference, not a verified defect. Meta descriptions can affect search-result snippets and clicks; keyword presence is not a direct ranking boost.
+   Action: First verify the current rendered HTML and canonical response at the exact ranking URL.
+   Action: If the meta description is genuinely generic or misleading, propose an accurate, natural topic-specific revision.
+   Action: Review the proposed text with the SEO/content owner before publishing.
+   Validate: Recrawl the exact URL after approval and compare search appearance over time.
+   Caveat: Google may generate its own search-result snippet instead of using the meta description. Editing it does not guarantee higher rankings or clicks.
+
+Important: Differences are observational, not proof of search-ranking causation or guaranteed uplift.

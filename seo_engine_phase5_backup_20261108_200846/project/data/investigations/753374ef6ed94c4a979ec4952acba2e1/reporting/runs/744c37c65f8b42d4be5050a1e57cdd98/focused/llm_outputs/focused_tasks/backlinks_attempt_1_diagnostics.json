@@ -1,0 +1,246 @@
+{
+  "schema_version": "1.0",
+  "task": "backlinks",
+  "attempt": 1,
+  "validation_errors": [
+    "implementation_plans[1]: fact not linked to cited specialist findings",
+    "implementation_plans[0].success_measure: numeric claim 5 is not present in this run evidence",
+    "implementation_plans[1].success_measure: numeric claim 15 is not present in this run evidence",
+    "implementation_plans[1].success_measure: numeric claim 90 is not present in this run evidence",
+    "implementation_plans[1].success_measure: numeric claim 10 is not present in this run evidence",
+    "implementation_plans[0].success_measure: numeric claim 5 is not supported by its cited evidence",
+    "implementation_plans[1].success_measure: numeric claim 15 is not supported by its cited evidence",
+    "implementation_plans[1].success_measure: numeric claim 90 is not supported by its cited evidence",
+    "implementation_plans[1].success_measure: numeric claim 10 is not supported by its cited evidence"
+  ],
+  "provisional_citation_changes": [
+    {
+      "path": "implementation_plans[1].evidence_ids",
+      "added_fact_id": "BL_DOMAIN",
+      "trigger_path": "implementation_plans[1].rationale",
+      "matched_number": "1,806,871",
+      "type": "citation_only",
+      "requires_full_revalidation": true,
+      "attempt": 1,
+      "fully_validated": false
+    }
+  ],
+  "grounded_diagnostics": [
+    {
+      "error": "implementation_plans[1]: fact not linked to cited specialist findings",
+      "path": "implementation_plans[1]",
+      "current_value": {
+        "title": "Audit and Optimize Page-Specific Backlink Profile for /aviator",
+        "rationale": "Despite the tracked domain’s massive domain-level backlink volume (1,806,871), the /aviator page has a weaker page-specific profile. This suggests the backlinks are not concentrated on the target page, which may explain the lower ranking.",
+        "owner": "SEO Specialist",
+        "priority": "high",
+        "implementation_steps": [
+          "Audit the current backlink profile for hollywoodbets.net/aviator using DataForSEO (BL_PAGE evidence).",
+          "Identify gaps: domains linking to the benchmark page but not ours, and pages with similar content that may be linking to competitors.",
+          "Prioritize outreach to 10-15 high-authority domains that link to the benchmark page but not ours.",
+          "Create content or outreach assets that align with the benchmark page’s content and link structure."
+        ],
+        "success_measure": "Increase the referring domains for hollywoodbets.net/aviator by 15% within 90 days, with at least 10 new referring domains from high-authority sources.",
+        "uncertainty": "Without content similarity or internal link data, we cannot guarantee link acquisition success.",
+        "evidence_ids": [
+          "BL_PAGE",
+          "SERP",
+          "BL_DOMAIN"
+        ],
+        "specialist_finding_ids": [
+          "BACKLINKS_02"
+        ],
+        "simple_explanation": "Our site has more overall backlinks, but they’re not focused on the /aviator page — we need to get more direct links to that page.",
+        "technical_explanation": "Domain-level backlink volume (BL_DOMAIN) is not sufficient to explain page-level ranking. The page-specific backlink profile (BL_PAGE) must be optimized to match the benchmark’s density and authority."
+      },
+      "cited_fact_ids": [
+        "BL_PAGE",
+        "SERP",
+        "BL_DOMAIN"
+      ],
+      "permitted_fact_ids": [
+        "BL_DOMAIN",
+        "SERP"
+      ],
+      "specialist_finding_ids": [
+        "BACKLINKS_02"
+      ],
+      "classification": "lineage_or_structure",
+      "instruction": "Keep fact citations within the union of the linked specialist findings. Do not add an unrelated finding solely to make an invalid claim pass."
+    },
+    {
+      "error": "implementation_plans[0].success_measure: numeric claim 5 is not present in this run evidence",
+      "path": "implementation_plans[0].success_measure",
+      "current_value": "Successfully identify and initiate outreach to at least 5 high-authority referring domains not currently linking to the tracked page.",
+      "cited_fact_ids": [
+        "BL_PAGE",
+        "SERP"
+      ],
+      "permitted_fact_ids": [
+        "BL_PAGE",
+        "SERP"
+      ],
+      "specialist_finding_ids": [
+        "BACKLINKS_01"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "5",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    },
+    {
+      "error": "implementation_plans[1].success_measure: numeric claim 15 is not present in this run evidence",
+      "path": "implementation_plans[1].success_measure",
+      "current_value": "Increase the referring domains for hollywoodbets.net/aviator by 15% within 90 days, with at least 10 new referring domains from high-authority sources.",
+      "cited_fact_ids": [
+        "BL_PAGE",
+        "SERP",
+        "BL_DOMAIN"
+      ],
+      "permitted_fact_ids": [
+        "BL_DOMAIN",
+        "SERP"
+      ],
+      "specialist_finding_ids": [
+        "BACKLINKS_02"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "15",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    },
+    {
+      "error": "implementation_plans[1].success_measure: numeric claim 90 is not present in this run evidence",
+      "path": "implementation_plans[1].success_measure",
+      "current_value": "Increase the referring domains for hollywoodbets.net/aviator by 15% within 90 days, with at least 10 new referring domains from high-authority sources.",
+      "cited_fact_ids": [
+        "BL_PAGE",
+        "SERP",
+        "BL_DOMAIN"
+      ],
+      "permitted_fact_ids": [
+        "BL_DOMAIN",
+        "SERP"
+      ],
+      "specialist_finding_ids": [
+        "BACKLINKS_02"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "90",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    },
+    {
+      "error": "implementation_plans[1].success_measure: numeric claim 10 is not present in this run evidence",
+      "path": "implementation_plans[1].success_measure",
+      "current_value": "Increase the referring domains for hollywoodbets.net/aviator by 15% within 90 days, with at least 10 new referring domains from high-authority sources.",
+      "cited_fact_ids": [
+        "BL_PAGE",
+        "SERP",
+        "BL_DOMAIN"
+      ],
+      "permitted_fact_ids": [
+        "BL_DOMAIN",
+        "SERP"
+      ],
+      "specialist_finding_ids": [
+        "BACKLINKS_02"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "10",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    },
+    {
+      "error": "implementation_plans[0].success_measure: numeric claim 5 is not supported by its cited evidence",
+      "path": "implementation_plans[0].success_measure",
+      "current_value": "Successfully identify and initiate outreach to at least 5 high-authority referring domains not currently linking to the tracked page.",
+      "cited_fact_ids": [
+        "BL_PAGE",
+        "SERP"
+      ],
+      "permitted_fact_ids": [
+        "BL_PAGE",
+        "SERP"
+      ],
+      "specialist_finding_ids": [
+        "BACKLINKS_01"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "5",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    },
+    {
+      "error": "implementation_plans[1].success_measure: numeric claim 15 is not supported by its cited evidence",
+      "path": "implementation_plans[1].success_measure",
+      "current_value": "Increase the referring domains for hollywoodbets.net/aviator by 15% within 90 days, with at least 10 new referring domains from high-authority sources.",
+      "cited_fact_ids": [
+        "BL_PAGE",
+        "SERP",
+        "BL_DOMAIN"
+      ],
+      "permitted_fact_ids": [
+        "BL_DOMAIN",
+        "SERP"
+      ],
+      "specialist_finding_ids": [
+        "BACKLINKS_02"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "15",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    },
+    {
+      "error": "implementation_plans[1].success_measure: numeric claim 90 is not supported by its cited evidence",
+      "path": "implementation_plans[1].success_measure",
+      "current_value": "Increase the referring domains for hollywoodbets.net/aviator by 15% within 90 days, with at least 10 new referring domains from high-authority sources.",
+      "cited_fact_ids": [
+        "BL_PAGE",
+        "SERP",
+        "BL_DOMAIN"
+      ],
+      "permitted_fact_ids": [
+        "BL_DOMAIN",
+        "SERP"
+      ],
+      "specialist_finding_ids": [
+        "BACKLINKS_02"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "90",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    },
+    {
+      "error": "implementation_plans[1].success_measure: numeric claim 10 is not supported by its cited evidence",
+      "path": "implementation_plans[1].success_measure",
+      "current_value": "Increase the referring domains for hollywoodbets.net/aviator by 15% within 90 days, with at least 10 new referring domains from high-authority sources.",
+      "cited_fact_ids": [
+        "BL_PAGE",
+        "SERP",
+        "BL_DOMAIN"
+      ],
+      "permitted_fact_ids": [
+        "BL_DOMAIN",
+        "SERP"
+      ],
+      "specialist_finding_ids": [
+        "BACKLINKS_02"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "10",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    }
+  ]
+}

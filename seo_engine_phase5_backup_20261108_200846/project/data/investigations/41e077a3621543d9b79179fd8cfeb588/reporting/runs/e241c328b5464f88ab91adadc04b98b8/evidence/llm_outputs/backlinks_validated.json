@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "task": "backlinks",
+  "status": "usable",
+  "findings": [
+    {
+      "observation": "The benchmark page (betway.co.za/aviator) has a higher backlink count (2809) and more referring domains (1259) than the tracked page (hollywoodbets.net/aviator) which has 1853 backlinks and 1184 referring domains.",
+      "interpretation": "The benchmark page possesses a stronger page-level backlink profile, which correlates with its higher ranking position (1) compared to the tracked page (2).",
+      "evidence_paths": [
+        "evidence.backlinks.page.ours",
+        "evidence.backlinks.page.benchmark",
+        "evidence.serp.ranking_summary"
+      ],
+      "counterevidence": "The tracked domain (hollywoodbets.net) has a significantly higher total domain backlink count (1,806,871) compared to the benchmark domain (578,056).",
+      "recommended_action": "Analyze the specific referring domains for the benchmark page to identify high-authority sources that are not currently linking to the tracked page."
+    },
+    {
+      "observation": "The tracked domain has a much larger total backlink volume (1,806,871) than the benchmark domain (578,056), despite the benchmark domain holding the #1 position for the specific keyword.",
+      "interpretation": "Domain-level authority for the tracked site is high, but the specific page-level backlink profile for the 'aviator' URL is less dense than the competitor's equivalent page.",
+      "evidence_paths": [
+        "evidence.backlinks.domain.ours",
+        "evidence.backlinks.domain.benchmark",
+        "evidence.serp.ranking_summary"
+      ],
+      "counterevidence": "None",
+      "recommended_action": "Focus on increasing page-specific referring domains for the /aviator URL to bridge the gap with the benchmark page."
+    }
+  ],
+  "limitations": [
+    "Data does not provide backlink quality metrics (e.g., DR, DA, or anchor text distribution).",
+    "No information provided on the velocity of backlink acquisition.",
+    "Correlation between backlink count and ranking position is observed but causation is not established by the data."
+  ]
+}

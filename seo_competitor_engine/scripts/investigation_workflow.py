@@ -238,6 +238,17 @@ def _verified_report_outputs(base: Path, report: dict) -> list[dict]:
                                 'sha256': _sha(resolved), 'size_bytes': resolved.stat().st_size})
         except (OSError, ValueError):
             continue
+    # Recovered downstream stages must pin the execution record as well as
+    # the comparison. comparison_history verifies both hashes before it will
+    # expose recommendations, so omitting this output made otherwise valid
+    # completed runs fail after restart/reconciliation.
+    execution = base / 'offline_execution.json'
+    if execution.is_file():
+        try:
+            outputs.append({'path': 'offline_execution.json', 'sha256': _sha(execution),
+                            'size_bytes': execution.stat().st_size})
+        except OSError:
+            pass
     for path in (base / 'results').glob('*.pdf') if (base / 'results').is_dir() else ():
         try:
             outputs.append({'path': str(path.relative_to(base)).replace('\\', '/'),
@@ -295,10 +306,51 @@ def _invalid_outputs(outputs: list, base: Path) -> list:
             path = base / path
         try:
             if not path.is_file() or (output.get('sha256') and _sha(path) != output['sha256']):
-                invalid.append(output)
+                archived = _verified_archived_serp_output(output, base)
+                if archived:
+                    # Keep the checkpoint tied to the immutable archived
+                    # snapshot whose bytes match the original recorded hash.
+                    # Never copy the archive over the current SERP snapshot.
+                    output['recovered_from'] = output.get('path')
+                    output['path'] = str(archived.relative_to(ROOT)).replace('\\', '/')
+                    output['size_bytes'] = archived.stat().st_size
+                else:
+                    invalid.append(output)
         except OSError:
             invalid.append(output)
     return invalid
+
+
+def _verified_archived_serp_output(output: dict, base: Path) -> Path | None:
+    value = output.get('path')
+    expected_sha = output.get('sha256')
+    if (output.get('scope') != 'workspace' or not isinstance(value, str) or
+            not value.replace('\\', '/').startswith('data/raw/serp/') or
+            not isinstance(expected_sha, str) or len(expected_sha) != 64):
+        return None
+    selection_path = base / 'selection.json'
+    try:
+        selection = json.loads(selection_path.read_text(encoding='utf-8'))
+    except (OSError, json.JSONDecodeError):
+        return None
+    if selection.get('serp_sha256') != expected_sha:
+        return None
+    keyword = str(selection.get('keyword') or '').casefold()
+    collected_at = selection.get('serp_collected_at')
+    archive_dir = ROOT / 'data' / 'raw' / 'serp' / 'archive'
+    if not keyword or not collected_at or not archive_dir.is_dir():
+        return None
+    for candidate in archive_dir.glob('*.json'):
+        try:
+            if _sha(candidate) != expected_sha:
+                continue
+            snapshot = json.loads(candidate.read_text(encoding='utf-8'))
+            if (str(snapshot.get('keyword') or '').casefold() == keyword and
+                    snapshot.get('datetime') == collected_at):
+                return candidate
+        except (OSError, json.JSONDecodeError):
+            continue
+    return None
 
 
 def navigate(investigation_id: str, direction: str) -> dict:

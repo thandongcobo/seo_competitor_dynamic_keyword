@@ -1,0 +1,10 @@
+{
+  "run_id": "9c4c345b4d004deaa0bbed9effa4ad73",
+  "status": "failed",
+  "stage": "failed",
+  "started_at": "2026-11-02T12:16:31.523675+00:00",
+  "updated_at": "2026-11-02T12:17:33.365853+00:00",
+  "files": {},
+  "message": "Explicit Gemma execution requested. No SEO collectors will run.",
+  "error": "RuntimeError: Reporting stage failed (exit 1). Inspect server-side stage logs."
+}

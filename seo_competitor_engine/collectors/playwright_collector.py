@@ -3,10 +3,13 @@ from __future__ import annotations
 from pathlib import Path
 import hashlib
 import json
+import re
+import sys
 import time
+import uuid
 from datetime import datetime, timezone
 from typing import Any
-from urllib.parse import urljoin, urlparse
+from urllib.parse import parse_qsl, urlencode, urljoin, urlparse, urlsplit, urlunsplit
 
 from bs4 import BeautifulSoup
 from playwright.sync_api import sync_playwright
@@ -24,6 +27,135 @@ BLOCK_MARKERS = (
     "automated queries",
     "too many requests",
 )
+
+_SENSITIVE_QUERY_KEY = re.compile(
+    r"(?i)(token|secret|password|passwd|api[_-]?key|auth|authorization|cookie|session|credential|signature|jwt)"
+)
+_SENSITIVE_ASSIGNMENT = re.compile(
+    r"(?i)['\"]?(authorization|proxy-authorization|cookie|set-cookie|password|passwd|"
+    r"(?:api[_-]?)?key|token|secret|credential)['\"]?(\s*[:=]\s*)"
+    r"(?:bearer\s+|basic\s+)?(?:\"[^\"]*\"|'[^']*'|[^\s,;}]+)"
+)
+_URL_IN_TEXT = re.compile(r"https?://[^\s\"'<>]+", re.IGNORECASE)
+
+
+def _sanitize_url(value: object) -> str | None:
+    """Keep request identity while removing userinfo, query values and fragments."""
+    if not isinstance(value, str) or not value:
+        return None
+    try:
+        parts = urlsplit(value)
+        hostname = parts.hostname or ""
+        if not hostname:
+            return value[:2048]
+        host = f"[{hostname}]" if ":" in hostname and not hostname.startswith("[") else hostname
+        netloc = host + (f":{parts.port}" if parts.port else "")
+        path = re.sub(r"(?i)/(token|access[_-]?token|secret|password|passwd|api[_-]?key|auth|session|credential)/[^/]+",
+                      r"/\1/[REDACTED]", parts.path)
+        query = urlencode([(key, "[REDACTED]" if _SENSITIVE_QUERY_KEY.search(key) else "[VALUE]")
+                           for key, _ in parse_qsl(parts.query, keep_blank_values=True)])
+        return urlunsplit((parts.scheme, netloc, path, query, ""))[:2048]
+    except (TypeError, ValueError):
+        return "[invalid-url]"
+
+
+def _sanitize_diagnostic_text(value: object, limit: int = 1000) -> str:
+    text = str(value or "")[:limit]
+    text = _SENSITIVE_ASSIGNMENT.sub(lambda match: f"{match.group(1)}=[REDACTED]", text)
+    text = re.sub(r"(?i)\b(bearer|basic)\s+[A-Za-z0-9._~+/=-]+", r"\1 [REDACTED]", text)
+    return _URL_IN_TEXT.sub(lambda match: _sanitize_url(match.group(0)) or "[url]", text)[:limit]
+
+
+def _new_diagnostics(url: str) -> dict[str, Any]:
+    return {
+        "schema_version": "1.0",
+        "requested_url": _sanitize_url(url),
+        "final_url": None,
+        "main_navigation_status": None,
+        "milestones": {"started_at": datetime.now(timezone.utc).isoformat()},
+        "failed_requests": [],
+        "http_errors": [],
+        "console_errors": [],
+        "page_exceptions": [],
+        "request_guard_rejections": [],
+        "extraction_completeness_reason": None,
+        "duration_seconds": None,
+    }
+
+
+def _attach_diagnostic_listeners(page: Any, diagnostics: dict[str, Any]) -> None:
+    """Collect bounded, sanitized browser events without recording headers."""
+    limits = {"failed_requests": 100, "http_errors": 100,
+              "console_errors": 100, "page_exceptions": 50}
+
+    def append(name: str, record: dict[str, Any]) -> None:
+        rows = diagnostics[name]
+        if len(rows) < limits[name]:
+            rows.append({"timestamp": datetime.now(timezone.utc).isoformat(), **record})
+
+    def on_request_failed(request: Any) -> None:
+        try:
+            append("failed_requests", {
+                "method": _sanitize_diagnostic_text(getattr(request, "method", ""), 20),
+                "url": _sanitize_url(getattr(request, "url", None)),
+                "failure": _sanitize_diagnostic_text(getattr(request, "failure", None)),
+            })
+        except Exception:
+            return
+
+    def on_response(response: Any) -> None:
+        try:
+            status = int(getattr(response, "status", 0) or 0)
+            request = getattr(response, "request", None)
+            try:
+                is_navigation = bool(request and getattr(request, "is_navigation_request", lambda: False)())
+                frame = getattr(request, "frame", None) if is_navigation else None
+                main_frame = getattr(page, "main_frame", None) if is_navigation else None
+                if is_navigation and (frame is None or main_frame is None or frame == main_frame):
+                    diagnostics["main_navigation_status"] = status
+            except Exception:
+                pass
+            if status >= 400:
+                append("http_errors", {
+                    "status": status,
+                    "status_text": _sanitize_diagnostic_text(getattr(response, "status_text", ""), 200),
+                    "method": _sanitize_diagnostic_text(getattr(request, "method", ""), 20),
+                    "url": _sanitize_url(getattr(response, "url", None)),
+                })
+        except Exception:
+            return
+
+    def on_console(message: Any) -> None:
+        try:
+            if str(getattr(message, "type", "")).lower() != "error":
+                return
+            location = getattr(message, "location", {}) or {}
+            append("console_errors", {
+                "message": _sanitize_diagnostic_text(getattr(message, "text", "")),
+                "url": _sanitize_url(location.get("url")) if isinstance(location, dict) else None,
+                "line": location.get("lineNumber") if isinstance(location, dict) else None,
+                "column": location.get("columnNumber") if isinstance(location, dict) else None,
+            })
+        except Exception:
+            return
+
+    def on_page_error(error: Any) -> None:
+        try:
+            append("page_exceptions", {
+                "type": type(error).__name__,
+                "message": _sanitize_diagnostic_text(getattr(error, "message", error)),
+            })
+        except Exception:
+            return
+
+    page.on("requestfailed", on_request_failed)
+    page.on("response", on_response)
+    page.on("console", on_console)
+    page.on("pageerror", on_page_error)
+    for event_name in ("domcontentloaded", "load"):
+        def mark_milestone(_event=None, name=event_name):
+            diagnostics["milestones"].setdefault(f"{name}_at", datetime.now(timezone.utc).isoformat())
+        page.on(event_name, mark_milestone)
 
 
 def _browser_profile_dir() -> Path:
@@ -144,6 +276,8 @@ def _content_quality(data: dict[str, Any]) -> tuple[bool, str]:
         h1_count = data.get("h1_count", 0)
 
     if seo_valid and isinstance(seo_words, int) and seo_words >= 100:
+        if data.get("seo_content_candidate_type") == "nonsemantic":
+            return True, "standardized_visible_nonsemantic_candidate"
         return True, "standardized_visible_main_candidate"
     # Public applications may render substantive page content only inside
     # accessible Web Component shadow roots, outside the ordinary <main> tree.
@@ -155,6 +289,8 @@ def _content_quality(data: dict[str, Any]) -> tuple[bool, str]:
 def _stable_render(previous: dict[str, Any], current: dict[str, Any]) -> bool:
     """Allow minor dynamic text changes but not a meaningful content jump."""
     if previous.get("final_url") != current.get("final_url"):
+        return False
+    if previous.get("seo_content_candidate_type") != current.get("seo_content_candidate_type"):
         return False
     for key in ("rendered_word_count", "rendered_main_word_count", "seo_content_word_count"):
         a, b = int(previous.get(key) or 0), int(current.get(key) or 0)
@@ -253,9 +389,9 @@ def _load_lazy_content(page: Any) -> int:
         return 0
 
 
-def _full_page_inventory(page: Any) -> dict[str, Any]:
-    """Inventory visible document and open Shadow DOM text/assets, not iframe content."""
-    return page.evaluate(r"""() => {
+def _full_page_inventory(page: Any, selected_content_blocks: list[dict[str, Any]] | None = None) -> dict[str, Any]:
+    """Inventory visible document and selected main-content blocks, not iframe content."""
+    return page.evaluate(r"""(selectedContentBlocks) => {
       const clean = value => (value || '').replace(/\s+/g, ' ').trim();
       const visible = el => { const r=el.getBoundingClientRect(), s=getComputedStyle(el);
         return r.width>0 && r.height>0 && s.visibility!=='hidden' && s.display!=='none'; };
@@ -267,6 +403,7 @@ def _full_page_inventory(page: Any) -> dict[str, Any]:
           if(el.shadowRoot && !seenRoots.has(el.shadowRoot)) { seenRoots.add(el.shadowRoot); shadowRoots.push(el.shadowRoot); roots.push(el.shadowRoot); }
         }
       }
+      const elementOrder = new Map(all.map(({el},index)=>[el,index]));
       const deepText = el => {
         const chunks=[];
         const walk=node=>{
@@ -308,7 +445,7 @@ def _full_page_inventory(page: Any) -> dict[str, Any]:
         let parent=el.parentElement || el.getRootNode?.().host || null, heading='';
         while(parent && !heading) { heading=clean(parent.querySelector?.('h1,h2,h3,h4,[role="heading"]')?.innerText); parent=parent.parentElement || parent.getRootNode?.().host || null; }
         const identity=`${el.tagName} ${el.id||''} ${el.getAttribute('class')||''} ${el.getAttribute('data-testid')||''}`;
-        cardBlocks.push({id:`promotion-card:${el.id||el.getAttribute('class')||el.tagName}:${index}`,tag:el.tagName.toLowerCase(),text,href:links[0]?.url||'',section:`promotion-card:${index}`,heading,related_links:links.slice(0,12),image_refs:cardImages.get(index)||[],promotion_context:/promo|offer|banner|campaign/i.test(identity),evidence_scope:'composed_card'});
+        cardBlocks.push({id:`promotion-card:${el.id||el.getAttribute('class')||el.tagName}:${index}`,tag:el.tagName.toLowerCase(),text,href:links[0]?.url||'',section:`promotion-card:${index}`,heading,related_links:links.slice(0,12),image_refs:cardImages.get(index)||[],promotion_context:/promo|offer|banner|campaign/i.test(identity),evidence_scope:'composed_card',_dom_order:elementOrder.get(el)??Number.MAX_SAFE_INTEGER});
       }
       const selector = 'h1,h2,h3,h4,h5,h6,p,li,blockquote,figcaption,button,a,summary,td,th,[role="heading"],[role="button"]';
       const semantic = all.filter(({el})=>el.matches?.(selector) && visible(el));
@@ -321,9 +458,35 @@ def _full_page_inventory(page: Any) -> dict[str, Any]:
         section: owner!==null?`promotion-card:${owner}`:clean(el.closest('section,article,main,[role=main]')?.id || el.closest('section,article,main,[role=main]')?.getAttribute('aria-label') || root.host?.id || root.host?.tagName || ''),
         heading: clean(el.closest('section,article')?.querySelector('h1,h2,h3,h4')?.innerText || ''),
         related_links: cardLinks.get(owner)||[],
+        _dom_order: elementOrder.get(el)??Number.MAX_SAFE_INTEGER,
         ...(owner!==null?{evidence_scope:'composed_card_child',card_key:`promotion-card:${owner}`}:{})
       });
       }).filter(x => x.text);
+      const mainContentBlocks=[];
+      const seenMainContentText=new Set();
+      for(const item of (Array.isArray(selectedContentBlocks)?selectedContentBlocks:[])) {
+        const text=clean(item?.text);
+        const normalized=text.toLocaleLowerCase();
+        if(!text || text.split(/\s+/).length<4 ||
+          /error displaying|data failed loading|failed to load|failed loading|please reload|temporarily unavailable|content is loading/i.test(text) ||
+          seenMainContentText.has(normalized)) continue;
+        seenMainContentText.add(normalized);
+        const sourceSelector=String(item?.selector||'');
+        let sourceElement=null;
+        try { sourceElement=sourceSelector?document.querySelector(sourceSelector):null; } catch (_) {}
+        const alreadyRepresented=[...blocks,...cardBlocks].some(block=>clean(block.text).toLocaleLowerCase()===normalized);
+        if(alreadyRepresented) continue;
+        mainContentBlocks.push({
+          id:`main-content:${sourceSelector||item?.tag||'block'}:${mainContentBlocks.length}`,
+          tag:String(item?.tag||'').toLowerCase(), text, href:'',
+          section:`main-content:${sourceSelector||'selected-container'}`, heading:'', related_links:[],
+          evidence_scope:'main_content_candidate', source_selector:sourceSelector,
+          _dom_order:sourceElement?(elementOrder.get(sourceElement)??Number.MAX_SAFE_INTEGER):Number.MAX_SAFE_INTEGER
+        });
+      }
+      const renderedTextBlocks=[...blocks,...cardBlocks,...mainContentBlocks]
+        .sort((a,b)=>(a._dom_order??Number.MAX_SAFE_INTEGER)-(b._dom_order??Number.MAX_SAFE_INTEGER));
+      for(const block of renderedTextBlocks) delete block._dom_order;
       const images = imageElements.map(({img}, index) => {
         const r=img.getBoundingClientRect();
         return {id: img.id || `image-${index}`, src: img.currentSrc || img.src || '', srcset: img.srcset || '',
@@ -347,13 +510,13 @@ def _full_page_inventory(page: Any) -> dict[str, Any]:
       const customWithoutOpenRoot=all.filter(({el})=>el.tagName.includes('-')&&!el.shadowRoot).map(({el})=>el.tagName.toLowerCase());
       return { rendered_page_text: composedWords,
         rendered_page_word_count: composedWords.split(/\s+/).filter(Boolean).length,
-        rendered_text_blocks: [...blocks,...cardBlocks], image_inventory: images,
+        rendered_text_blocks: renderedTextBlocks, image_inventory: images,
         background_image_inventory: backgrounds.slice(0,500),
         image_inventory_truncated: images.length>2000, document_height: document.documentElement.scrollHeight,
         shadow_dom_open_root_count:shadowRoots.length, shadow_dom_uninspected_custom_element_count:customWithoutOpenRoot.length,
         shadow_dom_uninspected_custom_elements:[...new Set(customWithoutOpenRoot)].slice(0,40),
         composed_card_count:cardBlocks.length };
-    }""")
+    }""", selected_content_blocks or [])
 
 
 def _save_capture_artifacts(page: Any, folder: Path, image_inventory: list[dict[str, Any]] | None = None) -> dict[str, Any]:
@@ -501,6 +664,11 @@ def _wait_for_meaningful_render(page: Any, url: str, status: int | None,
                                      status_code=status, title=title)
             parsed.update(signals)
             parsed.update(extract_main_content(page))
+            # For non-semantic SPA containers, compare the selected content
+            # prefix (with clock-like values normalized) rather than the
+            # changing navigation/body shell.
+            if parsed.get("seo_content_candidate_type") == "nonsemantic":
+                parsed["readiness_text_prefix"] = parsed.get("seo_content_text_prefix") or ""
             ready, candidate_reason = _content_quality(parsed)
             score = (int(ready), parsed.get("seo_content_word_count") or 0,
                      parsed["rendered_h1_count"], parsed["rendered_word_count"])
@@ -544,49 +712,104 @@ def _wait_for_meaningful_render(page: Any, url: str, status: int | None,
 
 def _diagnostic_dir(url: str) -> Path:
     digest = hashlib.sha256(url.encode("utf-8")).hexdigest()[:16]
-    directory = DATA_DIR / "diagnostics" / "page_crawls" / digest
-    directory.mkdir(parents=True, exist_ok=True)
+    parent = DATA_DIR / "diagnostics" / "page_crawls" / digest
+    parent.mkdir(parents=True, exist_ok=True)
+    # A retry must never overwrite an earlier failure's diagnostics.
+    directory = parent / f"{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')}_{uuid.uuid4().hex[:12]}"
+    directory.mkdir()
     return directory
 
 
-def _save_diagnostics(page: Any, url: str, reason: str) -> dict[str, Any]:
-    """Diagnostics stay on disk; HTML can contain sensitive page/session data."""
+def _save_diagnostics(page: Any, url: str, reason: str,
+                      diagnostics: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Persist per-attempt diagnostics; never save request/response headers."""
     folder = _diagnostic_dir(url)
-    paths: dict[str, Any] = {"diagnostic_directory": str(folder), "diagnostic_errors": []}
-    try:
-        screenshot = folder / "page.png"
-        page.screenshot(path=str(screenshot), full_page=True, timeout=10000)
-        paths["diagnostic_screenshot"] = str(screenshot)
-    except Exception as exc:
-        paths["diagnostic_errors"].append(f"screenshot: {type(exc).__name__}: {exc}")
-    try:
-        html = folder / "page.html"
-        html.write_text(page.content(), encoding="utf-8")
-        paths["diagnostic_html"] = str(html)
-    except Exception as exc:
-        paths["diagnostic_errors"].append(f"html: {type(exc).__name__}: {exc}")
+    safe_errors: list[str] = []
+    saved_files: dict[str, str] = {}
+    final_url = None
+    if page is not None:
+        try:
+            final_url = _sanitize_url(page.url)
+        except Exception:
+            pass
+        try:
+            screenshot = folder / "page.png"
+            page.screenshot(path=str(screenshot), full_page=True, timeout=10000)
+            saved_files["screenshot"] = screenshot.name
+        except Exception as exc:
+            safe_errors.append(_sanitize_diagnostic_text(f"screenshot: {type(exc).__name__}: {exc}"))
+        try:
+            html = folder / "page.html"
+            html.write_text(page.content(), encoding="utf-8")
+            saved_files["html"] = html.name
+        except Exception as exc:
+            safe_errors.append(_sanitize_diagnostic_text(f"html: {type(exc).__name__}: {exc}"))
+    details = dict(diagnostics or {})
+    details["requested_url"] = _sanitize_url(url)
+    details["final_url"] = final_url or _sanitize_url(details.get("final_url"))
+    details["extraction_completeness_reason"] = _sanitize_diagnostic_text(reason, 300)
+    details["reason"] = details["extraction_completeness_reason"]
+    details["saved_files"] = saved_files
+    details["diagnostic_errors"] = safe_errors
+    details.setdefault("milestones", {})
+    saved_at = datetime.now(timezone.utc).isoformat()
+    details.setdefault("timestamp", saved_at)
+    details["milestones"].setdefault("diagnostics_saved_at", saved_at)
     metadata = folder / "metadata.json"
-    metadata.write_text(json.dumps({"requested_url": url, "final_url": page.url,
-                                    "reason": reason, "timestamp": datetime.now(timezone.utc).isoformat()}, indent=2), encoding="utf-8")
-    paths["diagnostic_metadata"] = str(metadata)
-    return paths
+    metadata.write_text(json.dumps(details, ensure_ascii=False, indent=2), encoding="utf-8")
+    reference = metadata.relative_to(DATA_DIR).as_posix()
+    return {
+        "diagnostic_directory": str(folder),
+        "diagnostic_metadata": str(metadata),
+        "diagnostic_reference": reference,
+        "diagnostic_screenshot": str(folder / "page.png") if "screenshot" in saved_files else None,
+        "diagnostic_html": str(folder / "page.html") if "html" in saved_files else None,
+        "diagnostic_errors": safe_errors,
+    }
 
 
-def _public_request_route(verified_hosts: set[str]):
+def _request_guard_rejection_category(error: Exception) -> str:
+    message = str(error).lower()
+    if "could not be resolved" in message or "did not resolve to an address" in message:
+        return "dns_resolution_failed"
+    if "invalid network address" in message:
+        return "invalid_dns_result"
+    if "resolves to a private or non-public network address" in message:
+        return "non_public_dns_address"
+    return "url_policy_rejected"
+
+
+def _public_request_route(verified_hosts: set[str], diagnostics: dict[str, Any] | None = None):
     def guard(route: Any) -> None:
         from monitoring.store import validate_public_host
         request = route.request
         parsed = urlparse(request.url)
-        if parsed.scheme not in ("http", "https"):
+        raw_host = parsed.hostname or ""
+        host = raw_host.rstrip(".").lower()[:253]
+        method = re.sub(r"[^A-Za-z0-9_-]", "", str(getattr(request, "method", "GET")))[:20].upper()
+
+        def reject(category: str) -> None:
+            if diagnostics is not None:
+                records = diagnostics.setdefault("request_guard_rejections", [])
+                if len(records) < 100:
+                    records.append({
+                        "hostname": host,
+                        "method": method,
+                        "category": category,
+                        "timestamp": datetime.now(timezone.utc).isoformat(),
+                        "originated_from_request_guard": True,
+                    })
             route.abort("blockedbyclient")
+
+        if parsed.scheme not in ("http", "https"):
+            reject("scheme_rejected")
             return
-        host = (parsed.hostname or "").lower()
         try:
             if host not in verified_hosts:
                 validate_public_host(request.url)
                 verified_hosts.add(host)
-        except ValueError:
-            route.abort("blockedbyclient")
+        except ValueError as exc:
+            reject(_request_guard_rejection_category(exc))
             return
         route.continue_()
     return guard
@@ -606,83 +829,208 @@ def _looks_like_sign_in_wall(page: Any) -> bool:
 
 def crawl_page(url: str, timeout_ms: int | None = None, artifact_dir: Path | None = None,
                public_only: bool = False) -> dict[str, Any]:
+    crawl_started = time.monotonic()
+    diagnostics = _new_diagnostics(url)
+    status = None
+    page = None
+    saved_diagnostic_metadata = None
+    capture_failed = False
+
+    def mark(name: str) -> None:
+        diagnostics["milestones"].setdefault(name, datetime.now(timezone.utc).isoformat())
+
+    def save_failure(reason: str) -> dict[str, Any]:
+        nonlocal saved_diagnostic_metadata
+        try:
+            if page is not None:
+                diagnostics["final_url"] = _sanitize_url(page.url)
+        except Exception:
+            pass
+        diagnostics["main_navigation_status"] = status
+        diagnostics["duration_seconds"] = round(time.monotonic() - crawl_started, 3)
+        record = _save_diagnostics(page, url, reason, diagnostics)
+        saved_diagnostic_metadata = Path(record["diagnostic_metadata"])
+        return record
+
     browser_path = settings.playwright_browser_path
     if not browser_path:
-        raise RuntimeError(
+        message = (
             "No installed Chrome/Edge executable was found. Set PLAYWRIGHT_BROWSER_PATH in .env "
             "or install Chrome/Edge. The project intentionally does not download Playwright Chromium."
         )
+        record = save_failure("browser_unavailable")
+        error = RuntimeError(message)
+        error.diagnostic_reference = record["diagnostic_reference"]
+        error.safe_message = _sanitize_diagnostic_text(message)
+        raise error
     latitude, longitude, *_radius = settings.location_coordinate.split(",")
     profile = None if public_only else _browser_profile_dir()
     navigation_timeout_ms = timeout_ms or settings.playwright_navigation_timeout_ms
-    with sync_playwright() as p:
-        browser = None
-        if public_only:
-            browser = p.chromium.launch(headless=True, executable_path=browser_path)
-            context = browser.new_context(
-                viewport={"width": 1366, "height": 768}, locale=settings.language_code,
-                geolocation={"latitude": float(latitude), "longitude": float(longitude)},
-                permissions=["geolocation"],
-            )
-        else:
-            context = p.chromium.launch_persistent_context(
-                str(profile),
-                headless=True,
-                executable_path=browser_path,
-                viewport={"width": 1366, "height": 768},
-                locale=settings.language_code,
-                geolocation={"latitude": float(latitude), "longitude": float(longitude)},
-                permissions=["geolocation"],
-            )
-        try:
-            page = context.new_page()
-            if public_only:
-                page.route("**/*", _public_request_route(set()))
-            response = page.goto(url, wait_until="domcontentloaded", timeout=navigation_timeout_ms)
-            status = response.status if response else None
-            if public_only and _looks_like_sign_in_wall(page):
-                return {"requested_url": url, "final_url": page.url, "status_code": status,
-                        "crawl_failed": True, "blocked": True, "extraction_status": "blocked",
-                        "error": "The public page appears to require sign-in; authenticated content is not captured."}
-            best, ready, blocked, quality_reason, samples, elapsed = _wait_for_meaningful_render(
-                page, url, status, settings.playwright_render_timeout_seconds
-            )
-            if blocked:
-                failure = {"requested_url": url, "final_url": page.url,
-                           "status_code": status, "crawl_failed": True, "blocked": True,
-                           "extraction_status": "blocked", "error": "Access challenge detected; collection stopped.",
-                           "content_readiness_checked": True,
-                           "readiness_samples": samples, "readiness_wait_seconds": elapsed}
-                failure.update(_save_diagnostics(page, url, "blocked"))
-                return failure
-            scroll_steps = _load_lazy_content(page)
-            best.update(_full_page_inventory(page))
-            best["lazy_load_scroll_steps"] = scroll_steps
-            if artifact_dir is not None:
-                best.update(_save_capture_artifacts(page, artifact_dir, best.get("image_inventory")))
-            best["extraction_status"] = "complete" if ready else "incomplete"
-            if not ready:
-                best["seo_content_status"] = "unverified"
-            elif quality_reason == "stable_visible_shadow_dom_content":
-                best["seo_content_status"] = "accessible_shadow_dom_content"
-            else:
-                best["seo_content_status"] = "verified_candidate"
-            if not ready:
-                best.pop("seo_content_text", None)
-            best.pop("seo_content_text_prefix", None)
-            best["crawl_failed"] = not ready
-            best["content_quality_reason"] = quality_reason
-            best["content_readiness_checked"] = True
-            best["content_stable"] = ready
-            best["readiness_samples"] = samples
-            best["readiness_wait_seconds"] = elapsed
-            best.pop("readiness_text_prefix", None)
-            best.pop("body_blocked", None)
-            if not ready:
-                best["error"] = "Meaningful, stable main-page content was not confirmed within the bounded wait."
-                best.update(_save_diagnostics(page, url, "incomplete:" + quality_reason))
-            return best
-        finally:
-            context.close()
-            if browser is not None:
-                browser.close()
+    browser = None
+    context = None
+    try:
+        with sync_playwright() as p:
+            try:
+                mark("browser_launch_started_at")
+                if public_only:
+                    browser = p.chromium.launch(headless=True, executable_path=browser_path)
+                    mark("browser_launched_at")
+                    context = browser.new_context(
+                        viewport={"width": 1366, "height": 768}, locale=settings.language_code,
+                        geolocation={"latitude": float(latitude), "longitude": float(longitude)},
+                        permissions=["geolocation"],
+                    )
+                else:
+                    context = p.chromium.launch_persistent_context(
+                        str(profile),
+                        headless=True,
+                        executable_path=browser_path,
+                        viewport={"width": 1366, "height": 768},
+                        locale=settings.language_code,
+                        geolocation={"latitude": float(latitude), "longitude": float(longitude)},
+                        permissions=["geolocation"],
+                    )
+                    mark("browser_launched_at")
+                mark("context_created_at")
+                page = context.new_page()
+                mark("page_created_at")
+                _attach_diagnostic_listeners(page, diagnostics)
+                if public_only:
+                    page.route("**/*", _public_request_route(set(), diagnostics))
+                mark("navigation_started_at")
+                response = page.goto(url, wait_until="domcontentloaded", timeout=navigation_timeout_ms)
+                status = response.status if response else None
+                diagnostics["main_navigation_status"] = status
+                diagnostics["final_url"] = _sanitize_url(page.url)
+                mark("navigation_completed_at")
+                mark("dom_content_loaded_at")
+                if public_only and _looks_like_sign_in_wall(page):
+                    capture_failed = True
+                    reason = "sign_in_wall_detected"
+                    record = save_failure(reason)
+                    return {"requested_url": url, "final_url": page.url, "status_code": status,
+                            "crawl_failed": True, "blocked": True, "extraction_status": "blocked",
+                            "error": "The public page appears to require sign-in; authenticated content is not captured.",
+                            **record}
+                mark("readiness_check_started_at")
+                best, ready, blocked, quality_reason, samples, elapsed = _wait_for_meaningful_render(
+                    page, url, status, settings.playwright_render_timeout_seconds
+                )
+                mark("readiness_check_completed_at")
+                diagnostics["extraction_completeness_reason"] = quality_reason
+                diagnostics["readiness_samples"] = samples
+                diagnostics["readiness_duration_seconds"] = elapsed
+                diagnostics["extraction_status"] = "blocked" if blocked else "complete" if ready else "incomplete"
+                diagnostics["blocked"] = blocked
+                diagnostics["main_navigation_status"] = status
+                diagnostics["final_url"] = _sanitize_url(page.url)
+                if blocked:
+                    capture_failed = True
+                    failure = {"requested_url": url, "final_url": page.url,
+                               "status_code": status, "crawl_failed": True, "blocked": True,
+                               "extraction_status": "blocked", "error": "Access challenge detected; collection stopped.",
+                               "content_readiness_checked": True,
+                               "readiness_samples": samples, "readiness_wait_seconds": elapsed}
+                    failure.update(save_failure("access_challenge_detected"))
+                    return failure
+                scroll_steps = _load_lazy_content(page)
+                best.update(_full_page_inventory(page, best.get("seo_content_blocks")))
+                best["lazy_load_scroll_steps"] = scroll_steps
+                if artifact_dir is not None:
+                    best.update(_save_capture_artifacts(page, artifact_dir, best.get("image_inventory")))
+                best["extraction_status"] = "complete" if ready else "incomplete"
+                if not ready:
+                    best["seo_content_status"] = "unverified"
+                elif quality_reason == "stable_visible_shadow_dom_content":
+                    best["seo_content_status"] = "accessible_shadow_dom_content"
+                else:
+                    best["seo_content_status"] = "verified_candidate"
+                if not ready:
+                    best.pop("seo_content_text", None)
+                best.pop("seo_content_text_prefix", None)
+                best["crawl_failed"] = not ready
+                best["content_quality_reason"] = quality_reason
+                best["content_readiness_checked"] = True
+                best["content_stable"] = ready
+                best["readiness_samples"] = samples
+                best["readiness_wait_seconds"] = elapsed
+                best.pop("readiness_text_prefix", None)
+                best.pop("body_blocked", None)
+                if not ready:
+                    capture_failed = True
+                    best["error"] = "Meaningful, stable main-page content was not confirmed within the bounded wait."
+                    best.update(save_failure("incomplete:" + quality_reason))
+                else:
+                    diagnostics["milestones"].setdefault("capture_completed_at", datetime.now(timezone.utc).isoformat())
+                return best
+            except Exception as exc:
+                if not getattr(exc, "diagnostic_reference", None):
+                    diagnostics["exception"] = {
+                        "type": type(exc).__name__,
+                        "message": _sanitize_diagnostic_text(exc),
+                    }
+                    record = save_failure("navigation_or_browser_exception")
+                    try:
+                        exc.diagnostic_reference = record["diagnostic_reference"]
+                        exc.safe_message = _sanitize_diagnostic_text(exc)
+                    except Exception:
+                        pass
+                raise
+            finally:
+                cleanup_errors = []
+                if context is not None:
+                    try:
+                        context.close()
+                    except Exception as exc:
+                        cleanup_errors.append(exc)
+                if browser is not None:
+                    try:
+                        browser.close()
+                    except Exception as exc:
+                        cleanup_errors.append(exc)
+                if cleanup_errors:
+                    if capture_failed:
+                        # Keep the page-readiness failure as the primary result;
+                        # record secondary cleanup trouble beside its diagnostics.
+                        diagnostics["cleanup_errors"] = [
+                            _sanitize_diagnostic_text(f"{type(exc).__name__}: {exc}")
+                            for exc in cleanup_errors
+                        ]
+                        if saved_diagnostic_metadata is not None:
+                            try:
+                                saved = json.loads(saved_diagnostic_metadata.read_text(encoding="utf-8"))
+                                saved["cleanup_errors"] = diagnostics["cleanup_errors"]
+                                saved_diagnostic_metadata.write_text(
+                                    json.dumps(saved, ensure_ascii=False, indent=2), encoding="utf-8")
+                            except Exception:
+                                pass
+                    elif sys.exc_info()[0] is None:
+                        cleanup_error = cleanup_errors[0]
+                        diagnostics["exception"] = {
+                            "type": type(cleanup_error).__name__,
+                            "message": _sanitize_diagnostic_text(cleanup_error),
+                        }
+                        record = save_failure("browser_cleanup_exception")
+                        try:
+                            cleanup_error.diagnostic_reference = record["diagnostic_reference"]
+                            cleanup_error.safe_message = _sanitize_diagnostic_text(cleanup_error)
+                        except Exception:
+                            pass
+                        raise cleanup_error
+    except Exception as exc:
+        # The inner handler records page/browser failures before Playwright exits.
+        # Only failures entering the manager can be diagnosed here without using
+        # a Playwright object after its runtime has shut down.
+        if not getattr(exc, "diagnostic_reference", None) and page is None:
+            reason = "navigation_or_browser_exception"
+            diagnostics["exception"] = {
+                "type": type(exc).__name__,
+                "message": _sanitize_diagnostic_text(exc),
+            }
+            record = save_failure(reason)
+            try:
+                exc.diagnostic_reference = record["diagnostic_reference"]
+                exc.safe_message = _sanitize_diagnostic_text(exc)
+            except Exception:
+                pass
+        raise

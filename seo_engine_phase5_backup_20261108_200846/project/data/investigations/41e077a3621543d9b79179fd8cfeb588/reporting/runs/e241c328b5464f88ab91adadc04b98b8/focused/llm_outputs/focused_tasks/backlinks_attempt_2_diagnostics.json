@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "task": "backlinks",
+  "attempt": 2,
+  "validation_errors": [
+    "finding_dispositions[0].reason: numeric claim 0 is not present in this run evidence",
+    "finding_dispositions[0].reason: numeric claim 0 is not supported by its cited evidence"
+  ],
+  "provisional_citation_changes": [],
+  "grounded_diagnostics": [
+    {
+      "error": "finding_dispositions[0].reason: numeric claim 0 is not present in this run evidence",
+      "path": "finding_dispositions[0].reason",
+      "current_value": "The finding is directly supported by BL_PAGE and SERP evidence, and actionable steps are defined in Plan 0.",
+      "cited_fact_ids": [
+        "BL_PAGE",
+        "SERP"
+      ],
+      "permitted_fact_ids": [
+        "BL_PAGE",
+        "SERP"
+      ],
+      "specialist_finding_ids": [
+        "BACKLINKS_01"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "0",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    },
+    {
+      "error": "finding_dispositions[0].reason: numeric claim 0 is not supported by its cited evidence",
+      "path": "finding_dispositions[0].reason",
+      "current_value": "The finding is directly supported by BL_PAGE and SERP evidence, and actionable steps are defined in Plan 0.",
+      "cited_fact_ids": [
+        "BL_PAGE",
+        "SERP"
+      ],
+      "permitted_fact_ids": [
+        "BL_PAGE",
+        "SERP"
+      ],
+      "specialist_finding_ids": [
+        "BACKLINKS_01"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "0",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "finding_action_coverage": {
+    "accounted_for": 11,
+    "by_outcome": {
+      "action": 5,
+      "deferred": 0,
+      "investigate": 6,
+      "merged": 0
+    }
+  },
+  "findings_without_disposition": [],
+  "original_specialist_findings": 11,
+  "retained_specialist_findings": 11,
+  "missing_or_changed_ids": [],
+  "all_original_findings_preserved": true,
+  "findings_referenced_by_implementation_plans": [
+    "COMPETITION_01",
+    "COMPETITION_02",
+    "ONPAGE_01",
+    "ONPAGE_02",
+    "ONPAGE_03"
+  ],
+  "findings_without_implementation_plans": [
+    "BACKLINKS_01",
+    "BACKLINKS_02",
+    "COMPETITION_03",
+    "TECHNICAL_01",
+    "TECHNICAL_02",
+    "TECHNICAL_03"
+  ],
+  "implementation_plan_count": 5
+}

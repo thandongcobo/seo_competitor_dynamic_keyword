@@ -1,0 +1,14 @@
+onpage: requesting focused recommendation development...
+onpage: validated; plans=3; findings=3
+backlinks: requesting focused recommendation development...
+backlinks: recovered with review; preserved 0 of 3 plans; 2 finding(s) require review
+backlinks: validated; plans=0; findings=2
+technical: requesting focused recommendation development...
+technical: recovered with review; preserved 0 of 3 plans; 3 finding(s) require review
+technical: validated; plans=0; findings=3
+competition: requesting focused recommendation development...
+competition: recovered with review; preserved 2 of 3 plans; 1 finding(s) require review
+competition: validated; plans=2; findings=3
+Recommendation quality: 0 blocking, 5 review flags
+Merged validated recommendations: 5 plans, 11 specialist dispositions
+Executive output: C:\Users\NgcoboT\Downloads\SEO_Competitor_Intelligence_Information_Preservation\seo_competitor_engine\data\investigations\753374ef6ed94c4a979ec4952acba2e1\reporting\runs\744c37c65f8b42d4be5050a1e57cdd98\focused\llm_outputs\executive_validated.json

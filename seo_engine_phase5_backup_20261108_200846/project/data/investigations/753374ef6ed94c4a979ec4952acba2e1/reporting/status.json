@@ -1,0 +1,36 @@
+{
+  "run_id": "744c37c65f8b42d4be5050a1e57cdd98",
+  "status": "draft_ready",
+  "stage": "awaiting_human_review",
+  "started_at": "2026-11-03T08:58:41.881926+00:00",
+  "updated_at": "2026-11-03T09:03:16.586865+00:00",
+  "files": {
+    "pdf": {
+      "path": "reporting\\runs\\744c37c65f8b42d4be5050a1e57cdd98\\reports\\aviator_executive_report.pdf",
+      "sha256": "9bb7eabbfd8c306e49ef7b9f5e298d7ca483c62a8186f170964446e2e97d3b20"
+    },
+    "appendix": {
+      "path": "reporting\\runs\\744c37c65f8b42d4be5050a1e57cdd98\\reports\\aviator_technical_appendix.md",
+      "sha256": "2885394fda862505fe1dbd4a452c5c157c68afd0172d81e3498ba0d109c23c89"
+    }
+  },
+  "message": "Partial draft: invalid recommendations were isolated; human review required.",
+  "evidence_recovery": {
+    "backlinks": [
+      "BACKLINKS_01",
+      "BACKLINKS_02"
+    ],
+    "technical": [
+      "TECHNICAL_01",
+      "TECHNICAL_02",
+      "TECHNICAL_03"
+    ],
+    "competition": [
+      "COMPETITION_03"
+    ]
+  },
+  "quality": {
+    "blocking": 0,
+    "review": 4
+  }
+}

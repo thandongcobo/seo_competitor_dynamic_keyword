@@ -1,0 +1,11 @@
+{
+  "requested_url": "https://www.hollywoodbets.net/betting/21/lucky-numbers/countries",
+  "final_url": "https://www.hollywoodbets.net/betting/21/lucky-numbers/countries",
+  "status_code": null,
+  "extraction_status": "incomplete",
+  "crawl_failed": true,
+  "blocked": false,
+  "content_quality_reason": "standardized_main_content_not_confirmed",
+  "error": "Meaningful, stable main-page content was not confirmed within the bounded wait.",
+  "diagnostic_reference": "diagnostics/page_crawls/900732a317a23a59/metadata.json"
+}

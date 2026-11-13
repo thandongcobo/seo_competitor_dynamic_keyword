@@ -1,0 +1,48 @@
+{
+  "original_file": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_Information_Preservation\\seo_competitor_engine\\data\\investigations\\753374ef6ed94c4a979ec4952acba2e1\\reporting\\runs\\744c37c65f8b42d4be5050a1e57cdd98\\focused\\llm_outputs\\executive_validated.json",
+  "original_sha256": "cdb4dc7913e68368b9838061d7edfc8f4de0c4c7b50ba9b4d7d364a388458262",
+  "blocking_count": 0,
+  "review_count": 5,
+  "targets": {
+    "implementation_plans[3]": [
+      {
+        "severity": "review",
+        "code": "no_precondition",
+        "path": "implementation_plans[3]",
+        "message": "Plan has no explicit verification or implementation precondition.",
+        "next_check": "State what must be verified before deployment."
+      }
+    ],
+    "implementation_plans[4]": [
+      {
+        "severity": "review",
+        "code": "domain_rank_scope",
+        "path": "implementation_plans[4]",
+        "message": "Domain-level keyword positions may belong to different ranking URLs.",
+        "next_check": "Identify exact ranking URLs for each query and verify intent BEFORE proposing new content."
+      },
+      {
+        "severity": "review",
+        "code": "missing_post_change_verification",
+        "path": "implementation_plans[4]",
+        "message": "The plan changes a website without an explicit post-change verification step.",
+        "next_check": "Add a repeatable post-deployment check after the final change."
+      },
+      {
+        "severity": "review",
+        "code": "missing_verification_step",
+        "path": "implementation_plans[4]",
+        "message": "Implementation steps omit a verification activity.",
+        "next_check": "Add a concrete before/after check with repeatable conditions."
+      },
+      {
+        "severity": "review",
+        "code": "no_precondition",
+        "path": "implementation_plans[4]",
+        "message": "Plan has no explicit verification or implementation precondition.",
+        "next_check": "State what must be verified before deployment."
+      }
+    ]
+  },
+  "note": "Preview does not call an LLM or modify the original."
+}

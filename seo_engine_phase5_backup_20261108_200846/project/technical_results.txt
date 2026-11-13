@@ -1,0 +1,194 @@
+{
+  "observations": [
+    {
+      "group": "javascript_execution",
+      "audit_id": "bootup-time",
+      "ours": 6041.436000000009,
+      "benchmark": 8566.863999999907,
+      "unit": "millisecond",
+      "note": "Single-run Lighthouse lab observations, not a causal SEO ranking signal."
+    },
+    {
+      "group": "javascript_execution",
+      "audit_id": "mainthread-work-breakdown",
+      "ours": 7528.863999999494,
+      "benchmark": 11500.44799999822,
+      "unit": "millisecond",
+      "note": "Single-run Lighthouse lab observations, not a causal SEO ranking signal."
+    },
+    {
+      "group": "unused_javascript",
+      "audit_id": "unused-javascript",
+      "ours": 4520,
+      "benchmark": 5520,
+      "unit": "millisecond",
+      "note": "Single-run Lighthouse lab observations, not a causal SEO ranking signal."
+    },
+    {
+      "group": "network_resources",
+      "audit_id": "total-byte-weight",
+      "ours": 3162343,
+      "benchmark": 4219084,
+      "unit": "byte",
+      "note": "Single-run Lighthouse lab observations, not a causal SEO ranking signal."
+    }
+  ],
+  "investigations": [
+    {
+      "area": "javascript_execution",
+      "audit_id": "bootup-time",
+      "evidence": {
+        "status": "present",
+        "score_display_mode": "metricSavings",
+        "numeric_value": 6041.436000000009,
+        "numeric_unit": "millisecond",
+        "display_value": "6.0\u00a0s",
+        "item_count": 22,
+        "items": [
+          {
+            "url": "https://mpsnare.iesnare.com/general5/wdp.js",
+            "total": 1612.0839999999973,
+            "scripting": 1599.9639999999974,
+            "scriptParseCompile": 3.404
+          },
+          {
+            "url": "https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-cc43f7.8c786ed2557193d67336.min.js",
+            "total": 669.0440000000034,
+            "scripting": 470.05600000000334,
+            "scriptParseCompile": 103.67999999999999
+          },
+          {
+            "url": "https://www.hollywoodbets.net/iojs/5.13.0/dyn_wdp.js",
+            "total": 623.4560000000001,
+            "scripting": 622.344,
+            "scriptParseCompile": 0.464
+          },
+          {
+            "total": 586.7040000000027,
+            "scripting": 104.83200000000022,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "https://www.hollywoodbets.net/js/main.38c4d2ededa66bb008c8.min.js",
+            "total": 563.9640000000048,
+            "scripting": 418.99600000000487,
+            "scriptParseCompile": 102.22399999999999
+          }
+        ]
+      },
+      "recommendation": "Investigate JS execution cost and top script resources.",
+      "confidence": "investigation_only",
+      "note": "Estimated Lighthouse savings are not guaranteed and do not establish ranking causation."
+    },
+    {
+      "area": "unused_javascript",
+      "audit_id": "unused-javascript",
+      "evidence": {
+        "status": "present",
+        "score_display_mode": "metricSavings",
+        "numeric_value": 4520,
+        "numeric_unit": "millisecond",
+        "display_value": "Est savings of 1,108\u00a0KiB",
+        "item_count": 11,
+        "items": [
+          {
+            "url": "https://www.hollywoodbets.net/js/main.38c4d2ededa66bb008c8.min.js",
+            "totalBytes": 629253,
+            "wastedBytes": 335735
+          },
+          {
+            "url": "https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-cc43f7.8c786ed2557193d67336.min.js",
+            "totalBytes": 424539,
+            "wastedBytes": 213672
+          },
+          {
+            "url": "https://www.googletagmanager.com/gtm.js",
+            "totalBytes": 178497,
+            "wastedBytes": 118233
+          },
+          {
+            "url": "https://js-cdn.dynatrace.com/jstag/15fc9f135f3/bf45082quw/889f44e01580ed7b_complete.js",
+            "totalBytes": 87528,
+            "wastedBytes": 78557
+          },
+          {
+            "url": "https://www.hollywoodbets.net/metrics/S1VEa70jW-V_gmbtARPz12ckNwiJMoYvzWpIIsimiknAT7wo",
+            "totalBytes": 194875,
+            "wastedBytes": 71169
+          }
+        ]
+      },
+      "recommendation": "Review unused JS estimates; verify code splitting and script loading.",
+      "confidence": "investigation_only",
+      "note": "Estimated Lighthouse savings are not guaranteed and do not establish ranking causation."
+    },
+    {
+      "area": "render_blocking",
+      "audit_id": "render-blocking-insight",
+      "evidence": {
+        "status": "present",
+        "score_display_mode": "metricSavings",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "Est savings of 160\u00a0ms",
+        "item_count": 2,
+        "items": [
+          {
+            "url": "https://onelinksmartscript.appsflyer.com/onelink-smart-script-latest.js",
+            "totalBytes": 26185,
+            "wastedMs": 1734
+          },
+          {
+            "url": "https://www.hollywoodbets.net/config/config.js",
+            "totalBytes": 3822
+          }
+        ]
+      },
+      "recommendation": "Inspect identified render-blocking CSS/JS before changing load order.",
+      "confidence": "investigation_only",
+      "note": "Estimated Lighthouse savings are not guaranteed and do not establish ranking causation."
+    },
+    {
+      "area": "image_delivery",
+      "audit_id": "image-delivery-insight",
+      "evidence": {
+        "status": "present",
+        "score_display_mode": "metricSavings",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "Est savings of 245\u00a0KiB",
+        "item_count": 5,
+        "items": [
+          {
+            "url": "https://content.hollywoodbets.net/blog_make_it_rain_799c949bfb.jpg",
+            "totalBytes": 72450,
+            "wastedBytes": 69890
+          },
+          {
+            "url": "https://content.hollywoodbets.net/blog_big_win_2fee2707bb.jpg",
+            "totalBytes": 63986,
+            "wastedBytes": 61725
+          },
+          {
+            "url": "https://content.hollywoodbets.net/blog_competition_a68476182e.jpg",
+            "totalBytes": 49716,
+            "wastedBytes": 47959
+          },
+          {
+            "url": "https://content.hollywoodbets.net/advert_banner_0b488a2d32.jpg",
+            "totalBytes": 62412,
+            "wastedBytes": 47445
+          },
+          {
+            "url": "https://www.hollywoodbets.net/img/2f1cd22583284c8810ffa8bb1aaf547c.webp",
+            "totalBytes": 54078,
+            "wastedBytes": 24199
+          }
+        ]
+      },
+      "recommendation": "Inspect image sizing, formats and loading behavior.",
+      "confidence": "investigation_only",
+      "note": "Estimated Lighthouse savings are not guaranteed and do not establish ranking causation."
+    }
+  ]
+}

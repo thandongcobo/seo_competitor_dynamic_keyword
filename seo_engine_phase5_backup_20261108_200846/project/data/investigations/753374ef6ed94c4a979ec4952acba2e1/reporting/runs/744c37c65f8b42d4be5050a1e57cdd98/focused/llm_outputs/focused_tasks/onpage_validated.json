@@ -1,0 +1,126 @@
+{
+  "schema_version": "1.0",
+  "task": "onpage",
+  "model": "gemma-4-12b-it-UD-Q6_K_XL.gguf",
+  "fingerprint": "d53758f319437d70eedbe4aa2b8c4a68875a49d7326b20aeaaec80a4354994a5",
+  "recovery_status": "validated",
+  "review_finding_ids": [],
+  "attempts": 2,
+  "result": {
+    "schema_version": "1.0",
+    "task": "onpage",
+    "implementation_plans": [
+      {
+        "title": "Optimize Title Tag for Keyword Relevance",
+        "rationale": "The current title tag lacks the primary keyword 'Aviator', which may reduce click-through rates for users specifically searching for the Aviator game. Including the keyword can improve relevance for specific queries.",
+        "owner": "SEO Specialist",
+        "priority": "high",
+        "implementation_steps": [
+          "Audit the current title tag: 'Online Sports Betting and Online Casino | Hollywoodbets'.",
+          "Update the title tag to include 'Aviator' while preserving brand context, e.g., 'Aviator Game - Play Online at Hollywoodbets'.",
+          "Verify the updated title tag is implemented via CMS or HTML source.",
+          "Test the updated title tag in SERP preview tools to confirm rendering."
+        ],
+        "success_measure": "Title tag includes 'Aviator' and renders correctly in SERP.",
+        "uncertainty": "Title tag changes may not directly impact ranking, but can improve CTR and user intent alignment.",
+        "evidence_ids": [
+          "ON_TITLE"
+        ],
+        "specialist_finding_ids": [
+          "ONPAGE_01"
+        ],
+        "simple_explanation": "Add 'Aviator' to the title tag to match user search intent.",
+        "technical_explanation": "Title tags are HTML meta elements that influence SERP display. Including the primary keyword improves relevance without altering content structure."
+      },
+      {
+        "title": "Audit and Enhance Internal Linking Structure",
+        "rationale": "The benchmark page has 28 internal links compared to 9 on the ranking page. While link count alone does not prove authority, it may indicate better navigation or content hierarchy, which can support SEO performance.",
+        "owner": "Technical SEO Lead",
+        "priority": "medium",
+        "implementation_steps": [
+          "Audit internal links on the ranking page to identify high-value pages (e.g., 'Aviator Rules', 'How to Play', 'Payouts').",
+          "Identify key internal pages that should link to the Aviator landing page (e.g., homepage, casino games section).",
+          "Implement new internal links from relevant pages to the Aviator page, ensuring anchor text includes 'Aviator'.",
+          "Verify link implementation via site audit tools (e.g., Screaming Frog, Ahrefs)."
+        ],
+        "success_measure": "New internal links added from relevant pages to the Aviator page with keyword-rich anchor text.",
+        "uncertainty": "Internal link count is not a direct ranking factor, but improved navigation may support crawlability and user engagement.",
+        "evidence_ids": [
+          "ON_LINKS"
+        ],
+        "specialist_finding_ids": [
+          "ONPAGE_02"
+        ],
+        "simple_explanation": "Add more internal links to the Aviator page from relevant sections to improve navigation and context.",
+        "technical_explanation": "Internal links help search engines understand content relationships and improve user journey. Adding links from high-value pages can boost page authority indirectly."
+      },
+      {
+        "title": "Verify Content Intent and Lexical Similarity",
+        "rationale": "The content token Jaccard overlap between the two pages is 0.14, indicating low lexical similarity. This suggests the pages address user intent differently, which may be intentional or require alignment.",
+        "owner": "Content Strategist",
+        "priority": "medium",
+        "implementation_steps": [
+          "Review the content on both pages to identify key user intents (e.g., game rules, payout structure, gameplay tips).",
+          "Compare content structure and keyword usage to determine if the ranking page covers the same user needs as the benchmark.",
+          "If gaps exist, update the ranking page to include missing content (e.g., 'Aviator Rules', 'How to Win').",
+          "Verify content changes via CMS and ensure no duplication or redundancy."
+        ],
+        "success_measure": "Content on the ranking page aligns with user intent and includes key topics covered by the benchmark page.",
+        "uncertainty": "Jaccard overlap measures lexical similarity, not semantic relevance or content quality. Content updates may improve user experience but not necessarily ranking.",
+        "evidence_ids": [
+          "ON_CONTENT_SIMILARITY"
+        ],
+        "specialist_finding_ids": [
+          "ONPAGE_03"
+        ],
+        "simple_explanation": "Ensure the Aviator page covers the same user intents as the benchmark page to improve relevance.",
+        "technical_explanation": "Content should address user queries directly. Lexical similarity alone doesn't indicate quality or ranking impact, but semantic alignment can improve user satisfaction and engagement."
+      }
+    ],
+    "finding_dispositions": [
+      {
+        "specialist_finding_id": "ONPAGE_01",
+        "outcome": "action",
+        "plan_indices": [
+          0
+        ],
+        "simple_explanation": "The title tag lacks the keyword 'Aviator', which can reduce click-through rates for targeted users.",
+        "technical_explanation": "Title tags are critical for SERP display and user intent alignment. Including the primary keyword improves relevance without altering content structure.",
+        "next_step": "Update the title tag to include 'Aviator' and verify rendering in SERP preview tools.",
+        "reason": "Title tag optimization is a low-risk, high-impact change that aligns with user search intent.",
+        "evidence_ids": [
+          "ON_TITLE"
+        ]
+      },
+      {
+        "specialist_finding_id": "ONPAGE_02",
+        "outcome": "action",
+        "plan_indices": [
+          1
+        ],
+        "simple_explanation": "The benchmark page has significantly more internal links, which may support better navigation or authority.",
+        "technical_explanation": "Internal links help search engines understand content relationships and improve user journey. Adding links from high-value pages can boost page authority indirectly.",
+        "next_step": "Audit internal links and implement new internal links from relevant pages to the Aviator page with keyword-rich anchor text.",
+        "reason": "Internal linking structure can improve crawlability and user engagement, even if it doesn't directly impact ranking.",
+        "evidence_ids": [
+          "ON_LINKS"
+        ]
+      },
+      {
+        "specialist_finding_id": "ONPAGE_03",
+        "outcome": "action",
+        "plan_indices": [
+          2
+        ],
+        "simple_explanation": "The content has low lexical similarity, which may indicate different user intent coverage.",
+        "technical_explanation": "Content should address user queries directly. Lexical similarity alone doesn't indicate quality or ranking impact, but semantic alignment can improve user satisfaction and engagement.",
+        "next_step": "Review content on both pages to identify gaps and update the ranking page to include missing topics (e.g., 'Aviator Rules', 'How to Win').",
+        "reason": "Content alignment with user intent can improve relevance and user experience, even if it doesn't directly impact ranking.",
+        "evidence_ids": [
+          "ON_CONTENT_SIMILARITY"
+        ]
+      }
+    ]
+  },
+  "validated_at_utc": "2026-11-03T08:59:44.869042+00:00"
+}

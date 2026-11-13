@@ -1,0 +1,48 @@
+{
+  "run_id": "744c37c65f8b42d4be5050a1e57cdd98",
+  "mode": "saved_evidence_new_gemma_inference",
+  "keyword": "aviator",
+  "selected_pages": {
+    "schema_version": "1.1",
+    "investigation_id": "753374ef6ed94c4a979ec4952acba2e1",
+    "keyword": "aviator",
+    "serp_sha256": "62039638a28db112be7b3ef8a0cc79273de67fa005d5808981270ca320fcf35b",
+    "serp_collected_at": "2026-10-21T10:48:14.108486+00:00",
+    "created_at": "2026-11-03T08:58:30.584206+00:00",
+    "status": "selected_not_analyzed",
+    "ours": {
+      "domain": "hollywoodbets.net",
+      "url": "https://www.hollywoodbets.net/aviator",
+      "rank": 2,
+      "title": "Play Aviator | Aviator Game | Hollywoodbets SA",
+      "ranking_status": "observed_exact_page"
+    },
+    "benchmark": {
+      "domain": "betway.co.za",
+      "url": "https://www.betway.co.za/aviator",
+      "rank": 1,
+      "title": "Play Aviator and reach for the sky | Betway Sports betting",
+      "ranking_status": "observed_exact_page"
+    },
+    "source": "manual_exact_webpage_urls",
+    "note": "No requests executed. An absent page rank is unknown within the saved observation, not a zero ranking.",
+    "offline_evidence_summary": {
+      "available": 12,
+      "total": 12,
+      "complete": true
+    }
+  },
+  "selected_executive_sha256": "fe45cfe7bea7a1dad68dd079e98ce01ecaa29c7f8dd7ca2042820cc0bd3af5d6",
+  "comparison_sha256": "d5d6b681e62a61a33ffe9ba4d9c84a02046641977dc1096e681f19e61fe7d453",
+  "source_hashes": {
+    "evidence\\llm_foundation\\canonical_evidence.json": "4b55f9fe9be5b2fc3b2d9c6681476cd9680ad4639b2968c2bfa8e946050b1ca3",
+    "evidence\\comparison.json": "d5d6b681e62a61a33ffe9ba4d9c84a02046641977dc1096e681f19e61fe7d453",
+    "evidence\\llm_outputs\\onpage_validated.json": "64241c62c6c8843c82772c4236f4b4e4bc76931df6e2a687990ac38bac26baad",
+    "evidence\\llm_outputs\\backlinks_validated.json": "513208409cca2d23b30f9846cb186852bcecc9cc48a53edc8ab6665e82984942",
+    "evidence\\llm_outputs\\technical_validated.json": "6d99e4ad921b453d2e44a21eb7bd1448f5662e7e03e1e876b8218b16d7871c17",
+    "evidence\\llm_outputs\\competition_validated.json": "f655d739b87dfbb67e578e9fbc6215179913f0c6a03a56965c9ef8e6cb1eea5c"
+  },
+  "quality_blocking": 0,
+  "quality_review": 4,
+  "status": "draft_pending_human_review"
+}

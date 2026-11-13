@@ -195,6 +195,13 @@ class Handler(SimpleHTTPRequestHandler):
             except (ValueError, FileNotFoundError) as exc:
                 self.send_json(404 if isinstance(exc, FileNotFoundError) else 400, {'error': str(exc)})
             return
+        if len(parts) == 5 and parts[:2] == ['api', 'investigations'] and parts[3:] == ['workflow', 'collection-status']:
+            try:
+                from scripts.investigation_collection import collection_status
+                self.send_json(200, collection_status(parts[2]))
+            except (ValueError, FileNotFoundError) as exc:
+                self.send_json(404 if isinstance(exc, FileNotFoundError) else 400, {'error': str(exc)})
+            return
         if parsed_serp.path == '/api/investigations/history':
             from urllib.parse import parse_qs
             query = parse_qs(parsed_serp.query)

@@ -1,0 +1,134 @@
+{
+  "keyword": "aviator",
+  "engine": "google",
+  "stage": "before_extraction",
+  "datetime": "2026-10-21T08:49:20.452718+00:00",
+  "final_url": "https://www.google.com/search?q=aviator&sca_esv=c26373f3b23c5d40&hl=en&gl=za&pws=0&sxsrf=APpeQnubMhRYuvyIaPxRWlEDxBE35Z29og:1792572413985&ei=_XvYarLXO_CI1sQP8PWYqQ0&start=10&sa=N&sstk=AS6-VmIADUtlA4aWuUJIm4hCK6vrOchpMLCBf4qc96wR0OC8HtwqGmk6G224J03z2J1P2SP2jUFgKWmrqAIoPJAazRaHVB68oExVsQ&ved=2ahUKEwjyyeDP3MqXAxVwhJUCHfA6JtUQ8NMDegQILxAW&cshid=1792572542376353",
+  "screenshot_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T084901_520970Z\\page_2_serp.png",
+  "html_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T084901_520970Z\\page_2_serp.html",
+  "metadata_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T084901_520970Z\\page_2_metadata.json",
+  "context": {
+    "configured": {
+      "keyword": "aviator",
+      "country_gl": "za",
+      "language_hl": "en",
+      "personalization_pws": "0",
+      "locale": "en-ZA",
+      "timezone": "Africa/Johannesburg",
+      "headless": false,
+      "viewport": {
+        "width": 1366,
+        "height": 900
+      },
+      "profile_type": "persistent",
+      "profile_identifier": "c8f37757ac0dc88e"
+    },
+    "observed": {
+      "final_url": "https://www.google.com/search?q=aviator&sca_esv=c26373f3b23c5d40&hl=en&gl=za&pws=0&sxsrf=APpeQnubMhRYuvyIaPxRWlEDxBE35Z29og:1792572413985&ei=_XvYarLXO_CI1sQP8PWYqQ0&start=10&sa=N&sstk=AS6-VmIADUtlA4aWuUJIm4hCK6vrOchpMLCBf4qc96wR0OC8HtwqGmk6G224J03z2J1P2SP2jUFgKWmrqAIoPJAazRaHVB68oExVsQ&ved=2ahUKEwjyyeDP3MqXAxVwhJUCHfA6JtUQ8NMDegQILxAW&cshid=1792572542376353",
+      "hostname": "www.google.com",
+      "url_parameters": {
+        "q": "aviator",
+        "gl": "za",
+        "hl": "en",
+        "pws": "0"
+      },
+      "browser": {
+        "language": "en-ZA",
+        "languages": [
+          "en-ZA"
+        ],
+        "timezone": "Africa/Johannesburg",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "documentLanguage": "en-ZA"
+      }
+    },
+    "url_parameter_checks": {
+      "q": "match",
+      "gl": "match",
+      "hl": "match",
+      "pws": "match"
+    },
+    "context_warning": false,
+    "note": "gl targets a country; it does not verify precise physical location or search intent."
+  },
+  "location_coordinate_applied": false,
+  "organic_h3_count": 9,
+  "heading_candidates": [
+    {
+      "index": 1,
+      "title": "Ownership, aviator shades and the threat of violence",
+      "href": "https://www.google.com/goto?url=CAESogEB6zswFQwvpCoMN1k1gEypkYJadqwLUppPS_DQTYwSTsy8YH-ntBZbkpQKmB6da4CjWrmPbV-KZL_GjdjtnaV7FFldFwpV9jU2dTbRq2pdkemBqT40lXvy_P1gvqls8wsspqskvfCJdytTl-OBUGix2XO5KqmFdB7YdBwTrPpOl8r9KHd9B7ZW7gpeKLKpEVx7jIjA8Cpxa7jzqO2r5k005wY",
+      "ancestor_text": "Ownership, aviator shades and the threat of violence\n\nDaily Maverick\nhttps://www.dailymaverick.co.za › Maverick News"
+    },
+    {
+      "index": 2,
+      "title": "Aviator",
+      "href": "https://www.google.com/goto?url=CAEScwHrOzAVu-3BBp5B-8UXqWCRW5QXDw6P6EBZQ2C1g6e8a83OETdsYgYjZb0JVLc7iNdlY7n1NZThEsjDsSMs-7oo4dlh8mwn2H3BmFtQVy0epu7ISCBD0yoZflfSxXMYqPfendXg3qVRMGtDt453kqXi2Y0",
+      "ancestor_text": "Aviator\n\nBetway\nhttps://www.betway.co.za › lobby › casino-games › game"
+    },
+    {
+      "index": 3,
+      "title": "⏳⏳⏳⏳⏳⏳ @aviator.spribe 🚀 @sianya___film 🎥",
+      "href": "https://www.google.com/goto?url=CAESZgHrOzAVzKrQnHIBYJyipKU8tDgz8NyStrIWp9YW9I8_kScX2OIYp33iW1bFIsGjzBy7MK1VpglFAqP4jm_Jpk2GiFu0Petjw33YG0qLrussW2WUmvWjFF4RWfC30eSIlJx4WfUYlA",
+      "ancestor_text": "⏳⏳⏳⏳⏳⏳ @aviator.spribe 🚀 @sianya___film 🎥\n\nInstagram · diegolopesmma\n51,9K+ likes · 2 months ago"
+    },
+    {
+      "index": 4,
+      "title": "Data analysis for \"aviator\" online casino game - Cross Validated",
+      "href": "https://www.google.com/goto?url=CAESmAEB6zswFV3pFC3BAcAbzt2DGZyQg_Livo7iEpzXKJ-QLZihJiofE9q2_E9jXjIIiHeJXkDMtopqys8pWXdWkymEvmQUQ0mk4wPeectAgd2dwYVTgpjMrZ3y52PuVhqXpP_-aBKanFLZ48MmBAgKw-rP6dQju8ybdNxk5QJ3b_exdjO5y0hRl7ZV4a0ovIQnl5UCwEXEIaKbQw",
+      "ancestor_text": "Data analysis for \"aviator\" online casino game - Cross Validated\n\nStack Exchange\nhttps://stats.stackexchange.com › questions › data-analy..."
+    },
+    {
+      "index": 5,
+      "title": "Aviator",
+      "href": "https://www.google.com/goto?url=CAESrAEB6zswFdSaFdK6lf2Z5-qKIl7DjYLxGRshVNKJUeYYfDDV9IVWOjsijcyaz_k0_2mfqJqmAfBNz8N4g3UmkUke2AKce3-mpDuV4m02-zVJA6Lm9LXSqp2ZimuS9fTq_3IFWRMLduIPyfMhraGZWMiRqa2nBLy2Nq3y8PxOeIXKi5EqstElmSbGpSVGoHYeNghSbrLcOIn3PbM1GfypPwfMuis4gAzS5qtt49ax",
+      "ancestor_text": "Aviator\n\nCitizen Watches SA\nhttps://citizenwatchsa.co.za › collections › aviator"
+    },
+    {
+      "index": 6,
+      "title": "Civilian to Aviator It takes 12 weeks of intense training to turn ...",
+      "href": "https://www.google.com/goto?url=CAESyAEB6zswFX2xn38FkfGlxfGSJyIONYZYjGfoUmjhgeoaLZAs9CtmCvRK1LiGop0zHiJNh11BQcPtfruH4e8sE858EIv4SxZOW8uThLX3VsWzO-DDMcSjzW82KV1b08toS3q_GupHeCtgF3Cf9JkxKa2t8Y3Uro1OFwlZjlDTIgY61J4Rjo3XTGAi6v7BEi4JgWKKeLuDq-lYwt1z_FuWTAf1XFH_pYWIM6oOQng5Wv6RR7ceAdUJudK0u_6hKTzKhWKkRBDINRRhkQ",
+      "ancestor_text": "Civilian to Aviator It takes 12 weeks of intense training to turn ...\n\nFacebook · Royal New Zealand Air Force\n940+ reactions · 1 month ago"
+    },
+    {
+      "index": 7,
+      "title": "2025 Lincoln Aviator Review - Expensive Explorer",
+      "href": "https://www.google.com/goto?url=CAESZgHrOzAVk-xLXnzO8fl2yY8uHMOyr9LnyCbS07fUEjlbR8kl5WVkFFa7EK7H3XbkNQimLtFMNNbblV34tGrikJUInihw7O-zMBe9njBVypCWZ947BKzrTI_liRZQpP78Ebf84C_xXw",
+      "ancestor_text": "2025 Lincoln Aviator Review - Expensive Explorer\n\nYouTube · TheStraightPipes\n151K+ views · 1 year ago"
+    },
+    {
+      "index": 8,
+      "title": "Aviator® Xpro | Bayer",
+      "href": "https://www.google.com/goto?url=CAEShwEB6zswFZdNIBs-z8VWw3lPexk7bV2aW9a-xhq5U0wU511ICkWqor3IewF7_Y3G3Auhx_koLflUwFwwOMfBmuTrWTpMdr46TC-ciAcb6Pxn1zgq64NB-mZTK-P2GyPZbkfXpJkqtYaxEWRyl5xf5N95yQeJW0VJBOIjuhoeAdqEQAEcOIcka3A",
+      "ancestor_text": "Aviator® Xpro | Bayer\n\nBayer\nhttps://www.cropscience.bayer.co.za › ..."
+    },
+    {
+      "index": 9,
+      "title": "Should You Buy the Airoh Aviator 3 Helmet? | Ride Review",
+      "href": "https://www.google.com/goto?url=CAESZgHrOzAV4vTKPey3MJZOvp1VYjsx0tB39LVid5JoVK5PSmSkbKaUBu8ZHsq3ruROBoeITY58SgQ8QpbS5yjR0ciPbQVpUkHuKkK_eearcUAdHGym-0_fg_MT0IE07pxwsdBApENryw",
+      "ancestor_text": "Should You Buy the Airoh Aviator 3 Helmet? | Ride Review\n\nYouTube · Rocky Mountain ATV MC\n10,3K+ views · 9 months ago"
+    }
+  ],
+  "capture_errors": [],
+  "extraction_audit": {
+    "status": "review_required",
+    "extracted_count": 8,
+    "heading_candidate_count": 9,
+    "flags": [
+      "some_result_urls_not_matched_to_heading_links"
+    ],
+    "suspicious_results": [],
+    "heading_link_mismatches": [
+      "https://www.dailymaverick.co.za/article/2023-09-04-ownership-aviator-shades-and-the-threat-of-violence/",
+      "https://www.betway.co.za/lobby/casino-games/game/aviator",
+      "https://www.instagram.com/reel/DcPodf-zWMD/",
+      "https://stats.stackexchange.com/questions/546418/data-analysis-for-aviator-online-casino-game?__cf_chl_rt_tk=WqNLZcQhn40qXXFYO.9Tu.HQii_qSp2xsA6oOTQ_uco-1792572567-1.0.1.1-_v_2CMZb.tAPiTe_5bncyUgnnR5OYLGVw_4MAWWaFkY",
+      "https://citizenwatchsa.co.za/collections/aviator?srsltid=AU7gw4XhDVl_dexZIORT06qfZKw-er1K5o0LQ3poHYKVbSezdgeNl1A1",
+      "https://www.facebook.com/NZAirForce/videos/civilian-to-aviator-it-takes-12-weeks-of-intense-training-to-turn-a-civilian-int/1126633936710834/",
+      "https://www.youtube.com/watch?v=90qRr5UP52c",
+      "https://www.cropscience.bayer.co.za/en/cpd/swamdoders-bcs-aviator-xpro-af-za"
+    ],
+    "capture_error": null,
+    "note": "Automated checks cannot certify absolute Google organic positions; compare saved screenshot/HTML with extraction when flagged."
+  }
+}

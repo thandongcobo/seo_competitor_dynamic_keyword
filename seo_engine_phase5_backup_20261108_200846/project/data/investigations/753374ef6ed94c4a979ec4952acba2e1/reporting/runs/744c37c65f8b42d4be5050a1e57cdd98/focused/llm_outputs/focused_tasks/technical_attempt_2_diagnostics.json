@@ -1,0 +1,250 @@
+{
+  "schema_version": "1.0",
+  "task": "technical",
+  "attempt": 2,
+  "validation_errors": [
+    "implementation_plans[0]: out-of-scope factual reference",
+    "implementation_plans[0]: fact not linked to cited specialist findings",
+    "implementation_plans[1]: out-of-scope factual reference",
+    "implementation_plans[1]: fact not linked to cited specialist findings",
+    "implementation_plans[2]: out-of-scope factual reference",
+    "implementation_plans[2]: fact not linked to cited specialist findings"
+  ],
+  "provisional_citation_changes": [],
+  "grounded_diagnostics": [
+    {
+      "error": "implementation_plans[0]: out-of-scope factual reference",
+      "path": "implementation_plans[0]",
+      "current_value": {
+        "title": "Optimize Critical Rendering Path and Reduce Main-Thread Blocking",
+        "rationale": "High LCP (24.9s) and TBT (2.1s) indicate critical rendering path inefficiencies, likely caused by JavaScript execution and main-thread contention. Addressing these will improve perceived performance and mobile user experience.",
+        "owner": "Frontend Performance Team",
+        "priority": "high",
+        "implementation_steps": [
+          "Audit the main.38c4d2ededa66bb008c8.min.js bundle for unused code using tools like SourceMap Explorer or Webpack Bundle Analyzer.",
+          "Defer non-critical JavaScript (e.g., wdp.js) using async or defer attributes to prevent main-thread blocking.",
+          "Implement code splitting and lazy-load non-critical components to reduce initial bundle size and execution time.",
+          "Measure LCP and TBT after changes using Lighthouse or WebPageTest to validate improvements."
+        ],
+        "success_measure": "Validate reduction in LCP and TBT after implementation.",
+        "uncertainty": "Without live performance data, exact impact on user experience cannot be guaranteed.",
+        "evidence_ids": [
+          "TECH_LAB",
+          "TECHNICAL_02"
+        ],
+        "specialist_finding_ids": [
+          "TECHNICAL_02"
+        ],
+        "simple_explanation": "Slow page load is caused by JavaScript blocking the main thread and large bundles. Fixing these will make the page load faster.",
+        "technical_explanation": "Largest Contentful Paint (LCP) measures time to render the largest visible element. High TBT indicates main-thread tasks are blocking rendering. JavaScript bundles and external scripts are likely the root cause. Optimizing these reduces rendering time and improves perceived performance."
+      },
+      "cited_fact_ids": [
+        "TECH_LAB",
+        "TECHNICAL_02"
+      ],
+      "permitted_fact_ids": [
+        "TECH_LAB"
+      ],
+      "specialist_finding_ids": [
+        "TECHNICAL_02"
+      ],
+      "classification": "lineage_or_structure",
+      "instruction": "Keep fact citations within the union of the linked specialist findings. Do not add an unrelated finding solely to make an invalid claim pass."
+    },
+    {
+      "error": "implementation_plans[0]: fact not linked to cited specialist findings",
+      "path": "implementation_plans[0]",
+      "current_value": {
+        "title": "Optimize Critical Rendering Path and Reduce Main-Thread Blocking",
+        "rationale": "High LCP (24.9s) and TBT (2.1s) indicate critical rendering path inefficiencies, likely caused by JavaScript execution and main-thread contention. Addressing these will improve perceived performance and mobile user experience.",
+        "owner": "Frontend Performance Team",
+        "priority": "high",
+        "implementation_steps": [
+          "Audit the main.38c4d2ededa66bb008c8.min.js bundle for unused code using tools like SourceMap Explorer or Webpack Bundle Analyzer.",
+          "Defer non-critical JavaScript (e.g., wdp.js) using async or defer attributes to prevent main-thread blocking.",
+          "Implement code splitting and lazy-load non-critical components to reduce initial bundle size and execution time.",
+          "Measure LCP and TBT after changes using Lighthouse or WebPageTest to validate improvements."
+        ],
+        "success_measure": "Validate reduction in LCP and TBT after implementation.",
+        "uncertainty": "Without live performance data, exact impact on user experience cannot be guaranteed.",
+        "evidence_ids": [
+          "TECH_LAB",
+          "TECHNICAL_02"
+        ],
+        "specialist_finding_ids": [
+          "TECHNICAL_02"
+        ],
+        "simple_explanation": "Slow page load is caused by JavaScript blocking the main thread and large bundles. Fixing these will make the page load faster.",
+        "technical_explanation": "Largest Contentful Paint (LCP) measures time to render the largest visible element. High TBT indicates main-thread tasks are blocking rendering. JavaScript bundles and external scripts are likely the root cause. Optimizing these reduces rendering time and improves perceived performance."
+      },
+      "cited_fact_ids": [
+        "TECH_LAB",
+        "TECHNICAL_02"
+      ],
+      "permitted_fact_ids": [
+        "TECH_LAB"
+      ],
+      "specialist_finding_ids": [
+        "TECHNICAL_02"
+      ],
+      "classification": "lineage_or_structure",
+      "instruction": "Keep fact citations within the union of the linked specialist findings. Do not add an unrelated finding solely to make an invalid claim pass."
+    },
+    {
+      "error": "implementation_plans[1]: out-of-scope factual reference",
+      "path": "implementation_plans[1]",
+      "current_value": {
+        "title": "Audit and Optimize JavaScript Delivery and Bundle Utilization",
+        "rationale": "JavaScript execution is identified as a high-priority bottleneck. Optimizing delivery and removing unused code will reduce TBT and improve LCP.",
+        "owner": "Engineering Team",
+        "priority": "high",
+        "implementation_steps": [
+          "Use Lighthouse or Chrome DevTools to profile JavaScript execution and identify blocking scripts.",
+          "Remove unused code from main.38c4d2ededa66bb008c8.min.js using tree-shaking or code splitting.",
+          "Preload critical JavaScript resources and defer non-critical ones.",
+          "Validate changes by re-running Lighthouse and comparing TBT and LCP metrics."
+        ],
+        "success_measure": "Validate reduction in TBT and LCP after implementation.",
+        "uncertainty": "Without live data, exact impact on performance metrics cannot be confirmed.",
+        "evidence_ids": [
+          "TECH_INV",
+          "TECHNICAL_03"
+        ],
+        "specialist_finding_ids": [
+          "TECHNICAL_03"
+        ],
+        "simple_explanation": "Large JavaScript bundles and unused code are slowing down the page. Removing unused code and optimizing delivery will speed up loading.",
+        "technical_explanation": "JavaScript execution is a major contributor to TBT. Removing unused code and optimizing delivery reduces main-thread blocking, which directly improves LCP and perceived performance."
+      },
+      "cited_fact_ids": [
+        "TECH_INV",
+        "TECHNICAL_03"
+      ],
+      "permitted_fact_ids": [
+        "TECH_INV"
+      ],
+      "specialist_finding_ids": [
+        "TECHNICAL_03"
+      ],
+      "classification": "lineage_or_structure",
+      "instruction": "Keep fact citations within the union of the linked specialist findings. Do not add an unrelated finding solely to make an invalid claim pass."
+    },
+    {
+      "error": "implementation_plans[1]: fact not linked to cited specialist findings",
+      "path": "implementation_plans[1]",
+      "current_value": {
+        "title": "Audit and Optimize JavaScript Delivery and Bundle Utilization",
+        "rationale": "JavaScript execution is identified as a high-priority bottleneck. Optimizing delivery and removing unused code will reduce TBT and improve LCP.",
+        "owner": "Engineering Team",
+        "priority": "high",
+        "implementation_steps": [
+          "Use Lighthouse or Chrome DevTools to profile JavaScript execution and identify blocking scripts.",
+          "Remove unused code from main.38c4d2ededa66bb008c8.min.js using tree-shaking or code splitting.",
+          "Preload critical JavaScript resources and defer non-critical ones.",
+          "Validate changes by re-running Lighthouse and comparing TBT and LCP metrics."
+        ],
+        "success_measure": "Validate reduction in TBT and LCP after implementation.",
+        "uncertainty": "Without live data, exact impact on performance metrics cannot be confirmed.",
+        "evidence_ids": [
+          "TECH_INV",
+          "TECHNICAL_03"
+        ],
+        "specialist_finding_ids": [
+          "TECHNICAL_03"
+        ],
+        "simple_explanation": "Large JavaScript bundles and unused code are slowing down the page. Removing unused code and optimizing delivery will speed up loading.",
+        "technical_explanation": "JavaScript execution is a major contributor to TBT. Removing unused code and optimizing delivery reduces main-thread blocking, which directly improves LCP and perceived performance."
+      },
+      "cited_fact_ids": [
+        "TECH_INV",
+        "TECHNICAL_03"
+      ],
+      "permitted_fact_ids": [
+        "TECH_INV"
+      ],
+      "specialist_finding_ids": [
+        "TECHNICAL_03"
+      ],
+      "classification": "lineage_or_structure",
+      "instruction": "Keep fact citations within the union of the linked specialist findings. Do not add an unrelated finding solely to make an invalid claim pass."
+    },
+    {
+      "error": "implementation_plans[2]: out-of-scope factual reference",
+      "path": "implementation_plans[2]",
+      "current_value": {
+        "title": "Improve Mobile Performance by Addressing Core Web Vitals",
+        "rationale": "The tracked site has a mobile performance score of 28, significantly lower than the benchmark’s 16, indicating poor mobile experience. Improving Core Web Vitals will enhance user experience.",
+        "owner": "Performance Optimization Team",
+        "priority": "medium",
+        "implementation_steps": [
+          "Run Lighthouse audits on mobile devices to identify performance bottlenecks.",
+          "Optimize images using modern formats (WebP) and lazy-load non-critical images.",
+          "Reduce server response time by optimizing backend delivery.",
+          "Validate changes by re-running Lighthouse and comparing performance scores."
+        ],
+        "success_measure": "Validate improvement in mobile performance score after implementation.",
+        "uncertainty": "Performance score is lab-based and may not reflect real-world user experience.",
+        "evidence_ids": [
+          "TECH_LAB",
+          "TECHNICAL_01"
+        ],
+        "specialist_finding_ids": [
+          "TECHNICAL_01"
+        ],
+        "simple_explanation": "The site’s mobile performance score is very low, indicating poor user experience. Improving Core Web Vitals will make the site faster and more usable on mobile.",
+        "technical_explanation": "The mobile performance score is derived from Core Web Vitals (LCP, FID, INP). Low scores indicate poor user experience. Optimizing images, reducing server response time, and improving JavaScript delivery will improve these metrics."
+      },
+      "cited_fact_ids": [
+        "TECH_LAB",
+        "TECHNICAL_01"
+      ],
+      "permitted_fact_ids": [
+        "TECH_LAB"
+      ],
+      "specialist_finding_ids": [
+        "TECHNICAL_01"
+      ],
+      "classification": "lineage_or_structure",
+      "instruction": "Keep fact citations within the union of the linked specialist findings. Do not add an unrelated finding solely to make an invalid claim pass."
+    },
+    {
+      "error": "implementation_plans[2]: fact not linked to cited specialist findings",
+      "path": "implementation_plans[2]",
+      "current_value": {
+        "title": "Improve Mobile Performance by Addressing Core Web Vitals",
+        "rationale": "The tracked site has a mobile performance score of 28, significantly lower than the benchmark’s 16, indicating poor mobile experience. Improving Core Web Vitals will enhance user experience.",
+        "owner": "Performance Optimization Team",
+        "priority": "medium",
+        "implementation_steps": [
+          "Run Lighthouse audits on mobile devices to identify performance bottlenecks.",
+          "Optimize images using modern formats (WebP) and lazy-load non-critical images.",
+          "Reduce server response time by optimizing backend delivery.",
+          "Validate changes by re-running Lighthouse and comparing performance scores."
+        ],
+        "success_measure": "Validate improvement in mobile performance score after implementation.",
+        "uncertainty": "Performance score is lab-based and may not reflect real-world user experience.",
+        "evidence_ids": [
+          "TECH_LAB",
+          "TECHNICAL_01"
+        ],
+        "specialist_finding_ids": [
+          "TECHNICAL_01"
+        ],
+        "simple_explanation": "The site’s mobile performance score is very low, indicating poor user experience. Improving Core Web Vitals will make the site faster and more usable on mobile.",
+        "technical_explanation": "The mobile performance score is derived from Core Web Vitals (LCP, FID, INP). Low scores indicate poor user experience. Optimizing images, reducing server response time, and improving JavaScript delivery will improve these metrics."
+      },
+      "cited_fact_ids": [
+        "TECH_LAB",
+        "TECHNICAL_01"
+      ],
+      "permitted_fact_ids": [
+        "TECH_LAB"
+      ],
+      "specialist_finding_ids": [
+        "TECHNICAL_01"
+      ],
+      "classification": "lineage_or_structure",
+      "instruction": "Keep fact citations within the union of the linked specialist findings. Do not add an unrelated finding solely to make an invalid claim pass."
+    }
+  ]
+}

@@ -1,0 +1,2118 @@
+{
+  "schema_version": "1.0",
+  "investigation": {
+    "keyword": "aviator",
+    "search_engine": "google",
+    "market": "South Africa",
+    "source_schema_version": "0.5",
+    "source_type": "saved_serp_snapshot"
+  },
+  "tracked_website": {
+    "domain": "hollywoodbets.net",
+    "ranking_url": "https://www.hollywoodbets.net/aviator",
+    "position": 2
+  },
+  "competitors": [
+    {
+      "domain": "betway.co.za",
+      "ranking_url": "https://www.betway.co.za/aviator",
+      "position": 1,
+      "role": "confirmed_benchmark"
+    }
+  ],
+  "evidence_quality": {
+    "page_ours": "usable",
+    "page_benchmark": "usable",
+    "backlinks_ours_page": "usable",
+    "backlinks_benchmark_page": "usable",
+    "lighthouse_ours_mobile": "usable",
+    "lighthouse_benchmark_mobile": "usable"
+  },
+  "evidence": {
+    "serp": {
+      "ranking_summary": {
+        "engine": "google",
+        "keyword": "aviator",
+        "our_position": 2,
+        "benchmark_position": 1,
+        "position_gap": 1,
+        "our_url": "https://www.hollywoodbets.net/aviator",
+        "benchmark_url": "https://www.betway.co.za/aviator",
+        "benchmark_found": true,
+        "organic_results_count": 50,
+        "ranking_neighborhood": {
+          "above": [
+            {
+              "type": "organic",
+              "rank_group": 1,
+              "rank_absolute": 1,
+              "domain": "betway.co.za",
+              "url": "https://www.betway.co.za/aviator",
+              "title": "Play Aviator and reach for the sky | Betway Sports betting",
+              "description": "",
+              "website_name": "Betway",
+              "source_result_key": "betway.co.za/aviator",
+              "engine": "google",
+              "keyword": "aviator"
+            }
+          ],
+          "target": {
+            "type": "organic",
+            "rank_group": 2,
+            "rank_absolute": 2,
+            "domain": "hollywoodbets.net",
+            "url": "https://www.hollywoodbets.net/aviator",
+            "title": "Play Aviator | Aviator Game | Hollywoodbets SA",
+            "description": "",
+            "website_name": "Hollywoodbets",
+            "source_result_key": "hollywoodbets.net/aviator",
+            "engine": "google",
+            "keyword": "aviator"
+          },
+          "below": [
+            {
+              "type": "organic",
+              "rank_group": 3,
+              "rank_absolute": 3,
+              "domain": "betway.co.za",
+              "url": "https://www.betway.co.za/lobby/casino-games/game/aviator",
+              "title": "Play Online Casino Games - Register ...",
+              "description": "",
+              "website_name": "Betway",
+              "source_result_key": "betway.co.za/lobby/casino-games/game/aviator",
+              "engine": "google",
+              "keyword": "aviator"
+            },
+            {
+              "type": "organic",
+              "rank_group": 4,
+              "rank_absolute": 4,
+              "domain": "lottostar.co.za",
+              "url": "https://lottostar.co.za/game-information/spribe-aviator",
+              "title": "Aviator | Quick Games",
+              "description": "",
+              "website_name": "Lottostar",
+              "source_result_key": "lottostar.co.za/game-information/spribe-aviator",
+              "engine": "google",
+              "keyword": "aviator"
+            },
+            {
+              "type": "organic",
+              "rank_group": 5,
+              "rank_absolute": 5,
+              "domain": "firstbet.co.za",
+              "url": "https://firstbet.co.za/spribe/8203",
+              "title": "Fly in First-Class with Aviator - FirstBet",
+              "description": "",
+              "website_name": "Firstbet",
+              "source_result_key": "firstbet.co.za/spribe/8203",
+              "engine": "google",
+              "keyword": "aviator"
+            },
+            {
+              "type": "organic",
+              "rank_group": 6,
+              "rank_absolute": 6,
+              "domain": "livescore.com",
+              "url": "https://www.livescore.com/en-za/betting-sites/how-to-play-aviator-on-betway",
+              "title": "How to Play Aviator on Betway 2026: Get 10 Free Flights",
+              "description": "",
+              "website_name": "LiveScore",
+              "source_result_key": "livescore.com/en-za/betting-sites/how-to-play-aviator-on-betway",
+              "engine": "google",
+              "keyword": "aviator"
+            },
+            {
+              "type": "organic",
+              "rank_group": 7,
+              "rank_absolute": 7,
+              "domain": "gbets.co.za",
+              "url": "https://www.gbets.co.za/crash-games/slots/all/406/spribe/52082-11234-aviator",
+              "title": "Play Aviator Slot by SPRIBE - Crash Games",
+              "description": "",
+              "website_name": "Gbets",
+              "source_result_key": "gbets.co.za/crash-games/slots/all/406/spribe/52082-11234-aviator",
+              "engine": "google",
+              "keyword": "aviator"
+            }
+          ],
+          "benchmark": {
+            "type": "organic",
+            "rank_group": 1,
+            "rank_absolute": 1,
+            "domain": "betway.co.za",
+            "url": "https://www.betway.co.za/aviator",
+            "title": "Play Aviator and reach for the sky | Betway Sports betting",
+            "description": "",
+            "website_name": "Betway",
+            "source_result_key": "betway.co.za/aviator",
+            "engine": "google",
+            "keyword": "aviator"
+          },
+          "benchmark_outside_window": null,
+          "benchmark_tracked": true
+        }
+      },
+      "primary_ranking_urls": {
+        "ours": "https://www.hollywoodbets.net/aviator",
+        "benchmark": "https://www.betway.co.za/aviator"
+      }
+    },
+    "onpage": {
+      "pages": {
+        "ours": {
+          "title": "Online Sports Betting and Online Casino | Hollywoodbets",
+          "meta_description": "Sign up with the top online betting and casino! In addition to the R25 sign-up bonus, we are now giving new players 50 free spins on slot games! Join today!",
+          "headings": {
+            "h1": [
+              "AVIATOR"
+            ],
+            "h2": [
+              "Aviator",
+              "PLAY AVIATOR WITH HOLLYWOODBETS",
+              "How to Play Aviator",
+              "Key Features that Soar Above the Rest",
+              "Why Aviator with Hollywoodbets",
+              "Try Our Other Crash Games",
+              "Aviator In the News"
+            ],
+            "h3": [
+              "Fast Payouts",
+              "Payment Methods",
+              "Provably Fair"
+            ],
+            "h4": [],
+            "h5": [],
+            "h6": []
+          },
+          "h1_count": 1,
+          "internal_link_count": 9,
+          "external_link_count": 7,
+          "structured_data_count": 1,
+          "seo_content_word_count": 795,
+          "seo_content_status": "verified_candidate",
+          "seo_content_method": "rendered-main-innertext-v2"
+        },
+        "benchmark": {
+          "title": "Play Aviator and reach for the sky | Betway Sports betting",
+          "meta_description": "Place your Aviator Bets at Betway, cash out before the plane flies off and WIN big, daily rain is predicted so check the weather forecast.",
+          "headings": {
+            "h1": [
+              "Aviator",
+              "PLAY AVIATOR AT BETWAY"
+            ],
+            "h2": [
+              "HOW TO NAVIGATE THE AVIATOR SKIES",
+              "SPECIAL FEATURES"
+            ],
+            "h3": [
+              "PLAY AVIATOR"
+            ],
+            "h4": [],
+            "h5": [],
+            "h6": []
+          },
+          "h1_count": 2,
+          "internal_link_count": 28,
+          "external_link_count": 7,
+          "structured_data_count": 0,
+          "seo_content_word_count": 446,
+          "seo_content_status": "verified_candidate",
+          "seo_content_method": "rendered-main-innertext-v2"
+        }
+      },
+      "comparison": {
+        "seo_content_comparison": {
+          "comparable": true,
+          "method": "rendered-main-innertext-v2",
+          "ours": 795,
+          "benchmark": 446,
+          "ours_validation": "verified_candidate",
+          "benchmark_validation": "verified_candidate",
+          "scope": "visible_cleaned_main_region_words_not_semantic_quality"
+        },
+        "title_keyword_match": {
+          "ours": false,
+          "competitor": true
+        },
+        "meta_keyword_match": {
+          "ours": false,
+          "competitor": true
+        },
+        "h1_keyword_match": {
+          "ours": true,
+          "competitor": true
+        },
+        "title": {
+          "ours": "Online Sports Betting and Online Casino | Hollywoodbets",
+          "competitor": "Play Aviator and reach for the sky | Betway Sports betting"
+        },
+        "meta_description": {
+          "ours": "Sign up with the top online betting and casino! In addition to the R25 sign-up bonus, we are now giving new players 50 free spins on slot games! Join today!",
+          "competitor": "Place your Aviator Bets at Betway, cash out before the plane flies off and WIN big, daily rain is predicted so check the weather forecast."
+        },
+        "h1_headings": {
+          "ours": [
+            "AVIATOR"
+          ],
+          "competitor": [
+            "Aviator",
+            "PLAY AVIATOR AT BETWAY"
+          ]
+        },
+        "internal_link_count": {
+          "ours": 9,
+          "competitor": 28
+        },
+        "structured_data_count": {
+          "ours": 1,
+          "competitor": 0
+        },
+        "transactional_term_hits": {
+          "ours": 5,
+          "competitor": 4
+        },
+        "informational_term_hits": {
+          "ours": 1,
+          "competitor": 1
+        },
+        "content_token_jaccard": 0.14285714285714285,
+        "content_relevance_status": "comparable_cleaned_text",
+        "content_relevance_method": "verified_rendered_main_innertext_v2",
+        "top_shared_terms": [
+          "aviator",
+          "plane",
+          "out",
+          "off",
+          "cash",
+          "bet",
+          "multiplier",
+          "will",
+          "before",
+          "play",
+          "game",
+          "flies",
+          "how",
+          "amount",
+          "stake",
+          "start",
+          "takes",
+          "screen",
+          "win",
+          "winnings"
+        ],
+        "content_quality_note": "Similarity and term signals use verified cleaned text only when both pages pass URL and method checks. These are descriptive signals, not quality or ranking scores."
+      },
+      "comparable": true
+    },
+    "backlinks": {
+      "page": {
+        "ours": {
+          "target": "https://www.hollywoodbets.net/aviator",
+          "rank": 18,
+          "backlinks": 1853,
+          "referring_domains": 1184,
+          "referring_main_domains": 598,
+          "referring_pages": 1845,
+          "dofollow": null,
+          "broken_backlinks": 0,
+          "backlinks_spam_score": 56,
+          "keyword": "aviator",
+          "scope": "page",
+          "side": "ours",
+          "serp_engine": "google",
+          "ranking_url": "https://www.hollywoodbets.net/aviator",
+          "target_verified": true
+        },
+        "benchmark": {
+          "target": "https://www.betway.co.za/aviator",
+          "rank": 36,
+          "backlinks": 2809,
+          "referring_domains": 1259,
+          "referring_main_domains": 816,
+          "referring_pages": 2778,
+          "dofollow": null,
+          "broken_backlinks": 0,
+          "backlinks_spam_score": 43,
+          "keyword": "aviator",
+          "scope": "page",
+          "side": "benchmark",
+          "serp_engine": "google",
+          "ranking_url": "https://www.betway.co.za/aviator",
+          "target_verified": true
+        }
+      },
+      "domain": {
+        "ours": {
+          "target": "hollywoodbets.net",
+          "rank": 70,
+          "backlinks": 1806871,
+          "referring_domains": 8050,
+          "referring_main_domains": 6288,
+          "referring_pages": 1676424,
+          "dofollow": null,
+          "broken_backlinks": 21692,
+          "backlinks_spam_score": 35,
+          "keyword": "aviator",
+          "scope": "domain",
+          "side": "ours",
+          "serp_engine": null,
+          "ranking_url": null,
+          "target_verified": true
+        },
+        "benchmark": {
+          "target": "betway.co.za",
+          "rank": 65,
+          "backlinks": 578056,
+          "referring_domains": 7370,
+          "referring_main_domains": 5837,
+          "referring_pages": 489758,
+          "dofollow": null,
+          "broken_backlinks": 3526,
+          "backlinks_spam_score": 32,
+          "keyword": "aviator",
+          "scope": "domain",
+          "side": "benchmark",
+          "serp_engine": null,
+          "ranking_url": null,
+          "target_verified": true
+        }
+      }
+    },
+    "technical": {
+      "mobile_audits": {
+        "ours": {
+          "scores": {
+            "performance": 28,
+            "accessibility": 72,
+            "best-practices": 73,
+            "seo": 100
+          },
+          "lab_metrics": {
+            "first_contentful_paint_ms": 10407.554255376685,
+            "largest_contentful_paint_ms": 24907.979723543547,
+            "speed_index_ms": 10407.554255376685,
+            "total_blocking_time_ms": 2122.5,
+            "cumulative_layout_shift": 0,
+            "interactive_ms": 32407.643918804162
+          },
+          "technical_diagnostics": {
+            "javascript_execution": {
+              "bootup-time": {
+                "status": "present",
+                "score_display_mode": "metricSavings",
+                "numeric_value": 6041.436000000009,
+                "numeric_unit": "millisecond",
+                "display_value": "6.0 s",
+                "item_count": 22,
+                "items": [
+                  {
+                    "url": "https://mpsnare.iesnare.com/general5/wdp.js",
+                    "total": 1612.0839999999973,
+                    "scripting": 1599.9639999999974,
+                    "scriptParseCompile": 3.404
+                  },
+                  {
+                    "url": "https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-cc43f7.8c786ed2557193d67336.min.js",
+                    "total": 669.0440000000034,
+                    "scripting": 470.05600000000334,
+                    "scriptParseCompile": 103.67999999999999
+                  },
+                  {
+                    "url": "https://www.hollywoodbets.net/iojs/5.13.0/dyn_wdp.js",
+                    "total": 623.4560000000001,
+                    "scripting": 622.344,
+                    "scriptParseCompile": 0.464
+                  },
+                  {
+                    "total": 586.7040000000027,
+                    "scripting": 104.83200000000022,
+                    "scriptParseCompile": 0
+                  },
+                  {
+                    "url": "https://www.hollywoodbets.net/js/main.38c4d2ededa66bb008c8.min.js",
+                    "total": 563.9640000000048,
+                    "scripting": 418.99600000000487,
+                    "scriptParseCompile": 102.22399999999999
+                  }
+                ]
+              },
+              "mainthread-work-breakdown": {
+                "status": "present",
+                "score_display_mode": "metricSavings",
+                "numeric_value": 7528.863999999494,
+                "numeric_unit": "millisecond",
+                "display_value": "7.5 s",
+                "item_count": 7,
+                "items": [
+                  {
+                    "group": "scriptEvaluation",
+                    "duration": 5781.055999999491
+                  },
+                  {
+                    "group": "other",
+                    "duration": 700.328000000003
+                  },
+                  {
+                    "group": "scriptParseCompile",
+                    "duration": 576.8959999999997
+                  },
+                  {
+                    "group": "styleLayout",
+                    "duration": 334.3599999999999
+                  },
+                  {
+                    "group": "garbageCollection",
+                    "duration": 68.08799999999998
+                  }
+                ]
+              },
+              "long-tasks": {
+                "status": "present",
+                "score_display_mode": "informative",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "20 long tasks found",
+                "item_count": 20,
+                "items": [
+                  {
+                    "url": "https://mpsnare.iesnare.com/general5/wdp.js",
+                    "duration": 782,
+                    "startTime": 13703.127787304702
+                  },
+                  {
+                    "url": "https://www.hollywoodbets.net/iojs/5.13.0/dyn_wdp.js",
+                    "duration": 623,
+                    "startTime": 34462.24175551901
+                  },
+                  {
+                    "url": "https://www.hollywoodbets.net/metrics/S1VEa70jXZ9j6mvvc2SQ328mNwiJMoYvzWpIIsimiknAT7wo",
+                    "duration": 426,
+                    "startTime": 31518.367521459295
+                  },
+                  {
+                    "url": "https://www.hollywoodbets.net/metrics/S1VEa70jW-V_gmbtARPz12ckNwiJMoYvzWpIIsimiknAT7wo",
+                    "duration": 302,
+                    "startTime": 34160.24175551901
+                  },
+                  {
+                    "url": "https://www.hollywoodbets.net/js/main.38c4d2ededa66bb008c8.min.js",
+                    "duration": 251,
+                    "startTime": 10820.573234107156
+                  }
+                ]
+              }
+            },
+            "unused_javascript": {
+              "unused-javascript": {
+                "status": "present",
+                "score_display_mode": "metricSavings",
+                "numeric_value": 4520,
+                "numeric_unit": "millisecond",
+                "display_value": "Est savings of 1,108 KiB",
+                "item_count": 11,
+                "items": [
+                  {
+                    "url": "https://www.hollywoodbets.net/js/main.38c4d2ededa66bb008c8.min.js",
+                    "totalBytes": 629253,
+                    "wastedBytes": 335735
+                  },
+                  {
+                    "url": "https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-cc43f7.8c786ed2557193d67336.min.js",
+                    "totalBytes": 424539,
+                    "wastedBytes": 213672
+                  },
+                  {
+                    "url": "https://www.googletagmanager.com/gtm.js",
+                    "totalBytes": 178497,
+                    "wastedBytes": 118233
+                  },
+                  {
+                    "url": "https://js-cdn.dynatrace.com/jstag/15fc9f135f3/bf45082quw/889f44e01580ed7b_complete.js",
+                    "totalBytes": 87528,
+                    "wastedBytes": 78557
+                  },
+                  {
+                    "url": "https://www.hollywoodbets.net/metrics/S1VEa70jW-V_gmbtARPz12ckNwiJMoYvzWpIIsimiknAT7wo",
+                    "totalBytes": 194875,
+                    "wastedBytes": 71169
+                  }
+                ]
+              }
+            },
+            "render_blocking": {
+              "render-blocking-insight": {
+                "status": "present",
+                "score_display_mode": "metricSavings",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "Est savings of 160 ms",
+                "item_count": 2,
+                "items": [
+                  {
+                    "url": "https://onelinksmartscript.appsflyer.com/onelink-smart-script-latest.js",
+                    "totalBytes": 26185,
+                    "wastedMs": 1734
+                  },
+                  {
+                    "url": "https://www.hollywoodbets.net/config/config.js",
+                    "totalBytes": 3822
+                  }
+                ]
+              },
+              "render-blocking-resources": {
+                "status": "missing"
+              }
+            },
+            "image_delivery": {
+              "image-delivery-insight": {
+                "status": "present",
+                "score_display_mode": "metricSavings",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "Est savings of 245 KiB",
+                "item_count": 5,
+                "items": [
+                  {
+                    "url": "https://content.hollywoodbets.net/blog_make_it_rain_799c949bfb.jpg",
+                    "totalBytes": 72450,
+                    "wastedBytes": 69890
+                  },
+                  {
+                    "url": "https://content.hollywoodbets.net/blog_big_win_2fee2707bb.jpg",
+                    "totalBytes": 63986,
+                    "wastedBytes": 61725
+                  },
+                  {
+                    "url": "https://content.hollywoodbets.net/blog_competition_a68476182e.jpg",
+                    "totalBytes": 49716,
+                    "wastedBytes": 47959
+                  },
+                  {
+                    "url": "https://content.hollywoodbets.net/advert_banner_0b488a2d32.jpg",
+                    "totalBytes": 62412,
+                    "wastedBytes": 47445
+                  },
+                  {
+                    "url": "https://www.hollywoodbets.net/img/2f1cd22583284c8810ffa8bb1aaf547c.webp",
+                    "totalBytes": 54078,
+                    "wastedBytes": 24199
+                  }
+                ]
+              },
+              "modern-image-formats": {
+                "status": "missing"
+              },
+              "uses-optimized-images": {
+                "status": "missing"
+              }
+            },
+            "lcp_breakdown": {
+              "lcp-breakdown-insight": {
+                "status": "present",
+                "score_display_mode": "informative",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "",
+                "item_count": 2,
+                "items": []
+              },
+              "lcp-discovery-insight": {
+                "status": "not_applicable",
+                "score_display_mode": "notApplicable",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "",
+                "item_count": null,
+                "items": []
+              },
+              "largest-contentful-paint-element": {
+                "status": "missing"
+              }
+            },
+            "network_resources": {
+              "total-byte-weight": {
+                "status": "present",
+                "score_display_mode": "metricSavings",
+                "numeric_value": 3162343,
+                "numeric_unit": "byte",
+                "display_value": "Total size was 3,088 KiB",
+                "item_count": 10,
+                "items": [
+                  {
+                    "url": "https://www.hollywoodbets.net/js/main.38c4d2ededa66bb008c8.min.js",
+                    "totalBytes": 638146
+                  },
+                  {
+                    "url": "https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-cc43f7.8c786ed2557193d67336.min.js",
+                    "totalBytes": 449940
+                  },
+                  {
+                    "url": "https://www.hollywoodbets.net/metrics/S1VEa70jW-V_gmbtARPz12ckNwiJMoYvzWpIIsimiknAT7wo",
+                    "totalBytes": 211322
+                  },
+                  {
+                    "url": "https://www.hollywoodbets.net/metrics/S1VEa70jXZ9j6mvvc2SQ328mNwiJMoYvzWpIIsimiknAT7wo",
+                    "totalBytes": 206194
+                  },
+                  {
+                    "url": "https://www.hollywoodbets.net/metrics",
+                    "totalBytes": 187925
+                  }
+                ]
+              },
+              "network-requests": {
+                "status": "present",
+                "score_display_mode": "informative",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "",
+                "item_count": 185,
+                "items": [
+                  {
+                    "url": "https://www.hollywoodbets.net/aviator",
+                    "entity": "hollywoodbets.net",
+                    "transferSize": 19052,
+                    "resourceSize": 47932
+                  },
+                  {
+                    "url": "https://www.hollywoodbets.net/ruxitagentjs_A7NVfghqrux_10347260902154543.js",
+                    "entity": "hollywoodbets.net",
+                    "transferSize": 74619,
+                    "resourceSize": 193711
+                  },
+                  {
+                    "url": "https://fonts.googleapis.com/css2",
+                    "entity": "Google Fonts",
+                    "transferSize": 3176,
+                    "resourceSize": 34666
+                  },
+                  {
+                    "url": "https://www.hollywoodbets.net/config/config.js",
+                    "entity": "hollywoodbets.net",
+                    "transferSize": 3822,
+                    "resourceSize": 8614
+                  },
+                  {
+                    "url": "https://onelinksmartscript.appsflyer.com/onelink-smart-script-latest.js",
+                    "entity": "appsflyer.com",
+                    "transferSize": 26185,
+                    "resourceSize": 104399
+                  }
+                ]
+              },
+              "network-dependency-tree-insight": {
+                "status": "present",
+                "score_display_mode": "numeric",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "",
+                "item_count": 3,
+                "items": []
+              }
+            },
+            "layout_stability": {
+              "layout-shifts": {
+                "status": "not_applicable",
+                "score_display_mode": "notApplicable",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "",
+                "item_count": 0,
+                "items": []
+              },
+              "cls-culprits-insight": {
+                "status": "present",
+                "score_display_mode": "numeric",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "",
+                "item_count": 0,
+                "items": []
+              }
+            },
+            "third_parties": {
+              "third-parties-insight": {
+                "status": "present",
+                "score_display_mode": "informative",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "",
+                "item_count": 26,
+                "items": [
+                  {
+                    "entity": "iovation",
+                    "transferSize": 27530,
+                    "mainThreadTime": 397.77099990844727
+                  },
+                  {
+                    "entity": "TikTok",
+                    "transferSize": 179582,
+                    "mainThreadTime": 61.61400008201599
+                  },
+                  {
+                    "entity": "Clarity",
+                    "transferSize": 32787,
+                    "mainThreadTime": 43.83300030231476
+                  },
+                  {
+                    "entity": "Betgenius",
+                    "transferSize": 6890,
+                    "mainThreadTime": 36.11299991607666
+                  },
+                  {
+                    "entity": "appsflyer.com",
+                    "transferSize": 43422,
+                    "mainThreadTime": 17.662999868392944
+                  }
+                ]
+              },
+              "third-party-summary": {
+                "status": "missing"
+              }
+            }
+          }
+        },
+        "benchmark": {
+          "scores": {
+            "performance": 16,
+            "accessibility": 76,
+            "best-practices": 69,
+            "seo": 85
+          },
+          "lab_metrics": {
+            "first_contentful_paint_ms": 4393.823920590819,
+            "largest_contentful_paint_ms": 19506.780129999996,
+            "speed_index_ms": 6940.768388688452,
+            "total_blocking_time_ms": 3272.8982099999866,
+            "cumulative_layout_shift": 0.2924768127132852,
+            "interactive_ms": 40275.81094900001
+          },
+          "technical_diagnostics": {
+            "javascript_execution": {
+              "bootup-time": {
+                "status": "present",
+                "score_display_mode": "metricSavings",
+                "numeric_value": 8566.863999999907,
+                "numeric_unit": "millisecond",
+                "display_value": "8.6 s",
+                "item_count": 16,
+                "items": [
+                  {
+                    "url": "https://info.betway.co.za/OppOMxQ5LmiKjmfX",
+                    "total": 4590.667999999786,
+                    "scripting": 4013.535999999803,
+                    "scriptParseCompile": 129.728
+                  },
+                  {
+                    "total": 1647.1480000000015,
+                    "scripting": 403.18800000000084,
+                    "scriptParseCompile": 0
+                  },
+                  {
+                    "url": "https://tag.fanhub.geniussports.com/js/evt.js",
+                    "total": 912.100000000001,
+                    "scripting": 885.4360000000011,
+                    "scriptParseCompile": 2.4
+                  },
+                  {
+                    "url": "https://www.betway.co.za/_nuxt/entry.7dda07ef-58ad-4d63-8cd6-bd5a7025e90a.js",
+                    "total": 638.8360000000205,
+                    "scripting": 589.9400000000202,
+                    "scriptParseCompile": 6.656
+                  },
+                  {
+                    "url": "https://www.betway.co.za/aviator",
+                    "total": 614.1999999999998,
+                    "scripting": 145.18000000000012,
+                    "scriptParseCompile": 1.2040000000000002
+                  }
+                ]
+              },
+              "mainthread-work-breakdown": {
+                "status": "present",
+                "score_display_mode": "metricSavings",
+                "numeric_value": 11500.44799999822,
+                "numeric_unit": "millisecond",
+                "display_value": "11.5 s",
+                "item_count": 7,
+                "items": [
+                  {
+                    "group": "scriptEvaluation",
+                    "duration": 8375.803999998703
+                  },
+                  {
+                    "group": "other",
+                    "duration": 1981.167999999516
+                  },
+                  {
+                    "group": "scriptParseCompile",
+                    "duration": 652.8519999999997
+                  },
+                  {
+                    "group": "styleLayout",
+                    "duration": 238.3119999999999
+                  },
+                  {
+                    "group": "garbageCollection",
+                    "duration": 106.75600000000033
+                  }
+                ]
+              },
+              "long-tasks": {
+                "status": "present",
+                "score_display_mode": "informative",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "20 long tasks found",
+                "item_count": 20,
+                "items": [
+                  {
+                    "url": "https://info.betway.co.za/OppOMxQ5LmiKjmfX",
+                    "duration": 892,
+                    "startTime": 46207.89676000002
+                  },
+                  {
+                    "url": "https://tag.fanhub.geniussports.com/js/evt.js",
+                    "duration": 857,
+                    "startTime": 43348.89676000002
+                  },
+                  {
+                    "url": "https://info.betway.co.za/OppOMxQ5LmiKjmfX",
+                    "duration": 583,
+                    "startTime": 44721.89676000002
+                  },
+                  {
+                    "url": "https://info.betway.co.za/OppOMxQ5LmiKjmfX",
+                    "duration": 508,
+                    "startTime": 45690.89676000002
+                  },
+                  {
+                    "url": "https://info.betway.co.za/OppOMxQ5LmiKjmfX",
+                    "duration": 419,
+                    "startTime": 44205.89676000002
+                  }
+                ]
+              }
+            },
+            "unused_javascript": {
+              "unused-javascript": {
+                "status": "present",
+                "score_display_mode": "metricSavings",
+                "numeric_value": 5520,
+                "numeric_unit": "millisecond",
+                "display_value": "Est savings of 2,082 KiB",
+                "item_count": 23,
+                "items": [
+                  {
+                    "url": "https://www.betway.co.za/_nuxt/Stream.-bXyilPy.c207f413-868c-45b0-9d5d-29f929c7b3e7.js",
+                    "totalBytes": 707816,
+                    "wastedBytes": 626197
+                  },
+                  {
+                    "url": "https://www.betway.co.za/_nuxt/MenuOptions.vue.BT9XxgQS.0167ee32-d7dc-401a-a05d-b723452755d2.js",
+                    "totalBytes": 279077,
+                    "wastedBytes": 220606
+                  },
+                  {
+                    "url": "https://www.betway.co.za/_nuxt/entry.7dda07ef-58ad-4d63-8cd6-bd5a7025e90a.js",
+                    "totalBytes": 397983,
+                    "wastedBytes": 197115
+                  },
+                  {
+                    "url": "https://www.betway.co.za/_nuxt/Modals.CycXiSEf.9d548209-d6c3-458f-ba88-4567b18bc47d.js",
+                    "totalBytes": 248714,
+                    "wastedBytes": 191168
+                  },
+                  {
+                    "url": "https://analytics.tiktok.com/i18n/pixel/static/main.MWU2MzIzODM0MQ.js",
+                    "totalBytes": 115718,
+                    "wastedBytes": 89762
+                  }
+                ]
+              }
+            },
+            "render_blocking": {
+              "render-blocking-insight": {
+                "status": "present",
+                "score_display_mode": "metricSavings",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "Est savings of 830 ms",
+                "item_count": 3,
+                "items": [
+                  {
+                    "url": "https://cdn.betwayafrica.com/Global/fonts/BigShouldersDisplay/bigshoulders.css",
+                    "totalBytes": 1022,
+                    "wastedMs": 869
+                  },
+                  {
+                    "url": "https://cdn.betwayafrica.com/Global/fonts/roboto/roboto.css",
+                    "totalBytes": 1172,
+                    "wastedMs": 869
+                  },
+                  {
+                    "url": "https://www.betway.co.za/_nuxt/style.CTmjBdCA.css",
+                    "totalBytes": 45775,
+                    "wastedMs": 1037
+                  }
+                ]
+              },
+              "render-blocking-resources": {
+                "status": "missing"
+              }
+            },
+            "image_delivery": {
+              "image-delivery-insight": {
+                "status": "present",
+                "score_display_mode": "metricSavings",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "Est savings of 369 KiB",
+                "item_count": 7,
+                "items": [
+                  {
+                    "url": "https://media.betwayafrica.com/medialibraries/content.gmgamingsystems.com/Synapse/sponsorships/ManCity_Logo.png",
+                    "totalBytes": 115994,
+                    "wastedBytes": 115480
+                  },
+                  {
+                    "url": "https://media.betwayafrica.com/medialibraries/content.gmgamingsystems.com/Synapse/aviator/banners/LandingPageMobile_HeaderImage_EN.png",
+                    "totalBytes": 150056,
+                    "wastedBytes": 90059
+                  },
+                  {
+                    "url": "https://media.betwayafrica.com/medialibraries/content.gmgamingsystems.com/Synapse/sponsorships/man-united-logo.png",
+                    "totalBytes": 89110,
+                    "wastedBytes": 88715
+                  },
+                  {
+                    "url": "https://media.betwayafrica.com/medialibraries/content.gmgamingsystems.com/Synapse/v2/Betway_Premiership_Final_Logo_Black_Stacked.png",
+                    "totalBytes": 36121,
+                    "wastedBytes": 36023
+                  },
+                  {
+                    "url": "https://media.betwayafrica.com/medialibraries/content.gmgamingsystems.com/Synapse/v2/South_Africa_national_rugby_union_team-svg.png",
+                    "totalBytes": 29200,
+                    "wastedBytes": 28922
+                  }
+                ]
+              },
+              "modern-image-formats": {
+                "status": "missing"
+              },
+              "uses-optimized-images": {
+                "status": "missing"
+              }
+            },
+            "lcp_breakdown": {
+              "lcp-breakdown-insight": {
+                "status": "present",
+                "score_display_mode": "informative",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "",
+                "item_count": 2,
+                "items": []
+              },
+              "lcp-discovery-insight": {
+                "status": "present",
+                "score_display_mode": "numeric",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "",
+                "item_count": 2,
+                "items": []
+              },
+              "largest-contentful-paint-element": {
+                "status": "missing"
+              }
+            },
+            "network_resources": {
+              "total-byte-weight": {
+                "status": "present",
+                "score_display_mode": "metricSavings",
+                "numeric_value": 4219084,
+                "numeric_unit": "byte",
+                "display_value": "Total size was 4,120 KiB",
+                "item_count": 10,
+                "items": [
+                  {
+                    "url": "https://media.betwayafrica.com/medialibraries/content.gmgamingsystems.com/Synapse/aviator/LandingPage_Background.png",
+                    "totalBytes": 412784
+                  },
+                  {
+                    "url": "https://www.betway.co.za/_nuxt/entry.7dda07ef-58ad-4d63-8cd6-bd5a7025e90a.js",
+                    "totalBytes": 398644
+                  },
+                  {
+                    "url": "https://www.betway.co.za/_nuxt/Stream.-bXyilPy.c207f413-868c-45b0-9d5d-29f929c7b3e7.js",
+                    "totalBytes": 215639
+                  },
+                  {
+                    "url": "https://www.googletagmanager.com/gtm.js",
+                    "totalBytes": 201943
+                  },
+                  {
+                    "url": "https://www.googletagmanager.com/gtag/js",
+                    "totalBytes": 191230
+                  }
+                ]
+              },
+              "network-requests": {
+                "status": "present",
+                "score_display_mode": "informative",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "",
+                "item_count": 299,
+                "items": [
+                  {
+                    "url": "https://www.betway.co.za/aviator",
+                    "entity": "betway.co.za",
+                    "transferSize": 4751,
+                    "resourceSize": 11210
+                  },
+                  {
+                    "url": "https://cdn.betwayafrica.com/Global/fonts/roboto/roboto.css",
+                    "entity": "betwayafrica.com",
+                    "transferSize": 1172,
+                    "resourceSize": 1627
+                  },
+                  {
+                    "url": "https://cdn.betwayafrica.com/Global/fonts/BigShouldersDisplay/bigshoulders.css",
+                    "entity": "betwayafrica.com",
+                    "transferSize": 1022,
+                    "resourceSize": 323
+                  },
+                  {
+                    "url": "https://www.betway.co.za/_nuxt/style.CTmjBdCA.css",
+                    "entity": "betway.co.za",
+                    "transferSize": 45775,
+                    "resourceSize": 282688
+                  },
+                  {
+                    "url": "https://www.betway.co.za/_nuxt/entry.7dda07ef-58ad-4d63-8cd6-bd5a7025e90a.js",
+                    "entity": "betway.co.za",
+                    "transferSize": 398644,
+                    "resourceSize": 1167990
+                  }
+                ]
+              },
+              "network-dependency-tree-insight": {
+                "status": "present",
+                "score_display_mode": "numeric",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "",
+                "item_count": 3,
+                "items": []
+              }
+            },
+            "layout_stability": {
+              "layout-shifts": {
+                "status": "present",
+                "score_display_mode": "metricSavings",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "4 layout shifts found",
+                "item_count": 4,
+                "items": []
+              },
+              "cls-culprits-insight": {
+                "status": "present",
+                "score_display_mode": "numeric",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "",
+                "item_count": 1,
+                "items": []
+              }
+            },
+            "third_parties": {
+              "third-parties-insight": {
+                "status": "present",
+                "score_display_mode": "informative",
+                "numeric_value": null,
+                "numeric_unit": null,
+                "display_value": "",
+                "item_count": 24,
+                "items": [
+                  {
+                    "entity": "Google Tag Manager",
+                    "transferSize": 393173,
+                    "mainThreadTime": 178.83299899101257
+                  },
+                  {
+                    "entity": "Facebook",
+                    "transferSize": 214386,
+                    "mainThreadTime": 126.29100012779236
+                  },
+                  {
+                    "entity": "TikTok",
+                    "transferSize": 165084,
+                    "mainThreadTime": 119.68500471115112
+                  },
+                  {
+                    "entity": "Clarity",
+                    "transferSize": 30626,
+                    "mainThreadTime": 60.328999757766724
+                  },
+                  {
+                    "entity": "sportradar.com",
+                    "transferSize": 66375,
+                    "mainThreadTime": 58.846999645233154
+                  }
+                ]
+              },
+              "third-party-summary": {
+                "status": "missing"
+              }
+            }
+          }
+        }
+      },
+      "detailed_analysis": {
+        "status": "usable",
+        "scope": "exact_serp_pages_mobile_lab",
+        "observations": [
+          {
+            "group": "javascript_execution",
+            "audit_id": "bootup-time",
+            "ours": 6041.436000000009,
+            "benchmark": 8566.863999999907,
+            "unit": "millisecond",
+            "note": "Single-run Lighthouse lab observations, not a causal SEO ranking signal."
+          },
+          {
+            "group": "javascript_execution",
+            "audit_id": "mainthread-work-breakdown",
+            "ours": 7528.863999999494,
+            "benchmark": 11500.44799999822,
+            "unit": "millisecond",
+            "note": "Single-run Lighthouse lab observations, not a causal SEO ranking signal."
+          },
+          {
+            "group": "unused_javascript",
+            "audit_id": "unused-javascript",
+            "ours": 4520,
+            "benchmark": 5520,
+            "unit": "millisecond",
+            "note": "Single-run Lighthouse lab observations, not a causal SEO ranking signal."
+          },
+          {
+            "group": "network_resources",
+            "audit_id": "total-byte-weight",
+            "ours": 3162343,
+            "benchmark": 4219084,
+            "unit": "byte",
+            "note": "Single-run Lighthouse lab observations, not a causal SEO ranking signal."
+          }
+        ],
+        "investigations": [
+          {
+            "area": "javascript_execution",
+            "audit_id": "bootup-time",
+            "evidence": {
+              "status": "present",
+              "score_display_mode": "metricSavings",
+              "numeric_value": 6041.436000000009,
+              "numeric_unit": "millisecond",
+              "display_value": "6.0 s",
+              "item_count": 22,
+              "items": [
+                {
+                  "url": "https://mpsnare.iesnare.com/general5/wdp.js",
+                  "total": 1612.0839999999973,
+                  "scripting": 1599.9639999999974,
+                  "scriptParseCompile": 3.404
+                },
+                {
+                  "url": "https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-cc43f7.8c786ed2557193d67336.min.js",
+                  "total": 669.0440000000034,
+                  "scripting": 470.05600000000334,
+                  "scriptParseCompile": 103.67999999999999
+                },
+                {
+                  "url": "https://www.hollywoodbets.net/iojs/5.13.0/dyn_wdp.js",
+                  "total": 623.4560000000001,
+                  "scripting": 622.344,
+                  "scriptParseCompile": 0.464
+                },
+                {
+                  "total": 586.7040000000027,
+                  "scripting": 104.83200000000022,
+                  "scriptParseCompile": 0
+                },
+                {
+                  "url": "https://www.hollywoodbets.net/js/main.38c4d2ededa66bb008c8.min.js",
+                  "total": 563.9640000000048,
+                  "scripting": 418.99600000000487,
+                  "scriptParseCompile": 102.22399999999999
+                }
+              ]
+            },
+            "recommendation": "Investigate JS execution cost and top script resources.",
+            "title": "Profile JavaScript boot-up and main-thread execution",
+            "priority": "high",
+            "priority_basis": "Conservative engineering triage based on audit category and measured severity; not a ranking forecast.",
+            "supporting_observation": "Lighthouse reports JavaScript boot-up work on the selected page.",
+            "measurement": {
+              "value": 6041.436000000009,
+              "unit": "millisecond",
+              "display": "6.0 s"
+            },
+            "affected_resources": [
+              {
+                "url": "https://mpsnare.iesnare.com/general5/wdp.js",
+                "total": 1612.0839999999973,
+                "scripting": 1599.9639999999974,
+                "scriptParseCompile": 3.404
+              },
+              {
+                "url": "https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-cc43f7.8c786ed2557193d67336.min.js",
+                "total": 669.0440000000034,
+                "scripting": 470.05600000000334,
+                "scriptParseCompile": 103.67999999999999
+              },
+              {
+                "url": "https://www.hollywoodbets.net/iojs/5.13.0/dyn_wdp.js",
+                "total": 623.4560000000001,
+                "scripting": 622.344,
+                "scriptParseCompile": 0.464
+              },
+              {
+                "total": 586.7040000000027,
+                "scripting": 104.83200000000022,
+                "scriptParseCompile": 0
+              }
+            ],
+            "actions": [
+              "Profile the identified scripts in Chrome Performance before editing load order.",
+              "Identify initialization that is nonessential for first render; test deferral without disrupting security, fraud checks or core interactions.",
+              "Repeat comparable mobile Lighthouse audits and inspect boot-up time, TBT and application functionality."
+            ],
+            "validation": "Repeat comparable mobile Lighthouse audits and inspect boot-up time, TBT and application functionality.",
+            "confidence": "investigation_only",
+            "note": "Single-run Lighthouse lab evidence. Estimated savings are not guaranteed and do not establish ranking causation."
+          },
+          {
+            "area": "unused_javascript",
+            "audit_id": "unused-javascript",
+            "evidence": {
+              "status": "present",
+              "score_display_mode": "metricSavings",
+              "numeric_value": 4520,
+              "numeric_unit": "millisecond",
+              "display_value": "Est savings of 1,108 KiB",
+              "item_count": 11,
+              "items": [
+                {
+                  "url": "https://www.hollywoodbets.net/js/main.38c4d2ededa66bb008c8.min.js",
+                  "totalBytes": 629253,
+                  "wastedBytes": 335735
+                },
+                {
+                  "url": "https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-cc43f7.8c786ed2557193d67336.min.js",
+                  "totalBytes": 424539,
+                  "wastedBytes": 213672
+                },
+                {
+                  "url": "https://www.googletagmanager.com/gtm.js",
+                  "totalBytes": 178497,
+                  "wastedBytes": 118233
+                },
+                {
+                  "url": "https://js-cdn.dynatrace.com/jstag/15fc9f135f3/bf45082quw/889f44e01580ed7b_complete.js",
+                  "totalBytes": 87528,
+                  "wastedBytes": 78557
+                },
+                {
+                  "url": "https://www.hollywoodbets.net/metrics/S1VEa70jW-V_gmbtARPz12ckNwiJMoYvzWpIIsimiknAT7wo",
+                  "totalBytes": 194875,
+                  "wastedBytes": 71169
+                }
+              ]
+            },
+            "recommendation": "Review unused JS estimates; verify code splitting and script loading.",
+            "title": "Review JavaScript delivery and initial bundle utilization",
+            "priority": "high",
+            "priority_basis": "Conservative engineering triage based on audit category and measured severity; not a ranking forecast.",
+            "supporting_observation": "Lighthouse flags potentially unused JavaScript in the measured load.",
+            "measurement": {
+              "value": 4520,
+              "unit": "millisecond",
+              "display": "Est savings of 1,108 KiB"
+            },
+            "affected_resources": [
+              {
+                "url": "https://www.hollywoodbets.net/js/main.38c4d2ededa66bb008c8.min.js",
+                "totalBytes": 629253,
+                "wastedBytes": 335735
+              },
+              {
+                "url": "https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-cc43f7.8c786ed2557193d67336.min.js",
+                "totalBytes": 424539,
+                "wastedBytes": 213672
+              },
+              {
+                "url": "https://www.googletagmanager.com/gtm.js",
+                "totalBytes": 178497,
+                "wastedBytes": 118233
+              },
+              {
+                "url": "https://js-cdn.dynatrace.com/jstag/15fc9f135f3/bf45082quw/889f44e01580ed7b_complete.js",
+                "totalBytes": 87528,
+                "wastedBytes": 78557
+              }
+            ],
+            "actions": [
+              "Review code splitting and defer only features not needed for initial rendering.",
+              "Check script coverage during real user flows before removing code or third-party tags.",
+              "Repeat mobile audits and verify bundle sizes, feature behavior and conversion paths."
+            ],
+            "validation": "Repeat mobile audits and verify bundle sizes, feature behavior and conversion paths.",
+            "confidence": "investigation_only",
+            "note": "Single-run Lighthouse lab evidence. Estimated savings are not guaranteed and do not establish ranking causation."
+          },
+          {
+            "area": "image_delivery",
+            "audit_id": "image-delivery-insight",
+            "evidence": {
+              "status": "present",
+              "score_display_mode": "metricSavings",
+              "numeric_value": null,
+              "numeric_unit": null,
+              "display_value": "Est savings of 245 KiB",
+              "item_count": 5,
+              "items": [
+                {
+                  "url": "https://content.hollywoodbets.net/blog_make_it_rain_799c949bfb.jpg",
+                  "totalBytes": 72450,
+                  "wastedBytes": 69890
+                },
+                {
+                  "url": "https://content.hollywoodbets.net/blog_big_win_2fee2707bb.jpg",
+                  "totalBytes": 63986,
+                  "wastedBytes": 61725
+                },
+                {
+                  "url": "https://content.hollywoodbets.net/blog_competition_a68476182e.jpg",
+                  "totalBytes": 49716,
+                  "wastedBytes": 47959
+                },
+                {
+                  "url": "https://content.hollywoodbets.net/advert_banner_0b488a2d32.jpg",
+                  "totalBytes": 62412,
+                  "wastedBytes": 47445
+                },
+                {
+                  "url": "https://www.hollywoodbets.net/img/2f1cd22583284c8810ffa8bb1aaf547c.webp",
+                  "totalBytes": 54078,
+                  "wastedBytes": 24199
+                }
+              ]
+            },
+            "recommendation": "Inspect image sizing, formats and loading behavior.",
+            "title": "Review image sizing and delivery",
+            "priority": "medium",
+            "priority_basis": "Conservative engineering triage based on audit category and measured severity; not a ranking forecast.",
+            "supporting_observation": "Lighthouse identifies image-delivery opportunities in the measured load.",
+            "measurement": {
+              "value": null,
+              "unit": null,
+              "display": "Est savings of 245 KiB"
+            },
+            "affected_resources": [
+              {
+                "url": "https://content.hollywoodbets.net/blog_make_it_rain_799c949bfb.jpg",
+                "totalBytes": 72450,
+                "wastedBytes": 69890
+              },
+              {
+                "url": "https://content.hollywoodbets.net/blog_big_win_2fee2707bb.jpg",
+                "totalBytes": 63986,
+                "wastedBytes": 61725
+              },
+              {
+                "url": "https://content.hollywoodbets.net/blog_competition_a68476182e.jpg",
+                "totalBytes": 49716,
+                "wastedBytes": 47959
+              },
+              {
+                "url": "https://content.hollywoodbets.net/advert_banner_0b488a2d32.jpg",
+                "totalBytes": 62412,
+                "wastedBytes": 47445
+              }
+            ],
+            "actions": [
+              "Inspect flagged image assets for excessive dimensions and compression opportunities.",
+              "Test responsive image delivery and appropriate formats without harming visual quality.",
+              "Repeat mobile audits and check image transfer sizes and LCP separately."
+            ],
+            "validation": "Repeat mobile audits and check image transfer sizes and LCP separately.",
+            "confidence": "investigation_only",
+            "note": "Single-run Lighthouse lab evidence. Estimated savings are not guaranteed and do not establish ranking causation."
+          },
+          {
+            "area": "render_blocking",
+            "audit_id": "render-blocking-insight",
+            "evidence": {
+              "status": "present",
+              "score_display_mode": "metricSavings",
+              "numeric_value": null,
+              "numeric_unit": null,
+              "display_value": "Est savings of 160 ms",
+              "item_count": 2,
+              "items": [
+                {
+                  "url": "https://onelinksmartscript.appsflyer.com/onelink-smart-script-latest.js",
+                  "totalBytes": 26185,
+                  "wastedMs": 1734
+                },
+                {
+                  "url": "https://www.hollywoodbets.net/config/config.js",
+                  "totalBytes": 3822
+                }
+              ]
+            },
+            "recommendation": "Inspect identified render-blocking CSS/JS before changing load order.",
+            "title": "Review render-blocking resource dependencies",
+            "priority": "low",
+            "priority_basis": "Conservative engineering triage based on audit category and measured severity; not a ranking forecast.",
+            "supporting_observation": "Lighthouse identifies render-blocking resources in the measured load.",
+            "measurement": {
+              "value": null,
+              "unit": null,
+              "display": "Est savings of 160 ms"
+            },
+            "affected_resources": [
+              {
+                "url": "https://onelinksmartscript.appsflyer.com/onelink-smart-script-latest.js",
+                "totalBytes": 26185,
+                "wastedMs": 1734
+              },
+              {
+                "url": "https://www.hollywoodbets.net/config/config.js",
+                "totalBytes": 3822
+              }
+            ],
+            "actions": [
+              "Trace critical CSS and JS dependencies identified by Lighthouse.",
+              "Test safe changes to loading order; preserve configuration and required tracking functionality.",
+              "Repeat mobile audits and check FCP, LCP and regressions."
+            ],
+            "validation": "Repeat mobile audits and check FCP, LCP and regressions.",
+            "confidence": "investigation_only",
+            "note": "Single-run Lighthouse lab evidence. Estimated savings are not guaranteed and do not establish ranking causation."
+          }
+        ]
+      }
+    },
+    "keywords": {
+      "intersection": {
+        "status": "usable",
+        "returned": 82,
+        "generic_ours_ahead": 24,
+        "generic_benchmark_ahead": 31,
+        "top_generic_benchmark_leads": [
+          {
+            "keyword": "play aviator",
+            "our_rank": 2,
+            "benchmark_rank": 1,
+            "search_volume": 6600,
+            "rank_gap": 1,
+            "relevance_class": "relevant_generic",
+            "relevance_reason": "known_generic_query_modifiers"
+          },
+          {
+            "keyword": "aviator betting",
+            "our_rank": 8,
+            "benchmark_rank": 2,
+            "search_volume": 1000,
+            "rank_gap": 6,
+            "relevance_class": "relevant_generic",
+            "relevance_reason": "known_generic_query_modifiers"
+          },
+          {
+            "keyword": "aviator bet",
+            "our_rank": 5,
+            "benchmark_rank": 1,
+            "search_volume": 1000,
+            "rank_gap": 4,
+            "relevance_class": "relevant_generic",
+            "relevance_reason": "known_generic_query_modifiers"
+          },
+          {
+            "keyword": "how to play aviator",
+            "our_rank": 10,
+            "benchmark_rank": 1,
+            "search_volume": 880,
+            "rank_gap": 9,
+            "relevance_class": "relevant_generic",
+            "relevance_reason": "known_generic_query_modifiers"
+          },
+          {
+            "keyword": "play aviator now",
+            "our_rank": 2,
+            "benchmark_rank": 1,
+            "search_volume": 590,
+            "rank_gap": 1,
+            "relevance_class": "relevant_generic",
+            "relevance_reason": "known_generic_query_modifiers"
+          },
+          {
+            "keyword": "what is aviator",
+            "our_rank": 4,
+            "benchmark_rank": 3,
+            "search_volume": 480,
+            "rank_gap": 1,
+            "relevance_class": "relevant_generic",
+            "relevance_reason": "known_generic_query_modifiers"
+          },
+          {
+            "keyword": "play aviator online",
+            "our_rank": 2,
+            "benchmark_rank": 1,
+            "search_volume": 480,
+            "rank_gap": 1,
+            "relevance_class": "relevant_generic",
+            "relevance_reason": "known_generic_query_modifiers"
+          },
+          {
+            "keyword": "aviator app",
+            "our_rank": 4,
+            "benchmark_rank": 3,
+            "search_volume": 480,
+            "rank_gap": 1,
+            "relevance_class": "relevant_generic",
+            "relevance_reason": "known_generic_query_modifiers"
+          },
+          {
+            "keyword": "aviator casino",
+            "our_rank": 10,
+            "benchmark_rank": 1,
+            "search_volume": 260,
+            "rank_gap": 9,
+            "relevance_class": "relevant_generic",
+            "relevance_reason": "known_generic_query_modifiers"
+          },
+          {
+            "keyword": "aviator play online",
+            "our_rank": 4,
+            "benchmark_rank": 2,
+            "search_volume": 260,
+            "rank_gap": 2,
+            "relevance_class": "relevant_generic",
+            "relevance_reason": "known_generic_query_modifiers"
+          }
+        ],
+        "warnings": [
+          "Intersection contains shared keywords only; it cannot establish missing rankings"
+        ]
+      },
+      "intent": {
+        "main_intent": "informational",
+        "intent_probability": 0.9694,
+        "ours": 1,
+        "competitor": 1,
+        "assessment": "No clear heuristic difference in informational intent alignment (1 vs 1 term signals).",
+        "direction": "neutral",
+        "confidence": "low"
+      }
+    },
+    "competitor_discovery": {
+      "candidates": [
+        {
+          "domain": "betway.co.za",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": true
+        },
+        {
+          "domain": "app.aviator.co",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "apps.microsoft.com",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "avi-aviatorcrashgametopfly-casino.en.uptodown.com",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "aviator.co",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "betfred.co.za",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "betika.com",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "betway.com",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "bongobongo.ug",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "collinsdictionary.com",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "dictionary.cambridge.org",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "dictionary.com",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "easybet.co.za",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "en.wikipedia.org",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "facebook.com",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "firstbet.co.za",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "gbets.co.za",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "imdb.com",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "indian.1xbet.com",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "interbet.co.za",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "investival.in",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "jabulabets.co.za",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "livescore.com",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "lottostar.co.za",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "luckyfish.co.za",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "merriam-webster.com",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "mrq.com",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "oiapodan.ufba.br",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "opentext.com",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        },
+        {
+          "domain": "play.google.com",
+          "serp_present": true,
+          "nearest_serp_rank": null,
+          "benchmark": false
+        }
+      ],
+      "note": "Discovery candidates are not verified SERP rankings."
+    }
+  },
+  "deterministic_findings": [
+    {
+      "category": "ranking",
+      "direction": "competitor",
+      "confidence": "high",
+      "evidence_type": "direct_observation",
+      "evidence": "On google, benchmark position is 1 and our position is 2; gap = 1 positions."
+    },
+    {
+      "category": "content_length",
+      "direction": "context",
+      "confidence": "low",
+      "evidence_type": "verified_cleaned_content_metric",
+      "evidence": "Standardized cleaned SEO-content word counts are ours 795 vs benchmark 446 (method: rendered-main-innertext-v2; verified comparable SERP ranking pages). Content length is descriptive context, not content quality or a proven ranking factor."
+    },
+    {
+      "category": "content_similarity",
+      "direction": "context",
+      "confidence": "low",
+      "evidence_type": "heuristic",
+      "evidence": "Our page and benchmark page have a token-set similarity of 0.143; this is a topical similarity signal, not a ranking score."
+    },
+    {
+      "category": "search_intent",
+      "direction": "neutral",
+      "confidence": "low",
+      "evidence_type": "heuristic",
+      "evidence": "No clear heuristic difference in informational intent alignment (1 vs 1 term signals)."
+    },
+    {
+      "category": "competitor_discovery",
+      "direction": "context",
+      "confidence": "medium",
+      "evidence_type": "combined_discovery",
+      "evidence": "The pipeline identified potential competitor domains from SERP/Labs evidence: betway.co.za (not local-rank), app.aviator.co (not local-rank), apps.microsoft.com (not local-rank), avi-aviatorcrashgametopfly-casino.en.uptodown.com (not local-rank), aviator.co (not local-rank), betfred.co.za (not local-rank), betika.com (not local-rank), betway.com (not local-rank), bongobongo.ug (not local-rank), collinsdictionary.com (not local-rank)."
+    },
+    {
+      "category": "keyword_intersection",
+      "direction": "context",
+      "confidence": "medium",
+      "evidence_type": "filtered_domain_intersection",
+      "evidence": "Among 82 returned shared keyword comparisons, ours leads on 44, benchmark leads on 38; generic (non-domain-branded) terms: ours 24, benchmark 31. These are historical domain-level positions, not the live primary SERP or proof of absent rankings."
+    },
+    {
+      "category": "backlinks",
+      "direction": "context",
+      "confidence": "medium",
+      "evidence_type": "page_and_domain_api_metrics",
+      "evidence": "Ranking-page DataForSEO backlink rank: ours 18 vs benchmark 36; page referring domains: ours 1184 vs benchmark 1259. Domain-wide ranks: ours 70 vs benchmark 65. Link-profile metrics are not Google ranking weights or proof of causation."
+    },
+    {
+      "category": "lighthouse",
+      "direction": "context",
+      "confidence": "low",
+      "evidence_type": "lab_audit",
+      "evidence": "Mobile Lighthouse lab performance: ours 28, benchmark 16; LCP ms: ours 24907.979723543547, benchmark 19506.780129999996; TBT ms: ours 2122.5, benchmark 3272.8982099999866. One lab run is not field CWV or ranking causation."
+    },
+    {
+      "category": "onpage_keyword_targeting",
+      "direction": "competitor",
+      "confidence": "medium",
+      "evidence_type": "rendered_page_metadata",
+      "evidence": "The selected keyword is absent from our HTML title but present in the benchmark HTML title."
+    },
+    {
+      "category": "onpage_keyword_targeting",
+      "direction": "competitor",
+      "confidence": "medium",
+      "evidence_type": "rendered_page_metadata",
+      "evidence": "The selected keyword is absent from our meta description but present in the benchmark meta description."
+    }
+  ],
+  "deterministic_recommendations": [
+    {
+      "id": "onpage-title_keyword_match",
+      "title": "Verify HTML title targeting for the selected keyword",
+      "priority": "high",
+      "priority_score": 13,
+      "priority_basis": "Triage rubric: 2*relevance + potential_impact + evidence_confidence + inverse_effort; ordinal only.",
+      "potential_impact": "medium",
+      "evidence_confidence": "medium",
+      "implementation_effort": "low",
+      "keyword_relevance": "high",
+      "action_type": "verify_before_edit",
+      "target_url": "https://www.hollywoodbets.net/aviator",
+      "impact_estimate": {
+        "potential": "medium_qualitative_unquantified",
+        "unit": "qualitative_opportunity_not_rank_lift",
+        "quantified_rank_or_traffic_lift": null,
+        "basis": "Rule-based opportunity assessment, not a validated causal forecast."
+      },
+      "evidence": "Keyword 'aviator' was not detected in our captured HTML title, but was detected in the competitor's.",
+      "interpretation": "This is a captured-page difference, not a verified defect. HTML title can help communicate page topic to search engines.",
+      "actions": [
+        "First verify the current rendered HTML and canonical response at the exact ranking URL.",
+        "If the HTML title is genuinely generic or misleading, propose an accurate, natural topic-specific revision.",
+        "Review the proposed text with the SEO/content owner before publishing."
+      ],
+      "success_check": "Recrawl the exact URL after approval and compare search appearance over time.",
+      "limitations": "Google may rewrite the displayed search-result title; exact keyword presence alone is not a ranking-quality metric.",
+      "status": "proposed_for_review",
+      "order": 1,
+      "tie_break_explanation": "Equal triage score (13); Placed before 'Investigate mobile page-loading bottlenecks' because estimated effort is low versus high. This is a workflow tie-break, not a ranking-impact prediction."
+    },
+    {
+      "id": "technical-mobile",
+      "title": "Investigate mobile page-loading bottlenecks",
+      "priority": "high",
+      "priority_score": 13,
+      "priority_basis": "Triage rubric: 2*relevance + potential_impact + evidence_confidence + inverse_effort; ordinal only.",
+      "potential_impact": "high",
+      "evidence_confidence": "high",
+      "implementation_effort": "high",
+      "keyword_relevance": "high",
+      "action_type": "investigate",
+      "target_url": "https://www.hollywoodbets.net/aviator",
+      "impact_estimate": {
+        "potential": "high_qualitative_unquantified",
+        "unit": "qualitative_opportunity_not_rank_lift",
+        "quantified_rank_or_traffic_lift": null,
+        "basis": "Rule-based opportunity assessment, not a validated causal forecast."
+      },
+      "evidence": "Our mobile Lighthouse lab audit: LCP 24.91s, TBT 2122ms.",
+      "interpretation": "Lab measurements indicate potential user-experience issues; they do not establish a ranking cause.",
+      "actions": [
+        "Review the verified resource-level Lighthouse investigations in the technical section of the report.",
+        "Profile identified scripts and assets before modifying their loading behavior; preserve essential security and business functionality.",
+        "Repeat controlled mobile Lighthouse audits and test core user flows after changes."
+      ],
+      "success_check": "Repeat controlled lab audits and check field Core Web Vitals separately where available.",
+      "limitations": "Detailed Lighthouse diagnostics identify investigation targets (JavaScript execution, unused JavaScript, image delivery, render-blocking resources), but the precise cause of slow LCP and any ranking impact remain unverified.",
+      "status": "proposed_for_review",
+      "order": 2,
+      "tie_break_explanation": "Equal triage score (13); Placed after 'Verify HTML title targeting for the selected keyword' because estimated effort is high versus low. This is a workflow tie-break, not a ranking-impact prediction."
+    },
+    {
+      "id": "generic-query-coverage",
+      "title": "Review intent coverage for relevant generic searches",
+      "priority": "medium",
+      "priority_score": 12,
+      "priority_basis": "Triage rubric: 2*relevance + potential_impact + evidence_confidence + inverse_effort; ordinal only.",
+      "potential_impact": "medium",
+      "evidence_confidence": "medium",
+      "implementation_effort": "medium",
+      "keyword_relevance": "high",
+      "action_type": "investigate",
+      "target_url": "https://www.hollywoodbets.net/aviator",
+      "impact_estimate": {
+        "potential": "medium_qualitative_unquantified",
+        "unit": "qualitative_opportunity_not_rank_lift",
+        "quantified_rank_or_traffic_lift": null,
+        "basis": "Rule-based opportunity assessment, not a validated causal forecast."
+      },
+      "evidence": "Shared keyword intersection, filtered generic competitor leads: play aviator (ours #2, benchmark #1), aviator betting (ours #8, benchmark #2), aviator bet (ours #5, benchmark #1), how to play aviator (ours #10, benchmark #1), play aviator now (ours #2, benchmark #1).",
+      "interpretation": "The competitor leads for these related queries in the saved DataForSEO dataset; these may rank different landing pages.",
+      "actions": [
+        "Verify the exact ranking URLs for each selected related query.",
+        "Compare the relevant page sections, user intent and internal linking for those URLs.",
+        "Only improve this page when the verified query intent matches its purpose."
+      ],
+      "success_check": "Monitor those same query positions and verify content changes against their intent.",
+      "limitations": "Lexical relevance screening is conservative, not semantic intent analysis; third-party or unfamiliar terms require review.",
+      "status": "proposed_for_review",
+      "order": 3,
+      "tie_break_explanation": "Equal triage score (12); Placed before 'Investigate page-specific backlink quality and relevant link-earning opportunities' because estimated effort is medium versus high. This is a workflow tie-break, not a ranking-impact prediction."
+    },
+    {
+      "id": "page-link-profile",
+      "title": "Investigate page-specific backlink quality and relevant link-earning opportunities",
+      "priority": "medium",
+      "priority_score": 12,
+      "priority_basis": "Triage rubric: 2*relevance + potential_impact + evidence_confidence + inverse_effort; ordinal only.",
+      "potential_impact": "high",
+      "evidence_confidence": "medium",
+      "implementation_effort": "high",
+      "keyword_relevance": "high",
+      "action_type": "investigate",
+      "target_url": "https://www.hollywoodbets.net/aviator",
+      "impact_estimate": {
+        "potential": "high_qualitative_unquantified",
+        "unit": "qualitative_opportunity_not_rank_lift",
+        "quantified_rank_or_traffic_lift": null,
+        "basis": "Rule-based opportunity assessment, not a validated causal forecast."
+      },
+      "evidence": "Page backlink rank: ours 18, competitor 36; referring domains: ours 1184, competitor 1259. Domain backlink rank: ours 70, competitor 65.",
+      "interpretation": "The competitor page has stronger measured link signals, but aggregate counts cannot establish link quality or ranking causation.",
+      "actions": [
+        "Review referring-domain-level data for topical relevance, placement and editorial quality before acting.",
+        "Identify legitimate opportunities to earn references to this exact ranking page.",
+        "Improve useful resources and relevant internal links; avoid manipulative link schemes."
+      ],
+      "success_check": "Recheck the same page-level link metrics and independent SERP observations over time.",
+      "limitations": "Referring-domain exports are needed to establish link quality; effort is an estimate.",
+      "status": "proposed_for_review",
+      "order": 4,
+      "tie_break_explanation": "Equal triage score (12); Placed after 'Review intent coverage for relevant generic searches' because estimated effort is high versus medium. This is a workflow tie-break, not a ranking-impact prediction."
+    },
+    {
+      "id": "onpage-meta_keyword_match",
+      "title": "Verify meta description targeting for the selected keyword",
+      "priority": "medium",
+      "priority_score": 10,
+      "priority_basis": "Triage rubric: 2*relevance + potential_impact + evidence_confidence + inverse_effort; ordinal only.",
+      "potential_impact": "low",
+      "evidence_confidence": "medium",
+      "implementation_effort": "low",
+      "keyword_relevance": "medium",
+      "action_type": "verify_before_edit",
+      "target_url": "https://www.hollywoodbets.net/aviator",
+      "impact_estimate": {
+        "potential": "low_qualitative_unquantified",
+        "unit": "qualitative_opportunity_not_rank_lift",
+        "quantified_rank_or_traffic_lift": null,
+        "basis": "Rule-based opportunity assessment, not a validated causal forecast."
+      },
+      "evidence": "Keyword 'aviator' was not detected in our captured meta description, but was detected in the competitor's.",
+      "interpretation": "This is a captured-page difference, not a verified defect. Meta descriptions can affect search-result snippets and clicks; keyword presence is not a direct ranking boost.",
+      "actions": [
+        "First verify the current rendered HTML and canonical response at the exact ranking URL.",
+        "If the meta description is genuinely generic or misleading, propose an accurate, natural topic-specific revision.",
+        "Review the proposed text with the SEO/content owner before publishing."
+      ],
+      "success_check": "Recrawl the exact URL after approval and compare search appearance over time.",
+      "limitations": "Google may generate its own search-result snippet instead of using the meta description. Editing it does not guarantee higher rankings or clicks.",
+      "status": "proposed_for_review",
+      "order": 5,
+      "tie_break_explanation": null
+    }
+  ],
+  "limitations": {
+    "overall_score": "Not used.",
+    "confidence": "Findings are labelled high/medium/low based on evidence strength.",
+    "estimated_metrics": "Traffic/search-volume style estimates are comparative supporting signals, not exact measurements.",
+    "causation": "Observed differences do not prove a search engine used that signal as the cause of the ranking difference.",
+    "url_first": "Page-level evidence is only compared when it matches the exact Google SERP ranking URL.",
+    "coverage": "Incomplete, redirected or thin crawls are withheld from comparative page findings.",
+    "lighthouse": "Local lab metrics only. Missing, redirected or failed audits are not interpreted as zero or poor SEO. A usable Lighthouse audit does not independently verify full SEO-content rendering.",
+    "competitor_definition": "Potential competitor = a domain with meaningful SERP/Labs evidence of competing with our search demand; classification is evidence-based and may remain provisional."
+  },
+  "evidence_coverage": {
+    "schema_version": "1.0",
+    "categories": {
+      "search_visibility": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "evidence.serp.ranking_summary"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      },
+      "onpage_content": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "evidence.onpage.pages",
+          "evidence.onpage.comparison"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      },
+      "backlinks_authority": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "evidence.backlinks"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      },
+      "technical_lighthouse": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "evidence.technical.mobile_audits"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      },
+      "related_keyword_competition": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "evidence.keywords.intersection"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      },
+      "deterministic_findings_recommendations": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "deterministic_recommendations",
+          "deterministic_findings"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      }
+    },
+    "covered_count": 6,
+    "category_count": 6
+  }
+}

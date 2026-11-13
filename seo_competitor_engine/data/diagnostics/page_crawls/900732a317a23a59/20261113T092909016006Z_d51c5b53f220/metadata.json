@@ -1,0 +1,776 @@
+{
+  "schema_version": "1.0",
+  "requested_url": "https://www.hollywoodbets.net/betting/21/lucky-numbers/countries",
+  "final_url": "https://www.hollywoodbets.net/betting/21/lucky-numbers/countries",
+  "main_navigation_status": 200,
+  "milestones": {
+    "started_at": "2026-11-13T09:28:20.785885+00:00",
+    "browser_launch_started_at": "2026-11-13T09:28:21.120797+00:00",
+    "browser_launched_at": "2026-11-13T09:28:21.374037+00:00",
+    "context_created_at": "2026-11-13T09:28:21.385870+00:00",
+    "page_created_at": "2026-11-13T09:28:21.580057+00:00",
+    "navigation_started_at": "2026-11-13T09:28:21.596759+00:00",
+    "domcontentloaded_at": "2026-11-13T09:28:22.451118+00:00",
+    "navigation_completed_at": "2026-11-13T09:28:22.452017+00:00",
+    "dom_content_loaded_at": "2026-11-13T09:28:22.452022+00:00",
+    "readiness_check_started_at": "2026-11-13T09:28:22.637563+00:00",
+    "load_at": "2026-11-13T09:28:24.191038+00:00",
+    "readiness_check_completed_at": "2026-11-13T09:29:07.670905+00:00",
+    "diagnostics_saved_at": "2026-11-13T09:29:09.101859+00:00"
+  },
+  "failed_requests": [
+    {
+      "timestamp": "2026-11-13T09:28:22.566617+00:00",
+      "method": "GET",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings?key=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.567742+00:00",
+      "method": "GET",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings/group?Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.569343+00:00",
+      "method": "GET",
+      "url": "https://content-cms-api.hollywoodbets.net/api/v1/platforms-components?platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.569586+00:00",
+      "method": "GET",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.570114+00:00",
+      "method": "GET",
+      "url": "https://sport-events-api.hollywoodbets.net/api/betting/bettypes?lang=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.589141+00:00",
+      "method": "GET",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings?key=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.589435+00:00",
+      "method": "GET",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings?key=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.605398+00:00",
+      "method": "GET",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings?key=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.606326+00:00",
+      "method": "GET",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.606665+00:00",
+      "method": "GET",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.922420+00:00",
+      "method": "GET",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/menu?platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.922659+00:00",
+      "method": "GET",
+      "url": "https://sport-events-api.hollywoodbets.net/api/events/eps/sports?lang=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.922864+00:00",
+      "method": "GET",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.923065+00:00",
+      "method": "GET",
+      "url": "https://content-cms-api.hollywoodbets.net/api/v1/thumbnail-tags?platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.976201+00:00",
+      "method": "GET",
+      "url": "https://sport-events-api.hollywoodbets.net/api/sports/21/countriesandtournaments?isTodaysEvents=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.977114+00:00",
+      "method": "GET",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Popular/21/countries",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.977464+00:00",
+      "method": "GET",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Popular/21/tournaments",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.991484+00:00",
+      "method": "GET",
+      "url": "https://content-cms-api.hollywoodbets.net/api/v1/carousel-promotions?platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.992688+00:00",
+      "method": "GET",
+      "url": "https://content-cms-api.hollywoodbets.net/api/v1/popups?platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:23.786754+00:00",
+      "method": "GET",
+      "url": "https://content-cms-api.hollywoodbets.net/api/v1/platforms-components?platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:23.789340+00:00",
+      "method": "GET",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:23.792265+00:00",
+      "method": "GET",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings?key=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:23.793138+00:00",
+      "method": "GET",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings?key=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:23.793782+00:00",
+      "method": "GET",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:23.794524+00:00",
+      "method": "GET",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:23.921968+00:00",
+      "method": "GET",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/menu?platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:23.923956+00:00",
+      "method": "GET",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:25.763009+00:00",
+      "method": "GET",
+      "url": "https://content-cms-api.hollywoodbets.net/api/v1/platforms-components?platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:25.763902+00:00",
+      "method": "GET",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:25.764201+00:00",
+      "method": "GET",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings?key=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:25.764643+00:00",
+      "method": "GET",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings?key=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:25.765304+00:00",
+      "method": "GET",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:25.769380+00:00",
+      "method": "GET",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:25.948052+00:00",
+      "method": "GET",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/menu?platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    },
+    {
+      "timestamp": "2026-11-13T09:28:25.964042+00:00",
+      "method": "GET",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "failure": "net::ERR_BLOCKED_BY_CLIENT.Inspector"
+    }
+  ],
+  "http_errors": [],
+  "console_errors": [
+    {
+      "timestamp": "2026-11-13T09:28:22.567226+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings?key=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.568264+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings/group?Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Keys=%5BVALUE%5D&Platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.569456+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://content-cms-api.hollywoodbets.net/api/v1/platforms-components?platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.569708+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.570561+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://sport-events-api.hollywoodbets.net/api/betting/bettypes?lang=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.589312+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings?key=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.589570+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings?key=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.605696+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings?key=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.606501+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.606806+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.922553+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/menu?platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.922759+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://sport-events-api.hollywoodbets.net/api/events/eps/sports?lang=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.922972+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.923167+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://content-cms-api.hollywoodbets.net/api/v1/thumbnail-tags?platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.976411+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://sport-events-api.hollywoodbets.net/api/sports/21/countriesandtournaments?isTodaysEvents=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.977271+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Popular/21/countries",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.977578+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Popular/21/tournaments",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.985756+00:00",
+      "message": "TypeError: h.map is not a function\n    at https://www.hollywoodbets.net/js/views_Betting_LuckyNumbers_Pages_TodaysLuckyNumbers_index_tsx.8922a4813a01b5853175.js:1:48568\n    at https://www.hollywoodbets.net/js/views_Betting_LuckyNumbers_Pages_TodaysLuckyNumbers_index_tsx.8922a4813a01b5853175.js:1:49969\n    at ru (https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-da56ec.f11a12170d3499f88805.min.js:1:416590)\n    at _l (https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-da56ec.f11a12170d3499f88805.min.js:1:436720)\n    at ul (https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-da56ec.f11a12170d3499f88805.min.js:1:429021)\n    at Ho (https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-da56ec.f11",
+      "url": "https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-da56ec.f11a12170d3499f88805.min.js",
+      "line": 0,
+      "column": 394829
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.986262+00:00",
+      "message": "Error caught by ErrorBoundary: TypeError: h.map is not a function\n    at https://www.hollywoodbets.net/js/views_Betting_LuckyNumbers_Pages_TodaysLuckyNumbers_index_tsx.8922a4813a01b5853175.js:1:48568\n    at https://www.hollywoodbets.net/js/views_Betting_LuckyNumbers_Pages_TodaysLuckyNumbers_index_tsx.8922a4813a01b5853175.js:1:49969\n    at ru (https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-da56ec.f11a12170d3499f88805.min.js:1:416590)\n    at _l (https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-da56ec.f11a12170d3499f88805.min.js:1:436720)\n    at ul (https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-da56ec.f11a12170d3499f88805.min.js:1:429021)\n    at Ho (https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modul",
+      "url": "https://www.hollywoodbets.net/js/config_BettingSport_BettingSportComponents_tsx.8fead5fd6b3e0335cb0d.js",
+      "line": 0,
+      "column": 1653
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.990024+00:00",
+      "message": "TypeError: h.map is not a function\n    at https://www.hollywoodbets.net/js/views_Betting_LuckyNumbers_Pages_TodaysLuckyNumbers_index_tsx.8922a4813a01b5853175.js:1:48568\n    at https://www.hollywoodbets.net/js/views_Betting_LuckyNumbers_Pages_TodaysLuckyNumbers_index_tsx.8922a4813a01b5853175.js:1:49969\n    at ru (https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-da56ec.f11a12170d3499f88805.min.js:1:416590)\n    at _l (https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-da56ec.f11a12170d3499f88805.min.js:1:436720)\n    at ul (https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-da56ec.f11a12170d3499f88805.min.js:1:429021)\n    at Ho (https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-da56ec.f11",
+      "url": "https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-da56ec.f11a12170d3499f88805.min.js",
+      "line": 0,
+      "column": 394829
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.990515+00:00",
+      "message": "Error caught by ErrorBoundary: TypeError: h.map is not a function\n    at https://www.hollywoodbets.net/js/views_Betting_LuckyNumbers_Pages_TodaysLuckyNumbers_index_tsx.8922a4813a01b5853175.js:1:48568\n    at https://www.hollywoodbets.net/js/views_Betting_LuckyNumbers_Pages_TodaysLuckyNumbers_index_tsx.8922a4813a01b5853175.js:1:49969\n    at ru (https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-da56ec.f11a12170d3499f88805.min.js:1:416590)\n    at _l (https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-da56ec.f11a12170d3499f88805.min.js:1:436720)\n    at ul (https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-da56ec.f11a12170d3499f88805.min.js:1:429021)\n    at Ho (https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modul",
+      "url": "https://www.hollywoodbets.net/js/config_BettingSport_BettingSportComponents_tsx.8fead5fd6b3e0335cb0d.js",
+      "line": 0,
+      "column": 1653
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.991607+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://content-cms-api.hollywoodbets.net/api/v1/carousel-promotions?platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:22.992830+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://content-cms-api.hollywoodbets.net/api/v1/popups?platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:23.787087+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://content-cms-api.hollywoodbets.net/api/v1/platforms-components?platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:23.790065+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:23.792776+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings?key=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:23.793453+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings?key=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:23.794125+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:23.794925+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:23.922116+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/menu?platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:23.924087+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:25.763696+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://content-cms-api.hollywoodbets.net/api/v1/platforms-components?platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:25.764049+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:25.764400+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings?key=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:25.765013+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-settings-api.hollywoodbets.net/api/Settings?key=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:25.765517+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:25.769725+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:25.948625+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/menu?platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    },
+    {
+      "timestamp": "2026-11-13T09:28:25.964301+00:00",
+      "message": "Failed to load resource: net::ERR_BLOCKED_BY_CLIENT.Inspector",
+      "url": "https://comet-pages-api.hollywoodbets.net/api/Page/Render?path=%5BVALUE%5D&platform=%5BVALUE%5D",
+      "line": 0,
+      "column": 0
+    }
+  ],
+  "page_exceptions": [
+    {
+      "timestamp": "2026-11-13T09:28:25.570598+00:00",
+      "type": "Error",
+      "message": "Failed to execute 'browsingTopics' on 'Document': document.browsingTopics() is deprecated and has been removed."
+    }
+  ],
+  "request_guard_rejections": [
+    {
+      "hostname": "comet-settings-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.456097+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-settings-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.458302+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "content-cms-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.508989+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-pages-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.511192+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "sport-events-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.513565+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-settings-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.551791+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-settings-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.554026+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-settings-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.556286+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-pages-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.558864+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-pages-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.562823+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-pages-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.770072+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "sport-events-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.773107+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-pages-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.778071+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "content-cms-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.780423+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "sport-events-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.961321+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-settings-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.963410+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-settings-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.966005+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "content-cms-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.972629+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "content-cms-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:22.974977+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "content-cms-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:23.651576+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-pages-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:23.654400+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-settings-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:23.656230+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-settings-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:23.657987+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-pages-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:23.659385+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-pages-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:23.660878+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-pages-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:23.916475+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-pages-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:23.920776+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "content-cms-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:25.738099+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-pages-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:25.743278+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-settings-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:25.746245+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-settings-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:25.750338+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-pages-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:25.755474+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-pages-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:25.759571+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-pages-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:25.937254+00:00",
+      "originated_from_request_guard": true
+    },
+    {
+      "hostname": "comet-pages-api.hollywoodbets.net",
+      "method": "GET",
+      "category": "non_public_dns_address",
+      "timestamp": "2026-11-13T09:28:25.942331+00:00",
+      "originated_from_request_guard": true
+    }
+  ],
+  "extraction_completeness_reason": "incomplete:standardized_main_content_not_confirmed",
+  "duration_seconds": 48.23,
+  "readiness_samples": 45,
+  "readiness_duration_seconds": 45.03,
+  "extraction_status": "incomplete",
+  "blocked": false,
+  "reason": "incomplete:standardized_main_content_not_confirmed",
+  "saved_files": {
+    "screenshot": "page.png",
+    "html": "page.html"
+  },
+  "diagnostic_errors": [],
+  "timestamp": "2026-11-13T09:29:09.101859+00:00"
+}

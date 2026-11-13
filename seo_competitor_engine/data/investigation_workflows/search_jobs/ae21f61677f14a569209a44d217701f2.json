@@ -1,0 +1,194 @@
+{
+  "schema_version": "1.0",
+  "job_id": "ae21f61677f14a569209a44d217701f2",
+  "keyword": "lucky numbers",
+  "depth": 20,
+  "status": "completed",
+  "started_at": "2026-11-09T14:10:21.341307+00:00",
+  "finished_at": "2026-11-09T14:11:33.342024+00:00",
+  "fingerprint": "a7af93d87629dd916efd7a265726b4ed46b8e124b2a9c0ea5791588700516c07",
+  "request": {
+    "keyword": "lucky numbers",
+    "depth": 20,
+    "configuration": {
+      "language_code": "en",
+      "location_coordinate": "-29.7359502,31.0699179,200",
+      "our_domain": "hollywoodbets.net",
+      "depth": 20
+    }
+  },
+  "created_at": "2026-11-09T14:10:21.343067+00:00",
+  "credentials_stored": false,
+  "result": {
+    "keyword": "lucky numbers",
+    "status": "ok",
+    "collected_at": "2026-11-09T14:11:32.795378+00:00",
+    "search_url": "https://www.google.com/search?q=lucky+numbers&hl=en&gl=za&num=20&pws=0",
+    "location_note": "Google gl=za; not precise coordinate emulation",
+    "depth_requested": 20,
+    "depth_collected": 21,
+    "pages_completed": 3,
+    "stop_reason": "tracked_site_found_with_neighbours",
+    "maximum_search_depth": 100,
+    "tracked_site": {
+      "domain": "hollywoodbets.net",
+      "status": "found",
+      "rank": 1,
+      "ranking_url": "https://www.hollywoodbets.net/betting/21/lucky-numbers/countries",
+      "ranking_title": "Lucky Numbers for today",
+      "results_above": 0,
+      "results_below": 20,
+      "minimum_results": 20,
+      "maximum_results": 100,
+      "neighbours_requested": 2,
+      "complete": true,
+      "search_exhausted": false,
+      "rank_semantics": "observed_organic_sequence; not guaranteed absolute Google rank",
+      "stop_reason": "tracked_site_found_with_neighbours"
+    },
+    "validation": {
+      "status": "review_required",
+      "flags": [
+        "some_result_urls_not_matched_to_heading_links"
+      ],
+      "pages_checked": 3
+    },
+    "serp_diagnostics_enabled": false,
+    "diagnostics": null,
+    "previous_observation_comparison": null,
+    "organic_results": [
+      {
+        "rank_group": 1,
+        "domain": "hollywoodbets.net",
+        "title": "Lucky Numbers for today",
+        "url": "https://www.hollywoodbets.net/betting/21/lucky-numbers/countries"
+      },
+      {
+        "rank_group": 2,
+        "domain": "play.google.com",
+        "title": "Today Lucky Numbers – Apps on Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.luckynumber&hl=en_ZA"
+      },
+      {
+        "rank_group": 3,
+        "domain": "sportybet.co.za",
+        "title": "Lucky numbers",
+        "url": "https://www.sportybet.co.za/za/m/lucky-numbers"
+      },
+      {
+        "rank_group": 4,
+        "domain": "luckynumber.today",
+        "title": "Today Lucky Number",
+        "url": "https://www.luckynumber.today/"
+      },
+      {
+        "rank_group": 5,
+        "domain": "worldsportsbetting.co.za",
+        "title": "Lucky Numbers - Play Powerball Online",
+        "url": "https://www.worldsportsbetting.co.za/lucky-numbers"
+      },
+      {
+        "rank_group": 6,
+        "domain": "supersportbet.com",
+        "title": "Dream Guide: How to Bet on Lucky Numbers and Lotteries",
+        "url": "https://www.supersportbet.com/en-za/newsfeed/lotto/dream-guide-how-to-bet-on-lucky-numbers-and-lotteries"
+      },
+      {
+        "rank_group": 7,
+        "domain": "betxchange.com",
+        "title": "Lucky Numbers",
+        "url": "https://betxchange.com/lotto/numbers/all"
+      },
+      {
+        "rank_group": 8,
+        "domain": "en.wikipedia.org",
+        "title": "Lucky number",
+        "url": "https://en.wikipedia.org/wiki/Lucky_number"
+      },
+      {
+        "rank_group": 9,
+        "domain": "luckystar.co.za",
+        "title": "Recipes",
+        "url": "https://luckystar.co.za/recipes/"
+      },
+      {
+        "rank_group": 10,
+        "domain": "betting.co.zw",
+        "title": "Lucky Numbers",
+        "url": "https://betting.co.zw/bitville/lucky-numbers"
+      },
+      {
+        "rank_group": 11,
+        "domain": "youtube.com",
+        "title": "Lucky — Official Trailer | Apple TV",
+        "url": "https://www.youtube.com/watch?v=GAbT5qCTXR8"
+      },
+      {
+        "rank_group": 12,
+        "domain": "central.bet.co.za",
+        "title": "Lucky Numbers Dream Guide 2026 - Bet Central",
+        "url": "https://www.central.bet.co.za/sports-betting-academy/betting-on-lucky-numbers/lucky-numbers-dream-guide/"
+      },
+      {
+        "rank_group": 13,
+        "domain": "luckypony.co.za",
+        "title": "Lucky Pony - A Blog About Excellent Pretty ThingsLucky Pony",
+        "url": "https://luckypony.co.za/"
+      },
+      {
+        "rank_group": 14,
+        "domain": "education.nwu.ac.za",
+        "title": "Lucky Ncala | Natural Sciences Education - NWU",
+        "url": "https://education.nwu.ac.za/natural-sciences-education/lucky-ncala"
+      },
+      {
+        "rank_group": 15,
+        "domain": "facebook.com",
+        "title": "Lucky Daye (@IAmLuckyDaye1)",
+        "url": "https://www.facebook.com/IAmLuckyDaye1/"
+      },
+      {
+        "rank_group": 16,
+        "domain": "blog.hollywoodbets.net",
+        "title": "Lucky Numbers Dream Guide",
+        "url": "https://blog.hollywoodbets.net/lotto/dream-guide/lucky-numbers-dream-guide/"
+      },
+      {
+        "rank_group": 17,
+        "domain": "open.spotify.com",
+        "title": "Listen to Lucky - Album by Megan Moroney",
+        "url": "https://open.spotify.com/album/5DFed53ADZwnPOYuqoZJHK"
+      },
+      {
+        "rank_group": 18,
+        "domain": "x.com",
+        "title": "Lucky Orimisan Aiyedatiwa (@LuckyAiyedatiwa) ...",
+        "url": "https://x.com/LuckyAiyedatiwa?lang=en"
+      },
+      {
+        "rank_group": 19,
+        "domain": "sars.gov.za",
+        "title": "SARS welcomes judgment on Mr Lucky Montana",
+        "url": "https://www.sars.gov.za/media-release/sars-welcomes-judgment-on-mr-lucky-montana/"
+      },
+      {
+        "rank_group": 20,
+        "domain": "ebe.uct.ac.za",
+        "title": "Lucky Siboya | University of Cape Town",
+        "url": "https://ebe.uct.ac.za/department-mechanical-engineering/contacts/lucky-siboya"
+      },
+      {
+        "rank_group": 21,
+        "domain": "play.google.com",
+        "title": "My Lucky Cross - Apps on Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.luckynumbers.luckycross&hl=en"
+      }
+    ],
+    "source": "saved_google_playwright"
+  },
+  "snapshot": {
+    "sha256": "27c3abecbb900fc4a9e5c99b1c492b00283513d01f4df37464a0b2d626fdacf3",
+    "path": "data/raw/serp/lucky_numbers_dd087a6a_google_playwright.json",
+    "size_bytes": 17051
+  }
+}

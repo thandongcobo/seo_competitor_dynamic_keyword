@@ -1,0 +1,224 @@
+{
+  "schema_version": "1.0",
+  "job_id": "3343886dd21d4740a8e92b98d22bf3f8",
+  "keyword": "lucky numbers",
+  "depth": 20,
+  "status": "completed",
+  "started_at": "2026-11-09T12:47:48.341821+00:00",
+  "finished_at": "2026-11-09T12:49:18.390211+00:00",
+  "fingerprint": "a7af93d87629dd916efd7a265726b4ed46b8e124b2a9c0ea5791588700516c07",
+  "request": {
+    "keyword": "lucky numbers",
+    "depth": 20,
+    "configuration": {
+      "language_code": "en",
+      "location_coordinate": "-29.7359502,31.0699179,200",
+      "our_domain": "hollywoodbets.net",
+      "depth": 20
+    }
+  },
+  "created_at": "2026-11-09T12:47:48.343119+00:00",
+  "credentials_stored": false,
+  "result": {
+    "keyword": "lucky numbers",
+    "status": "ok",
+    "collected_at": "2026-11-09T12:49:17.941502+00:00",
+    "search_url": "https://www.google.com/search?q=lucky+numbers&hl=en&gl=za&num=20&pws=0&sei=98DxaovBOauOseMP5IqP0Qg",
+    "location_note": "Google gl=za; not precise coordinate emulation",
+    "depth_requested": 20,
+    "depth_collected": 26,
+    "pages_completed": 3,
+    "stop_reason": "tracked_site_found_with_neighbours",
+    "maximum_search_depth": 100,
+    "tracked_site": {
+      "domain": "hollywoodbets.net",
+      "status": "found",
+      "rank": 7,
+      "ranking_url": "https://blog.hollywoodbets.net/category/lotto/lucky-numbers/",
+      "ranking_title": "Lucky Numbers",
+      "results_above": 6,
+      "results_below": 19,
+      "minimum_results": 20,
+      "maximum_results": 100,
+      "neighbours_requested": 2,
+      "complete": true,
+      "search_exhausted": false,
+      "rank_semantics": "observed_organic_sequence; not guaranteed absolute Google rank",
+      "stop_reason": "tracked_site_found_with_neighbours"
+    },
+    "validation": {
+      "status": "review_required",
+      "flags": [
+        "some_result_urls_not_matched_to_heading_links"
+      ],
+      "pages_checked": 3
+    },
+    "serp_diagnostics_enabled": false,
+    "diagnostics": null,
+    "previous_observation_comparison": null,
+    "organic_results": [
+      {
+        "rank_group": 1,
+        "domain": "supersportbet.com",
+        "title": "Lucky Numbers",
+        "url": "https://www.supersportbet.com/en-za/lottery"
+      },
+      {
+        "rank_group": 2,
+        "domain": "x.com",
+        "title": "Lucky Number Results (@LNResults ...",
+        "url": "https://x.com/LNResults"
+      },
+      {
+        "rank_group": 3,
+        "domain": "betsouthafrica.co.za",
+        "title": "Lucky Numbers Betting South Africa | Bet on Lotto Draws",
+        "url": "https://betsouthafrica.co.za/lucky-numbers/"
+      },
+      {
+        "rank_group": 4,
+        "domain": "za.pinterest.com",
+        "title": "65 Lucky numbers for lottery ideas",
+        "url": "https://za.pinterest.com/driceberry/lucky-numbers-for-lottery/"
+      },
+      {
+        "rank_group": 5,
+        "domain": "play.google.com",
+        "title": "Lucky Numbers – Apps on Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.mobincube.lucky_numbers.sc_8PA6L7&hl=en_ZA"
+      },
+      {
+        "rank_group": 6,
+        "domain": "shutterstock.com",
+        "title": "Lucky Numbers royalty-free images",
+        "url": "https://www.shutterstock.com/search/lucky-numbers"
+      },
+      {
+        "rank_group": 7,
+        "domain": "blog.hollywoodbets.net",
+        "title": "Lucky Numbers",
+        "url": "https://blog.hollywoodbets.net/category/lotto/lucky-numbers/"
+      },
+      {
+        "rank_group": 8,
+        "domain": "luckynumber.today",
+        "title": "Lottery Number",
+        "url": "https://www.luckynumber.today/lottery-number"
+      },
+      {
+        "rank_group": 9,
+        "domain": "za.pinterest.com",
+        "title": "Vuurvliegjes",
+        "url": "https://za.pinterest.com/pin/478366791694576374/"
+      },
+      {
+        "rank_group": 10,
+        "domain": "lotterypredictor.com",
+        "title": "South Africa Lottery Lucky Numbers For Today",
+        "url": "https://lotterypredictor.com/lucky-numbers/today/south-africa"
+      },
+      {
+        "rank_group": 11,
+        "domain": "slideshare.net",
+        "title": "Lucky numbers and numerology | PDF",
+        "url": "https://www.slideshare.net/slideshow/lucky-numbers-and-numerology/40030916"
+      },
+      {
+        "rank_group": 12,
+        "domain": "play.google.com",
+        "title": "Lucky Numbers – Apps on Google Play",
+        "url": "https://play.google.com/store/apps/details?id=com.numeros_suerte&hl=en_ZA"
+      },
+      {
+        "rank_group": 13,
+        "domain": "za.pinterest.com",
+        "title": "Lucky Numbers for Lottery",
+        "url": "https://za.pinterest.com/pin/1137933030840311872/"
+      },
+      {
+        "rank_group": 14,
+        "domain": "calculatorsoup.com",
+        "title": "Lottery Number Generator",
+        "url": "https://www.calculatorsoup.com/calculators/games/lottery-number-generator.php"
+      },
+      {
+        "rank_group": 15,
+        "domain": "bezbets.co.zw",
+        "title": "Lucky Numbers",
+        "url": "https://bezbets.co.zw/lotto"
+      },
+      {
+        "rank_group": 16,
+        "domain": "facebook.com",
+        "title": "Lucky numbers results and predictions | Johannesburg",
+        "url": "https://www.facebook.com/p/Lucky-numbers-results-and-predictions-100063668072192/"
+      },
+      {
+        "rank_group": 17,
+        "domain": "yesplay.bet",
+        "title": "Lucky Numbers in South Africa Lotteries",
+        "url": "https://yesplay.bet/blog/posts/lotto-numbers-sa-lotteries"
+      },
+      {
+        "rank_group": 18,
+        "domain": "za.pinterest.com",
+        "title": "Lucky numbers for lottery",
+        "url": "https://za.pinterest.com/mmataediellen/lucky-numbers-for-lottery/"
+      },
+      {
+        "rank_group": 19,
+        "domain": "za.pinterest.com",
+        "title": "Lucky Numbers Dream Guide | Hollywoodbets Sports Blog",
+        "url": "https://za.pinterest.com/pin/875527983825113694/"
+      },
+      {
+        "rank_group": 20,
+        "domain": "za.national-lottery.com",
+        "title": "Lotto Lucky Number Generator - National Lottery",
+        "url": "https://za.national-lottery.com/lotto/lucky-number-generator"
+      },
+      {
+        "rank_group": 21,
+        "domain": "lottostar.co.za",
+        "title": "The Most Popular Lucky Winning Numbers!",
+        "url": "https://lottostar.co.za/blog/the-most-popular-lucky-winning-numbers"
+      },
+      {
+        "rank_group": 22,
+        "domain": "luckynumber.today",
+        "title": "South Africa Lotto",
+        "url": "https://www.luckynumber.today/lottery/sa-lotto"
+      },
+      {
+        "rank_group": 23,
+        "domain": "play.google.com",
+        "title": "My Lucky numbers today – Apps on ...",
+        "url": "https://play.google.com/store/apps/details?id=com.damarapps.luckynumber&hl=en_IE"
+      },
+      {
+        "rank_group": 24,
+        "domain": "za.pinterest.com",
+        "title": "28 Lucky numbers for lottery ideas",
+        "url": "https://za.pinterest.com/gerhardannemari/lucky-numbers-for-lottery/"
+      },
+      {
+        "rank_group": 25,
+        "domain": "betandwin.co.za",
+        "title": "Lucky Numbers Games Online Reviews - Bet and Win",
+        "url": "https://betandwin.co.za/games/lucky-numbers/"
+      },
+      {
+        "rank_group": 26,
+        "domain": "betsouthafrica.co.za",
+        "title": "Lucky Numbers for Today – Free Generator - Bet South Africa",
+        "url": "https://betsouthafrica.co.za/lucky-numbers-for-today/"
+      }
+    ],
+    "source": "saved_google_playwright"
+  },
+  "snapshot": {
+    "sha256": "4e1094af44f49d029a0ffe65004e41269e8abe90151002c40049703ad94e14d5",
+    "path": "data/raw/serp/lucky_numbers_dd087a6a_google_playwright.json",
+    "size_bytes": 19299
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "task": "onpage",
+  "attempt": 1,
+  "validation_errors": [
+    "implementation_plans[1].success_measure: numeric claim 15 is not present in this run evidence",
+    "implementation_plans[1].success_measure: numeric claim 20 is not present in this run evidence",
+    "implementation_plans[1].success_measure: numeric claim 15 is not supported by its cited evidence",
+    "implementation_plans[1].success_measure: numeric claim 20 is not supported by its cited evidence"
+  ],
+  "provisional_citation_changes": [],
+  "grounded_diagnostics": [
+    {
+      "error": "implementation_plans[1].success_measure: numeric claim 15 is not present in this run evidence",
+      "path": "implementation_plans[1].success_measure",
+      "current_value": "Internal link count increases to at least 15–20 links with descriptive anchor text.",
+      "cited_fact_ids": [
+        "ON_LINKS"
+      ],
+      "permitted_fact_ids": [
+        "ON_LINKS"
+      ],
+      "specialist_finding_ids": [
+        "ONPAGE_02"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "15",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    },
+    {
+      "error": "implementation_plans[1].success_measure: numeric claim 20 is not present in this run evidence",
+      "path": "implementation_plans[1].success_measure",
+      "current_value": "Internal link count increases to at least 15–20 links with descriptive anchor text.",
+      "cited_fact_ids": [
+        "ON_LINKS"
+      ],
+      "permitted_fact_ids": [
+        "ON_LINKS"
+      ],
+      "specialist_finding_ids": [
+        "ONPAGE_02"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "20",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    },
+    {
+      "error": "implementation_plans[1].success_measure: numeric claim 15 is not supported by its cited evidence",
+      "path": "implementation_plans[1].success_measure",
+      "current_value": "Internal link count increases to at least 15–20 links with descriptive anchor text.",
+      "cited_fact_ids": [
+        "ON_LINKS"
+      ],
+      "permitted_fact_ids": [
+        "ON_LINKS"
+      ],
+      "specialist_finding_ids": [
+        "ONPAGE_02"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "15",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    },
+    {
+      "error": "implementation_plans[1].success_measure: numeric claim 20 is not supported by its cited evidence",
+      "path": "implementation_plans[1].success_measure",
+      "current_value": "Internal link count increases to at least 15–20 links with descriptive anchor text.",
+      "cited_fact_ids": [
+        "ON_LINKS"
+      ],
+      "permitted_fact_ids": [
+        "ON_LINKS"
+      ],
+      "specialist_finding_ids": [
+        "ONPAGE_02"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "20",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    }
+  ]
+}

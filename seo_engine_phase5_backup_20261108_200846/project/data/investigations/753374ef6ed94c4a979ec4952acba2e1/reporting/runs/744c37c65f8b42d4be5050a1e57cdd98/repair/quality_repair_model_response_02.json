@@ -1,0 +1,7 @@
+{
+  "kind": "raw",
+  "path": "implementation_plans[4]",
+  "attempt": 1,
+  "raw_response": "{\n  \"fields\": {\n    \"implementation_steps\": [\n      \"Verify the exact ranking URL for each target query ('aviator betting', 'how to play aviator', etc.) using domain-level data and confirm user intent and existing page coverage. Domain-level rankings may not reflect the actual ranking page.\",\n      \"Create a detailed 'How to Play Aviator' guide with step-by-step instructions, visuals, and embedded game examples.\",\n      \"Optimize for long-tail keywords like 'aviator betting' and 'how to play aviator' using semantic keywords and internal links.\",\n      \"Publish content on a dedicated subpage or blog section and track performance via UTM parameters.\",\n      \"After publishing, conduct a repeatable post-deployment check: monitor keyword rankings for 'aviator betting' and 'how to play aviator' for 14 days using the same tracking method, and verify if the content has improved position or driven traffic.\"\n    ],\n    \"success_measure\": \"Achieve top-5 positions for 'aviator betting' and 'how to play aviator' within 3 months, verified via post-deployment tracking and confirmed ranking URL analysis.\"\n  }\n}",
+  "finish_reason": "stop"
+}

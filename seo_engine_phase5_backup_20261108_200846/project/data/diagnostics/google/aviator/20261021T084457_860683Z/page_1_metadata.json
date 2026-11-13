@@ -1,0 +1,150 @@
+{
+  "keyword": "aviator",
+  "engine": "google",
+  "stage": "before_extraction",
+  "datetime": "2026-10-21T08:45:06.075697+00:00",
+  "final_url": "https://www.google.com/search?q=aviator&hl=en&gl=za&num=20&pws=0&sei=invYaqzYM9rR1sQP3oGEqQ4",
+  "screenshot_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T084457_860683Z\\page_1_serp.png",
+  "html_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T084457_860683Z\\page_1_serp.html",
+  "metadata_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T084457_860683Z\\page_1_metadata.json",
+  "context": {
+    "configured": {
+      "keyword": "aviator",
+      "country_gl": "za",
+      "language_hl": "en",
+      "personalization_pws": "0",
+      "locale": "en-ZA",
+      "timezone": "Africa/Johannesburg",
+      "headless": false,
+      "viewport": {
+        "width": 1366,
+        "height": 900
+      },
+      "profile_type": "persistent",
+      "profile_identifier": "c8f37757ac0dc88e"
+    },
+    "observed": {
+      "final_url": "https://www.google.com/search?q=aviator&hl=en&gl=za&num=20&pws=0&sei=invYaqzYM9rR1sQP3oGEqQ4",
+      "hostname": "www.google.com",
+      "url_parameters": {
+        "q": "aviator",
+        "gl": "za",
+        "hl": "en",
+        "pws": "0"
+      },
+      "browser": {
+        "language": "en-ZA",
+        "languages": [
+          "en-ZA"
+        ],
+        "timezone": "Africa/Johannesburg",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "documentLanguage": "en-ZA"
+      }
+    },
+    "url_parameter_checks": {
+      "q": "match",
+      "gl": "match",
+      "hl": "match",
+      "pws": "match"
+    },
+    "context_warning": false,
+    "note": "gl targets a country; it does not verify precise physical location or search intent."
+  },
+  "location_coordinate_applied": false,
+  "organic_h3_count": 10,
+  "heading_candidates": [
+    {
+      "index": 1,
+      "title": "A Thrilling Slot Adventure for South African Players",
+      "href": "https://www.google.com/goto?url=CAESrgEB6zswFZXmVJZWUMFp_wMFurUdIaH73eaTUKTUt6O1V51F3BiXjlLZt_HUbcb9CCl9KxfcORkHQszvXroqRmWX_Q_hZ3fVHqosp6yfX_NgwkAGBbHvN1TPAzF5TxiXbf2fnVCg0EEuHAbbiQW5rJzTz6JAaGJnd792jYdL0OTjORyFgBRPYW-Pggz34iOxGxYQXCY5ytM5uo1tPZeUeduCbNowlbDtLDzcacqIM5c",
+      "ancestor_text": "A Thrilling Slot Adventure for South African Players\n\nReformas Gama\nhttps://www.reformasgama.com › soar-to-new-heights-..."
+    },
+    {
+      "index": 2,
+      "title": "AI Mode replied:",
+      "href": null,
+      "ancestor_text": "AI Mode replied:(function(){window.sn={_setImageSrc:function(b,c){var a=document.getElementById(`${b}`);a!==null&&(a.src=c,a.setAttribute(\"data-deferred\",\"2\"),google.rll(a,!0,()=>{a.setAttribute(\"data"
+    },
+    {
+      "index": 3,
+      "title": "Aviator Game: The South African Review | Huppert Law",
+      "href": "https://www.google.com/goto?url=CAESfQHrOzAVjAhMthEYjZlhF7H4uPdZb2IezgHo30-GNzrJFlfF8AdkHnCHKkDyL2u-E6-_lft899bBOmSoybfJCrq3onuNSqjEvGdqqk4L3SfAvQZxQ6rDENstGhQkySyu5k9h9J70Hgk1rXs61RpDAsYyKMLlUB8he_hoMTFf",
+      "ancestor_text": "Aviator Game: The South African Review | Huppert Law\n\nhuppertlawoffice.com\nhttp://huppertlawoffice.com › aviator-game-the-south-a..."
+    },
+    {
+      "index": 4,
+      "title": "How to Play the Aviator Crash Game",
+      "href": "https://www.google.com/goto?url=CAESdwHrOzAVNmSMCATnrPkmgODNy34vxIzZ09bQ3waYRHNGY-MxPGPlZhjpWu9zFZNzr0beStDtPBDmtGUenJD7LND7-AVeWD3a6gZSdbQMEDE3BtLOn_kFkeprrvm5Cy_eGpI_M27kslFN2H0rdmk_82FJMaLcGHrm",
+      "ancestor_text": "How to Play the Aviator Crash Game\n\nPlaySlots.co.za\nhttps://www.playslots.co.za › Player Guides"
+    },
+    {
+      "index": 5,
+      "title": "Aviator: Soaring to New Heights in South African iGaming ...",
+      "href": "https://www.google.com/goto?url=CAESpQEB6zswFTFKFfA1JIoNZhT0cJiVJJDwOV7sK8zWNGgRSslAx01C7p-QjxD9TlK7n68tza284MuedD5ozyUQ_oLqehs4mbyjN6wx87EVuxW-wMKFoBTmCLmZZ5zDOENcLBPHR_cGPibw35Sb3dgQRY0MKDBOucgtR2UkETLZlNdzXeaN0h3VLQ2Rld8Mhjh2uiTqoGzxQt6Y73SGN574NhGAhWD4-AU",
+      "ancestor_text": "Aviator: Soaring to New Heights in South African iGaming ...\n\nsuccessfulhealthhabits.com\nhttps://www.successfulhealthhabits.com › aviator-soarin..."
+    },
+    {
+      "index": 6,
+      "title": "Aviator Slot Review: Is It Worth Playing for South African ...",
+      "href": "https://www.google.com/goto?url=CAESlQEB6zswFRQHjdI_A6axrW6LK6hW8o-ijnkGx6WDy4RjhcxyDL-CaRjk-K8aXLTbMtJGnS3-7DAIfK7zMX1lvkQByfHuKzD6e70oBUyf_lVnqzdHAetTE_wCJsX4-wMp7wLCa4f9OC05-dPF_S2W6asR2EeVUGlTtRLvxnfPn2sDUq8jEAFmDgLBgOvQQfUPBTgU4hL7YA",
+      "ancestor_text": "Aviator Slot Review: Is It Worth Playing for South African ...\n\nnjrtrading.co.za\nhttps://njrtrading.co.za › aviator-slot-review-is-it-worth-..."
+    },
+    {
+      "index": 7,
+      "title": "Top Aviator Game Features for South African Players - My Blog",
+      "href": "https://www.google.com/goto?url=CAESkgEB6zswFefrdBjBdjp34y-Lkhq40n6N7NY6Ks_fFmcSUTLT2SE8gzm_8RoYnJO4kyOAs2xxk_XEVkIpf_ONptge72hCb8ZCTjhMM4fDaW2zG3tsDQvFzVOT64IVL5xdagKvKX9nIOX32M_jFyi4RZz5Oz1jTNdznZOmHHJqythc8Is3jCZM-y3JlZDDDbqt-p7OPw",
+      "ancestor_text": "Top Aviator Game Features for South African Players - My Blog\n\naolegal.com\nhttps://personalinjury.aolegal.com › top-aviator-game-fea..."
+    },
+    {
+      "index": 8,
+      "title": "How Aviator Works: Multipliers, Auto Cash Out and RTP",
+      "href": "https://www.google.com/goto?url=CAEScwHrOzAVzJsjAYXrVASckXx1pPRlmpCTH3VMYno5_UtHck5ZQYjuGEibC3i-Q3jtsgjFUjt_Qggf8d6O_M06_4GrrLE1qdNht4--4FXndKwFM5sC25ChjuP1Bgs1OnoRP53tWorYvkZq8t9Cnrbt_HmnETU",
+      "ancestor_text": "How Aviator Works: Multipliers, Auto Cash Out and RTP\n\nbetradarza.co.za\nhttps://betradarza.co.za › Aviator Tips"
+    },
+    {
+      "index": 9,
+      "title": "Aviator Betting Game SA: How It Works & the Predictor Truth",
+      "href": "https://www.google.com/goto?url=CAESYAHrOzAVBTefDDDRRQ_e66Lyqc3LFuPCu0p7eTcNKkrV8ryg1zr2lRao-FVEXI1a7FfZWUWIsUm2zguffo-ykF4mCEmUwzgBqda1SN9jkP3vKzWKRFfEPcAEJlfV4yV8PQ",
+      "ancestor_text": "Aviator Betting Game SA: How It Works & the Predictor Truth\n\nbetsherpa.co.za\nhttps://betsherpa.co.za › Games"
+    },
+    {
+      "index": 10,
+      "title": "Aviator Game by Spribe | Play Aviator Money Game Online",
+      "href": "https://www.google.com/goto?url=CAESWAHrOzAVDzDJg3Lc0M7oczxLCkzyCv7lSKxFOte8zBWJvdm8bD25YmMnQNJAytn1hfoig_rVl6LknJ_afZP38k1rFU_Zd1I3P_A48stayoF24zSp7P5RrhQ",
+      "ancestor_text": "Aviator Game by Spribe | Play Aviator Money Game Online\n\naviator-gameplay.com\nhttps://aviator-gameplay.com"
+    }
+  ],
+  "capture_errors": [],
+  "extraction_audit": {
+    "status": "review_required",
+    "extracted_count": 10,
+    "heading_candidate_count": 10,
+    "flags": [
+      "possible_non_organic_results_extracted",
+      "some_result_urls_not_matched_to_heading_links"
+    ],
+    "suspicious_results": [
+      {
+        "observed_sequence": 2,
+        "title": "AI Mode replied:",
+        "url": "https://www.wordunscrambler.net/?word=aviator",
+        "reason": "possible_ai_feature"
+      }
+    ],
+    "heading_link_mismatches": [
+      "https://www.reformasgama.com/soar-to-new-heights-with-aviator-a-thrilling-slot-adventure-for-south-african-players/",
+      "https://www.wordunscrambler.net/?word=aviator",
+      "https://huppertlawoffice.com/aviator-game-the-south-african-review/",
+      "https://www.playslots.co.za/player-guides/how-aviator-works/",
+      "https://www.successfulhealthhabits.com/aviator-soaring-to-new-heights-in-south-african-igaming-excitement/",
+      "https://njrtrading.co.za/aviator-slot-review-is-it-worth-playing-for-south-african-gamers/",
+      "https://personalinjury.aolegal.com/top-aviator-game-features-for-south-african-players/",
+      "https://betradarza.co.za/aviator-tips/how-aviator-works/",
+      "https://betsherpa.co.za/games/aviator",
+      "https://aviator-gameplay.com/"
+    ],
+    "capture_error": null,
+    "note": "Automated checks cannot certify absolute Google organic positions; compare saved screenshot/HTML with extraction when flagged."
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "idempotency_key": "949fa45b-4cd3-4db7-92f2-b5b090344059",
+  "request_fingerprint": "12efb9bc9f4fbc473bd6be1111217d15cf46fcd81bd215cb4194f22219509847",
+  "investigation_id": "6e5fc0df22fb4cbb937f4236b6fda414",
+  "status": "completed",
+  "created_at": "2026-11-10T11:48:04.557139+00:00",
+  "completed_at": "2026-11-10T11:48:04.737683+00:00"
+}

@@ -1,0 +1,367 @@
+PS C:\Users\NThamsanqa\OneDrive - HollywoodBets\Desktop\Aviator-SEO-Intelligence> (Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned) ; (& "c:\Users\NThamsanqa\OneDrive - HollywoodBets\Desktop\Aviator-SEO-Intelligence\.venv\Scripts\Activate.ps1")
+(.venv) PS C:\Users\NThamsanqa\OneDrive - HollywoodBets\Desktop\Aviator-SEO-Intelligence> python -m tests.test_competitor_investigation
+================================================================================
+AVIATOR COMPETITOR INVESTIGATION
+================================================================================
+Keyword: aviator
+Focus: Hollywoodbets vs Betway
+SERP source: saved DataForSEO snapshot
+Page investigation: Microsoft Edge via persistent Playwright profile
+
+
+--------------------------------------------------------------------------------
+BETWAY
+--------------------------------------------------------------------------------
+SERP position: 1
+Page URL: https://www.betway.co.za/aviator
+Page title: Play Aviator and reach for the sky | Betway Sports betting
+Meta: Place your Aviator Bets at Betway, cash out before the plane flies off and WIN big, daily rain is predicted so check the weather forecast.
+H1: Aviator | PLAY AVIATOR AT BETWAY
+Word count: 684
+Internal links: 44
+External links: 9
+CTAs: Login, Sign Up, PLAY AVIATOR
+Promotion signals: promotion, promotions, reward, promo
+Promotion evidence: None detected
+Event signals: event, events
+Event evidence: None detected
+News signals: None detected
+Relevant links:
+  - [no anchor text] -> https://www.betway.co.za/
+  - home -> https://www.betway.co.za/
+  - sport -> https://www.betway.co.za/sport/soccer
+  - live -> https://www.betway.co.za/live
+  - aviator -> https://www.betway.co.za/lobby/casino-games/game/aviator
+  - casino -> https://www.betway.co.za/lobby/casino-games
+  - slots -> https://www.betway.co.za/lobby/slots
+  - crash -> https://www.betway.co.za/lobby/crash
+  - live casino -> https://www.betway.co.za/lobby/livecasino
+  - quick games -> https://www.betway.co.za/lobby/quick-games
+Structured data: None detected
+Change status: Page changed since the previous snapshot; deeper review is warranted.
+  * Visible page text changed
+Backlinks: 572061
+Referring domains: 7269
+Referring pages: 485307
+
+--------------------------------------------------------------------------------
+HOLLYWOODBETS
+--------------------------------------------------------------------------------
+SERP position: 2
+Page URL: https://www.hollywoodbets.net/aviator
+Page title: Online Sports Betting and Online Casino | Hollywoodbets
+Meta: Sign up with the top online betting and casino! In addition to the R25 sign-up bonus, we are now giving new players 50 free spins on slot games! Join today!
+H1: AVIATOR
+Word count: 867
+Internal links: 13
+External links: 2
+CTAs: PLAY NOW, Play Aviator With Hollywoodbets, How To Play Aviator, register for a Hollywoodbets account
+Promotion signals: bonus, offer, deposit
+Promotion evidence: None detected
+Event signals: event, tournament, competition, draw
+Event evidence: None detected
+News signals: news, blog, media
+Relevant links:
+  - Play Aviator With Hollywoodbets -> https://www.hollywoodbets.net/play-aviator-with-hollywoodbets
+  - How To Play Aviator -> https://www.hollywoodbets.net/how-to-play-aviator
+  - Key Features -> https://www.hollywoodbets.net/key-features
+  - Quick Payouts -> https://www.hollywoodbets.net/quick-payouts
+  - Payment Methods -> https://www.hollywoodbets.net/payment-methods
+  - Provably Fair -> https://www.hollywoodbets.net/provably-fair
+  - Other Crash Games -> https://www.hollywoodbets.net/other-crash-games
+  - Aviator News -> https://www.hollywoodbets.net/aviator-news
+  - Hollywoodbets blog -> https://blog.hollywoodbets.net/
+  - register for a Hollywoodbets account -> https://register.hollywoodbets.net/south-africa/1
+Structured data: Casino
+Change status: Page changed since the previous snapshot; deeper review is warranted.
+  * Visible page text changed
+Backlinks: 1792828
+Referring domains: 7975
+Referring pages: 1667638
+
+Link-gap evidence collected from DataForSEO Domain Intersection.
+
+================================================================================
+INVESTIGATION COMPLETE
+================================================================================
+DataForSEO investigation cost: 0.072972
+Saved: data\competitor_investigations\aviator_hwb_vs_betway.json
+Browser profile: browser_profile/
+(.venv) PS C:\Users\NThamsanqa\OneDrive - HollywoodBets\Desktop\Aviator-SEO-Intelligence> python -m tests.test_evidence_engine                                 
+================================================================================                              
+AVIATOR EVIDENCE ENGINE
+================================================================================
+Keyword: aviator
+Findings: 8
+
+FINDINGS
+
+[HIGH] Betway currently leads the core Aviator query
+Area: Search visibility
+Confidence: High
+Observation: For 'aviator', Betway is #1 and Hollywoodbets is #2.
+Action: Prioritise evidence-led comparison of title/search alignment, internal linking, page-level authority and relevant competitor activity.
+Practical options: 2
+
+[HIGH] Betway title targets Aviator explicitly; HWB title is generic
+Area: On-page search alignment
+Confidence: High
+Observation: Betway includes "Aviator" in the page title while the current Hollywoodbets title is focused on the broader betting/casino proposition.
+Action: Test an Aviator-specific title direction for the HWB page, keeping the copy accurate, natural and subject to SEO/brand/compliance review.
+Practical options: 2
+
+[MEDIUM] Betway has substantially more internal links on the observed Aviator page
+Area: Internal architecture
+Confidence: Medium
+Observation: Betway page has 44 internal links versus 13 for Hollywoodbets.
+Action: Audit the existing HWB Aviator supporting pages (How To Play Aviator, Aviator News, Key Features, Other Crash Games) and add contextual links back to the primary Aviator page where useful.
+Practical options: 3
+
+[INFO] Hollywoodbets is not disadvantaged on raw page word count
+Area: Content coverage
+Confidence: High
+Observation: HWB has about 867 extracted words versus 684 for Betway.
+Action: Compare topical coverage, headings, FAQs, user questions and page structure instead of adding text purely to increase word count.
+Practical options: 2
+
+[INFO] Domain-level backlink quantity does not explain the current gap
+Area: Authority
+Confidence: Medium
+Observation: HWB has 7,975 referring domains versus 7,269 for Betway at domain level.
+Action: Move to page-level and relevance-filtered link analysis before recommending link acquisition.
+Practical options: 2
+
+[MEDIUM] A meaningful page-change signal was detected and needs review
+Area: Change monitoring
+Confidence: Medium
+Observation: At least one tracked non-noise field changed between the latest and previous snapshots.
+Action: Review the before/after page diff and classify changes into business-significant versus technical/dynamic noise.
+Practical options: 2
+
+[MEDIUM] Competitor link-gap evidence is available for deeper prospect review
+Area: Authority opportunities
+Confidence: Medium
+Observation: The domain-intersection response returned 1 candidate referring domains/records.
+Action: Review each candidate for topical relevance, audience fit, editorial context and whether Hollywoodbets has a legitimate reason to be covered.
+Practical options: 3
+
+[INFO] HWB currently shows stronger verified Aviator promotion evidence on-page
+Area: Commercial activity
+Confidence: Medium
+Observation: Aviator-specific promotional content was detected on HWB, while no Aviator-specific promotion was confirmed on the Betway page in this snapshot.
+Action: Preserve the existing HWB Aviator campaign, then evaluate whether the campaign is clearly surfaced on the primary Aviator page, linked from supportingcontent, and supported by external coverage. Do not copy a competitor offer without commercial, responsible-gambling and compliance review.
+Practical options: 0
+
+================================================================================
+EVIDENCE REPORT SAVED
+================================================================================
+data\evidence\aviator_hwb_vs_betway_evidence.json
+(.venv) PS C:\Users\NThamsanqa\OneDrive - HollywoodBets\Desktop\Aviator-SEO-Intelligence> python -m tests.test_topical_comparison --headed                     
+================================================================================                              
+AVIATOR TOPICAL COMPARISON
+================================================================================
+Keyword: aviator
+Topics checked: 12
+
+TOPIC LANDSCAPE
+
+[HWB_ADVANTAGE] What is Aviator / game overview
+  HWB:    YES (score 7)
+  Betway: NO (score 0)
+    hollywoodbets evidence: headings -> crash game
+
+[SHARED] How to play
+  HWB:    YES (score 12)
+  Betway: YES (score 19)
+    hollywoodbets evidence: headings -> how to play, play aviator
+    betway evidence: title -> play aviator
+
+[SHARED] Cash-out and multiplier mechanics
+  HWB:    YES (score 3)
+  Betway: YES (score 4)
+    hollywoodbets evidence: body -> cash out, multiplier, plane flies
+    betway evidence: body -> cash out, multiplier, plane flies, cash out before
+
+[BETWAY_ADVANTAGE] Demo / practice
+  HWB:    NO (score 0)
+  Betway: YES (score 3)
+    betway evidence: links -> demo
+
+[SHARED] Promotions / offers
+  HWB:    YES (score 9)
+  Betway: YES (score 3)
+    hollywoodbets evidence: links -> aviator bonus, bonus bets, competition
+    betway evidence: links -> promo
+
+[HWB_ADVANTAGE] Payment / deposit options
+  HWB:    YES (score 8)
+  Betway: NO (score 0)
+    hollywoodbets evidence: headings -> payment methods
+
+[HWB_ADVANTAGE] Payouts / withdrawals
+  HWB:    YES (score 13)
+  Betway: NO (score 0)
+    hollywoodbets evidence: headings -> payout, fast payouts
+
+[HWB_ADVANTAGE] Fairness / game integrity
+  HWB:    YES (score 7)
+  Betway: NO (score 0)
+    hollywoodbets evidence: headings -> provably fair
+
+[NOT_CONFIRMED] Responsible gambling
+  HWB:    NO (score 0)
+  Betway: NO (score 1)
+    betway evidence: body -> responsible gambling
+
+[BETWAY_ADVANTAGE] FAQs / common questions
+  HWB:    NO (score 0)
+  Betway: YES (score 6)
+    betway evidence: links -> frequently asked, questions
+
+[HWB_ADVANTAGE] Aviator news / updates
+  HWB:    YES (score 3)
+  Betway: NO (score 0)
+    hollywoodbets evidence: links -> aviator news
+
+[SHARED] Related crash games
+  HWB:    YES (score 18)
+  Betway: YES (score 3)
+    hollywoodbets evidence: headings -> other crash games, crash games, crash
+    betway evidence: links -> crash
+
+================================================================================
+TOPICAL COMPARISON SAVED
+================================================================================
+data\competitor_investigations\aviator_topical_comparison.json
+(.venv) PS C:\Users\NThamsanqa\OneDrive - HollywoodBets\Desktop\Aviator-SEO-Intelligence> python -m tests.test_gap_to_action                                   
+================================================================================                              
+AVIATOR GAP-TO-ACTION ENGINE
+================================================================================
+Keyword: aviator
+Mode: CLOSE_GAP
+Objective: Close the gap to Betway using only evidence-backed improvements, while protecting existing HWB advantages.
+Current position: Betway #1 | HWB #2
+Actions: 7
+
+--------------------------------------------------------------------------------
+[HIGH] Align the HWB Aviator page title more directly with Aviator intent
+Area: Search alignment
+State: IMPROVE
+Confidence: High
+Evidence:
+  - Betway title: Play Aviator and reach for the sky | Betway Sports betting
+  - HWB title: Online Sports Betting and Online Casino | Hollywoodbets
+Why it matters: Betway's title explicitly describes the Aviator experience while the observed HWB title is generic. This is a clear alignment difference, although it does not prove why Betway ranks first.
+Response options:
+  MATCH: Make Aviator explicit in the page title.
+    Use an accurate Aviator-specific title rather than the generic casino/sports title currently observed.
+  IMPROVE: Combine Aviator intent with the Hollywoodbets brand proposition.
+    A direction such as 'Play Aviator Online | Aviator Game | Hollywoodbets' can be tested by SEO/brand/compliance rather than copied from Betway.
+  OUTPERFORM: Use Search Console after implementation to optimise for both visibility and click-through rate.
+    Compare query impressions, CTR and average position before and after an approved title change instead of judging success only from one rank snapshot.
+Do not: Do not keyword-stuff the title or copy Betway's wording.
+Measure: Google ranking, Search Console impressions, Search Console CTR, Search Console average position
+
+--------------------------------------------------------------------------------
+[HIGH] Strengthen the existing Hollywoodbets Aviator content cluster
+Area: Internal architecture
+State: OUTPERFORM
+Confidence: Medium
+Evidence:
+  - Betway internal links observed: 44
+  - HWB internal links observed: 13
+  - Existing HWB supporting assets: How To Play Aviator, Aviator News
+Why it matters: HWB already owns several relevant Aviator resources. The opportunity is to make those assets work together as a deliberate user and internal-link journey, not simply to chase Betway's raw link count.
+Response options:
+  MATCH: Audit links into the primary /aviator page.
+    Check the existing How To Play, Aviator News, Key Features, Provably Fair and related pages for useful contextual links back to the main Aviator experience.
+  IMPROVE: Create clear contextual journeys between Aviator resources.
+    Use descriptive in-content links based on user needs: learn how to play -> understand features/fairness -> play Aviator.
+  OUTPERFORM: Build the cluster around intent rather than link quantity.
+    Use the topical comparison to connect each supporting page to the most relevant next step and remove low-value/navigation-only linking from the comparisonlogic.
+Do not: Do not add dozens of repetitive links merely to match 44; relevance, placement and usefulness matter more than count.
+Measure: Internal links to /aviator, Clicks from supporting Aviator pages, Rank movement for Aviator intents
+
+--------------------------------------------------------------------------------
+[MEDIUM] Close the FAQs / common questions intent gap
+Area: Topical/user intent
+State: IMPROVE
+Confidence: Medium
+Evidence:
+  - Betway: links: frequently asked, questions
+  - HWB: No strong evidence detected on the compared page.
+Why it matters: Betway has explicit FAQ/common-question evidence while equivalent coverage was not confirmed on the primary HWB page. Better question coveragemay improve usefulness for informational and pre-play intent.
+Response options:
+  MATCH: Identify the actual Aviator questions Betway answers.
+    Extract the competitor FAQ questions and compare them with Google query/People Also Ask/Search Console data before deciding what HWB should answer.
+  IMPROVE: Answer the relevant questions with HWB-specific usefulness.
+    Connect answers to HWB strengths such as payouts, payment methods, fairness and existing How To Play content.
+  OUTPERFORM: Create an evidence-led Aviator help section.
+    Prioritise South African user questions and provide concise answers with links to deeper HWB resources, rather than copying competitor wording.
+Do not: Do not copy Betway's questions or answers verbatim; use search/user evidence and original HWB answers.
+Measure: Relevant keyword rankings, Organic clicks/impressions for related queries, Engagement with the new/updated content
+
+--------------------------------------------------------------------------------
+[MEDIUM] Close the Demo / practice intent gap
+Area: Topical/user intent
+State: IMPROVE
+Confidence: Medium
+Evidence:
+  - Betway: links: demo
+  - HWB: No strong evidence detected on the compared page.
+Why it matters: Betway currently exposes explicit demo/practice evidence while equivalent evidence was not confirmed on the compared HWB page. This representsa distinct user intent worth validating.
+Response options:
+  MATCH: Confirm whether HWB already has a suitable demo/practice experience.
+    Search the wider HWB Aviator ecosystem first. If it exists, improve discoverability from the primary Aviator journey.
+  IMPROVE: Address demo/practice intent explicitly.
+    If appropriate and compliant, explain what a user can learn or experience before real play and link to the relevant experience.
+  OUTPERFORM: Build a stronger pre-play education journey.
+    Combine demo/practice intent with how-to-play, multiplier/cash-out mechanics, fairness and responsible-play information rather than creating a thin 'demo'page.
+Do not: Do not create a thin page solely because Betway has a demo link; confirm demand, product availability and compliance first.
+Measure: Relevant keyword rankings, Organic clicks/impressions for related queries, Engagement with the new/updated content
+
+--------------------------------------------------------------------------------
+[MEDIUM] Defend and surface the Aviator strengths Hollywoodbets already has
+Area: HWB competitive strengths
+State: DEFEND
+Confidence: Medium
+Evidence:
+  - HWB advantage detected for: Payment / deposit options, Payouts / withdrawals, Fairness / game integrity, Aviator news / updates
+Why it matters: Competitive intelligence should protect existing advantages, not only copy competitor strengths. These topics can differentiate the HWB Aviator experience if they are useful and visible to users.
+Response options:
+  DEFEND: Keep these useful sections/resources accurate and prominent.
+    Do not remove strong HWB information simply to make the page resemble Betway.
+  EXTEND: Connect HWB strengths to relevant user journeys.
+    Use contextual links and concise page copy so users can discover payment, payout, fairness and news information when it is relevant.
+Do not: Do not turn every advantage into additional copy on the primary page; use supporting pages when that gives a cleaner experience.
+Measure: Engagement with supporting pages, Search visibility for related intents, Internal navigation clicks
+
+--------------------------------------------------------------------------------
+[NONE] Do not pursue word-count growth as a standalone SEO tactic
+Area: Resource protection
+State: DO_NOT_PURSUE
+Confidence: High
+Evidence:
+  - HWB has about 867 extracted words versus 684 for Betway.
+Why it matters: The current evidence does not support 'write more words' as an explanation for the one-position gap.
+Do not: Do not add filler content simply to exceed Betway's word count.
+
+--------------------------------------------------------------------------------
+[NONE] Do not pursue more domain backlinks simply to beat Betway's total
+Area: Resource protection
+State: DO_NOT_PURSUE
+Confidence: Medium
+Evidence:
+  - HWB has 7,975 referring domains versus 7,269 for Betway at domain level.
+Why it matters: HWB already has the higher domain-level referring-domain count in the observed evidence, so raw domain quantity is not a supported explanation.
+Response options:
+  INVESTIGATE: Move to page-level/relevance-filtered authority evidence.
+    Only recommend PR/link actions after identifying relevant page-level gaps and actual source context.
+Do not: Do not launch a generic backlink-volume campaign based on whole-domain totals.
+Measure: Page-level referring domains, Relevant referring pages, Link context
+
+================================================================================
+ACTION PLAN SAVED
+================================================================================
+data\actions\aviator_hwb_vs_betway_action_plan.json
+(.venv) PS C:\Users\NThamsanqa\OneDrive - HollywoodBets\Desktop\Aviator-SEO-Intelligence> 

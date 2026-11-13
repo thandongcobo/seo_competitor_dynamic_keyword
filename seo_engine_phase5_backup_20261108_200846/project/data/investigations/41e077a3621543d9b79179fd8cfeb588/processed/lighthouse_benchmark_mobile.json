@@ -1,0 +1,413 @@
+{
+  "keyword": "aviator",
+  "side": "benchmark",
+  "scope": "page",
+  "engine": "google",
+  "device": "mobile",
+  "ranking_url": "https://www.betway.co.za/aviator",
+  "requested_url": "https://www.betway.co.za/aviator",
+  "final_url": "https://www.betway.co.za/aviator",
+  "target_verified": true,
+  "final_url_verified": true,
+  "status": "usable",
+  "warnings": [],
+  "lighthouse_version": "13.5.0",
+  "fetch_time": "2026-10-12T09:39:13.273Z",
+  "scores": {
+    "performance": 16,
+    "accessibility": 76,
+    "best-practices": 69,
+    "seo": 85
+  },
+  "lab_metrics": {
+    "first_contentful_paint_ms": 4393.823920590819,
+    "largest_contentful_paint_ms": 19506.780129999996,
+    "speed_index_ms": 6940.768388688452,
+    "total_blocking_time_ms": 3272.8982099999866,
+    "cumulative_layout_shift": 0.2924768127132852,
+    "interactive_ms": 40275.81094900001
+  },
+  "technical_diagnostics": {
+    "javascript_execution": {
+      "bootup-time": {
+        "status": "present",
+        "score_display_mode": "metricSavings",
+        "numeric_value": 8566.863999999907,
+        "numeric_unit": "millisecond",
+        "display_value": "8.6 s",
+        "item_count": 16,
+        "items": [
+          {
+            "url": "https://info.betway.co.za/OppOMxQ5LmiKjmfX",
+            "total": 4590.667999999786,
+            "scripting": 4013.535999999803,
+            "scriptParseCompile": 129.728
+          },
+          {
+            "total": 1647.1480000000015,
+            "scripting": 403.18800000000084,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "https://tag.fanhub.geniussports.com/js/evt.js",
+            "total": 912.100000000001,
+            "scripting": 885.4360000000011,
+            "scriptParseCompile": 2.4
+          },
+          {
+            "url": "https://www.betway.co.za/_nuxt/entry.7dda07ef-58ad-4d63-8cd6-bd5a7025e90a.js",
+            "total": 638.8360000000205,
+            "scripting": 589.9400000000202,
+            "scriptParseCompile": 6.656
+          },
+          {
+            "url": "https://www.betway.co.za/aviator",
+            "total": 614.1999999999998,
+            "scripting": 145.18000000000012,
+            "scriptParseCompile": 1.2040000000000002
+          }
+        ]
+      },
+      "mainthread-work-breakdown": {
+        "status": "present",
+        "score_display_mode": "metricSavings",
+        "numeric_value": 11500.44799999822,
+        "numeric_unit": "millisecond",
+        "display_value": "11.5 s",
+        "item_count": 7,
+        "items": [
+          {
+            "group": "scriptEvaluation",
+            "duration": 8375.803999998703
+          },
+          {
+            "group": "other",
+            "duration": 1981.167999999516
+          },
+          {
+            "group": "scriptParseCompile",
+            "duration": 652.8519999999997
+          },
+          {
+            "group": "styleLayout",
+            "duration": 238.3119999999999
+          },
+          {
+            "group": "garbageCollection",
+            "duration": 106.75600000000033
+          }
+        ]
+      },
+      "long-tasks": {
+        "status": "present",
+        "score_display_mode": "informative",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "20 long tasks found",
+        "item_count": 20,
+        "items": [
+          {
+            "url": "https://info.betway.co.za/OppOMxQ5LmiKjmfX",
+            "duration": 892,
+            "startTime": 46207.89676000002
+          },
+          {
+            "url": "https://tag.fanhub.geniussports.com/js/evt.js",
+            "duration": 857,
+            "startTime": 43348.89676000002
+          },
+          {
+            "url": "https://info.betway.co.za/OppOMxQ5LmiKjmfX",
+            "duration": 583,
+            "startTime": 44721.89676000002
+          },
+          {
+            "url": "https://info.betway.co.za/OppOMxQ5LmiKjmfX",
+            "duration": 508,
+            "startTime": 45690.89676000002
+          },
+          {
+            "url": "https://info.betway.co.za/OppOMxQ5LmiKjmfX",
+            "duration": 419,
+            "startTime": 44205.89676000002
+          }
+        ]
+      }
+    },
+    "unused_javascript": {
+      "unused-javascript": {
+        "status": "present",
+        "score_display_mode": "metricSavings",
+        "numeric_value": 5520,
+        "numeric_unit": "millisecond",
+        "display_value": "Est savings of 2,082 KiB",
+        "item_count": 23,
+        "items": [
+          {
+            "url": "https://www.betway.co.za/_nuxt/Stream.-bXyilPy.c207f413-868c-45b0-9d5d-29f929c7b3e7.js",
+            "totalBytes": 707816,
+            "wastedBytes": 626197
+          },
+          {
+            "url": "https://www.betway.co.za/_nuxt/MenuOptions.vue.BT9XxgQS.0167ee32-d7dc-401a-a05d-b723452755d2.js",
+            "totalBytes": 279077,
+            "wastedBytes": 220606
+          },
+          {
+            "url": "https://www.betway.co.za/_nuxt/entry.7dda07ef-58ad-4d63-8cd6-bd5a7025e90a.js",
+            "totalBytes": 397983,
+            "wastedBytes": 197115
+          },
+          {
+            "url": "https://www.betway.co.za/_nuxt/Modals.CycXiSEf.9d548209-d6c3-458f-ba88-4567b18bc47d.js",
+            "totalBytes": 248714,
+            "wastedBytes": 191168
+          },
+          {
+            "url": "https://analytics.tiktok.com/i18n/pixel/static/main.MWU2MzIzODM0MQ.js",
+            "totalBytes": 115718,
+            "wastedBytes": 89762
+          }
+        ]
+      }
+    },
+    "render_blocking": {
+      "render-blocking-insight": {
+        "status": "present",
+        "score_display_mode": "metricSavings",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "Est savings of 830 ms",
+        "item_count": 3,
+        "items": [
+          {
+            "url": "https://cdn.betwayafrica.com/Global/fonts/BigShouldersDisplay/bigshoulders.css",
+            "totalBytes": 1022,
+            "wastedMs": 869
+          },
+          {
+            "url": "https://cdn.betwayafrica.com/Global/fonts/roboto/roboto.css",
+            "totalBytes": 1172,
+            "wastedMs": 869
+          },
+          {
+            "url": "https://www.betway.co.za/_nuxt/style.CTmjBdCA.css",
+            "totalBytes": 45775,
+            "wastedMs": 1037
+          }
+        ]
+      },
+      "render-blocking-resources": {
+        "status": "missing"
+      }
+    },
+    "image_delivery": {
+      "image-delivery-insight": {
+        "status": "present",
+        "score_display_mode": "metricSavings",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "Est savings of 369 KiB",
+        "item_count": 7,
+        "items": [
+          {
+            "url": "https://media.betwayafrica.com/medialibraries/content.gmgamingsystems.com/Synapse/sponsorships/ManCity_Logo.png",
+            "totalBytes": 115994,
+            "wastedBytes": 115480
+          },
+          {
+            "url": "https://media.betwayafrica.com/medialibraries/content.gmgamingsystems.com/Synapse/aviator/banners/LandingPageMobile_HeaderImage_EN.png",
+            "totalBytes": 150056,
+            "wastedBytes": 90059
+          },
+          {
+            "url": "https://media.betwayafrica.com/medialibraries/content.gmgamingsystems.com/Synapse/sponsorships/man-united-logo.png",
+            "totalBytes": 89110,
+            "wastedBytes": 88715
+          },
+          {
+            "url": "https://media.betwayafrica.com/medialibraries/content.gmgamingsystems.com/Synapse/v2/Betway_Premiership_Final_Logo_Black_Stacked.png",
+            "totalBytes": 36121,
+            "wastedBytes": 36023
+          },
+          {
+            "url": "https://media.betwayafrica.com/medialibraries/content.gmgamingsystems.com/Synapse/v2/South_Africa_national_rugby_union_team-svg.png",
+            "totalBytes": 29200,
+            "wastedBytes": 28922
+          }
+        ]
+      },
+      "modern-image-formats": {
+        "status": "missing"
+      },
+      "uses-optimized-images": {
+        "status": "missing"
+      }
+    },
+    "lcp_breakdown": {
+      "lcp-breakdown-insight": {
+        "status": "present",
+        "score_display_mode": "informative",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "",
+        "item_count": 2,
+        "items": []
+      },
+      "lcp-discovery-insight": {
+        "status": "present",
+        "score_display_mode": "numeric",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "",
+        "item_count": 2,
+        "items": []
+      },
+      "largest-contentful-paint-element": {
+        "status": "missing"
+      }
+    },
+    "network_resources": {
+      "total-byte-weight": {
+        "status": "present",
+        "score_display_mode": "metricSavings",
+        "numeric_value": 4219084,
+        "numeric_unit": "byte",
+        "display_value": "Total size was 4,120 KiB",
+        "item_count": 10,
+        "items": [
+          {
+            "url": "https://media.betwayafrica.com/medialibraries/content.gmgamingsystems.com/Synapse/aviator/LandingPage_Background.png",
+            "totalBytes": 412784
+          },
+          {
+            "url": "https://www.betway.co.za/_nuxt/entry.7dda07ef-58ad-4d63-8cd6-bd5a7025e90a.js",
+            "totalBytes": 398644
+          },
+          {
+            "url": "https://www.betway.co.za/_nuxt/Stream.-bXyilPy.c207f413-868c-45b0-9d5d-29f929c7b3e7.js",
+            "totalBytes": 215639
+          },
+          {
+            "url": "https://www.googletagmanager.com/gtm.js",
+            "totalBytes": 201943
+          },
+          {
+            "url": "https://www.googletagmanager.com/gtag/js",
+            "totalBytes": 191230
+          }
+        ]
+      },
+      "network-requests": {
+        "status": "present",
+        "score_display_mode": "informative",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "",
+        "item_count": 299,
+        "items": [
+          {
+            "url": "https://www.betway.co.za/aviator",
+            "entity": "betway.co.za",
+            "transferSize": 4751,
+            "resourceSize": 11210
+          },
+          {
+            "url": "https://cdn.betwayafrica.com/Global/fonts/roboto/roboto.css",
+            "entity": "betwayafrica.com",
+            "transferSize": 1172,
+            "resourceSize": 1627
+          },
+          {
+            "url": "https://cdn.betwayafrica.com/Global/fonts/BigShouldersDisplay/bigshoulders.css",
+            "entity": "betwayafrica.com",
+            "transferSize": 1022,
+            "resourceSize": 323
+          },
+          {
+            "url": "https://www.betway.co.za/_nuxt/style.CTmjBdCA.css",
+            "entity": "betway.co.za",
+            "transferSize": 45775,
+            "resourceSize": 282688
+          },
+          {
+            "url": "https://www.betway.co.za/_nuxt/entry.7dda07ef-58ad-4d63-8cd6-bd5a7025e90a.js",
+            "entity": "betway.co.za",
+            "transferSize": 398644,
+            "resourceSize": 1167990
+          }
+        ]
+      },
+      "network-dependency-tree-insight": {
+        "status": "present",
+        "score_display_mode": "numeric",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "",
+        "item_count": 3,
+        "items": []
+      }
+    },
+    "layout_stability": {
+      "layout-shifts": {
+        "status": "present",
+        "score_display_mode": "metricSavings",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "4 layout shifts found",
+        "item_count": 4,
+        "items": []
+      },
+      "cls-culprits-insight": {
+        "status": "present",
+        "score_display_mode": "numeric",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "",
+        "item_count": 1,
+        "items": []
+      }
+    },
+    "third_parties": {
+      "third-parties-insight": {
+        "status": "present",
+        "score_display_mode": "informative",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "",
+        "item_count": 24,
+        "items": [
+          {
+            "entity": "Google Tag Manager",
+            "transferSize": 393173,
+            "mainThreadTime": 178.83299899101257
+          },
+          {
+            "entity": "Facebook",
+            "transferSize": 214386,
+            "mainThreadTime": 126.29100012779236
+          },
+          {
+            "entity": "TikTok",
+            "transferSize": 165084,
+            "mainThreadTime": 119.68500471115112
+          },
+          {
+            "entity": "Clarity",
+            "transferSize": 30626,
+            "mainThreadTime": 60.328999757766724
+          },
+          {
+            "entity": "sportradar.com",
+            "transferSize": 66375,
+            "mainThreadTime": 58.846999645233154
+          }
+        ]
+      },
+      "third-party-summary": {
+        "status": "missing"
+      }
+    }
+  },
+  "metrics_note": "Lighthouse lab data; not CrUX field Core Web Vitals or Google's ranking signals."
+}

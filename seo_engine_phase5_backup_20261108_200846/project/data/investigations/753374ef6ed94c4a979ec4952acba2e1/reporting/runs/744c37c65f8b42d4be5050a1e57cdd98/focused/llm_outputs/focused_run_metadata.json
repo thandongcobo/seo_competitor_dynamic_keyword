@@ -1,0 +1,32 @@
+{
+  "model": "gemma-4-12b-it-UD-Q6_K_XL.gguf",
+  "keyword": "aviator",
+  "generated_at_utc": "2026-11-03T09:02:59.820818+00:00",
+  "mode": "four-focused-requests-deterministic-merge",
+  "specialist_tasks": [
+    "onpage",
+    "backlinks",
+    "technical",
+    "competition"
+  ],
+  "recommendation_quality_status": "review_required",
+  "recommendation_quality_blocking": 0,
+  "recommendation_quality_review": 5,
+  "total_plans": 5,
+  "total_dispositions": 11,
+  "evidence_recovery": {
+    "backlinks": [
+      "BACKLINKS_01",
+      "BACKLINKS_02"
+    ],
+    "technical": [
+      "TECHNICAL_01",
+      "TECHNICAL_02",
+      "TECHNICAL_03"
+    ],
+    "competition": [
+      "COMPETITION_03"
+    ]
+  },
+  "requires_human_review": true
+}

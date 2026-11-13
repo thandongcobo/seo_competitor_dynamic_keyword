@@ -1,0 +1,241 @@
+{
+  "keyword": "aviator",
+  "run_id": "20261021T095508_873080Z",
+  "datetime": "2026-10-21T09:55:49.383521+00:00",
+  "search_url": "https://www.google.com/search?q=aviator&hl=en&gl=za&num=20&pws=0",
+  "pages": [
+    {
+      "page": 1,
+      "url": "https://www.google.com/search?q=aviator&hl=en&gl=za&num=20&pws=0",
+      "organic_extracted": 9,
+      "new_unique": 9,
+      "duplicate_count": 0,
+      "diagnostic_metadata": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T095508_873080Z\\page_1_metadata.json",
+      "diagnostic_screenshot": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T095508_873080Z\\page_1_serp.png",
+      "diagnostic_html": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T095508_873080Z\\page_1_serp.html",
+      "diagnostic_flags": [
+        "some_result_urls_not_matched_to_heading_links"
+      ],
+      "extraction_audit": {
+        "status": "review_required",
+        "extracted_count": 9,
+        "heading_candidate_count": 10,
+        "flags": [
+          "some_result_urls_not_matched_to_heading_links"
+        ],
+        "suspicious_results": []
+      },
+      "search_context": {
+        "configured": {
+          "keyword": "aviator",
+          "country_gl": "za",
+          "language_hl": "en",
+          "personalization_pws": "0",
+          "locale": "en-ZA",
+          "timezone": "Africa/Johannesburg",
+          "headless": false,
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          },
+          "profile_type": "persistent",
+          "profile_identifier": "c8f37757ac0dc88e"
+        },
+        "observed": {
+          "final_url": "https://www.google.com/search?q=aviator&hl=en&gl=za&num=20&pws=0",
+          "hostname": "www.google.com",
+          "url_parameters": {
+            "q": "aviator",
+            "gl": "za",
+            "hl": "en",
+            "pws": "0"
+          },
+          "browser": {
+            "language": "en-ZA",
+            "languages": [
+              "en-ZA"
+            ],
+            "timezone": "Africa/Johannesburg",
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+            "documentLanguage": "en-ZA"
+          }
+        },
+        "url_parameter_checks": {
+          "q": "match",
+          "gl": "match",
+          "hl": "match",
+          "pws": "match"
+        },
+        "context_warning": false,
+        "note": "gl targets a country; it does not verify precise physical location or search intent."
+      },
+      "tracked_site_found": true,
+      "tracked_site_observed_rank": 2
+    },
+    {
+      "page": 2,
+      "url": "https://www.google.com/search?q=aviator&sca_esv=c12fc4d47e39017d&hl=en&gl=za&pws=0&sxsrf=APpeQnvF8139q7LEeL1RDYFtXgTii1VzjA:1792576509786&ei=_YvYar7GL5rz1sQPgomM6Qw&start=10&sa=N&sstk=AS6-VmIVbJpn-y2FNZWJSNao4d7ROgxZMyqzm2D3ITRzihkSAjVCcvMzqTk2I1MvUimoucomLF7w6x9InpoEDcwNBValgNDw467iCw&ved=2ahUKEwj-uOTw68qXAxWauZUCHYIEI80Q8NMDegQILhAW",
+      "organic_extracted": 10,
+      "new_unique": 9,
+      "duplicate_count": 1,
+      "diagnostic_metadata": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T095508_873080Z\\page_2_metadata.json",
+      "diagnostic_screenshot": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T095508_873080Z\\page_2_serp.png",
+      "diagnostic_html": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T095508_873080Z\\page_2_serp.html",
+      "diagnostic_flags": [
+        "some_result_urls_not_matched_to_heading_links"
+      ],
+      "extraction_audit": {
+        "status": "review_required",
+        "extracted_count": 10,
+        "heading_candidate_count": 10,
+        "flags": [
+          "some_result_urls_not_matched_to_heading_links"
+        ],
+        "suspicious_results": []
+      },
+      "search_context": {
+        "configured": {
+          "keyword": "aviator",
+          "country_gl": "za",
+          "language_hl": "en",
+          "personalization_pws": "0",
+          "locale": "en-ZA",
+          "timezone": "Africa/Johannesburg",
+          "headless": false,
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          },
+          "profile_type": "persistent",
+          "profile_identifier": "c8f37757ac0dc88e"
+        },
+        "observed": {
+          "final_url": "https://www.google.com/search?q=aviator&sca_esv=c12fc4d47e39017d&hl=en&gl=za&pws=0&sxsrf=APpeQnvF8139q7LEeL1RDYFtXgTii1VzjA:1792576509786&ei=_YvYar7GL5rz1sQPgomM6Qw&start=10&sa=N&sstk=AS6-VmIVbJpn-y2FNZWJSNao4d7ROgxZMyqzm2D3ITRzihkSAjVCcvMzqTk2I1MvUimoucomLF7w6x9InpoEDcwNBValgNDw467iCw&ved=2ahUKEwj-uOTw68qXAxWauZUCHYIEI80Q8NMDegQILhAW",
+          "hostname": "www.google.com",
+          "url_parameters": {
+            "q": "aviator",
+            "gl": "za",
+            "hl": "en",
+            "pws": "0"
+          },
+          "browser": {
+            "language": "en-ZA",
+            "languages": [
+              "en-ZA"
+            ],
+            "timezone": "Africa/Johannesburg",
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+            "documentLanguage": "en-ZA"
+          }
+        },
+        "url_parameter_checks": {
+          "q": "match",
+          "gl": "match",
+          "hl": "match",
+          "pws": "match"
+        },
+        "context_warning": false,
+        "note": "gl targets a country; it does not verify precise physical location or search intent."
+      },
+      "tracked_site_found": true,
+      "tracked_site_observed_rank": 2
+    },
+    {
+      "page": 3,
+      "url": "https://www.google.com/search?q=aviator&sca_esv=c12fc4d47e39017d&hl=en&gl=za&pws=0&sxsrf=APpeQns3VayMx0y9RE_GsQiW9APhNoxIEA:1792576521655&ei=CYzYaqDJJ4fL1sQP1-__aA&start=20&sa=N&sstk=AS6-VmIAkyWLzzkuY7fp54oNKbG1Y8B_zUNARBokCCamKpEbDB43UF8cGg5oaAkeHKI79QBqNoDyPgcujiBXRWgtX8DsMqoB16CyC6FqYjKzsFUmor316h9uKl8b44xdTGkj&ved=2ahUKEwjg8bj268qXAxWHpZUCHdf3Hw04ChDw0wN6BAgqEBc",
+      "organic_extracted": 9,
+      "new_unique": 9,
+      "duplicate_count": 0,
+      "diagnostic_metadata": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T095508_873080Z\\page_3_metadata.json",
+      "diagnostic_screenshot": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T095508_873080Z\\page_3_serp.png",
+      "diagnostic_html": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T095508_873080Z\\page_3_serp.html",
+      "diagnostic_flags": [
+        "some_result_urls_not_matched_to_heading_links"
+      ],
+      "extraction_audit": {
+        "status": "review_required",
+        "extracted_count": 9,
+        "heading_candidate_count": 9,
+        "flags": [
+          "some_result_urls_not_matched_to_heading_links"
+        ],
+        "suspicious_results": []
+      },
+      "search_context": {
+        "configured": {
+          "keyword": "aviator",
+          "country_gl": "za",
+          "language_hl": "en",
+          "personalization_pws": "0",
+          "locale": "en-ZA",
+          "timezone": "Africa/Johannesburg",
+          "headless": false,
+          "viewport": {
+            "width": 1366,
+            "height": 900
+          },
+          "profile_type": "persistent",
+          "profile_identifier": "c8f37757ac0dc88e"
+        },
+        "observed": {
+          "final_url": "https://www.google.com/search?q=aviator&sca_esv=c12fc4d47e39017d&hl=en&gl=za&pws=0&sxsrf=APpeQns3VayMx0y9RE_GsQiW9APhNoxIEA:1792576521655&ei=CYzYaqDJJ4fL1sQP1-__aA&start=20&sa=N&sstk=AS6-VmIAkyWLzzkuY7fp54oNKbG1Y8B_zUNARBokCCamKpEbDB43UF8cGg5oaAkeHKI79QBqNoDyPgcujiBXRWgtX8DsMqoB16CyC6FqYjKzsFUmor316h9uKl8b44xdTGkj&ved=2ahUKEwjg8bj268qXAxWHpZUCHdf3Hw04ChDw0wN6BAgqEBc",
+          "hostname": "www.google.com",
+          "url_parameters": {
+            "q": "aviator",
+            "gl": "za",
+            "hl": "en",
+            "pws": "0"
+          },
+          "browser": {
+            "language": "en-ZA",
+            "languages": [
+              "en-ZA"
+            ],
+            "timezone": "Africa/Johannesburg",
+            "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+            "documentLanguage": "en-ZA"
+          }
+        },
+        "url_parameter_checks": {
+          "q": "match",
+          "gl": "match",
+          "hl": "match",
+          "pws": "match"
+        },
+        "context_warning": false,
+        "note": "gl targets a country; it does not verify precise physical location or search intent."
+      },
+      "tracked_site_found": true,
+      "tracked_site_observed_rank": 2
+    }
+  ],
+  "diagnostics": {
+    "run_id": "20261021T095508_873080Z",
+    "pages_diagnosed": 3,
+    "review_required": true,
+    "flags": [
+      "some_result_urls_not_matched_to_heading_links"
+    ],
+    "stop_reason": "tracked_site_found_with_neighbours",
+    "generated_at": "2026-10-21T09:55:49.383569+00:00",
+    "interpretation": "Variation between searches is allowed. Diagnose context and extraction for each observed SERP independently."
+  },
+  "tracked_site": {
+    "domain": "hollywoodbets.net",
+    "status": "found",
+    "rank": 2,
+    "ranking_url": "https://www.hollywoodbets.net/aviator",
+    "ranking_title": "Play Aviator | Aviator Game | Hollywoodbets SA",
+    "results_above": 1,
+    "results_below": 25,
+    "minimum_results": 20,
+    "maximum_results": 100,
+    "neighbours_requested": 2,
+    "complete": true,
+    "search_exhausted": false,
+    "rank_semantics": "observed_organic_sequence; not guaranteed absolute Google rank",
+    "stop_reason": "tracked_site_found_with_neighbours"
+  },
+  "stop_reason": "tracked_site_found_with_neighbours",
+  "note": "No Google results were altered or chosen for similarity to another search."
+}

@@ -1,0 +1,135 @@
+{
+  "keyword": "aviator",
+  "engine": "google",
+  "stage": "before_extraction",
+  "datetime": "2026-10-21T08:49:46.074235+00:00",
+  "final_url": "https://www.google.com/search?q=aviator&sca_esv=c26373f3b23c5d40&hl=en&gl=za&pws=0&sxsrf=APpeQnuBKmTlbf4WqYTDYjP3nKSp2SG4Cg:1792572556613&ei=jHzYaqz5JMKj1sQPrdGNyQg&start=20&sa=N&sstk=AS6-VmLClxIN9K5o0eAz0CXzWhpCgJSyNcev49aPMe6FLLY4gi_MerioRvtL7WJyBAhvkltsQsfN3S9Imid-0h0AoLJdoReqISdiAz7jxkKSF83pFdsR_be_Mrxt6c4FXEYn&ved=2ahUKEwis7-GT3cqXAxXCkZUCHa1oI4k4ChDw0wN6BAgnEA0",
+  "screenshot_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T084901_520970Z\\page_3_serp.png",
+  "html_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T084901_520970Z\\page_3_serp.html",
+  "metadata_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T084901_520970Z\\page_3_metadata.json",
+  "context": {
+    "configured": {
+      "keyword": "aviator",
+      "country_gl": "za",
+      "language_hl": "en",
+      "personalization_pws": "0",
+      "locale": "en-ZA",
+      "timezone": "Africa/Johannesburg",
+      "headless": false,
+      "viewport": {
+        "width": 1366,
+        "height": 900
+      },
+      "profile_type": "persistent",
+      "profile_identifier": "c8f37757ac0dc88e"
+    },
+    "observed": {
+      "final_url": "https://www.google.com/search?q=aviator&sca_esv=c26373f3b23c5d40&hl=en&gl=za&pws=0&sxsrf=APpeQnuBKmTlbf4WqYTDYjP3nKSp2SG4Cg:1792572556613&ei=jHzYaqz5JMKj1sQPrdGNyQg&start=20&sa=N&sstk=AS6-VmLClxIN9K5o0eAz0CXzWhpCgJSyNcev49aPMe6FLLY4gi_MerioRvtL7WJyBAhvkltsQsfN3S9Imid-0h0AoLJdoReqISdiAz7jxkKSF83pFdsR_be_Mrxt6c4FXEYn&ved=2ahUKEwis7-GT3cqXAxXCkZUCHa1oI4k4ChDw0wN6BAgnEA0",
+      "hostname": "www.google.com",
+      "url_parameters": {
+        "q": "aviator",
+        "gl": "za",
+        "hl": "en",
+        "pws": "0"
+      },
+      "browser": {
+        "language": "en-ZA",
+        "languages": [
+          "en-ZA"
+        ],
+        "timezone": "Africa/Johannesburg",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "documentLanguage": "en-ZA"
+      }
+    },
+    "url_parameter_checks": {
+      "q": "match",
+      "gl": "match",
+      "hl": "match",
+      "pws": "match"
+    },
+    "context_warning": false,
+    "note": "gl targets a country; it does not verify precise physical location or search intent."
+  },
+  "location_coordinate_applied": false,
+  "organic_h3_count": 9,
+  "heading_candidates": [
+    {
+      "index": 1,
+      "title": "Aviator",
+      "href": "https://www.google.com/goto?url=CAESrAEB6zswFdJXJtg2r6EA_uRs4DUA2YOp06-r3sg2-sUQ1CXpXVZkkOKOMJ9gogcw4WFHfPiQfS9DRC3th_u8DgF-uSO1AhDXatkh7I2T6fZMy6AtEdDG8fE95qyyvrQ0V2WMoApsm3O_qTC7IKqqvtdzuVb_eXH3-CWHoqdMlw66AKxHARduPQdRmqTzc3bQDNPlYyf0mnti1VSHJVuxaOq01fEwzWRGDhD4mVw7",
+      "ancestor_text": "Aviator\n\nCitizen Watches SA\nhttps://citizenwatchsa.co.za › collections › aviator"
+    },
+    {
+      "index": 2,
+      "title": "Thoughts on The Aviator (2004)? : r/movies",
+      "href": "https://www.google.com/goto?url=CAESiQEB6zswFdTr-tmlH9zZ452vlLWa9niWqPZVIflFItxhgNjIZQEPzDRBK9dXuyiKmJt-b4imUH_4plYEqpxytsKYkiPqaFhSW4nmrVQgqU4AwDrpb_tIHLJga1JCYKH_axxxkKkblMH9d2nj5oayGr0h2VputnRLmNLxdd1TVy5kLsBMIH5DiXzA_w",
+      "ancestor_text": "Thoughts on The Aviator (2004)? : r/movies\n\nReddit · r/movies\n60+ comments · 3 years ago"
+    },
+    {
+      "index": 3,
+      "title": "ELIIANA Black/Gold Multi Aviator Sunglasses",
+      "href": "https://www.google.com/goto?url=CAESsAEB6zswFT1MKKPmTY1g9WziwwMNLloqSyVgesQhYR-lNZ9ZAJqY1X1-vAWnT5CIh9gu2dILjgjZTu8yv91Srvdt8G6Vilv7LSOEZS7jb78qzpoUUhBxnJexMSbRNXSHc8fxHPKMeNSHf97X_fviKz8X7QgtGr_ut48yyzVsbY_O5sXNBdbu5J4Lho5rmMD6Z0uwYyJBzTJ0XxuXxF1G0DtfChi8C7XUV77QWFGWzCq0yQ",
+      "ancestor_text": "ELIIANA Black/Gold Multi Aviator Sunglasses\n\nAldo Shoes SA\nhttps://www.aldoshoes.co.za › Accessories"
+    },
+    {
+      "index": 4,
+      "title": "Aviator® Xpro | Bayer",
+      "href": "https://www.google.com/goto?url=CAEShwEB6zswFUhhZH4EMJPAV_n20RmhNqM7qZcOIH1qv9eNQJJ0PVlVNsgRJhUm7hYXjo7vtYkPNueIBJsrTbTFlWj6Y58AQjs3NJnwAKeT7I5NijxwzfB0Lj2ZzMbtEPm1-DZ1kXHs1M2EvzM5Pa5crVdf-8ftwtonei6k3x2wUQB1zXjGp1o6eW4",
+      "ancestor_text": "Aviator® Xpro | Bayer\n\nBayer\nhttps://www.cropscience.bayer.co.za › ..."
+    },
+    {
+      "index": 5,
+      "title": "Aviator - 07-Caviar",
+      "href": "https://www.google.com/goto?url=CAESgQEB6zswFYMa-ZTD8sbYQwH92mXfAFI10GZX9PPx5ZCTxxhmv2H6y8ocIiCq5M7_Rjyp_zbAVm4NSlg6a-oxLjPg5ASPKfsTcuJg8IcgrmnR_pMoHwRE5GGQCGj6SlllpOXoadcldQV0QhwJbWi4W2xR953V2hQbVaYaA-waecE5mrU",
+      "ancestor_text": "Aviator - 07-Caviar\n\nHome Fabrics\nhttps://www.homefabrics.co.za › products › aviator-avia..."
+    },
+    {
+      "index": 6,
+      "title": "Aviator Golfer | Products | Barron Custom Merchandise",
+      "href": "https://www.google.com/goto?url=CAESfwHrOzAV2naSc5XtW_M__oIT4nsXYbr_oiw_fEY9oauOX28u9RgYCMz5R99BW75Lmx1YZwCWqVtFUuwBlwfn0PglmIDD80ukCJ7T7Q6t8CsAKDKpfRMuMSv3_EohL2F0-BZK_f4R3JDFzFMPj8avTH8LyPodKtq7zH7V6QafGQ4",
+      "ancestor_text": "Aviator Golfer | Products | Barron Custom Merchandise\n\nBarron\nhttps://barron.com › products › work-wear › high-visibility"
+    },
+    {
+      "index": 7,
+      "title": "TONY KENT AVIATOR",
+      "href": "https://www.google.com/goto?url=CAESXAHrOzAV6P9Ubp7oKWLlG4s4vpfb9tLDvKJWXGf5fz5GyXQp5JA72Dr9ehf0cOhCX0K1D2NkXccrIJm0AKCuyesNEi4o2c3tX9a5pyqu7P8K0O3rBQktfhAb_7HF",
+      "ancestor_text": "TONY KENT AVIATOR\n\ntonykentflying.co.za\nhttps://www.tonykentflying.co.za"
+    },
+    {
+      "index": 8,
+      "title": "Should You Buy the Airoh Aviator 3 Helmet? | Ride Review",
+      "href": "https://www.google.com/goto?url=CAESZgHrOzAVdE5IwFX5fbIPolSCysgKZE8WMo9F4QHmBXQ2Xm4xYXv8qDbofYKg85XMhrmR0WCeql-vRrDGwP7IoBciqVc1-1JxcnoLCWk3clyQ6uAX7yviPaeLKXfdFvrHKcy6QQ_bSw",
+      "ancestor_text": "Should You Buy the Airoh Aviator 3 Helmet? | Ride Review\n\nYouTube · Rocky Mountain ATV MC\n10,3K+ views · 9 months ago"
+    },
+    {
+      "index": 9,
+      "title": "9782 Aviator Sunglasses",
+      "href": "https://www.google.com/goto?url=CAESwwEB6zswFaOyq48xiR0jeHSYB3h1AFH4tAVNXBucMFnDfPGcINIdxB6O7FkUVlJ_DOvW35tRFUCgT9EDIE0GX7dUNzfcFRFkkZqJeWRtyN-wT0Q4qW4EegzGulFnE1Iun6czwsMi_HnsceAa3Wc_1nAqruCCZ2x0dczJTSPyEURpUIO0GzZ0IKm5H0keE5CVvqRo5LPauRybQncGshjVCWvHdXyWOnspH5FlnjCq47cvw6ZQdp-S1FrXFtukRNc00HYagug",
+      "ancestor_text": "9782 Aviator Sunglasses\n\nCutler and Gross\nhttps://www.cutlerandgross.com › en-row › products › 9..."
+    }
+  ],
+  "capture_errors": [],
+  "extraction_audit": {
+    "status": "review_required",
+    "extracted_count": 9,
+    "heading_candidate_count": 9,
+    "flags": [
+      "some_result_urls_not_matched_to_heading_links"
+    ],
+    "suspicious_results": [],
+    "heading_link_mismatches": [
+      "https://citizenwatchsa.co.za/collections/aviator?srsltid=AU7gw4WS2nNk6dHY6zBnoK7tl07QZIr_KZCQr3Nd4H67rh7NDtFNP4-d",
+      "https://www.reddit.com/r/movies/comments/102wrj7/thoughts_on_the_aviator_2004/",
+      "https://www.aldoshoes.co.za/product/al11473-blk-gld/?srsltid=AU7gw4Vg3x1NiwrwhwFb9UHmmZWe6TPOHe4K15xCxcOl7HeI0Gq0PacF",
+      "https://www.cropscience.bayer.co.za/en/cpd/swamdoders-bcs-aviator-xpro-af-za",
+      "https://www.homefabrics.co.za/products/aviator-aviator-07-caviar-72067",
+      "https://barron.com/products/work-wear/high-visibility/aviator-golfer",
+      "https://www.tonykentflying.co.za/",
+      "https://www.youtube.com/watch?v=1hGYxj1azLA",
+      "https://www.cutlerandgross.com/en-row/products/9782-aviator-sunglasses?srsltid=AU7gw4Xj154l40QxUkA0fWOdsS1m2C69WG91Jld2cfJoU8XLmAx5bAfR"
+    ],
+    "capture_error": null,
+    "note": "Automated checks cannot certify absolute Google organic positions; compare saved screenshot/HTML with extraction when flagged."
+  }
+}

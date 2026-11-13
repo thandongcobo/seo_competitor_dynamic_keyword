@@ -11,8 +11,11 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import re
 import shutil
 import subprocess
+import tempfile
+import threading
 import time
 import uuid
 
@@ -46,6 +49,114 @@ class CollectionAuthorizationRequired(ValueError):
         self.plan = plan
 
 
+class CollectionPersistenceError(RuntimeError):
+    """A collection record could not be published without risking prior state."""
+
+
+_COLLECTION_LOCKS_GUARD = threading.Lock()
+_COLLECTION_THREAD_LOCKS: dict[str, threading.RLock] = {}
+_REPLACE_RETRIES = 12
+_REPLACE_RETRY_DELAY_SECONDS = 0.025
+
+
+def _is_windows_sharing_error(error: OSError) -> bool:
+    return os.name == 'nt' and (
+        getattr(error, 'winerror', None) in (5, 32, 33) or error.errno in (5, 13)
+    )
+
+
+class _CollectionStateLock:
+    """Serialize one investigation's collection writes across threads/processes."""
+
+    def __init__(self, path: Path, timeout: float = 30.0):
+        self.path = path
+        self.timeout = timeout
+        self._thread_lock = None
+        self._stream = None
+        self._windows = os.name == 'nt'
+
+    def __enter__(self):
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        key = str(self.path.resolve())
+        with _COLLECTION_LOCKS_GUARD:
+            self._thread_lock = _COLLECTION_THREAD_LOCKS.setdefault(key, threading.RLock())
+        if not self._thread_lock.acquire(timeout=self.timeout):
+            raise CollectionPersistenceError('Timed out waiting for collection-state writer lock.')
+        try:
+            self._stream = self.path.open('a+b')
+            if self._windows:
+                import msvcrt
+                self._stream.seek(0, os.SEEK_END)
+                if self._stream.tell() == 0:
+                    self._stream.write(b'0')
+                    self._stream.flush()
+                deadline = time.monotonic() + self.timeout
+                while True:
+                    self._stream.seek(0)
+                    try:
+                        msvcrt.locking(self._stream.fileno(), msvcrt.LK_NBLCK, 1)
+                        break
+                    except OSError:
+                        if time.monotonic() >= deadline:
+                            raise CollectionPersistenceError(
+                                'Timed out waiting for cross-process collection-state writer lock.')
+                        time.sleep(0.05)
+            else:
+                import fcntl
+                deadline = time.monotonic() + self.timeout
+                while True:
+                    try:
+                        fcntl.flock(self._stream.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+                        break
+                    except BlockingIOError:
+                        if time.monotonic() >= deadline:
+                            raise CollectionPersistenceError(
+                                'Timed out waiting for cross-process collection-state writer lock.')
+                        time.sleep(0.05)
+            return self
+        except Exception:
+            try:
+                self._close(unlock=False)
+            except OSError:
+                pass
+            raise
+
+    def _close(self, *, unlock: bool):
+        close_error = None
+        if self._stream is not None:
+            stream, self._stream = self._stream, None
+            try:
+                if unlock:
+                    stream.seek(0)
+                    if self._windows:
+                        import msvcrt
+                        msvcrt.locking(stream.fileno(), msvcrt.LK_UNLCK, 1)
+                    else:
+                        import fcntl
+                        fcntl.flock(stream.fileno(), fcntl.LOCK_UN)
+            except OSError as exc:
+                close_error = exc
+            finally:
+                try:
+                    stream.close()
+                except OSError as exc:
+                    close_error = close_error or exc
+        if self._thread_lock is not None:
+            self._thread_lock.release()
+            self._thread_lock = None
+        if close_error:
+            raise close_error
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        try:
+            self._close(unlock=True)
+        except OSError as exc:
+            if exc_type is None:
+                raise CollectionPersistenceError(
+                    f'Unable to release collection-state writer lock: {exc}') from exc
+        return False
+
+
 def _now():
     return datetime.now(timezone.utc)
 
@@ -64,17 +175,44 @@ def _digest(value) -> str:
 
 
 def _atomic_json(path: Path, value: dict):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    temp = path.with_name(path.name + f'.{os.getpid()}.tmp')
-    with temp.open('w', encoding='utf-8', newline='\n') as stream:
-        stream.write(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
-        stream.flush()
-        os.fsync(stream.fileno())
-    os.replace(temp, path)
+    temp = None
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        fd, temp_name = tempfile.mkstemp(prefix=path.name + '.', suffix='.tmp', dir=path.parent)
+        temp = Path(temp_name)
+        with os.fdopen(fd, 'w', encoding='utf-8', newline='\n') as stream:
+            stream.write(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
+            stream.flush()
+            os.fsync(stream.fileno())
+        for attempt in range(_REPLACE_RETRIES):
+            try:
+                os.replace(temp, path)
+                temp = None
+                return
+            except PermissionError as exc:
+                # Windows reports an open destination as ACCESS_DENIED (5) or
+                # SHARING_VIOLATION (32). Retry only these transient cases.
+                if not _is_windows_sharing_error(exc) or attempt == _REPLACE_RETRIES - 1:
+                    raise
+                time.sleep(min(_REPLACE_RETRY_DELAY_SECONDS * (2 ** attempt), 0.1))
+    except OSError as exc:
+        raise CollectionPersistenceError(f'Unable to atomically persist {path}: {exc}') from exc
+    finally:
+        if temp is not None:
+            try:
+                temp.unlink(missing_ok=True)
+            except OSError:
+                pass
 
 
 def _read(path: Path):
-    return json.loads(path.read_text(encoding='utf-8'))
+    for attempt in range(_REPLACE_RETRIES):
+        try:
+            return json.loads(path.read_text(encoding='utf-8'))
+        except PermissionError as exc:
+            if not _is_windows_sharing_error(exc) or attempt == _REPLACE_RETRIES - 1:
+                raise
+            time.sleep(min(_REPLACE_RETRY_DELAY_SECONDS * (2 ** attempt), 0.1))
 
 
 def _base(investigation_id: str) -> Path:
@@ -106,6 +244,147 @@ def _active_manifest(investigation_id: str):
     if manifest.get('investigation_id') != investigation_id or manifest.get('version_id') != version:
         raise ValueError('Collection manifest identity mismatch.')
     return directory, manifest
+
+
+def _persist_collection_manifest(investigation_id: str, version_dir: Path, manifest: dict) -> None:
+    manifest_path = version_dir / 'manifest.json'
+    pointer_path = _active_path(investigation_id)
+    previous_manifest = None
+    try:
+        previous_pointer = _read(pointer_path) if pointer_path.is_file() else None
+        if (previous_pointer and previous_pointer.get('version_id') == manifest.get('version_id')
+                and manifest_path.is_file()):
+            previous_manifest = _read(manifest_path)
+    except (OSError, ValueError, TypeError):
+        previous_manifest = None
+    _atomic_json(manifest_path, manifest)
+    try:
+        _atomic_json(pointer_path, {'version_id': manifest['version_id'],
+            'updated_at': _iso(), 'refresh': manifest.get('refresh', False),
+            'manifest_sha256': _sha(manifest_path)})
+    except CollectionPersistenceError as publish_error:
+        # If this version was already active, restore its last published manifest
+        # so the unchanged pointer's hash continues to describe the same state.
+        if previous_manifest is not None:
+            try:
+                _atomic_json(manifest_path, previous_manifest)
+            except CollectionPersistenceError as rollback_error:
+                raise CollectionPersistenceError(
+                    f'{publish_error}; restoring the previous collection manifest also failed: '
+                    f'{rollback_error}') from publish_error
+        raise
+
+
+def _safe_error_message(error: Exception) -> str:
+    message = str(error)[:1000]
+    for secret in (settings.dataforseo_login, settings.dataforseo_password):
+        if secret:
+            message = message.replace(secret, '[REDACTED]')
+    message = re.sub(r'(?i)(authorization\s*[:=]\s*)(?:bearer\s+)?[^\s,;]+', r'\1[REDACTED]', message)
+    message = re.sub(r'(?i)(password|api[_-]?key|token)\s*[:=]\s*[^\s,;]+', r'\1=[REDACTED]', message)
+    return message
+
+
+def _charge_value(value):
+    try:
+        result = float(value)
+        return result if result >= 0 else None
+    except (TypeError, ValueError):
+        return None
+
+
+def _collection_attempt_event(investigation_id: str, version_dir: Path, manifest: dict,
+                              item_key: str, attempt_id: str, event: dict) -> None:
+    entry = (manifest.get('items') or {}).get(item_key) or {}
+    attempts = entry.setdefault('attempts', [])
+    attempt = next((row for row in reversed(attempts) if row.get('attempt_id') == attempt_id), None)
+    if attempt is None:
+        return
+    event_type = event.get('event')
+    if event_type == 'transmission_started':
+        attempt['transmission_started_at'] = _iso()
+        attempt['transmission_status'] = 'in_progress'
+        manifest['statistics']['dataforseo_transmission_attempts'] = (
+            manifest['statistics'].get('dataforseo_transmission_attempts', 0) + 1)
+    elif event_type == 'transmission_outcome_unknown':
+        attempt['transmission_status'] = 'unknown'
+        manifest['statistics']['dataforseo_transmission_outcome_unknown'] = (
+            manifest['statistics'].get('dataforseo_transmission_outcome_unknown', 0) + 1)
+    elif event_type == 'http_response':
+        attempt['transmission_status'] = 'confirmed'
+        attempt['http_status'] = event.get('http_status')
+        manifest['statistics']['dataforseo_http_responses_received'] = (
+            manifest['statistics'].get('dataforseo_http_responses_received', 0) + 1)
+    elif event_type == 'api_response':
+        attempt['api_status'] = event.get('api_status')
+        charge = _charge_value(event.get('reported_cost_usd'))
+        if charge is not None and attempt.get('api_reported_charge_usd') is None:
+            attempt['api_reported_charge_usd'] = charge
+            manifest['statistics']['api_confirmed_charges_usd'] = (
+                manifest['statistics'].get('api_confirmed_charges_usd', 0.0) + charge)
+            manifest['statistics']['api_confirmed_charge_records'] = (
+                manifest['statistics'].get('api_confirmed_charge_records', 0) + 1)
+    _persist_collection_manifest(investigation_id, version_dir, manifest)
+
+
+def collection_status(investigation_id: str) -> dict:
+    """Read the active collection manifest without planning or starting work."""
+    selection = serp_investigations.read_investigation(investigation_id)
+    version_dir, manifest = _active_manifest(investigation_id)
+    selected = set((manifest or {}).get('collector_selection') or [])
+    entries = (manifest or {}).get('items') or {}
+    rows = []
+    for item in _items(selection):
+        entry = entries.get(item['key']) or {}
+        raw_status = str(entry.get('status') or '').lower()
+        cache_status = entry.get('cache_status')
+        if raw_status == 'completed':
+            status = ('reused' if cache_status in (
+                'original_investigation_inventory', 'compatible_investigation_version',
+                'this_investigation_collection_version', 'existing_dataforseo_request_cache',
+                'saved_evidence') else 'completed')
+        elif raw_status in ('running', 'processing', 'failed', 'skipped', 'pending'):
+            status = raw_status
+        elif manifest and selected and item['collector'] not in selected:
+            status = 'skipped'
+        else:
+            status = 'pending'
+        attempts = entry.get('attempts') if isinstance(entry.get('attempts'), list) else []
+        attempt_count = len(attempts)
+        if not attempt_count and entry.get('attempt_id'):
+            attempt_count = 1
+        first_attempt = attempts[0] if attempts else {}
+        latest_attempt = attempts[-1] if attempts else {}
+        rows.append({
+            'key': item['key'], 'collector': item['collector'], 'evidence_type': item['kind'],
+            'status': status, 'attempt_count': attempt_count,
+            'started_at': entry.get('started_at') or first_attempt.get('started_at'),
+            'completed_at': entry.get('completed_at') or entry.get('finished_at') or latest_attempt.get('finished_at'),
+            'error': (_safe_error_message(RuntimeError(entry.get('message')))
+                      if entry.get('message') else None),
+            'diagnostic_reference': entry.get('diagnostic_reference') or latest_attempt.get('diagnostic_reference'),
+            'http_status': entry.get('http_status') or latest_attempt.get('http_status'),
+            'api_status': entry.get('api_status') or latest_attempt.get('api_status'),
+            'transmission_status': entry.get('transmission_status') or latest_attempt.get('transmission_status'),
+        })
+    counts = {key: sum(row['status'] == key for row in rows)
+              for key in ('completed', 'reused', 'failed', 'pending', 'running', 'processing', 'skipped')}
+    statistics = (manifest or {}).get('statistics', {})
+    return {'schema_version': '1.0', 'investigation_id': investigation_id,
+        'version_id': (manifest or {}).get('version_id'),
+        'status': (manifest or {}).get('status', 'not_started'),
+        'updated_at': _read(_active_path(investigation_id)).get('updated_at') if _active_path(investigation_id).is_file() else None,
+        'summary': {'required': len(rows), **counts}, 'items': rows,
+        'statistics': statistics,
+        'request_accounting': {
+            'operation_attempts': statistics.get('operation_attempts', 0),
+            'dataforseo_transmission_attempts': statistics.get('dataforseo_transmission_attempts', 0),
+            'dataforseo_http_responses_received': statistics.get('dataforseo_http_responses_received', 0),
+            'dataforseo_transmission_outcome_unknown': statistics.get('dataforseo_transmission_outcome_unknown', 0),
+            'api_confirmed_charges_usd': statistics.get('api_confirmed_charges_usd', 0.0),
+            'api_confirmed_charge_records': statistics.get('api_confirmed_charge_records', 0),
+            'legacy_paid_requests_made': statistics.get('paid_requests_made', 0),
+            'legacy_counter_note': 'Compatibility count of successful DataForSEO evidence saves; it is not a transmission count or proof of charges.'}}
 
 
 def _safe_configuration(collector: str, keyword: str, device='mobile') -> dict:
@@ -506,11 +785,13 @@ def _collection_version(investigation_id, refresh):
         'items': {}, 'attempts': [], 'failures': [], 'statistics': {
             'evidence_reuse_hits': 0, 'request_cache_hits': 0, 'cache_misses': 0,
             'paid_requests_made': 0, 'playwright_top_level_captures': 0,
-            'lighthouse_runs': 0, 'reported_cost_usd': 0.0}}
+            'lighthouse_runs': 0, 'reported_cost_usd': 0.0,
+            'operation_attempts': 0, 'dataforseo_transmission_attempts': 0,
+            'dataforseo_http_responses_received': 0,
+            'dataforseo_transmission_outcome_unknown': 0,
+            'api_confirmed_charges_usd': 0.0, 'api_confirmed_charge_records': 0}}
     version_dir.mkdir(parents=True, exist_ok=False)
-    _atomic_json(version_dir / 'manifest.json', manifest)
-    _atomic_json(_active_path(investigation_id), {'version_id': version_id, 'updated_at': _iso(),
-        'refresh': refresh, 'manifest_sha256': _sha(version_dir / 'manifest.json')})
+    _persist_collection_manifest(investigation_id, version_dir, manifest)
     return version_dir, manifest
 
 
@@ -585,6 +866,15 @@ def _save_item(version_dir, manifest, item, raw, *, cache_status, paid=False,
     row['configuration_verified'] = metadata['configuration_verified']
     row['attempt_id'] = attempt_id
     row['status'] = 'completed'
+    previous = (manifest.get('items') or {}).get(item['key']) or {}
+    row['attempts'] = previous.get('attempts', [])
+    row['attempt_count'] = len(row['attempts'])
+    row['started_at'] = previous.get('started_at')
+    row['completed_at'] = now
+    row['http_status'] = previous.get('http_status')
+    row['api_status'] = previous.get('api_status')
+    row['transmission_status'] = previous.get('transmission_status')
+    row['message'] = None
     manifest['items'][item['key']] = row
     stats = manifest['statistics']
     if cache_status in ('original_investigation_inventory', 'compatible_investigation_version', 'this_investigation_collection_version'):
@@ -604,19 +894,25 @@ def _save_item(version_dir, manifest, item, raw, *, cache_status, paid=False,
             stats['reported_cost_usd'] += float(reported_cost)
         except (ValueError, TypeError):
             pass
-    _atomic_json(version_dir / 'manifest.json', manifest)
-    _atomic_json(_active_path(manifest['investigation_id']), {'version_id': manifest['version_id'],
-        'updated_at': _iso(), 'refresh': manifest.get('refresh', False),
-        'manifest_sha256': _sha(version_dir / 'manifest.json')})
+    if paid and reported_cost is not None:
+        attempts = row.get('attempts') or []
+        last_attempt = attempts[-1] if attempts else {}
+        if last_attempt.get('api_reported_charge_usd') is None:
+            charge = _charge_value(reported_cost)
+            if charge is not None:
+                stats['api_confirmed_charges_usd'] = stats.get('api_confirmed_charges_usd', 0.0) + charge
+                stats['api_confirmed_charge_records'] = stats.get('api_confirmed_charge_records', 0) + 1
+                last_attempt['api_reported_charge_usd'] = charge
+    _persist_collection_manifest(manifest['investigation_id'], version_dir, manifest)
     return row
 
 
-def _run_dataforseo(item, executor=None):
+def _run_dataforseo(item, executor=None, *, event_callback=None):
     if executor:
         response = executor(item)
     else:
         from collectors.dataforseo_client import DataForSEOClient
-        response = DataForSEOClient().post(item['endpoint'], item['payload'])
+        response = DataForSEOClient(event_callback=event_callback).post(item['endpoint'], item['payload'])
     if not _response_matches(item, response, _metadata_for_request_cache(item)):
         raise ValueError('DataForSEO response failed status/target/scope validation.')
     return response, response.get('cost')
@@ -638,7 +934,17 @@ def _run_playwright(item, executor=None):
                      'url_alignment': 'matched' if normalized_url(result.get('final_url')) == normalized_url(item['target'])
                                       else 'redirected_from_selected_url'})
     if not _page_matches(item, captured):
-        raise ValueError('Playwright result is incomplete, blocked or belongs to a different requested URL.')
+        if captured.get('blocked') or captured.get('extraction_status') == 'blocked':
+            message = 'Playwright capture blocked or sign-in required.'
+        elif captured.get('extraction_status') != 'complete' or captured.get('crawl_failed'):
+            reason = captured.get('content_quality_reason') or captured.get('extraction_status') or 'main_content_not_confirmed'
+            message = f'Playwright capture incomplete: {str(reason)[:240]}.'
+        else:
+            message = 'Playwright result failed requested URL identity validation.'
+        error = ValueError(message)
+        error.diagnostic_reference = captured.get('diagnostic_reference')
+        error.safe_message = message
+        raise error
     return captured, None
 
 
@@ -807,6 +1113,17 @@ def _record_partial_stage(investigation_id: str, version_dir: Path, manifest: di
 
 def execute_collection(investigation_id: str, *, collectors, authorize_paid_dataforseo=False,
                        authorize_external_page_requests=False, refresh=False, executors=None) -> dict:
+    workflow_dir = _base(investigation_id) / 'workflow'
+    with _CollectionStateLock(workflow_dir / '.collection_state.lock'):
+        return _execute_collection_unlocked(investigation_id, collectors=collectors,
+            authorize_paid_dataforseo=authorize_paid_dataforseo,
+            authorize_external_page_requests=authorize_external_page_requests,
+            refresh=refresh, executors=executors)
+
+
+def _execute_collection_unlocked(investigation_id: str, *, collectors,
+                       authorize_paid_dataforseo=False,
+                       authorize_external_page_requests=False, refresh=False, executors=None) -> dict:
     if type(authorize_paid_dataforseo) is not bool or type(authorize_external_page_requests) is not bool:
         raise ValueError('Collector authorization flags must be boolean.')
     selected = tuple(dict.fromkeys(collectors or []))
@@ -851,9 +1168,37 @@ def execute_collection(investigation_id: str, *, collectors, authorize_paid_data
         'selection': selection, 'collectors': selected,
         'items': [(row['item']['key'], row['item']['context_fingerprint']) for row in plan['_plans']]})
     manifest.setdefault('attempts', []).append({'started_at': _iso(), 'collectors': list(selected), 'refresh': refresh})
-    _atomic_json(version_dir / 'manifest.json', manifest)
-    _atomic_json(_active_path(investigation_id), {'version_id': manifest['version_id'],
-        'updated_at': _iso(), 'refresh': refresh, 'manifest_sha256': _sha(version_dir / 'manifest.json')})
+    manifest['status'] = 'running'
+    manifest['completed_at'] = None
+    statistics = manifest.setdefault('statistics', {})
+    for key, default in {
+        'operation_attempts': 0, 'dataforseo_transmission_attempts': 0,
+        'dataforseo_http_responses_received': 0, 'dataforseo_transmission_outcome_unknown': 0,
+        'api_confirmed_charges_usd': 0.0, 'api_confirmed_charge_records': 0,
+    }.items():
+        statistics.setdefault(key, default)
+    # Persist a visible state for every required item before any adapter starts.
+    for planned in plan['_plans']:
+        item = planned['item']
+        force = refresh and item['collector'] in selected
+        existing = _current_version_item(item, version_dir, manifest)
+        if existing and not force:
+            continue
+        entry = manifest['items'].setdefault(item['key'], {
+            'kind': item['kind'], 'side': item['side'], 'collector': item['collector'],
+            'scope': item['scope'], 'target': item['target'],
+            'context_fingerprint': item['context_fingerprint'], 'attempts': [],
+        })
+        if planned.get('candidate') and not force:
+            entry['status'] = 'pending'
+        elif item['collector'] in selected:
+            entry['status'] = 'pending'
+        else:
+            entry['status'] = 'skipped'
+            entry['finished_at'] = _iso()
+        entry.setdefault('attempts', [])
+        entry['attempt_count'] = len(entry['attempts'])
+    _persist_collection_manifest(investigation_id, version_dir, manifest)
     executors = executors or {}
     failed = []
     for planned in plan['_plans']:
@@ -865,6 +1210,10 @@ def execute_collection(investigation_id: str, *, collectors, authorize_paid_data
             continue
         should_recollect = item['collector'] in selected and (force or planned['status'] in ('missing', 'refresh_required'))
         if planned.get('candidate') and not force:
+            current = manifest['items'].setdefault(item['key'], {'attempts': []})
+            current['status'] = 'processing'
+            current['started_at'] = current.get('started_at') or _iso()
+            _persist_collection_manifest(investigation_id, version_dir, manifest)
             candidate = planned['candidate']
             source = candidate.get('raw_path')
             source_meta = candidate.get('metadata_path')
@@ -879,12 +1228,31 @@ def execute_collection(investigation_id: str, *, collectors, authorize_paid_data
                 cache_status=cache_status, source_path=source, source_meta=source_meta)
             continue
         if not should_recollect:
-            manifest['items'].setdefault(item['key'], {'status': 'missing', 'kind': item['kind'],
+            entry = manifest['items'].setdefault(item['key'], {'kind': item['kind'],
                 'side': item['side'], 'collector': item['collector'], 'scope': item['scope'],
-                'target': item['target'], 'context_fingerprint': item['context_fingerprint']})
-            _atomic_json(version_dir / 'manifest.json', manifest)
+                'target': item['target'], 'context_fingerprint': item['context_fingerprint'], 'attempts': []})
+            entry['status'] = 'skipped'
+            entry['finished_at'] = _iso()
+            _persist_collection_manifest(investigation_id, version_dir, manifest)
             continue
         attempt_id = uuid.uuid4().hex
+        entry = manifest['items'].setdefault(item['key'], {'attempts': []})
+        entry.setdefault('attempts', []).append({'attempt_id': attempt_id,
+            'attempt_number': len(entry['attempts']) + 1, 'status': 'running', 'started_at': _iso(),
+            'transmission_status': 'not_started'})
+        entry['status'] = 'running'
+        entry['attempt_count'] = len(entry['attempts'])
+        entry['started_at'] = entry.get('started_at') or entry['attempts'][0]['started_at']
+        entry['latest_started_at'] = entry['attempts'][-1]['started_at']
+        entry['message'] = None
+        entry['error_type'] = None
+        manifest['statistics']['operation_attempts'] += 1
+        _persist_collection_manifest(investigation_id, version_dir, manifest)
+
+        def on_dataforseo_event(event):
+            _collection_attempt_event(investigation_id, version_dir, manifest,
+                                      item['key'], attempt_id, event)
+
         try:
             if item['collector'] == 'dataforseo':
                 # Recheck a successful, fresh shared cache immediately before a
@@ -893,8 +1261,13 @@ def execute_collection(investigation_id: str, *, collectors, authorize_paid_data
                 if cached:
                     raw, cost = cached['raw'], None
                     cache_status, paid, external = 'existing_dataforseo_request_cache', False, False
+                    latest = manifest['items'][item['key']]['attempts'][-1]
+                    latest['transmission_status'] = 'not_sent_cached'
                 else:
-                    raw, cost = _run_dataforseo(item, executors.get('dataforseo'))
+                    if executors.get('dataforseo'):
+                        raw, cost = _run_dataforseo(item, executors.get('dataforseo'))
+                    else:
+                        raw, cost = _run_dataforseo(item, event_callback=on_dataforseo_event)
                     cache_status, paid, external = ('explicit_refresh' if force else 'cache_miss'), True, False
             elif item['collector'] == 'playwright':
                 raw, cost = _run_playwright(item, executors.get('playwright'))
@@ -902,30 +1275,57 @@ def execute_collection(investigation_id: str, *, collectors, authorize_paid_data
             else:
                 raw, cost = _run_lighthouse(item, executors.get('lighthouse'))
                 cache_status, paid, external = ('explicit_refresh' if force else 'cache_miss'), False, True
+            entry = manifest['items'][item['key']]
+            entry['status'] = 'processing'
+            entry['api_status'] = raw.get('status_code') if isinstance(raw, dict) else None
+            latest = entry['attempts'][-1]
+            if latest.get('api_status') is None:
+                latest['api_status'] = entry['api_status']
+            latest['status'] = 'processing'
+            _persist_collection_manifest(investigation_id, version_dir, manifest)
             _save_item(version_dir, manifest, item, raw, cache_status=cache_status,
                        paid=paid, external_operation=external, reported_cost=cost, attempt_id=attempt_id)
+            entry = manifest['items'][item['key']]
+            latest = entry['attempts'][-1]
+            latest['status'] = 'completed'
+            latest['finished_at'] = _iso()
+            entry['attempt_count'] = len(entry['attempts'])
+            if latest.get('transmission_status') == 'not_started':
+                latest['transmission_status'] = 'not_sent_cached' if cache_status == 'existing_dataforseo_request_cache' else 'not_applicable'
+            entry['transmission_status'] = latest.get('transmission_status')
+            entry['http_status'] = latest.get('http_status')
+            entry['api_status'] = latest.get('api_status')
+            _persist_collection_manifest(investigation_id, version_dir, manifest)
+        except CollectionPersistenceError:
+            # Do not misreport a state-publication failure as a collector failure
+            # or continue with in-memory state that was not durably published.
+            raise
         except Exception as exc:
-            # Count attempted operations even when the collector fails. These
-            # are request/operation counts, not only successful artifact counts.
-            if item['collector'] == 'dataforseo':
-                manifest['statistics']['paid_requests_made'] += 1
-            elif item['collector'] == 'playwright':
-                manifest['statistics']['playwright_top_level_captures'] += 1
-            elif item['collector'] == 'lighthouse':
-                manifest['statistics']['lighthouse_runs'] += 1
-            failed.append({'item_key': item['key'], 'kind': item['kind'], 'side': item['side'],
+            message = getattr(exc, 'safe_message', None) or _safe_error_message(exc)
+            diagnostic_reference = getattr(exc, 'diagnostic_reference', None)
+            failed_row = {'item_key': item['key'], 'kind': item['kind'], 'side': item['side'],
                 'collector': item['collector'], 'attempt_id': attempt_id,
-                'failed_at': _iso(), 'error_type': type(exc).__name__, 'message': str(exc)[:1000]})
+                'failed_at': _iso(), 'error_type': type(exc).__name__, 'message': message}
+            if diagnostic_reference:
+                failed_row['diagnostic_reference'] = diagnostic_reference
+            failed.append(failed_row)
             manifest['failures'].append(failed[-1])
-            manifest['items'][item['key']] = {'status': 'failed', 'kind': item['kind'],
-                'side': item['side'], 'collector': item['collector'], 'scope': item['scope'],
-                'target': item['target'], 'context_fingerprint': item['context_fingerprint'],
-                'attempt_id': attempt_id, 'failed_at': failed[-1]['failed_at'],
-                'error_type': failed[-1]['error_type'], 'message': failed[-1]['message']}
+            entry = manifest['items'][item['key']]
+            latest = entry['attempts'][-1]
+            latest.update({'status': 'failed', 'finished_at': failed[-1]['failed_at'],
+                           'error_type': failed[-1]['error_type'], 'message': message})
+            if diagnostic_reference:
+                latest['diagnostic_reference'] = diagnostic_reference
+            if latest.get('transmission_status') == 'not_started':
+                latest['transmission_status'] = 'not_sent'
+            entry.update({'status': 'failed', 'attempt_id': attempt_id, 'finished_at': failed[-1]['failed_at'],
+                'error_type': failed[-1]['error_type'], 'message': message,
+                'attempt_count': len(entry['attempts']), 'transmission_status': latest.get('transmission_status'),
+                'http_status': latest.get('http_status'), 'api_status': latest.get('api_status')})
+            if diagnostic_reference:
+                entry['diagnostic_reference'] = diagnostic_reference
             manifest['statistics']['cache_misses'] += 1
-            _atomic_json(version_dir / 'manifest.json', manifest)
-            _atomic_json(_active_path(investigation_id), {'version_id': manifest['version_id'],
-                'updated_at': _iso(), 'refresh': refresh, 'manifest_sha256': _sha(version_dir / 'manifest.json')})
+            _persist_collection_manifest(investigation_id, version_dir, manifest)
             # Stop after the first failure. Earlier items are already durable;
             # retry reuses them and begins at this item.
             break
@@ -953,9 +1353,7 @@ def execute_collection(investigation_id: str, *, collectors, authorize_paid_data
                    for item in _items(selection))
     manifest['status'] = 'completed' if complete else ('failed' if failed else 'awaiting_review')
     manifest['completed_at'] = _iso() if complete else None
-    _atomic_json(version_dir / 'manifest.json', manifest)
-    _atomic_json(_active_path(investigation_id), {'version_id': manifest['version_id'],
-        'updated_at': _iso(), 'refresh': refresh, 'manifest_sha256': _sha(version_dir / 'manifest.json')})
+    _persist_collection_manifest(investigation_id, version_dir, manifest)
     overlay_record = None
     if complete:
         try:
@@ -965,9 +1363,7 @@ def execute_collection(investigation_id: str, *, collectors, authorize_paid_data
             manifest['completed_at'] = None
             manifest['failures'].append({'item_key': 'evidence_overlay', 'failed_at': _iso(),
                 'error_type': type(exc).__name__, 'message': str(exc)[:1000]})
-            _atomic_json(version_dir / 'manifest.json', manifest)
-            _atomic_json(_active_path(investigation_id), {'version_id': manifest['version_id'],
-                'updated_at': _iso(), 'refresh': refresh, 'manifest_sha256': _sha(version_dir / 'manifest.json')})
+            _persist_collection_manifest(investigation_id, version_dir, manifest)
             _record_partial_stage(investigation_id, version_dir, manifest)
         else:
             _record_completed_stage(investigation_id, version_dir, manifest,

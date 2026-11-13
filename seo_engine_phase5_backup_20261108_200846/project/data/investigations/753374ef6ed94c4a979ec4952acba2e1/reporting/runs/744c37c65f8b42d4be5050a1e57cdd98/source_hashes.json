@@ -1,0 +1,8 @@
+{
+  "evidence\\llm_foundation\\canonical_evidence.json": "4b55f9fe9be5b2fc3b2d9c6681476cd9680ad4639b2968c2bfa8e946050b1ca3",
+  "evidence\\comparison.json": "d5d6b681e62a61a33ffe9ba4d9c84a02046641977dc1096e681f19e61fe7d453",
+  "evidence\\llm_outputs\\onpage_validated.json": "64241c62c6c8843c82772c4236f4b4e4bc76931df6e2a687990ac38bac26baad",
+  "evidence\\llm_outputs\\backlinks_validated.json": "513208409cca2d23b30f9846cb186852bcecc9cc48a53edc8ab6665e82984942",
+  "evidence\\llm_outputs\\technical_validated.json": "6d99e4ad921b453d2e44a21eb7bd1448f5662e7e03e1e876b8218b16d7871c17",
+  "evidence\\llm_outputs\\competition_validated.json": "f655d739b87dfbb67e578e9fbc6215179913f0c6a03a56965c9ef8e6cb1eea5c"
+}

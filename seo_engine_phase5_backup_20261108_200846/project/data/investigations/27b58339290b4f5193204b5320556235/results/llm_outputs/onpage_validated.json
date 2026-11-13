@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "task": "onpage",
+  "status": "usable",
+  "findings": [
+    {
+      "observation": "The ranking page title 'Online Sports Betting and Online Casino | Hollywoodbets' does not contain the primary keyword 'Aviator', whereas the benchmark title does.",
+      "interpretation": "The current title is broad and may result in lower click-through rates for users specifically searching for the Aviator game compared to the benchmark.",
+      "evidence_paths": [
+        "evidence.onpage.comparison.title_keyword_match.ours",
+        "evidence.onpage.pages.ours.title",
+        "evidence.onpage.pages.benchmark.title"
+      ],
+      "counterevidence": "The H1 tag correctly contains the keyword 'AVIATOR'.",
+      "recommended_action": "Verify if the current title aligns with the primary landing page intent; consider incorporating 'Aviator' into the title tag to improve relevance for specific queries."
+    },
+    {
+      "observation": "The benchmark page contains 28 internal links compared to 9 on the ranking page.",
+      "interpretation": "The benchmark page has a significantly higher density of internal linking, which may contribute to its higher authority or navigation structure.",
+      "evidence_paths": [
+        "evidence.onpage.comparison.internal_link_count.ours",
+        "evidence.onpage.comparison.internal_link_count.competitor"
+      ],
+      "counterevidence": "Internal link count does not directly prove authority or navigation quality.",
+      "recommended_action": "Audit internal linking structure to identify high-value pages that could be linked from the Aviator landing page."
+    },
+    {
+      "observation": "The content token Jaccard overlap between the two pages is 0.14285714285714285.",
+      "interpretation": "There is low lexical overlap between the two pages, suggesting distinct content approaches despite both being 'comparable' in scope.",
+      "evidence_paths": [
+        "evidence.onpage.comparison.content_token_jaccard"
+      ],
+      "counterevidence": "Jaccard overlap measures lexical similarity, not semantic relevance or quality.",
+      "recommended_action": "Verify if the unique content on the ranking page addresses the same user intents as the benchmark page."
+    }
+  ],
+  "limitations": [
+    "Word count does not prove content completeness.",
+    "Jaccard overlap is a lexical measure and does not account for semantic meaning.",
+    "Internal link counts do not guarantee improved authority or navigation.",
+    "Meta descriptions influence snippets but are not direct ranking factors."
+  ]
+}

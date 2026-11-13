@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.1",
+  "status": "review_required",
+  "blocking_count": 0,
+  "review_count": 5,
+  "plans_audited": 5,
+  "dispositions_audited": 11,
+  "issues": [
+    {
+      "severity": "review",
+      "code": "no_precondition",
+      "path": "implementation_plans[3]",
+      "message": "Plan has no explicit verification or implementation precondition.",
+      "next_check": "State what must be verified before deployment."
+    },
+    {
+      "severity": "review",
+      "code": "domain_rank_scope",
+      "path": "implementation_plans[4]",
+      "message": "Domain-level keyword positions may belong to different ranking URLs.",
+      "next_check": "Identify exact ranking URLs for each query and verify intent BEFORE proposing new content."
+    },
+    {
+      "severity": "review",
+      "code": "missing_post_change_verification",
+      "path": "implementation_plans[4]",
+      "message": "The plan changes a website without an explicit post-change verification step.",
+      "next_check": "Add a repeatable post-deployment check after the final change."
+    },
+    {
+      "severity": "review",
+      "code": "missing_verification_step",
+      "path": "implementation_plans[4]",
+      "message": "Implementation steps omit a verification activity.",
+      "next_check": "Add a concrete before/after check with repeatable conditions."
+    },
+    {
+      "severity": "review",
+      "code": "no_precondition",
+      "path": "implementation_plans[4]",
+      "message": "Plan has no explicit verification or implementation precondition.",
+      "next_check": "State what must be verified before deployment."
+    }
+  ],
+  "note": "Heuristic quality checks are not proof of SEO causation or technical correctness. Original output is unchanged."
+}

@@ -1,0 +1,424 @@
+{
+  "schema_version": "1.0",
+  "task": "backlinks",
+  "status": "recovered_with_review",
+  "original_errors": [
+    "implementation_plans[1]: fact not linked to cited specialist findings",
+    "implementation_plans[0].success_measure: numeric claim 5 is not present in this run evidence",
+    "implementation_plans[1].success_measure: numeric claim 5 is not present in this run evidence",
+    "implementation_plans[0].success_measure: numeric claim 5 is not supported by its cited evidence",
+    "implementation_plans[1].success_measure: numeric claim 5 is not supported by its cited evidence"
+  ],
+  "registry": [
+    {
+      "fact_id": "SERP",
+      "path": "ours",
+      "value": 2,
+      "metric": "ours",
+      "unit": "unspecified",
+      "side": "ours",
+      "source_url": "https://www.hollywoodbets.net/aviator",
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "SERP",
+      "path": "benchmark",
+      "value": 1,
+      "metric": "benchmark",
+      "unit": "unspecified",
+      "side": "benchmark",
+      "source_url": "https://www.betway.co.za/aviator",
+      "captured_at": null,
+      "scope": "search"
+    },
+    {
+      "fact_id": "BL_PAGE",
+      "path": "ours.rank",
+      "value": 18,
+      "metric": "rank",
+      "unit": "count",
+      "side": "ours",
+      "source_url": "https://www.hollywoodbets.net/aviator",
+      "captured_at": null,
+      "scope": "page"
+    },
+    {
+      "fact_id": "BL_PAGE",
+      "path": "ours.referring_domains",
+      "value": 1184,
+      "metric": "referring_domains",
+      "unit": "count",
+      "side": "ours",
+      "source_url": "https://www.hollywoodbets.net/aviator",
+      "captured_at": null,
+      "scope": "page"
+    },
+    {
+      "fact_id": "BL_PAGE",
+      "path": "ours.backlinks",
+      "value": 1853,
+      "metric": "backlinks",
+      "unit": "count",
+      "side": "ours",
+      "source_url": "https://www.hollywoodbets.net/aviator",
+      "captured_at": null,
+      "scope": "page"
+    },
+    {
+      "fact_id": "BL_PAGE",
+      "path": "benchmark.rank",
+      "value": 36,
+      "metric": "rank",
+      "unit": "count",
+      "side": "benchmark",
+      "source_url": "https://www.betway.co.za/aviator",
+      "captured_at": null,
+      "scope": "page"
+    },
+    {
+      "fact_id": "BL_PAGE",
+      "path": "benchmark.referring_domains",
+      "value": 1259,
+      "metric": "referring_domains",
+      "unit": "count",
+      "side": "benchmark",
+      "source_url": "https://www.betway.co.za/aviator",
+      "captured_at": null,
+      "scope": "page"
+    },
+    {
+      "fact_id": "BL_PAGE",
+      "path": "benchmark.backlinks",
+      "value": 2809,
+      "metric": "backlinks",
+      "unit": "count",
+      "side": "benchmark",
+      "source_url": "https://www.betway.co.za/aviator",
+      "captured_at": null,
+      "scope": "page"
+    },
+    {
+      "fact_id": "BL_DOMAIN",
+      "path": "ours.rank",
+      "value": 70,
+      "metric": "rank",
+      "unit": "count",
+      "side": "ours",
+      "source_url": "hollywoodbets.net",
+      "captured_at": null,
+      "scope": "domain"
+    },
+    {
+      "fact_id": "BL_DOMAIN",
+      "path": "ours.referring_domains",
+      "value": 8050,
+      "metric": "referring_domains",
+      "unit": "count",
+      "side": "ours",
+      "source_url": "hollywoodbets.net",
+      "captured_at": null,
+      "scope": "domain"
+    },
+    {
+      "fact_id": "BL_DOMAIN",
+      "path": "ours.backlinks",
+      "value": 1806871,
+      "metric": "backlinks",
+      "unit": "count",
+      "side": "ours",
+      "source_url": "hollywoodbets.net",
+      "captured_at": null,
+      "scope": "domain"
+    },
+    {
+      "fact_id": "BL_DOMAIN",
+      "path": "benchmark.rank",
+      "value": 65,
+      "metric": "rank",
+      "unit": "count",
+      "side": "benchmark",
+      "source_url": "betway.co.za",
+      "captured_at": null,
+      "scope": "domain"
+    },
+    {
+      "fact_id": "BL_DOMAIN",
+      "path": "benchmark.referring_domains",
+      "value": 7370,
+      "metric": "referring_domains",
+      "unit": "count",
+      "side": "benchmark",
+      "source_url": "betway.co.za",
+      "captured_at": null,
+      "scope": "domain"
+    },
+    {
+      "fact_id": "BL_DOMAIN",
+      "path": "benchmark.backlinks",
+      "value": 578056,
+      "metric": "backlinks",
+      "unit": "count",
+      "side": "benchmark",
+      "source_url": "betway.co.za",
+      "captured_at": null,
+      "scope": "domain"
+    }
+  ],
+  "diagnostics": [
+    {
+      "error": "implementation_plans[1]: fact not linked to cited specialist findings",
+      "path": "implementation_plans[1]",
+      "current_value": {
+        "title": "Audit and Optimize Page-Specific Backlink Profile for /aviator",
+        "rationale": "Despite the tracked domain’s higher domain-level backlink volume (1,806,871) compared to the benchmark domain (578,056), the /aviator page has a weaker page-specific backlink profile. This suggests the backlinks are not concentrated on the target page, which may explain the lower ranking.",
+        "owner": "SEO Specialist",
+        "priority": "high",
+        "implementation_steps": [
+          "Audit the current backlink profile for hollywoodbets.net/aviator using DataForSEO (BL_PAGE evidence).",
+          "Identify gaps: domains linking to the benchmark page but not ours, and pages with similar content that may be linking to competitors.",
+          "Prioritize outreach to high-authority domains that link to the benchmark page but not ours.",
+          "Create content or outreach assets that align with the benchmark page’s content and link structure."
+        ],
+        "success_measure": "Document and report on the gaps in referring domains for the /aviator page, with outreach templates prepared for at least 5 high-authority domains not currently linking to the page.",
+        "uncertainty": "Without content similarity or internal link data, we cannot guarantee link acquisition success.",
+        "evidence_ids": [
+          "BL_PAGE",
+          "SERP",
+          "BL_DOMAIN"
+        ],
+        "specialist_finding_ids": [
+          "BACKLINKS_02"
+        ],
+        "simple_explanation": "Our site has more overall backlinks, but they’re not focused on the /aviator page — we need to get more direct links to that page.",
+        "technical_explanation": "Domain-level backlink volume (BL_DOMAIN) is not sufficient to explain page-level ranking. The page-specific backlink profile (BL_PAGE) must be optimized to match the benchmark’s density and authority."
+      },
+      "cited_fact_ids": [
+        "BL_PAGE",
+        "SERP",
+        "BL_DOMAIN"
+      ],
+      "permitted_fact_ids": [
+        "BL_DOMAIN",
+        "SERP"
+      ],
+      "specialist_finding_ids": [
+        "BACKLINKS_02"
+      ],
+      "classification": "lineage_or_structure",
+      "instruction": "Keep fact citations within the union of the linked specialist findings. Do not add an unrelated finding solely to make an invalid claim pass."
+    },
+    {
+      "error": "implementation_plans[0].success_measure: numeric claim 5 is not present in this run evidence",
+      "path": "implementation_plans[0].success_measure",
+      "current_value": "Document and report on the list of high-authority referring domains not linking to the tracked page, with outreach templates prepared for at least 5 such domains.",
+      "cited_fact_ids": [
+        "BL_PAGE",
+        "SERP"
+      ],
+      "permitted_fact_ids": [
+        "BL_PAGE",
+        "SERP"
+      ],
+      "specialist_finding_ids": [
+        "BACKLINKS_01"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "5",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    },
+    {
+      "error": "implementation_plans[1].success_measure: numeric claim 5 is not present in this run evidence",
+      "path": "implementation_plans[1].success_measure",
+      "current_value": "Document and report on the gaps in referring domains for the /aviator page, with outreach templates prepared for at least 5 high-authority domains not currently linking to the page.",
+      "cited_fact_ids": [
+        "BL_PAGE",
+        "SERP",
+        "BL_DOMAIN"
+      ],
+      "permitted_fact_ids": [
+        "BL_DOMAIN",
+        "SERP"
+      ],
+      "specialist_finding_ids": [
+        "BACKLINKS_02"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "5",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    },
+    {
+      "error": "implementation_plans[0].success_measure: numeric claim 5 is not supported by its cited evidence",
+      "path": "implementation_plans[0].success_measure",
+      "current_value": "Document and report on the list of high-authority referring domains not linking to the tracked page, with outreach templates prepared for at least 5 such domains.",
+      "cited_fact_ids": [
+        "BL_PAGE",
+        "SERP"
+      ],
+      "permitted_fact_ids": [
+        "BL_PAGE",
+        "SERP"
+      ],
+      "specialist_finding_ids": [
+        "BACKLINKS_01"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "5",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    },
+    {
+      "error": "implementation_plans[1].success_measure: numeric claim 5 is not supported by its cited evidence",
+      "path": "implementation_plans[1].success_measure",
+      "current_value": "Document and report on the gaps in referring domains for the /aviator page, with outreach templates prepared for at least 5 high-authority domains not currently linking to the page.",
+      "cited_fact_ids": [
+        "BL_PAGE",
+        "SERP",
+        "BL_DOMAIN"
+      ],
+      "permitted_fact_ids": [
+        "BL_DOMAIN",
+        "SERP"
+      ],
+      "specialist_finding_ids": [
+        "BACKLINKS_02"
+      ],
+      "classification": "number_not_in_evidence",
+      "number": "5",
+      "matching_fact_ids": [],
+      "permitted_matching_fact_ids": [],
+      "instruction": "Remove or reword this unsupported numeric assertion. If it is a procedural identifier, make its meaning explicit; do not misrepresent a target as observed data."
+    }
+  ],
+  "quarantined_plans": [
+    {
+      "index": 0,
+      "original": {
+        "title": "Audit and Identify High-Authority Referring Domains for Benchmark Page",
+        "rationale": "The benchmark page (betway.co.za/aviator) has a higher page-level backlink count (2809) and more referring domains (1259) than the tracked page (hollywoodbets.net/aviator) which has 1853 backlinks and 1184 referring domains. This suggests a stronger page-level backlink profile for the benchmark page, which correlates with its higher ranking position (1) compared to the tracked page (2).",
+        "owner": "SEO Specialist",
+        "priority": "high",
+        "implementation_steps": [
+          "Export the list of referring domains for betway.co.za/aviator from DataForSEO (BL_PAGE evidence).",
+          "Categorize referring domains by authority (e.g., using Moz or Ahrefs metrics if available, or by domain size/traffic if not).",
+          "Identify high-authority domains not linking to hollywoodbets.net/aviator.",
+          "Create outreach templates for these domains, emphasizing relevance to 'aviator' gambling content in South Africa."
+        ],
+        "success_measure": "Document and report on the list of high-authority referring domains not linking to the tracked page, with outreach templates prepared for at least 5 such domains.",
+        "uncertainty": "Domain authority metrics may not be available in DataForSEO; reliance on domain size or traffic may be necessary.",
+        "evidence_ids": [
+          "BL_PAGE",
+          "SERP"
+        ],
+        "specialist_finding_ids": [
+          "BACKLINKS_01"
+        ],
+        "simple_explanation": "The competitor’s page has more direct backlinks from authoritative sites — we need to find those sites and get them to link to ours.",
+        "technical_explanation": "Page-level backlink data (BL_PAGE) shows the benchmark page has more referring domains and backlinks. This is a direct correlation with its #1 ranking. We must audit these links to replicate or acquire similar ones for our page."
+      }
+    },
+    {
+      "index": 1,
+      "original": {
+        "title": "Audit and Optimize Page-Specific Backlink Profile for /aviator",
+        "rationale": "Despite the tracked domain’s higher domain-level backlink volume (1,806,871) compared to the benchmark domain (578,056), the /aviator page has a weaker page-specific backlink profile. This suggests the backlinks are not concentrated on the target page, which may explain the lower ranking.",
+        "owner": "SEO Specialist",
+        "priority": "high",
+        "implementation_steps": [
+          "Audit the current backlink profile for hollywoodbets.net/aviator using DataForSEO (BL_PAGE evidence).",
+          "Identify gaps: domains linking to the benchmark page but not ours, and pages with similar content that may be linking to competitors.",
+          "Prioritize outreach to high-authority domains that link to the benchmark page but not ours.",
+          "Create content or outreach assets that align with the benchmark page’s content and link structure."
+        ],
+        "success_measure": "Document and report on the gaps in referring domains for the /aviator page, with outreach templates prepared for at least 5 high-authority domains not currently linking to the page.",
+        "uncertainty": "Without content similarity or internal link data, we cannot guarantee link acquisition success.",
+        "evidence_ids": [
+          "BL_PAGE",
+          "SERP",
+          "BL_DOMAIN"
+        ],
+        "specialist_finding_ids": [
+          "BACKLINKS_02"
+        ],
+        "simple_explanation": "Our site has more overall backlinks, but they’re not focused on the /aviator page — we need to get more direct links to that page.",
+        "technical_explanation": "Domain-level backlink volume (BL_DOMAIN) is not sufficient to explain page-level ranking. The page-specific backlink profile (BL_PAGE) must be optimized to match the benchmark’s density and authority."
+      }
+    },
+    {
+      "index": 2,
+      "original": {
+        "title": "Compare Referring Domain Quality and Provenance",
+        "rationale": "The benchmark domain has a lower total backlink volume (578,056) than the tracked domain (1,806,871), yet ranks higher for the keyword. This suggests that the benchmark’s backlinks may be more relevant or higher quality — a hypothesis to test.",
+        "owner": "SEO Specialist",
+        "priority": "medium",
+        "implementation_steps": [
+          "Export referring domain lists for both domains (BL_DOMAIN evidence).",
+          "Compare referring domains by domain authority (if available) or by traffic size (if not).",
+          "Identify if the benchmark’s referring domains are more concentrated in gambling, finance, or South African media niches.",
+          "Document findings and adjust outreach strategy accordingly."
+        ],
+        "success_measure": "Document and report on the quality and niche distribution of referring domains for both domains, with recommendations for outreach focus.",
+        "uncertainty": "Domain authority metrics may not be available in DataForSEO; reliance on domain size or traffic may be necessary.",
+        "evidence_ids": [
+          "BL_DOMAIN",
+          "SERP"
+        ],
+        "specialist_finding_ids": [
+          "BACKLINKS_02"
+        ],
+        "simple_explanation": "Our site has more total backlinks, but the competitor’s backlinks may be more relevant or higher quality — we need to verify this.",
+        "technical_explanation": "Domain-level backlink volume (BL_DOMAIN) does not correlate with page-level ranking. The benchmark’s lower volume may indicate higher-quality or more relevant links — we must verify this by comparing referring domain quality and niche."
+      }
+    }
+  ],
+  "quarantined_dispositions": [
+    {
+      "index": 0,
+      "original": {
+        "specialist_finding_id": "BACKLINKS_01",
+        "outcome": "action",
+        "plan_indices": [
+          0
+        ],
+        "simple_explanation": "The benchmark page has more page-level backlinks — we need to identify those domains and get them to link to ours.",
+        "technical_explanation": "Page-level backlink data (BL_PAGE) shows the benchmark page has more referring domains and backlinks. This is a direct correlation with its #1 ranking. We must audit these links to replicate or acquire similar ones for our page.",
+        "next_step": "Export the referring domains for betway.co.za/aviator and categorize them by authority or niche.",
+        "reason": "The finding is directly actionable and linked to a specific plan with clear steps.",
+        "evidence_ids": [
+          "BL_PAGE",
+          "SERP"
+        ]
+      }
+    },
+    {
+      "index": 1,
+      "original": {
+        "specialist_finding_id": "BACKLINKS_02",
+        "outcome": "action",
+        "plan_indices": [
+          1,
+          2
+        ],
+        "simple_explanation": "Our domain has more total backlinks, but the /aviator page lacks page-specific authority — we need to fix this gap.",
+        "technical_explanation": "Domain-level backlink volume (BL_DOMAIN) is not sufficient to explain page-level ranking. The page-specific backlink profile (BL_PAGE) must be optimized to match the benchmark’s density and authority.",
+        "next_step": "Audit the current backlink profile for hollywoodbets.net/aviator and identify gaps in referring domains.",
+        "reason": "The finding is directly actionable and linked to two plans: one for page-specific optimization and one for quality comparison.",
+        "evidence_ids": [
+          "BL_DOMAIN",
+          "SERP"
+        ]
+      }
+    }
+  ],
+  "review_finding_ids": [
+    "BACKLINKS_01",
+    "BACKLINKS_02"
+  ],
+  "preserved_plan_count": 0,
+  "original_plan_count": 3
+}

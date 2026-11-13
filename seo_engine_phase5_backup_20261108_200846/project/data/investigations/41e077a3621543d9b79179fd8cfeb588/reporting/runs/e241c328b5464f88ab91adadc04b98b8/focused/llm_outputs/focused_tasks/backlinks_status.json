@@ -1,0 +1,5 @@
+{
+  "status": "failed",
+  "error": "backlinks: failed validation after 2 attempt(s): finding_dispositions[0].reason: numeric claim 0 is not present in this run evidence; finding_dispositions[0].reason: numeric claim 0 is not supported by its cited evidence",
+  "finished_at_utc": "2026-11-03T07:23:49.876933+00:00"
+}

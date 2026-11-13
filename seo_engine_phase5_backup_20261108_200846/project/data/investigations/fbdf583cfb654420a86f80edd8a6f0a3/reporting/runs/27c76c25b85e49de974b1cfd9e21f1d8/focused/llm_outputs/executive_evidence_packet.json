@@ -1,0 +1,522 @@
+{
+  "schema_version": "1.0",
+  "keyword": "aviator",
+  "market": "South Africa",
+  "search_engine": "google",
+  "tracked": {
+    "domain": "hollywoodbets.net",
+    "url": "https://www.hollywoodbets.net/aviator",
+    "position": 2
+  },
+  "benchmark": {
+    "domain": "betway.co.za",
+    "url": "https://www.betway.co.za/aviator",
+    "position": 1
+  },
+  "facts": [
+    {
+      "id": "SERP",
+      "statement": "Saved organic SERP positions for the tracked and benchmark URLs; this is a snapshot, not a trend.",
+      "values": {
+        "ours": 2,
+        "benchmark": 1
+      }
+    },
+    {
+      "id": "ON_TITLE",
+      "statement": "Tracked and benchmark title keyword presence is an observed difference; verify before editing.",
+      "values": {
+        "title_keyword_match": {
+          "ours": false,
+          "competitor": true
+        }
+      }
+    },
+    {
+      "id": "ON_LINKS",
+      "statement": "Internal-link counts are descriptive counts, not density, quality, or causal evidence.",
+      "values": {
+        "internal_link_count": {
+          "ours": 9,
+          "competitor": 28
+        }
+      }
+    },
+    {
+      "id": "ON_CONTENT_SIMILARITY",
+      "statement": "Measured content-token Jaccard overlap is lexical similarity only, not semantic relevance, content quality, or ranking causation.",
+      "values": {
+        "content_token_jaccard": 0.14285714285714285
+      }
+    },
+    {
+      "id": "BL_PAGE",
+      "statement": "Page-level DataForSEO backlink totals, referring-domain counts, and backlink rank (index score, not Google position); quality and causation unknown.",
+      "values": {
+        "ours": {
+          "rank": 18,
+          "referring_domains": 1184,
+          "backlinks": 1853
+        },
+        "benchmark": {
+          "rank": 36,
+          "referring_domains": 1259,
+          "backlinks": 2809
+        }
+      }
+    },
+    {
+      "id": "BL_DOMAIN",
+      "statement": "Domain-level DataForSEO backlink totals, referring-domain counts, and backlink rank (index score, not Google position); these are not page-specific measurements.",
+      "values": {
+        "ours": {
+          "rank": 70,
+          "referring_domains": 8050,
+          "backlinks": 1806871
+        },
+        "benchmark": {
+          "rank": 65,
+          "referring_domains": 7370,
+          "backlinks": 578056
+        }
+      }
+    },
+    {
+      "id": "TECH_LAB",
+      "statement": "Mobile Lighthouse results are lab data; LCP root cause unverified.",
+      "values": {
+        "ours": {
+          "scores": {
+            "performance": 28,
+            "accessibility": 72,
+            "best-practices": 73,
+            "seo": 100
+          },
+          "lab_metrics": {
+            "largest_contentful_paint_ms": 24907.979723543547,
+            "total_blocking_time_ms": 2122.5
+          }
+        },
+        "benchmark": {
+          "scores": {
+            "performance": 16,
+            "accessibility": 76,
+            "best-practices": 69,
+            "seo": 85
+          },
+          "lab_metrics": {
+            "largest_contentful_paint_ms": 19506.780129999996,
+            "total_blocking_time_ms": 3272.8982099999866
+          }
+        }
+      }
+    },
+    {
+      "id": "TECH_INV",
+      "statement": "Engineering investigations are hypotheses requiring controlled verification.",
+      "values": [
+        {
+          "title": "Profile JavaScript boot-up and main-thread execution",
+          "priority": "high"
+        },
+        {
+          "title": "Review JavaScript delivery and initial bundle utilization",
+          "priority": "high"
+        },
+        {
+          "title": "Review image sizing and delivery",
+          "priority": "medium"
+        },
+        {
+          "title": "Review render-blocking resource dependencies",
+          "priority": "low"
+        }
+      ]
+    },
+    {
+      "id": "KW_SHARED",
+      "statement": "Counts of shared generic queries each domain leads on (not average rank positions); results may be different URLs.",
+      "values": {
+        "generic_ours_ahead": 24,
+        "generic_benchmark_ahead": 31
+      }
+    },
+    {
+      "id": "KW_QUERY_GAPS",
+      "statement": "Saved DataForSEO per-query domain ranking comparisons for selected relevant generic keywords. These may involve different ranking URLs; not the primary exact-page SERP, and no causal ranking conclusion follows.",
+      "values": {
+        "queries": [
+          {
+            "keyword": "play aviator",
+            "our_rank": 2,
+            "benchmark_rank": 1,
+            "rank_gap": 1,
+            "search_volume": 6600
+          },
+          {
+            "keyword": "aviator betting",
+            "our_rank": 8,
+            "benchmark_rank": 2,
+            "rank_gap": 6,
+            "search_volume": 1000
+          },
+          {
+            "keyword": "aviator bet",
+            "our_rank": 5,
+            "benchmark_rank": 1,
+            "rank_gap": 4,
+            "search_volume": 1000
+          },
+          {
+            "keyword": "how to play aviator",
+            "our_rank": 10,
+            "benchmark_rank": 1,
+            "rank_gap": 9,
+            "search_volume": 880
+          },
+          {
+            "keyword": "play aviator now",
+            "our_rank": 2,
+            "benchmark_rank": 1,
+            "rank_gap": 1,
+            "search_volume": 590
+          },
+          {
+            "keyword": "what is aviator",
+            "our_rank": 4,
+            "benchmark_rank": 3,
+            "rank_gap": 1,
+            "search_volume": 480
+          },
+          {
+            "keyword": "play aviator online",
+            "our_rank": 2,
+            "benchmark_rank": 1,
+            "rank_gap": 1,
+            "search_volume": 480
+          },
+          {
+            "keyword": "aviator app",
+            "our_rank": 4,
+            "benchmark_rank": 3,
+            "rank_gap": 1,
+            "search_volume": 480
+          },
+          {
+            "keyword": "aviator casino",
+            "our_rank": 10,
+            "benchmark_rank": 1,
+            "rank_gap": 9,
+            "search_volume": 260
+          },
+          {
+            "keyword": "aviator play online",
+            "our_rank": 4,
+            "benchmark_rank": 2,
+            "rank_gap": 2,
+            "search_volume": 260
+          }
+        ]
+      }
+    }
+  ],
+  "limitations": [
+    "Saved SERP snapshot, not live ranking.",
+    "No ranking causation or financial return can be inferred."
+  ],
+  "evidence_coverage": {
+    "schema_version": "1.0",
+    "categories": {
+      "search_visibility": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "evidence.serp.ranking_summary"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      },
+      "onpage_content": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "evidence.onpage.pages",
+          "evidence.onpage.comparison"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      },
+      "backlinks_authority": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "evidence.backlinks"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      },
+      "technical_lighthouse": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "evidence.technical.mobile_audits"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      },
+      "related_keyword_competition": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "evidence.keywords.intersection"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      },
+      "deterministic_findings_recommendations": {
+        "evidence_exists": true,
+        "verified_usable": true,
+        "selected_paths": [
+          "deterministic_recommendations",
+          "deterministic_findings"
+        ],
+        "omitted_paths": [],
+        "exclusion_reason": "",
+        "additional_investigation_required": false
+      }
+    },
+    "covered_count": 6,
+    "category_count": 6
+  },
+  "specialist_findings": [
+    {
+      "id": "ONPAGE_01",
+      "task": "onpage",
+      "source_sha256": "5fe87f361dbf517f0ae1a0874d1e9b69087d113903f8447ab6b0631bc56cbaa7",
+      "finding": {
+        "observation": "The ranking page title 'Online Sports Betting and Online Casino | Hollywoodbets' does not contain the primary keyword 'Aviator', whereas the benchmark title does.",
+        "interpretation": "The current title is broad and may result in lower click-through rates for users specifically searching for the Aviator game compared to the benchmark.",
+        "evidence_paths": [
+          "evidence.onpage.comparison.title_keyword_match.ours",
+          "evidence.onpage.pages.ours.title",
+          "evidence.onpage.pages.benchmark.title"
+        ],
+        "counterevidence": "The H1 tag correctly contains the keyword 'AVIATOR'.",
+        "recommended_action": "Verify if the current title aligns with the primary landing page intent; consider incorporating 'Aviator' into the title tag to improve relevance for specific queries."
+      },
+      "source": "llm_outputs/onpage_validated.json#/findings/0",
+      "status": "specialist_interpretation_not_independently_verified"
+    },
+    {
+      "id": "ONPAGE_02",
+      "task": "onpage",
+      "source_sha256": "bdc894d879bdae7e8384451c47dd7b7abe07221ff9154cbeba810017f37e6096",
+      "finding": {
+        "observation": "The benchmark page contains 28 internal links compared to 9 on the ranking page.",
+        "interpretation": "The benchmark page has a significantly higher density of internal linking, which may contribute to its higher authority or navigation structure.",
+        "evidence_paths": [
+          "evidence.onpage.comparison.internal_link_count.ours",
+          "evidence.onpage.comparison.internal_link_count.competitor"
+        ],
+        "counterevidence": "Internal link count does not directly prove authority or navigation quality.",
+        "recommended_action": "Audit internal linking structure to identify high-value pages that could be linked from the Aviator landing page."
+      },
+      "source": "llm_outputs/onpage_validated.json#/findings/1",
+      "status": "specialist_interpretation_not_independently_verified"
+    },
+    {
+      "id": "ONPAGE_03",
+      "task": "onpage",
+      "source_sha256": "74c81c860aa2b8aee185d231afe40fa9c013f00b36818df5d2e443af81ccbe03",
+      "finding": {
+        "observation": "The content token Jaccard overlap between the two pages is 0.14285714285714285.",
+        "interpretation": "There is low lexical overlap between the two pages, suggesting distinct content approaches despite both being 'comparable' in scope.",
+        "evidence_paths": [
+          "evidence.onpage.comparison.content_token_jaccard"
+        ],
+        "counterevidence": "Jaccard overlap measures lexical similarity, not semantic relevance or quality.",
+        "recommended_action": "Verify if the unique content on the ranking page addresses the same user intents as the benchmark page."
+      },
+      "source": "llm_outputs/onpage_validated.json#/findings/2",
+      "status": "specialist_interpretation_not_independently_verified"
+    },
+    {
+      "id": "BACKLINKS_01",
+      "task": "backlinks",
+      "source_sha256": "5563edaae1580a7b8372a9e60b84abfa19814e28b1fd48f2312068fe44d2f553",
+      "finding": {
+        "observation": "The benchmark page (betway.co.za/aviator) has a higher backlink count (2809) and more referring domains (1259) than the tracked page (hollywoodbets.net/aviator) which has 1853 backlinks and 1184 referring domains.",
+        "interpretation": "The benchmark page possesses a stronger page-level backlink profile, which correlates with its higher ranking position (1) compared to the tracked page (2).",
+        "evidence_paths": [
+          "evidence.backlinks.page.ours",
+          "evidence.backlinks.page.benchmark",
+          "evidence.serp.ranking_summary"
+        ],
+        "counterevidence": "The tracked domain (hollywoodbets.net) has a significantly higher total domain backlink count (1,806,871) compared to the benchmark domain (578,056).",
+        "recommended_action": "Analyze the specific referring domains for the benchmark page to identify high-authority sources that are not currently linking to the tracked page."
+      },
+      "source": "llm_outputs/backlinks_validated.json#/findings/0",
+      "status": "specialist_interpretation_not_independently_verified"
+    },
+    {
+      "id": "BACKLINKS_02",
+      "task": "backlinks",
+      "source_sha256": "5a7471e6771bf661feec26d513a74391a0eeb08983239bc3461cf5bd7bead928",
+      "finding": {
+        "observation": "The tracked domain has a much larger total backlink volume (1,806,871) than the benchmark domain (578,056), despite the benchmark domain holding the #1 position for the specific keyword.",
+        "interpretation": "Domain-level authority for the tracked site is high, but the specific page-level backlink profile for the 'aviator' URL is less dense than the competitor's equivalent page.",
+        "evidence_paths": [
+          "evidence.backlinks.domain.ours",
+          "evidence.backlinks.domain.benchmark",
+          "evidence.serp.ranking_summary"
+        ],
+        "counterevidence": "None",
+        "recommended_action": "Focus on increasing page-specific referring domains for the /aviator URL to bridge the gap with the benchmark page."
+      },
+      "source": "llm_outputs/backlinks_validated.json#/findings/1",
+      "status": "specialist_interpretation_not_independently_verified"
+    },
+    {
+      "id": "TECHNICAL_01",
+      "task": "technical",
+      "source_sha256": "e2bae404584f9f3d158b35177f8e39303c2995518b935da62d5f56a8d46f0748",
+      "finding": {
+        "observation": "The tracked website (hollywoodbets.net) has a mobile performance score of 28, while the benchmark (betway.co.za) has a lower performance score of 16.",
+        "interpretation": "While the tracked website has a higher performance score than the benchmark, the absolute score of 28 indicates significant performance issues on mobile devices.",
+        "evidence_paths": [
+          "evidence.serp.ranking_summary",
+          "evidence.technical.mobile_audits.ours.scores",
+          "evidence.technical.mobile_audits.benchmark.scores"
+        ],
+        "counterevidence": "The benchmark's SEO score is lower (85) than the tracked website's SEO score (100).",
+        "recommended_action": "Investigate the specific bottlenecks contributing to the low performance score of 28 to improve mobile user experience."
+      },
+      "source": "llm_outputs/technical_validated.json#/findings/0",
+      "status": "specialist_interpretation_not_independently_verified"
+    },
+    {
+      "id": "TECHNICAL_02",
+      "task": "technical",
+      "source_sha256": "213be04819b3f8f27e51d9bd1fb1a61c88e5eff430c740d442cec6ddb8ebf583",
+      "finding": {
+        "observation": "The tracked website shows a Largest Contentful Paint (LCP) of 24,907.98 ms and a Total Blocking Time (TBT) of 2,122.5 ms.",
+        "interpretation": "The LCP is significantly high, indicating a slow perceived loading speed for the main content on mobile.",
+        "evidence_paths": [
+          "evidence.technical.mobile_audits.ours.lab_metrics"
+        ],
+        "counterevidence": "The benchmark's LCP is also high at 19,506.78 ms.",
+        "recommended_action": "Optimize the critical rendering path to reduce LCP, specifically addressing the high TBT which suggests main-thread contention."
+      },
+      "source": "llm_outputs/technical_validated.json#/findings/1",
+      "status": "specialist_interpretation_not_independently_verified"
+    },
+    {
+      "id": "TECHNICAL_03",
+      "task": "technical",
+      "source_sha256": "e6fbe7058fb6d17ab2dd2bdb782fd7e7c77b0dca00c2d5ea6e7277430429bcc0",
+      "finding": {
+        "observation": "JavaScript execution and unused JavaScript are identified as high-priority issues, with 6.0 s of boot-up time and 1,108 KiB of estimated savings from unused JS.",
+        "interpretation": "Excessive JavaScript execution and large, underutilized bundles are likely contributing to the high TBT and slow LCP.",
+        "evidence_paths": [
+          "evidence.technical.detailed_analysis.investigations[0]",
+          "evidence.technical.detailed_analysis.investigations[1]"
+        ],
+        "counterevidence": "None provided in the JSON.",
+        "recommended_action": "Audit the main.38c4d2ededa66bb008c8.min.js bundle to remove unused code and optimize the boot-up sequence of external scripts like wdp.js."
+      },
+      "source": "llm_outputs/technical_validated.json#/findings/2",
+      "status": "specialist_interpretation_not_independently_verified"
+    },
+    {
+      "id": "COMPETITION_01",
+      "task": "competition",
+      "source_sha256": "e686b00eab723baeae45c8044727f37f0695ca1c981c90bb897a56dd3b579339",
+      "finding": {
+        "observation": "Betway.co.za holds the #1 position for the primary keyword 'aviator' and leads on high-volume generic modifiers like 'play aviator' and 'aviator bet'.",
+        "interpretation": "Betway.co.za is the primary confirmed benchmark, maintaining a competitive edge in both the core head term and high-volume intent-based modifiers.",
+        "evidence_paths": [
+          "evidence.serp.ranking_summary",
+          "evidence.keywords.intersection.top_generic_benchmark_leads"
+        ],
+        "counterevidence": "Hollywoodbets.net maintains a close proximity at position #2 for the primary keyword.",
+        "recommended_action": "Analyze the content structure and backlink profile of the betway.co.za/aviator page to identify specific ranking factors for the #1 position."
+      },
+      "source": "llm_outputs/competition_validated.json#/findings/0",
+      "status": "specialist_interpretation_not_independently_verified"
+    },
+    {
+      "id": "COMPETITION_02",
+      "task": "competition",
+      "source_sha256": "b286f40b975891effa40c16f3fe6c8b2c0360a3a05a257186f6715f153668102",
+      "finding": {
+        "observation": "Hollywoodbets.net shows a significant rank gap (6-9 positions) on specific long-tail queries such as 'aviator betting' and 'how to play aviator'.",
+        "interpretation": "The competitor has stronger authority or relevance for instructional and specific betting intent queries compared to the tracked domain.",
+        "evidence_paths": [
+          "evidence.keywords.intersection.top_generic_benchmark_leads"
+        ],
+        "counterevidence": "Hollywoodbets.net remains competitive on 'play aviator' and 'play aviator now' with a rank gap of only 1.",
+        "recommended_action": "Develop more comprehensive 'how-to' content and specific betting guides to close the gap on instructional queries."
+      },
+      "source": "llm_outputs/competition_validated.json#/findings/1",
+      "status": "specialist_interpretation_not_independently_verified"
+    },
+    {
+      "id": "COMPETITION_03",
+      "task": "competition",
+      "source_sha256": "aa3c96ed2313602b05b8a37528db165db9a0ae2b5d5c055ff92ddb990a180781",
+      "finding": {
+        "observation": "Multiple non-benchmark domains including app.aviator.co and aviator.co are present in the SERP discovery.",
+        "interpretation": "The SERP is populated by various entities, including potential direct game providers or app-specific landing pages, which may dilute traffic for the primary betting platforms.",
+        "evidence_paths": [
+          "evidence.competitor_discovery.candidates"
+        ],
+        "counterevidence": "These candidates are not verified as ranking benchmarks and their specific positions are not provided.",
+        "recommended_action": "Monitor the visibility of these non-benchmark domains to determine if they are capturing significant share of the 'aviator' search intent."
+      },
+      "source": "llm_outputs/competition_validated.json#/findings/2",
+      "status": "specialist_interpretation_not_independently_verified"
+    }
+  ],
+  "specialist_fact_links": {
+    "ONPAGE_01": [
+      "ON_TITLE"
+    ],
+    "ONPAGE_02": [
+      "ON_LINKS"
+    ],
+    "ONPAGE_03": [
+      "ON_CONTENT_SIMILARITY"
+    ],
+    "BACKLINKS_01": [
+      "BL_PAGE",
+      "SERP"
+    ],
+    "BACKLINKS_02": [
+      "BL_DOMAIN",
+      "SERP"
+    ],
+    "TECHNICAL_01": [
+      "SERP",
+      "TECH_LAB"
+    ],
+    "TECHNICAL_02": [
+      "TECH_LAB"
+    ],
+    "TECHNICAL_03": [
+      "TECH_INV"
+    ],
+    "COMPETITION_01": [
+      "SERP",
+      "KW_QUERY_GAPS"
+    ],
+    "COMPETITION_02": [
+      "KW_QUERY_GAPS"
+    ],
+    "COMPETITION_03": []
+  }
+}

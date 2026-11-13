@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "task": "competition",
+  "status": "usable",
+  "findings": [
+    {
+      "observation": "Betway.co.za holds the #1 position for the primary keyword 'aviator' and leads on high-volume generic modifiers like 'play aviator' and 'aviator bet'.",
+      "interpretation": "Betway.co.za is the primary confirmed benchmark, maintaining a competitive edge in both the core head term and high-volume intent-based modifiers.",
+      "evidence_paths": [
+        "evidence.serp.ranking_summary",
+        "evidence.keywords.intersection.top_generic_benchmark_leads"
+      ],
+      "counterevidence": "Hollywoodbets.net maintains a close proximity at position #2 for the primary keyword.",
+      "recommended_action": "Analyze the content structure and backlink profile of the betway.co.za/aviator page to identify specific ranking factors for the #1 position."
+    },
+    {
+      "observation": "Hollywoodbets.net shows a significant rank gap (6-9 positions) on specific long-tail queries such as 'aviator betting' and 'how to play aviator'.",
+      "interpretation": "The competitor has stronger authority or relevance for instructional and specific betting intent queries compared to the tracked domain.",
+      "evidence_paths": [
+        "evidence.keywords.intersection.top_generic_benchmark_leads"
+      ],
+      "counterevidence": "Hollywoodbets.net remains competitive on 'play aviator' and 'play aviator now' with a rank gap of only 1.",
+      "recommended_action": "Develop more comprehensive 'how-to' content and specific betting guides to close the gap on instructional queries."
+    },
+    {
+      "observation": "Multiple non-benchmark domains including app.aviator.co and aviator.co are present in the SERP discovery.",
+      "interpretation": "The SERP is populated by various entities, including potential direct game providers or app-specific landing pages, which may dilute traffic for the primary betting platforms.",
+      "evidence_paths": [
+        "evidence.competitor_discovery.candidates"
+      ],
+      "counterevidence": "These candidates are not verified as ranking benchmarks and their specific positions are not provided.",
+      "recommended_action": "Monitor the visibility of these non-benchmark domains to determine if they are capturing significant share of the 'aviator' search intent."
+    }
+  ],
+  "limitations": [
+    "Data does not provide click-through rates (CTR) or conversion metrics.",
+    "Rankings are based on a single saved SERP snapshot and may not reflect real-time fluctuations.",
+    "No data provided regarding the specific content, technical SEO, or backlink profiles of the competitors."
+  ]
+}

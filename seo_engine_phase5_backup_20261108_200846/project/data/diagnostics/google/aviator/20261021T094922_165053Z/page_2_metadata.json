@@ -1,0 +1,143 @@
+{
+  "keyword": "aviator",
+  "engine": "google",
+  "stage": "before_extraction",
+  "datetime": "2026-10-21T09:49:39.281794+00:00",
+  "final_url": "https://www.google.com/search?q=aviator&sca_esv=c12fc4d47e39017d&hl=en&gl=za&pws=0&sxsrf=APpeQnviwPB-W7I-kGCVbu8UiXluSBU57A:1792576162985&ei=oorYavLWO8_e1sQPkpybiQY&start=10&sa=N&sstk=AS6-VmK_jlmbUqbCnQR-IMHTuumyjhpJ3673eXP6WJV7bBect0uel4_FI3UqQWdWXSDYOIb1i2FKGNWh5DNUrllBQeIe0VPKN2P7tg&ved=2ahUKEwjyr7XL6sqXAxVPr5UCHRLOJmEQ8NMDegQILxAW",
+  "screenshot_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T094922_165053Z\\page_2_serp.png",
+  "html_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T094922_165053Z\\page_2_serp.html",
+  "metadata_path": "C:\\Users\\NgcoboT\\Downloads\\SEO_Competitor_Intelligence_SERP_Diagnostics\\seo_competitor_engine\\data\\diagnostics\\google\\aviator\\20261021T094922_165053Z\\page_2_metadata.json",
+  "context": {
+    "configured": {
+      "keyword": "aviator",
+      "country_gl": "za",
+      "language_hl": "en",
+      "personalization_pws": "0",
+      "locale": "en-ZA",
+      "timezone": "Africa/Johannesburg",
+      "headless": false,
+      "viewport": {
+        "width": 1366,
+        "height": 900
+      },
+      "profile_type": "persistent",
+      "profile_identifier": "c8f37757ac0dc88e"
+    },
+    "observed": {
+      "final_url": "https://www.google.com/search?q=aviator&sca_esv=c12fc4d47e39017d&hl=en&gl=za&pws=0&sxsrf=APpeQnviwPB-W7I-kGCVbu8UiXluSBU57A:1792576162985&ei=oorYavLWO8_e1sQPkpybiQY&start=10&sa=N&sstk=AS6-VmK_jlmbUqbCnQR-IMHTuumyjhpJ3673eXP6WJV7bBect0uel4_FI3UqQWdWXSDYOIb1i2FKGNWh5DNUrllBQeIe0VPKN2P7tg&ved=2ahUKEwjyr7XL6sqXAxVPr5UCHRLOJmEQ8NMDegQILxAW",
+      "hostname": "www.google.com",
+      "url_parameters": {
+        "q": "aviator",
+        "gl": "za",
+        "hl": "en",
+        "pws": "0"
+      },
+      "browser": {
+        "language": "en-ZA",
+        "languages": [
+          "en-ZA"
+        ],
+        "timezone": "Africa/Johannesburg",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36",
+        "documentLanguage": "en-ZA"
+      }
+    },
+    "url_parameter_checks": {
+      "q": "match",
+      "gl": "match",
+      "hl": "match",
+      "pws": "match"
+    },
+    "context_warning": false,
+    "note": "gl targets a country; it does not verify precise physical location or search intent."
+  },
+  "location_coordinate_applied": false,
+  "organic_h3_count": 10,
+  "heading_candidates": [
+    {
+      "index": 1,
+      "title": "AVIATOR | English meaning - Cambridge Dictionary",
+      "href": "https://www.google.com/goto?url=CAESdgHrOzAV_BMz95GrW4li-SA6IzKZKwlnqyGWY2286WffcmaacPif4DsUzDOjwZejsFzPY33gebQKBSPiKyOKJTrDLP5b7kLrByf1BA-KbIYEFtlLVAo_mpv3fjkXfKIVG8cBwkz3uLYinNR3y8IOUmw1IIfP8Ek",
+      "ancestor_text": "AVIATOR | English meaning - Cambridge Dictionary\n\nCambridge Dictionary\nhttps://dictionary.cambridge.org › dictionary › aviator"
+    },
+    {
+      "index": 2,
+      "title": "How to play Aviator | Pedia",
+      "href": "https://www.google.com/goto?url=CAESkQEB6zswFR-mIs_5DnhHvK7vVA6M99VEzZdsBpjdt28HguePgmisYqLs9kUAJ50KJnAsVdhV_48EZxycYl1JQzGAWUorbcHLwWhrs3_oUCKhi4vnHz0nwRNdYNH0K39wzKWd-ZEnIInIn3ZCdrN6h55L801iscrV83Ij9dt69hMfA4MCsnmYNI8LkqRaAEnez4lF",
+      "ancestor_text": "How to play Aviator | Pedia\n\nBetway\nhttps://www.betway.co.za › betway-casino › page › how-..."
+    },
+    {
+      "index": 3,
+      "title": "What Is An Aviator? - SkyWatch.AI",
+      "href": "https://www.google.com/goto?url=CAESagHrOzAV9fYnbWeKKqV7qxkLitqnE8INrprC9_HYy9PWLS9NY6WHzCOIYlfGgIv-0gZpnHCs3OyVkUP93xzUdczjDHD3ndgeLFwjsA8l2sbsZECgA26CpX8lQYk5eIQJzk3wffkPy_TNzJg",
+      "ancestor_text": "What Is An Aviator? - SkyWatch.AI\n\nskywatch.ai\nhttps://www.skywatch.ai › blog › what-is-an-aviator"
+    },
+    {
+      "index": 4,
+      "title": "Aviator for Android - Download the APK from Uptodown",
+      "href": "https://www.google.com/goto?url=CAESfAHrOzAVDy0u2qu2LCKc-U2tQQ5a1FC7a-M6m3YCeqBsUNpNHnpqKfaujC37YDTBocaM377Yp-tKmvfCX8hoJtUq5bjh1SbqQCAMo_9_mzFQ66cjFMIXbGIuf7sdnGWT_MqE_DdZ_fEEsS0B1kkuw08INhNqxS48_B4XdsA",
+      "ancestor_text": "Aviator for Android - Download the APK from Uptodown\n\nAviator for Android\nhttps://avi-aviatorcrashgametopfly-casino.en.uptodown.com › ..."
+    },
+    {
+      "index": 5,
+      "title": "Spribe Aviator: Play the Crash Game Demo or Real Money",
+      "href": "https://www.google.com/goto?url=CAESZQHrOzAVYxYAp2lm-NLmgs2PLNv1R9KA67hUcUOLLSY_YULSzFtU12e-kjwVBL4ssRUgJEOn4OWhKkWebJfcgoiz2r5qkx_vru2BWD-OLz1G8yV63ocJ44HbAZ-l-pqlyZYn73ya",
+      "ancestor_text": "Spribe Aviator: Play the Crash Game Demo or Real Money\n\nJabula Bets\nhttps://www.jabulabets.co.za › Vendors"
+    },
+    {
+      "index": 6,
+      "title": "Play Aviator Game by Spribe Online at Betway",
+      "href": "https://www.google.com/goto?url=CAESZwHrOzAVKQihDHXoPHT6DI8JibyqfHOv9w8FgVboDkZQlhRsAQzVxHzlOFpgwLOC-H-hFp87UOvcxZqhTZb2FF8sxu3cG4LGIg_vpDGstUDdrbBkM5_P8NH4hoC1Gv9og6UskxOiX9g",
+      "ancestor_text": "Play Aviator Game by Spribe Online at Betway\n\nBetway: Official Website\nhttps://betway.com › casino › games › aviator"
+    },
+    {
+      "index": 7,
+      "title": "Aviator - Definition, Meaning & Synonyms",
+      "href": "https://www.google.com/goto?url=CAESaAHrOzAVTX-PliEKsMXXZ3bAOw54FXboOrNCk1fLKj595jXKShbjyb5_Ww8Ph9BX2JOPA4yIFYjBdKXSbEtYFNbPLCtq8i4U0_mVmV0l3YEtcyCLkS9H6h9YUDmoafjahUGPGMcwmaAZ",
+      "ancestor_text": "Aviator - Definition, Meaning & Synonyms\n\nVocabulary.com\nhttps://www.vocabulary.com › dictionary › aviator"
+    },
+    {
+      "index": 8,
+      "title": "Soar High with Aviator Crash Game at Interbet",
+      "href": "https://www.google.com/goto?url=CAESZAHrOzAVEVBLaMcLMZXkxxbBACcLVRPrZGTCKKvB990cOJUGcvGKXsxZIL-XP1vZvZE_TqXDJQ2hTokIDMbgB9g5P7lxhh6Q-Kn9qaWe6VA-4SD9bKLakSa4ZQzUmWCUE-yjBw8",
+      "ancestor_text": "Soar High with Aviator Crash Game at Interbet\n\nInterbet\nhttps://interbet.co.za › VegasGames › Aviator"
+    },
+    {
+      "index": 9,
+      "title": "AVIATOR | Airline Market Intelligence",
+      "href": "https://www.google.com/goto?url=CAESUAHrOzAVjsZ3vpmGXFtk1DHjD3Q7QqS8_JFKeW90HoJ5lKOY8RP2Y6tKs2fZPRsYKMikPHfsR_TyTUExWwUk1PYKzp4re53voWbVYW7MMRUP",
+      "ancestor_text": "AVIATOR | Airline Market Intelligence\n\naviator.aero\nhttps://aviator.aero"
+    },
+    {
+      "index": 10,
+      "title": "Aviator Game: How to Play, Real Odds and House Edge",
+      "href": "https://www.google.com/goto?url=CAESiwEB6zswFQzw98I_K1_s-bpY1e3zWKXn6Bo56Va6LWN-lrWzP18SxJCBBfZbFRquQoKhNlwu-KY-GIhYpJRwysQV5leKdJLPO_NKckrPODqNrPktwDGmwp_PmNqYjcPn12fWIxvkcUBzPZuOPJL6mvGPANOkYio-ORk-4Uups9WR3l2AxCnENXZIuH5g",
+      "ancestor_text": "Aviator Game: How to Play, Real Odds and House Edge\n\nPrimeDope\nhttps://www.primedope.com › how-to-play-aviator-gam..."
+    }
+  ],
+  "capture_errors": [],
+  "extraction_audit": {
+    "status": "review_required",
+    "extracted_count": 10,
+    "heading_candidate_count": 10,
+    "flags": [
+      "some_result_urls_not_matched_to_heading_links"
+    ],
+    "suspicious_results": [],
+    "excluded_feature_headings_observed": [],
+    "heading_link_mismatches": [
+      "https://dictionary.cambridge.org/dictionary/english/aviator",
+      "https://www.betway.co.za/betway-pedia/documents/betway-casino/page/how-to-play-aviator",
+      "https://www.skywatch.ai/blog/what-is-an-aviator",
+      "https://avi-aviatorcrashgametopfly-casino.en.uptodown.com/android",
+      "https://www.jabulabets.co.za/games/aviator",
+      "https://betway.com/g/en/casino/games/aviator",
+      "https://www.vocabulary.com/dictionary/aviator",
+      "https://interbet.co.za/VegasGames/Aviator",
+      "https://aviator.aero/",
+      "https://www.primedope.com/how-to-play-aviator-game-online-a-comprehensive-guide/"
+    ],
+    "capture_error": null,
+    "note": "AI/feature headings in the captured HTML are not organic listings. Automated checks cannot certify absolute Google organic positions; compare saved screenshot/HTML with extraction when flagged."
+  }
+}

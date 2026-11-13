@@ -1,0 +1,407 @@
+{
+  "keyword": "aviator",
+  "side": "ours",
+  "scope": "page",
+  "engine": "google",
+  "device": "mobile",
+  "ranking_url": "https://www.hollywoodbets.net/aviator",
+  "requested_url": "https://www.hollywoodbets.net/aviator",
+  "final_url": "https://www.hollywoodbets.net/aviator",
+  "target_verified": true,
+  "final_url_verified": true,
+  "status": "usable",
+  "warnings": [],
+  "lighthouse_version": "13.5.0",
+  "fetch_time": "2026-10-12T09:38:45.793Z",
+  "scores": {
+    "performance": 28,
+    "accessibility": 72,
+    "best-practices": 73,
+    "seo": 100
+  },
+  "lab_metrics": {
+    "first_contentful_paint_ms": 10407.554255376685,
+    "largest_contentful_paint_ms": 24907.979723543547,
+    "speed_index_ms": 10407.554255376685,
+    "total_blocking_time_ms": 2122.5,
+    "cumulative_layout_shift": 0,
+    "interactive_ms": 32407.643918804162
+  },
+  "technical_diagnostics": {
+    "javascript_execution": {
+      "bootup-time": {
+        "status": "present",
+        "score_display_mode": "metricSavings",
+        "numeric_value": 6041.436000000009,
+        "numeric_unit": "millisecond",
+        "display_value": "6.0 s",
+        "item_count": 22,
+        "items": [
+          {
+            "url": "https://mpsnare.iesnare.com/general5/wdp.js",
+            "total": 1612.0839999999973,
+            "scripting": 1599.9639999999974,
+            "scriptParseCompile": 3.404
+          },
+          {
+            "url": "https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-cc43f7.8c786ed2557193d67336.min.js",
+            "total": 669.0440000000034,
+            "scripting": 470.05600000000334,
+            "scriptParseCompile": 103.67999999999999
+          },
+          {
+            "url": "https://www.hollywoodbets.net/iojs/5.13.0/dyn_wdp.js",
+            "total": 623.4560000000001,
+            "scripting": 622.344,
+            "scriptParseCompile": 0.464
+          },
+          {
+            "total": 586.7040000000027,
+            "scripting": 104.83200000000022,
+            "scriptParseCompile": 0
+          },
+          {
+            "url": "https://www.hollywoodbets.net/js/main.38c4d2ededa66bb008c8.min.js",
+            "total": 563.9640000000048,
+            "scripting": 418.99600000000487,
+            "scriptParseCompile": 102.22399999999999
+          }
+        ]
+      },
+      "mainthread-work-breakdown": {
+        "status": "present",
+        "score_display_mode": "metricSavings",
+        "numeric_value": 7528.863999999494,
+        "numeric_unit": "millisecond",
+        "display_value": "7.5 s",
+        "item_count": 7,
+        "items": [
+          {
+            "group": "scriptEvaluation",
+            "duration": 5781.055999999491
+          },
+          {
+            "group": "other",
+            "duration": 700.328000000003
+          },
+          {
+            "group": "scriptParseCompile",
+            "duration": 576.8959999999997
+          },
+          {
+            "group": "styleLayout",
+            "duration": 334.3599999999999
+          },
+          {
+            "group": "garbageCollection",
+            "duration": 68.08799999999998
+          }
+        ]
+      },
+      "long-tasks": {
+        "status": "present",
+        "score_display_mode": "informative",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "20 long tasks found",
+        "item_count": 20,
+        "items": [
+          {
+            "url": "https://mpsnare.iesnare.com/general5/wdp.js",
+            "duration": 782,
+            "startTime": 13703.127787304702
+          },
+          {
+            "url": "https://www.hollywoodbets.net/iojs/5.13.0/dyn_wdp.js",
+            "duration": 623,
+            "startTime": 34462.24175551901
+          },
+          {
+            "url": "https://www.hollywoodbets.net/metrics/S1VEa70jXZ9j6mvvc2SQ328mNwiJMoYvzWpIIsimiknAT7wo",
+            "duration": 426,
+            "startTime": 31518.367521459295
+          },
+          {
+            "url": "https://www.hollywoodbets.net/metrics/S1VEa70jW-V_gmbtARPz12ckNwiJMoYvzWpIIsimiknAT7wo",
+            "duration": 302,
+            "startTime": 34160.24175551901
+          },
+          {
+            "url": "https://www.hollywoodbets.net/js/main.38c4d2ededa66bb008c8.min.js",
+            "duration": 251,
+            "startTime": 10820.573234107156
+          }
+        ]
+      }
+    },
+    "unused_javascript": {
+      "unused-javascript": {
+        "status": "present",
+        "score_display_mode": "metricSavings",
+        "numeric_value": 4520,
+        "numeric_unit": "millisecond",
+        "display_value": "Est savings of 1,108 KiB",
+        "item_count": 11,
+        "items": [
+          {
+            "url": "https://www.hollywoodbets.net/js/main.38c4d2ededa66bb008c8.min.js",
+            "totalBytes": 629253,
+            "wastedBytes": 335735
+          },
+          {
+            "url": "https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-cc43f7.8c786ed2557193d67336.min.js",
+            "totalBytes": 424539,
+            "wastedBytes": 213672
+          },
+          {
+            "url": "https://www.googletagmanager.com/gtm.js",
+            "totalBytes": 178497,
+            "wastedBytes": 118233
+          },
+          {
+            "url": "https://js-cdn.dynatrace.com/jstag/15fc9f135f3/bf45082quw/889f44e01580ed7b_complete.js",
+            "totalBytes": 87528,
+            "wastedBytes": 78557
+          },
+          {
+            "url": "https://www.hollywoodbets.net/metrics/S1VEa70jW-V_gmbtARPz12ckNwiJMoYvzWpIIsimiknAT7wo",
+            "totalBytes": 194875,
+            "wastedBytes": 71169
+          }
+        ]
+      }
+    },
+    "render_blocking": {
+      "render-blocking-insight": {
+        "status": "present",
+        "score_display_mode": "metricSavings",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "Est savings of 160 ms",
+        "item_count": 2,
+        "items": [
+          {
+            "url": "https://onelinksmartscript.appsflyer.com/onelink-smart-script-latest.js",
+            "totalBytes": 26185,
+            "wastedMs": 1734
+          },
+          {
+            "url": "https://www.hollywoodbets.net/config/config.js",
+            "totalBytes": 3822
+          }
+        ]
+      },
+      "render-blocking-resources": {
+        "status": "missing"
+      }
+    },
+    "image_delivery": {
+      "image-delivery-insight": {
+        "status": "present",
+        "score_display_mode": "metricSavings",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "Est savings of 245 KiB",
+        "item_count": 5,
+        "items": [
+          {
+            "url": "https://content.hollywoodbets.net/blog_make_it_rain_799c949bfb.jpg",
+            "totalBytes": 72450,
+            "wastedBytes": 69890
+          },
+          {
+            "url": "https://content.hollywoodbets.net/blog_big_win_2fee2707bb.jpg",
+            "totalBytes": 63986,
+            "wastedBytes": 61725
+          },
+          {
+            "url": "https://content.hollywoodbets.net/blog_competition_a68476182e.jpg",
+            "totalBytes": 49716,
+            "wastedBytes": 47959
+          },
+          {
+            "url": "https://content.hollywoodbets.net/advert_banner_0b488a2d32.jpg",
+            "totalBytes": 62412,
+            "wastedBytes": 47445
+          },
+          {
+            "url": "https://www.hollywoodbets.net/img/2f1cd22583284c8810ffa8bb1aaf547c.webp",
+            "totalBytes": 54078,
+            "wastedBytes": 24199
+          }
+        ]
+      },
+      "modern-image-formats": {
+        "status": "missing"
+      },
+      "uses-optimized-images": {
+        "status": "missing"
+      }
+    },
+    "lcp_breakdown": {
+      "lcp-breakdown-insight": {
+        "status": "present",
+        "score_display_mode": "informative",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "",
+        "item_count": 2,
+        "items": []
+      },
+      "lcp-discovery-insight": {
+        "status": "not_applicable",
+        "score_display_mode": "notApplicable",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "",
+        "item_count": null,
+        "items": []
+      },
+      "largest-contentful-paint-element": {
+        "status": "missing"
+      }
+    },
+    "network_resources": {
+      "total-byte-weight": {
+        "status": "present",
+        "score_display_mode": "metricSavings",
+        "numeric_value": 3162343,
+        "numeric_unit": "byte",
+        "display_value": "Total size was 3,088 KiB",
+        "item_count": 10,
+        "items": [
+          {
+            "url": "https://www.hollywoodbets.net/js/main.38c4d2ededa66bb008c8.min.js",
+            "totalBytes": 638146
+          },
+          {
+            "url": "https://www.hollywoodbets.net/js/vendors-node_modules_reduxjs_toolkit_dist_redux-toolkit_esm_js-node_modules_camelcase-keys_in-cc43f7.8c786ed2557193d67336.min.js",
+            "totalBytes": 449940
+          },
+          {
+            "url": "https://www.hollywoodbets.net/metrics/S1VEa70jW-V_gmbtARPz12ckNwiJMoYvzWpIIsimiknAT7wo",
+            "totalBytes": 211322
+          },
+          {
+            "url": "https://www.hollywoodbets.net/metrics/S1VEa70jXZ9j6mvvc2SQ328mNwiJMoYvzWpIIsimiknAT7wo",
+            "totalBytes": 206194
+          },
+          {
+            "url": "https://www.hollywoodbets.net/metrics/",
+            "totalBytes": 187925
+          }
+        ]
+      },
+      "network-requests": {
+        "status": "present",
+        "score_display_mode": "informative",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "",
+        "item_count": 185,
+        "items": [
+          {
+            "url": "https://www.hollywoodbets.net/aviator",
+            "entity": "hollywoodbets.net",
+            "transferSize": 19052,
+            "resourceSize": 47932
+          },
+          {
+            "url": "https://www.hollywoodbets.net/ruxitagentjs_A7NVfghqrux_10347260902154543.js",
+            "entity": "hollywoodbets.net",
+            "transferSize": 74619,
+            "resourceSize": 193711
+          },
+          {
+            "url": "https://fonts.googleapis.com/css2",
+            "entity": "Google Fonts",
+            "transferSize": 3176,
+            "resourceSize": 34666
+          },
+          {
+            "url": "https://www.hollywoodbets.net/config/config.js",
+            "entity": "hollywoodbets.net",
+            "transferSize": 3822,
+            "resourceSize": 8614
+          },
+          {
+            "url": "https://onelinksmartscript.appsflyer.com/onelink-smart-script-latest.js",
+            "entity": "appsflyer.com",
+            "transferSize": 26185,
+            "resourceSize": 104399
+          }
+        ]
+      },
+      "network-dependency-tree-insight": {
+        "status": "present",
+        "score_display_mode": "numeric",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "",
+        "item_count": 3,
+        "items": []
+      }
+    },
+    "layout_stability": {
+      "layout-shifts": {
+        "status": "not_applicable",
+        "score_display_mode": "notApplicable",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "",
+        "item_count": 0,
+        "items": []
+      },
+      "cls-culprits-insight": {
+        "status": "present",
+        "score_display_mode": "numeric",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "",
+        "item_count": 0,
+        "items": []
+      }
+    },
+    "third_parties": {
+      "third-parties-insight": {
+        "status": "present",
+        "score_display_mode": "informative",
+        "numeric_value": null,
+        "numeric_unit": null,
+        "display_value": "",
+        "item_count": 26,
+        "items": [
+          {
+            "entity": "iovation",
+            "transferSize": 27530,
+            "mainThreadTime": 397.77099990844727
+          },
+          {
+            "entity": "TikTok",
+            "transferSize": 179582,
+            "mainThreadTime": 61.61400008201599
+          },
+          {
+            "entity": "Clarity",
+            "transferSize": 32787,
+            "mainThreadTime": 43.83300030231476
+          },
+          {
+            "entity": "Betgenius",
+            "transferSize": 6890,
+            "mainThreadTime": 36.11299991607666
+          },
+          {
+            "entity": "appsflyer.com",
+            "transferSize": 43422,
+            "mainThreadTime": 17.662999868392944
+          }
+        ]
+      },
+      "third-party-summary": {
+        "status": "missing"
+      }
+    }
+  },
+  "metrics_note": "Lighthouse lab data; not CrUX field Core Web Vitals or Google's ranking signals."
+}
